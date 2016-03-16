@@ -4,8 +4,8 @@
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $Username = test_input($_POST["Username"]);
-  $Password = test_input ($_POST["Password"]);
-  $Password_Confirm = test_input ($_POST["Password_Confirm"]);
+  $Password = validate_password($_POST["Password"]);
+  $Password_Confirm = matches_password($_POST["Password_Confirm"]);
   $Reseller_Name = test_input ($_POST["Reseller_Name"]);
   $Reseller_Billing_Address_1 = test_input ($_POST["Reseller_Billing_Address_1"]);
   $Reseller_Billing_Address_2 = test_input ($_POST["Reseller_Billing_Address_2"]);
@@ -15,6 +15,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $Telephone_Number = test_input ($_POST["Telephone_Number"]);
   $Email_Address = test_input($_POST["Email_Address"]);
   $Service_Provider_Code = test_input($_POST["Service_Provider_Code"]);
+}
+
+function matches_password($confirm){
+	if($confirm = $Password){
+		echo 'the password matches';
+	}
+	else{
+		echo 'YOU CANT TYPE THE SAME THING TWICE?';
+	}
+	return $confirm;
+}
+function validate_password($password){
+	if(preg_match('/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*])/', $password)) {
+		echo 'Your password doesn\'t suck<br>';
+	}
+	else{
+		echo 'Your password sucks.';
+	}
+	return $password;
 }
 
 function test_input($data) {

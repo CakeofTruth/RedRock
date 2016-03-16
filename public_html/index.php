@@ -30,11 +30,11 @@
 			</tr>	
 			<tr>
 				<td> Password: </td>
-				<td> <input type="password" name="Password" minlength="8" maxlength="15"> </td>
+				<td> <input type="password" name="Password" minlength="8" > </td>
 			</tr>
 			<tr>
 				<td> Password Confirm: </td>
-				<td> <input type="password" name="Password_Confirm" minlength="8" maxlength="15"> </td>
+				<td> <input type="password" name="Password_Confirm" minlength="8"> </td>
 			</tr>
 			<tr>
 				<td> Reseller Name: </td>
