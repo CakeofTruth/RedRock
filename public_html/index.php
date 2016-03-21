@@ -1,8 +1,6 @@
 <html>
-	<head>
-		<img src= " C:\Users\Rae\Pictures\Red Rock Logo.jpg" style= "float:left;"/>
+	<head>	
 	<title> Account Registration </title>
-		<h1> Account Registration </h1>
 	<style>
 	h1 {
 		font-size: 50px; 
@@ -21,40 +19,42 @@
 	</style>
 	</head>
 	<body>
+	<img src= " C:\Users\Rae\Pictures\Red Rock Logo.jpg" style= "float:left;"/>
+		<h1> Account Registration </h1>
 		<h2> Customer Information </h2>
 		<form action="Customer_Registration.php" method="post">
 		<table>
 			<tr> 
 				<td> Username </td>
-				<td> <input type="text" name="Username"> </td>
+				<td> <input type="text" name="username" required> </td>
 			</tr>	
 			<tr>
 				<td> Password: </td>
-				<td> <input type="password" name="Password" minlength="8" > </td>
+				<td> <input type="password" name="password" minlength="8" required> </td>
 			</tr>
 			<tr>
 				<td> Password Confirm: </td>
-				<td> <input type="password" name="Password_Confirm" minlength="8"> </td>
+				<td> <input type="password" name="passwordconfirm" minlength="8" required> </td>
 			</tr>
 			<tr>
 				<td> Reseller Name: </td>
-				<td> <input type="text" name="Reseller_Name">  </td>
+				<td> <input type="text" name="resellername" required>  </td>
 			</tr>
 			<tr>
 				<td> Reseller Billing Address 1: </td>
-				<td> <input type="text" name="Reseller_Billing_Address_1"> </td>
+				<td> <input type="text" name="resellerba1" required> </td>
 			</tr>
 			<tr>
 				<td> Reseller Billing Address 2: </td>
-				<td> <input type="text" name="Reseller_Billing_Address_2"> </td>
+				<td> <input type="text" name="resellerba2"> </td>
 			</tr>
 			<tr>
 				<td> City: </td>
-				<td> <input type="text" name="City"> </td>
+				<td> <input type="text" name="city" required> </td>
 			</tr>
 			<tr>
 				<td> State: </td>
-				<td> <select name="State">
+				<td> <select name="state" required>
 						<option value= "Alabama">AL</option>
 						<option value= "Alaska">AK</option>
 						<option value= "Arizona">AZ</option>
@@ -110,20 +110,19 @@
 			</tr>
 			<tr> 
 				<td> Zip Code: </td>
-				<td> <input type="text" name="Zip Code"> </td>
-			</tr>
-			</tr>
+				<td> <input type="text" name="zipcode" required> </td>
+			</tr>	
 			<tr> 
 				<td> Telephone Number: </td>
-				<td> <input type="text" name="Telephone Number"> </td>
+				<td> <input type="text" name="telephonenumber" required> </td>
 			</tr>
 			<tr>
 				<td> Email Address: </td>
-				<td> <input type="text" name= "Email Address">  </td>
+				<td> <input type="text" name= "emailaddress" required>  </td>
 			</tr>
 			<tr> 
 				<td> Service Provider Code: </td>
-				<td> <input type="text" name= "Service Provider Code"> </td>
+				<td> <input type="text" name= "spcode"> </td>
 			</tr>
 		</table>
 		<input type="submit" value="Submit">

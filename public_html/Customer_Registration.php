@@ -1,24 +1,23 @@
 <?php
-// define variables and set to empty values
-//$Reseller_Name = $password =$password_confirm= $Reseller_Billing_Address_1 = $Reseller_Billing_Address_2 = $City =$State =$Zip_Code = $Telephone_Number = $Email_Address = $Service_Provider_Code = "";
+$username = $password = $passwordconfirm = $resellername = $resellerba1 = $resellerba2 = $city = $state = $zipcode = $telephonenumber =$emailaddress = $spcode = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $Username = test_input($_POST["Username"]);
-  $Password = validate_password($_POST["Password"]);
-  $Password_Confirm = matches_password($_POST["Password_Confirm"]);
-  $Reseller_Name = test_input ($_POST["Reseller_Name"]);
-  $Reseller_Billing_Address_1 = test_input ($_POST["Reseller_Billing_Address_1"]);
-  $Reseller_Billing_Address_2 = test_input ($_POST["Reseller_Billing_Address_2"]);
-  $City = test_input ($_POST["City"]);
-  $State = test_input ($_POST["State"]);
-  $Zip_Code = test_input ($_POST["Zip_Code"]);
-  $Telephone_Number = test_input ($_POST["Telephone_Number"]);
-  $Email_Address = test_input($_POST["Email_Address"]);
-  $Service_Provider_Code = test_input($_POST["Service_Provider_Code"]);
+  $username = test_input($_POST["username"]);
+  $password = validate_password($_POST["password"]);
+  $passwordconfirm = matches_password($_POST["passwordconfirm"]);
+  $resellername = test_input ($_POST["resellername"]);
+  $resellerba1 = test_input ($_POST["resellerba1"]);
+  $resellerba2 = test_input ($_POST["resellerba2"]);
+  $city = test_input ($_POST["city"]);
+  $state = test_input ($_POST["state"]);
+  $zipcode = test_input ($_POST["zipcode"]);
+  $telephonenumber = test_input ($_POST["telephonenumber"]);
+  $emailaddress = test_input($_POST["emailaddress"]);
+  $spcode = test_input($_POST["spcode"]);
 }
 
 function matches_password($confirm){
-	if($confirm = $Password){
+	if($confirm = $password){
 		echo 'the password matches';
 	}
 	else{
@@ -45,27 +44,27 @@ function test_input($data) {
 ?>
 <?php
 echo "<h2>Your Input:</h2>";
-echo $Username;
+echo $username;
 echo "<br>";
-echo $Password;
+echo $password;
 echo "<br>";
-echo $Password_Confirm;
+echo $passwordconfirm;
 echo "<br>";
-echo $Reseller_Name;
+echo $resellername;
 echo "<br>";
-echo $Reseller_Billing_Address_1;
+echo $resellerba1;
 echo "<br>";
-echo $Reseller_Billing_Address_2;
+echo $resellerba2;
 echo "<br>";
-echo $City;
+echo $city;
 echo "<br>";
-echo $State;
+echo $state;
 echo "<br>";
-echo $Zip_Code;
+echo $zipcode;
 echo "<br>";
-echo $Telephone_Number;
+echo $telephonenumber;
 echo "<br>";
-echo $Email_Address;
+echo $emailaddress;
 echo "<br>";
-echo $Service_Provider_Code;
+echo $spcode;
 ?>
