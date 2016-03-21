@@ -1,10 +1,19 @@
 <html>
 	<head>
 	<title> Customer Order Form </title>
+	<style>
+		body {
+			text-align:center;
+			}
+		form {
+			display: inline-block;
+			text-align: center;		
+			}
+	</style>
 	</head>
 	<body>
-		<h1> Customer Information </h1>
-		<img src= " C:\Users\Rae\Pictures\Red Rock Logo.jpg" style= "float:left;"/>
+		<h1> Red Rock Telecommunications Order Form <img src=" C:\Users\Rae\Pictures\Red Rock Logo.jpg" style= "float:left;"/></h1>
+		<h2> Customer Information </h2>
 	<form action= "customerorderform.php>" method="post">
 		<table>
 			<tr>
@@ -153,7 +162,7 @@
 					</select>
 				</td>
 		</table>
-	<h1> Service/ 911 Addresses </h1>
+	<h3> Service/ 911 Addresses </h3>
 		<table>
 			<tr>
 				<td> Does this order require that 911 be provisioned per the data provided below? </td>
@@ -234,6 +243,9 @@
 				<td> <input type="text" name="emergphonenumber"> </td>
 			</tr>	
 		</table>
+		<h4>Order Details</h4>
+		<textarea name="orderdetails" rows="10" cols="100"></textarea>
+		<br><br>
 		<input type="submit" value="Submit">
 		</form>
 	<body>
