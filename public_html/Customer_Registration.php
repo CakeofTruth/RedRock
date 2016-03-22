@@ -4,16 +4,16 @@ $username = $password = $passwordconfirm = $resellername = $resellerba1 = $resel
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = test_input($_POST["username"]);
   $password = validate_password($_POST["password"]);
-  $passwordconfirm = matches_password($_POST["passwordconfirm"]);
-  $resellername = test_input ($_POST["resellername"]);
-  $resellerba1 = test_input ($_POST["resellerba1"]);
-  $resellerba2 = test_input ($_POST["resellerba2"]);
+  $passwordconfirm = matches_password($_POST["passwordConfirm"]);
+  $resellername = test_input ($_POST["resellerName"]);
+  $resellerba1 = test_input ($_POST["resellerBA1"]);
+  $resellerba2 = test_input ($_POST["resellerBA2"]);
   $city = test_input ($_POST["city"]);
   $state = test_input ($_POST["state"]);
-  $zipcode = test_input ($_POST["zipcode"]);
-  $telephonenumber = test_input ($_POST["telephonenumber"]);
-  $emailaddress = test_input($_POST["emailaddress"]);
-  $spcode = test_input($_POST["spcode"]);
+  $zipcode = test_input ($_POST["zipCode"]);
+  $telephonenumber = test_input ($_POST["telephoneNumber"]);
+  $emailaddress = test_input($_POST["emailAddress"]);
+  $spcode = test_input($_POST["spCode"]);
 }
 
 function matches_password($confirm){
