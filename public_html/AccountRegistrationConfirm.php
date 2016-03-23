@@ -97,9 +97,30 @@ echo 'Executing: ' . $sqlInsertString . '<br>';
 
 if (mysqli_query($conn, $sqlInsertString )) {
 	echo "New record created successfully";
+	$lastinsert = $conn -> insert_id;
+	echo "Inserted record " . $lastinsert . '<br>';
 } else {
 	echo "Error: " . $sqlInsertString . "<br>" . mysqli_error($conn);
 }
+
+$selectString = "select Username, Reseller_ID, First_Name, Last_Name, Email from Accounts";
+
+$result = $conn->query($selectString);
+
+if ($result->num_rows > 0) {
+	// output data of each row
+	while($row = $result->fetch_assoc()) {
+		echo "Username: " . $row["Username"] . 
+			 " Reseller_ID: " . $row["Reseller_ID"] . 
+			 " First_Name: " . $row["First_Name"] . 
+			 " Last_Name: " . $row["Last_Name"] . 
+			 " Email: " . $row["Email"] . 
+			 "<br>";
+	}
+} else {
+	echo "0 results";
+}
+
 
 $conn->close();
 
