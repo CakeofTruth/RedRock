@@ -1,7 +1,10 @@
 <?php
-$username = $password = $passwordconfirm = $resellername = $resellerba1 = $resellerba2 = $city = $state = $zipcode = $telephonenumber =$emailaddress = $spcode = "";
+$username = $password = $passwordconfirm = $resellername = $resellerba1 = $resellerba2 
+= $city = $state = $zipcode = $telephonenumber =$emailaddress = $spcode = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $firstName= test_input($_POST["firstName"]);
+  $lastName= test_input($_POST["lastName"]);
   $username = test_input($_POST["username"]);
   $password = validate_password($_POST["password"]);
   $passwordconfirm = matches_password($_POST["passwordConfirm"]);
@@ -17,11 +20,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 function matches_password($confirm){
-	if($confirm = $password){
-		echo 'the password matches';
+	if(strcmp($confirm, $password)){
+		echo 'The password matches';
 	}
 	else{
-		echo 'YOU CANT TYPE THE SAME THING TWICE?';
+		echo 'Passwords do not match';
 	}
 	return $confirm;
 }
@@ -41,6 +44,8 @@ function test_input($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
+
+
 ?>
 <?php
 echo "<h2>Your Input:</h2>";
@@ -67,4 +72,47 @@ echo "<br>";
 echo $emailaddress;
 echo "<br>";
 echo $spcode;
+echo "<br><br>";
+?>
+
+<?php
+$servername = "localhost";
+$dbusername = "root";
+$dbpassword = "potato";
+$dbname = "RedRock_Cake";
+
+// Create connection
+$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+// Check connection
+if ($conn->connect_error) {
+	die("Connection failed: " . $conn->connect_error);
+}
+else{
+	echo 'Connection successful <br>';
+}
+
+$sqlInsertString = generateSqlString();
+
+echo 'Executing: ' . $sqlInsertString . '<br>';
+
+if (mysqli_query($conn, $sqlInsertString )) {
+	echo "New record created successfully";
+} else {
+	echo "Error: " . $sqlInsertString . "<br>" . mysqli_error($conn);
+}
+
+$conn->close();
+
+function generateSqlString(){
+	$sql = 'INSERT INTO Accounts (Username, Password, Reseller_ID,First_Name,Last_Name,email) VALUES(';
+	$sql = $sql . "'" . test_input($_POST["username"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["password"]) . "',";
+	$sql = $sql . "1,";
+	$sql = $sql . "'" . test_input($_POST["firstName"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["lastName"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["emailAddress"]) . "')";
+	
+	return $sql;
+}
+
 ?>
