@@ -76,10 +76,10 @@ echo "<br><br>";
 ?>
 
 <?php
-$servername = "localhost";
-$dbusername = "root";
-$dbpassword = "potato";
-$dbname = "RedRock_Cake";
+$servername = "198.71.225.56:3306";
+$dbusername = "redrock";
+$dbpassword = "@dm!nP@$$1001";
+$dbname = "RedRock";
 
 // Create connection
 $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
@@ -125,10 +125,10 @@ if ($result->num_rows > 0) {
 $conn->close();
 
 function generateSqlString(){
-	$sql = 'INSERT INTO Accounts (Username, Password, Reseller_ID,First_Name,Last_Name,email) VALUES(';
+	$sql = 'INSERT INTO Accounts (Username, Password, Serv_Prov_CD, First_Name, Last_Name, Email) VALUES(';
 	$sql = $sql . "'" . test_input($_POST["username"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["password"]) . "',";
-	$sql = $sql . "1,";
+	$sql = $sql . "'" . test_input($_POST["Serv_Prov_CD"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["firstName"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["lastName"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["emailAddress"]) . "')";
