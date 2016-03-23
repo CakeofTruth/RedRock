@@ -22,50 +22,50 @@
 	<img src= "C:\Users\Rae\Pictures\Red Rock Logo.jpg" style= "float:left;"/>
 		<h1> Account Registration </h1>
 		<h2> Customer Information </h2>
-		<form action="Customer_Registration.php" method="post">
+		<form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post">
 		<table>
 			<tr> 
 				<td> First Name </td>
-				<td> <input type="text" name="firstName" required> </td>
+				<td> <input type="text" name="firstName"></td>
 			</tr>
 			<tr> 
 				<td> Last Name </td>
-				<td> <input type="text" name="lastName" required> </td>
+				<td> <input type="text" name="lastName"></td>
 			</tr>
 			<tr> 
 				<td> Username </td>
-				<td> <input type="text" name="username" required> </td>
+				<td> <input type="text" name="username"></td>
 			</tr>	
 			<tr>
 				<td> Password: </td>
-				<td> <input type="password" name="password" required> </td>
+				<td> <input type="password" name="password"></td>
 			</tr>
 			<tr>
 				<td> Password Confirm: </td>
-				<td> <input type="password" name="passwordConfirm" required> </td>
+				<td> <input type="password" name="passwordConfirm"></td>
 			</tr>
 			<tr>
 				<td> Reseller Name: </td>
-				<td> <input type="text" name="resellerName" required>  </td>
+				<td> <input type="text" name="resellerName"></td>
 			</tr>
 			<tr>
 				<td> Reseller Billing Address 1: </td>
-				<td> <input type="text" name="resellerBA1" required> </td>
+				<td> <input type="text" name="resellerBA1"></td>
 			</tr>
 			<tr>
 				<td> Reseller Billing Address 2: </td>
-				<td> <input type="text" name="resellerBA2"> </td>
+				<td> <input type="text" name="resellerBA2"></td>
 			</tr>
 			<tr>
 				<td> City: </td>
-				<td> <input type="text" name="city" required> </td>
+				<td> <input type="text" name="city"></td>
 			</tr>
 			<tr>
 				<td> State: </td>
-				<td> <select name="state" required>
+				<td> <select name="state">
 						<option value= "Alabama">AL</option>
 						<option value= "Alaska">AK</option>
-						<option value= "Arizona">AZ</option>
+						<option value= "Arizona" selected>AZ</option>
 						<option value= "Arkansas">AR</option>
 						<option value= "California">CA</option>
 						<option value= "Colorado">CO</option>
@@ -118,19 +118,19 @@
 			</tr>
 			<tr> 
 				<td> Zip Code: </td>
-				<td> <input type="text" name="zipCode" required> </td>
+				<td> <input type="text" name="zipCode"></td>
 			</tr>	
 			<tr> 
 				<td> Telephone Number: </td>
-				<td> <input type="text" name="telephoneNumber" required> </td>
+				<td> <input type="text" name="telephoneNumber"></td>
 			</tr>
 			<tr>
 				<td> Email Address: </td>
-				<td> <input type="text" name= "emailAddress" required>  </td>
+				<td> <input type="text" name= "emailAddress"></td>
 			</tr>
 			<tr> 
 				<td> Service Provider Code: </td>
-				<td> <input type="text" name= "spCode"> </td>
+				<td> <input type="text" name= "spCode"></td>
 			</tr>
 		</table>
 		<input type="submit" value="Submit">
