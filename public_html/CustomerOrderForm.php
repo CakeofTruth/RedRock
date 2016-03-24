@@ -14,30 +14,30 @@
 	<body>
 		<h1> Red Rock Telecommunications Order Form <img src=" C:\Users\Rae\Pictures\Red Rock Logo.jpg" style= "float:left;"/></h1>
 		<h2> Customer Information </h2>
-	<form action= "customerorderform.php>" method="post">
+	<form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post">
 		<table>
 			<tr>
 				<td> Reseller Name: </td>
-				<td>  <input type="text" name="resellername"> </td>
+				<td>  <input type="text" name="resellername" value="Meowchi TalkyTalks" > </td>
 			</tr>	
 			<tr>
 				<td> Reseller Billing Address 1: </td>
-				<td> <input type="text" name="resellerba1"> </td>
+				<td> <input type="text" name="resellerba1" value="filledin"> </td>
 			</tr>
 			<tr>
 				<td> Reseller Billing Address 2: </td>
-				<td> <input type="text" name="resellerba2"> </td>
+				<td> <input type="text" name="resellerba2" value="filledin">> </td>
 			</tr>
 			<tr>
 				<td> City: </td>
-				<td> <input type="text" name="city"> </td>
+				<td> <input type="text" name="city" value="filledin">> </td>
 			</tr>
 			<tr>
 				<td> State: </td>
 				<td> <select name="state">
 						<option value= "Alabama">AL</option>
 						<option value= "Alaska">AK</option>
-						<option value= "Arizona">AZ</option>
+						<option value= "Arizona" selected>AZ</option>
 						<option value= "Arkansas">AR</option>
 						<option value= "California">CA</option>
 						<option value= "Colorado">CO</option>
@@ -90,63 +90,63 @@
 			</tr>
 			<tr> 
 				<td> Zip Code: </td>
-				<td> <input type="text" name="zipcode"> </td>
+				<td> <input type="text" name="zipcode" value="52852"> </td>
 			</tr>
 			<tr> 
 				<td> Telephone Number: </td>
-				<td> <input type="text" name="telephonenumber"> </td>
+				<td> <input type="text" name="telephonenumber" value=5556661929> </td>
 			</tr>
 			<tr>
 				<td> Email Address: </td>
-				<td> <input type="text" name="emailaddress"> </td>
+				<td> <input type="text" name="emailaddress" value="Taco@cat.com"> </td>
 			</tr>
 			<tr>
 				<td> Reseller Contact Name: </td>
-				<td> <input type="text" name="resellercn"> </td>
+				<td> <input type="text" name="resellercn" value="Probably Beth"> </td>
 			<tr>
 				<td> Sales Representative: </td>
 				<td> <select name="salesrep">
-						<option value = "salesrep"> Select a Sales Representative</option>
-						<option value = "salesrep"> Brenda Beall </option>
-						<option value ="salesrep"> Other </option> 
+						<option value = ""> Select a Sales Representative</option>
+						<option value = "Breanda Beall"> Brenda Beall </option>
+						<option value = "other"> Other </option> 
 					</select>
 				</td>
 			<tr>
 				<td> Account Number: </td>
-				<td> <input type="text" name="accountnumber"> </td>
+				<td> <input type="text" name="accountnumber" value="5"> </td>
 			</tr>
 			<tr> 
 				<td> Service Provider Code: </td>
-				<td> <input type="text" name="spcode"> </td>
+				<td> <input type="text" name="spcode" value="MEOW"> </td>
 			<tr>
 				<td> End User Customer Name: </td>
-				<td> <input type="text" name="endusername"> </td>
+				<td> <input type="text" name="endusername" value="Princess_Fluffybutt"> </td>
 			</tr>
 			<tr>
 				<td> Main Telephone Number: </td>
-				<td> <input type="text" name="cmtelephone"> </td>
+				<td> <input type="text" name="cmtelephone" value="484848484848"> </td>
 			</tr>
 			<tr>
 				<td> Reseller Reference ID: </td>
-				<td>  <input type="text" name="resellerrefid"> </td>
+				<td>  <input type="text" name="resellerrefid" value="whateverthefuckthisis"> </td>
 			</tr>
 			<tr>
 				<td> Requested Built/ Service Provisioned Date: </td>
-				<td> <input type="text" name= "requestedbuilt"> </td>
+				<td> <input type="date" name= "requestedbuilt" > </td>
 			</tr>
 			<tr>
 				<td> Requested In Service/ Effective Billing Date </td>
-				<td> <input type="text" name= "requestedinservice"> </td>
+				<td> <input type="date" name= "requestedinservice"> </td>
 			</tr>
 			<tr>
 				<td> Or Sooner: </td>
-				<td> <input type="radio" name="orsooner" value= "Yes"> Yes<br> </td>
+				<td> <input type="radio" name="orsooner" value= "Yes" checked="checked"> Yes<br> </td>
 				<td> <input type="radio" name="orsooner" value= "No"> No<br> </td>
 			</tr>
 			<tr>
 				<td> Add to Existing Customer: </td>
 				<td> <input type="radio" name="addtoexistingcustomer" value= "Yes"> Yes<br> </td>
-				<td> <input type="radio" name="addtoexistingcustomer" value= "No"> No<br> </td>
+				<td> <input type="radio" name="addtoexistingcustomer" value= "No" checked="checked"> No<br> </td>
 			</tr>
 			<tr>
 				<td> Customer Time Zone: </td>
@@ -154,7 +154,7 @@
 						<option value = "customertimezone"> Customer Time Zone </option>
 						<option value = "customertimezone"> Eastern Time Zone </option>
 						<option value = "customertimezone"> Central Time Zone </option>
-						<option value = "customertimezone"> Mountain Time Zone </option>
+						<option value = "customertimezone" selected> Mountain Time Zone </option>
 						<option value = "customertimezone"> Arizona Time Zone </option>
 						<option value = "customertimezone"> Pacific Time Zone </option>
 						<option value = "customertimezone"> Alaska Time Zone </option>

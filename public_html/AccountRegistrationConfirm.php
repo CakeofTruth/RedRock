@@ -74,7 +74,7 @@ $accountInsertString= generateAccountInsertString();
 
 if (mysqli_query($conn, $accountInsertString)) {
 // 	echo "New record created successfully";
-	$lastinsert = $conn -> insert_id;
+	$customerID = $conn -> insert_id;
 // 	echo "Inserted record  " . $lastinsert . ' into Accounts Table.<br>';
 } else {
 // 	echo "Error: " . $accountInsertString. "<br>" . mysqli_error($conn);
@@ -84,7 +84,7 @@ $resellerInsertString = generateResellerInsertString();
 
 if (mysqli_query($conn, $resellerInsertString )) {
 // 	echo "New record created successfully";
-	$lastinsert = $conn -> insert_id;
+	$customerID = $conn -> insert_id;
 // 	echo "Inserted record  " . $lastinsert . ' into Accounts Table.<br>';
 } else {
 // 	echo "Error: " . $resellerInsertString . "<br>" . mysqli_error($conn);
