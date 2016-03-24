@@ -1,8 +1,6 @@
 <html>
 	<head>
-		<img src= " C:\Users\Rae\Pictures\Red Rock Logo.jpg" style= "float:left;"/>
 	<title> Red Rock Ordering System </title>
-	<h1> Red Rock Ordering System </h1>
 	<style>
 	h1 {
 		font-size: 50px; 
@@ -31,6 +29,8 @@
 	</head>
 	
 	<body>
+	<img src= " C:\Users\Rae\Pictures\Red Rock Logo.jpg" style= "float:left;"/>
+	<h1> Red Rock Ordering System </h1>
 		<form>
 		<table>
 			<thead>
@@ -288,7 +288,7 @@
 					<td>  <input type="text">  </td>
 					<td> Miscellaneous Services </td>
 					<td> WAUMP </td>
-					<td> Audio Conferencing Moderator /& Participant Code </td>
+					<td> Audio Conferencing Moderator and Participant Code </td>
 					<td> $#.## </td>
 					<td> $#.## </td>
 				</tr>
