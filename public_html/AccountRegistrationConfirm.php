@@ -47,35 +47,14 @@ function test_input($data) {
 
 
 ?>
-<?php
-echo "<h2>Your Input:</h2>";
-echo $username;
-echo "<br>";
-echo $password;
-echo "<br>";
-echo $passwordconfirm;
-echo "<br>";
-echo $resellername;
-echo "<br>";
-echo $resellerba1;
-echo "<br>";
-echo $resellerba2;
-echo "<br>";
-echo $city;
-echo "<br>";
-echo $state;
-echo "<br>";
-echo $zipcode;
-echo "<br>";
-echo $telephonenumber;
-echo "<br>";
-echo $emailaddress;
-echo "<br>";
-echo $spcode;
-echo "<br><br>";
-?>
 
 <?php
+/*
+$servername = "198.71.225.56:3306";
+$dbusername = "redrock";
+$dbpassword = "@dm!nP@$$1001";
+$dbname = "RedRock";
+*/
 $servername = "localhost";
 $dbusername = "root";
 $dbpassword = "potato";
@@ -88,47 +67,52 @@ if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
 }
 else{
-	echo 'Connection successful <br>';
+// 	echo 'Connection successful <br>';
 }
 
-$sqlInsertString = generateSqlString();
+$accountInsertString= generateAccountInsertString();
 
-echo 'Executing: ' . $sqlInsertString . '<br>';
-
-if (mysqli_query($conn, $sqlInsertString )) {
-	echo "New record created successfully";
+if (mysqli_query($conn, $accountInsertString)) {
+// 	echo "New record created successfully";
 	$lastinsert = $conn -> insert_id;
-	echo "Inserted record " . $lastinsert . '<br>';
+// 	echo "Inserted record  " . $lastinsert . ' into Accounts Table.<br>';
 } else {
-	echo "Error: " . $sqlInsertString . "<br>" . mysqli_error($conn);
+// 	echo "Error: " . $accountInsertString. "<br>" . mysqli_error($conn);
 }
 
-$selectString = "select Username, Reseller_ID, First_Name, Last_Name, Email from Accounts";
+$resellerInsertString = generateResellerInsertString();
 
-$result = $conn->query($selectString);
-
-if ($result->num_rows > 0) {
-	// output data of each row
-	while($row = $result->fetch_assoc()) {
-		echo "Username: " . $row["Username"] . 
-			 " Reseller_ID: " . $row["Reseller_ID"] . 
-			 " First_Name: " . $row["First_Name"] . 
-			 " Last_Name: " . $row["Last_Name"] . 
-			 " Email: " . $row["Email"] . 
-			 "<br>";
-	}
+if (mysqli_query($conn, $resellerInsertString )) {
+// 	echo "New record created successfully";
+	$lastinsert = $conn -> insert_id;
+// 	echo "Inserted record  " . $lastinsert . ' into Accounts Table.<br>';
 } else {
-	echo "0 results";
+// 	echo "Error: " . $resellerInsertString . "<br>" . mysqli_error($conn);
 }
 
+echo "<script> window.location = 'login.php' </script>";
 
 $conn->close();
 
-function generateSqlString(){
-	$sql = 'INSERT INTO Accounts (Username, Password, Reseller_ID,First_Name,Last_Name,email) VALUES(';
+function generateResellerInsertString(){
+	$sql = "INSERT INTO Resellers (Serv_Prov_CD,Address1,Address2,City,State,Zip,Phone,Company_Name) VALUES(";
+	$sql = $sql . "'" . test_input($_POST["spCode"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["resellerBA1"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["resellerBA2"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["city"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["state"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["zipCode"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["telephoneNumber"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["resellerName"]) . "')";
+
+	return $sql;
+}
+
+function generateAccountInsertString(){
+	$sql = 'INSERT INTO Accounts (Username, Password, Serv_Prov_CD, First_Name, Last_Name, Email) VALUES(';
 	$sql = $sql . "'" . test_input($_POST["username"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["password"]) . "',";
-	$sql = $sql . "1,";
+	$sql = $sql . "'" . test_input($_POST["spCode"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["firstName"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["lastName"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["emailAddress"]) . "')";
