@@ -26,43 +26,43 @@
 		<table>
 			<tr> 
 				<td> First Name </td>
-				<td> <input type="text" name="firstName" value = "Josh"> </td>
+				<td> <input type="text" name="firstName" value="Rachel"></td>
 			</tr>
 			<tr> 
 				<td> Last Name </td>
-				<td> <input type="text" name="lastName" value="Bowdish"> </td>
+				<td> <input type="text" name="lastName" value="LECLAAAARRRRR"></td>
 			</tr>
 			<tr> 
 				<td> Username </td>
-				<td> <input type="text" name="username" value="Tacocat"> </td>
+				<td> <input type="text" name="username" value="pigeonsofhate"></td>
 			</tr>	
 			<tr>
 				<td> Password: </td>
-				<td> <input type="password" name="password" value="W0rd%sarehard"> </td>
+				<td> <input type="password" name="password" value="W0rd%arehard"></td>
 			</tr>
 			<tr>
 				<td> Password Confirm: </td>
-				<td> <input type="password" name="passwordConfirm" value="W0rd%sarehard"> </td>
+				<td> <input type="password" name="passwordConfirm" value="W0rd%arehard"></td>
 			</tr>
 			<tr>
 				<td> Reseller Name: </td>
-				<td> <input type="text" name="resellerName" value="Meowchi Talky Talks">  </td>
+				<td> <input type="text" name="resellerName" value="Meowchi TalkyTalks"></td>
 			</tr>
 			<tr>
 				<td> Reseller Billing Address 1: </td>
-				<td> <input type="text" name="resellerBA1" value="DudeThisMyHouse"> </td>
+				<td> <input type="text" name="resellerBA1" value="1929 Meow St."></td>
 			</tr>
 			<tr>
 				<td> Reseller Billing Address 2: </td>
-				<td> <input type="text" name="resellerBA2" value="Duuuuudemyhouse"> </td>
+				<td> <input type="text" name="resellerBA2" value="Suite 201"></td>
 			</tr>
 			<tr>
 				<td> City: </td>
-				<td> <input type="text" name="city" value="Phoenix"> </td>
+				<td> <input type="text" name="city" value="Phoenix"></td>
 			</tr>
 			<tr>
 				<td> State: </td>
-				<td> <select name="state" >
+				<td> <select name="state">
 						<option value= "Alabama">AL</option>
 						<option value= "Alaska">AK</option>
 						<option value= "Arizona" selected>AZ</option>
@@ -118,19 +118,19 @@
 			</tr>
 			<tr> 
 				<td> Zip Code: </td>
-				<td> <input type="text" name="zipCode" value="85024"> </td>
+				<td> <input type="text" name="zipCode" value="85024"></td>
 			</tr>	
 			<tr> 
 				<td> Telephone Number: </td>
-				<td> <input type="text" name="telephoneNumber" value="4805556666"> </td>
+				<td> <input type="text" name="telephoneNumber" value="85525252252525"></td>
 			</tr>
 			<tr>
 				<td> Email Address: </td>
-				<td> <input type="text" name= "emailAddress" value="taco@cat.com">  </td>
+				<td> <input type="text" name= "emailAddress" value="taco@cat.com"></td>
 			</tr>
 			<tr> 
 				<td> Service Provider Code: </td>
-				<td> <input type="text" name= "spCode" value="whatwhatinthebutt"> </td>
+				<td> <input type="text" name= "spCode" value="MEOW"></td>
 			</tr>
 		</table>
 		<input type="submit" value="Submit">
