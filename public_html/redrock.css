@@ -1,7 +1,9 @@
 body {
 	background: maroon;
 	}
-		
+h1 {
+	margin:auto;
+	}
 #menu{
 	margin-top: 40px;
 	padding: 24px;
@@ -9,10 +11,9 @@ body {
 	font-family: Raleway;
 	box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
 	background-image: url(stonetexture.png);
-	transition: 0.4s;
-	color: #BEC991;
-	font-size: 20px;
-	text-decoration: none;
+	color:#BEC991;
+	font-size:20px;
+	text-decoration:none;
 	padding: 0 10px;
 	margin: 0 10px;
 		}
@@ -24,28 +25,26 @@ body {
 #menu li:hover {
 	color:teal;
 	background-color:#B7641F;
-	padding: 24px 10px;
-	}	
+		
+	}	 
 div {
-	background-color: teal;
+	border-raidus: 25px;
 	color: #BEC991
 	}
+.content {
+	margin: auto;
+	width: 40%;
+	padding: 5px;
+	border:5px;
+	border-radius: 20px;
+	background-color: teal;
+}
 h1 {
 	text-align: center;
 	padding-right: 300px;
 	color:#005D5E
 	}
-h2 {
+.description {
 	text-align: center;
-	color: teal;
-	}
-#header {
-	width: 800px;
-	padding: 10px;
-	text-align: left;
-	background-color: maroon;
-	color: teal;
-	padding: 0 10px;
-	margin-left: auto;
-	margin-right: auto;
+	color: #BEC991;
 	}

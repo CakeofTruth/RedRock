@@ -125,10 +125,10 @@ echo $emergzipcode; echo "<br>"; echo $emergphonenumber;
  
 
 function getDBConnection() {
-	$servername = "localhost";
+	$servername = "localhost:3306";
 	$dbusername = "root";
-	$dbpassword = "potato";
-	$dbname = "RedRock_Cake";
+	$dbpassword = "Redrock123";
+	$dbname = "redrock";
 	
 	// Create connection
 	$conn = new mysqli ( $servername, $dbusername, $dbpassword, $dbname );
