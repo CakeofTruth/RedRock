@@ -21,7 +21,7 @@ function SignIn() {
 			// output data of each row
 			$row = $result->fetch_assoc () ;
 			echo "Welcome, " . $row ["First_Name"] . " " . $row ["Last_Name"];
- 			echo "<script> window.location = 'CustomerOrderForm.html' </script>";
+ 			echo "<script> window.location = 'PlaceOrder.php' </script>";
 		} else {
 			echo "Username and Password Combination not recognized, try again.";
 		}
@@ -45,6 +45,7 @@ function getDBConnection() {
 		return $conn;
 	}
 }
+
 function generateSelectString() {
 	$sql = "SELECT Username, Password, First_Name, Last_Name FROM Accounts 
 			where username = '" . $_POST ['username'] . "' and password = '" . $_POST ['password'] . "'";
