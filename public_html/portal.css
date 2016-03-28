@@ -1,3 +1,4 @@
+@CHARSET "ISO-8859-1";
 body {
 	background: maroon;
 	}
@@ -16,7 +17,7 @@ h1 {
 	text-decoration:none;
 	padding: 0 10px;
 	margin: 0 10px;
-		}
+	}
 #menu li{
 	display:inline;
 	padding:20px;
@@ -25,7 +26,7 @@ h1 {
 #menu li:hover {
 	color:teal;
 	background-color:#B7641F;
-	}	 
+	}	
 div {
 	border-raidus: 25px;
 	color: #BEC991

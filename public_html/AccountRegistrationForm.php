@@ -26,31 +26,31 @@
 		<table>
 			<tr> 
 				<td> First Name </td>
-				<td> <input type="text" name="firstName" value="Rachel"></td>
+				<td> <input type="text" name="firstName" value="Rachel" required></td>
 			</tr>
 			<tr> 
 				<td> Last Name </td>
-				<td> <input type="text" name="lastName" value="LECLAAAARRRRR"></td>
+				<td> <input type="text" name="lastName" value="LECLAAAARRRRR" required></td>
 			</tr>
 			<tr> 
 				<td> Username </td>
-				<td> <input type="text" name="username" value="pigeonsofhate"></td>
+				<td> <input type="text" name="username" value="pigeonsofhate" required></td>
 			</tr>	
 			<tr>
 				<td> Password: </td>
-				<td> <input type="password" name="password" value="W0rd%arehard"></td>
+				<td> <input type="password" name="password" value="W0rd%arehard" required></td>
 			</tr>
 			<tr>
 				<td> Password Confirm: </td>
-				<td> <input type="password" name="passwordConfirm" value="W0rd%arehard"></td>
+				<td> <input type="password" name="passwordConfirm" value="W0rd%arehard" required></td>
 			</tr>
 			<tr>
 				<td> Reseller Name: </td>
-				<td> <input type="text" name="resellerName" value="Meowchi TalkyTalks"></td>
+				<td> <input type="text" name="resellerName" value="Meowchi TalkyTalks" required></td>
 			</tr>
 			<tr>
 				<td> Reseller Billing Address 1: </td>
-				<td> <input type="text" name="resellerBA1" value="1929 Meow St."></td>
+				<td> <input type="text" name="resellerBA1" value="1929 Meow St." required></td>
 			</tr>
 			<tr>
 				<td> Reseller Billing Address 2: </td>
@@ -58,7 +58,7 @@
 			</tr>
 			<tr>
 				<td> City: </td>
-				<td> <input type="text" name="city" value="Phoenix"></td>
+				<td> <input type="text" name="city" value="Phoenix" required></td>
 			</tr>
 			<tr>
 				<td> State: </td>
@@ -118,15 +118,15 @@
 			</tr>
 			<tr> 
 				<td> Zip Code: </td>
-				<td> <input type="text" name="zipCode" value="85024"></td>
+				<td> <input type="text" name="zipCode" value="85024" required></td>
 			</tr>	
 			<tr> 
 				<td> Telephone Number: </td>
-				<td> <input type="text" name="telephoneNumber" value="85525252252525"></td>
+				<td> <input type="text" name="telephoneNumber" value="85525252252525" required></td>
 			</tr>
 			<tr>
 				<td> Email Address: </td>
-				<td> <input type="text" name= "emailAddress" value="taco@cat.com"></td>
+				<td> <input type="email" name= "emailAddress" value="taco@cat.com" required></td>
 			</tr>
 			<tr> 
 				<td> Service Provider Code: </td>
