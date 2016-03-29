@@ -55,10 +55,10 @@ $dbusername = "redrock";
 $dbpassword = "@dm!nP@$$1001";
 $dbname = "RedRock";
 */
-$servername = "localhost";
+$servername = "localhost:3306";
 $dbusername = "root";
-$dbpassword = "potato";
-$dbname = "RedRock_Cake";
+$dbpassword = "Redrock123";
+$dbname = "redrock";
 
 // Create connection
 $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
