@@ -51,7 +51,7 @@ if(!eregi("^[_a-z0-9-]+(\.[a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$"
 	$msg = 'Your account has been created, <br/> please activate it by clicking 
 			the link that has been sent to your email.';
 }
-$hash = md5( rand(0,1000) );
+$hash = sha512( rand(0,1000) );
 
 ?>
 

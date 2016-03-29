@@ -20,7 +20,7 @@
 	</form>
 	</div>
 		<div id="newaccount">
-	 <a href="AccountRegistration.php">Create a New Account</a>
+	 <a href="AccountRegistrationForm.php">Create a New Account</a>
 	</div>
 </body>
 <?php

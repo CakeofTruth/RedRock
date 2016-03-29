@@ -2,8 +2,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Welcome</title>
+<title>Welcome $</title>
 <link rel="stylesheet" href="portal.css">
+<link rel="icon"
+	type="image/png"
+	href="assets\images\Redrockfavicon.png">
 </head>
 <body>
 <?php
@@ -26,7 +29,39 @@ else{
 <li><a href="orderform.html"><font color="#21B6A8">Place an Order</font></a></li>
 </ul>
 </div>
-
+<button id="myBtn"><?php $firstName $lastName ?></button>
+<div id= "Account_Info" class="modal">
+<div class="modal-content">
+	<div class="modal-header">
+	<span class="close">x</span>
+	<h2>Account Information</h2>
+	</div>
+	<div class="modal-body">
+	<p><?php $firstname $lastName ?><p>
+	<p><?php $username ?><p>
+	<p><a href="change_password.php">Change Your Password</a></p>
+</div>
+</div>
+<script>
+	var modal = document.getElementById('Account_Info');
+	var btn = document.getElementByID("myBtn");
+	var span = document.getElementsByClassName("close")[0];
+	btn.onclick = function() {
+		modal.style.display = "block";
+	}
+	span.onclick = function() {
+		modal.style.display = "block";
+	}
+	span.onclick = function () {
+		modal.style.display = "none";
+	}
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	}
+</script>
+</div>
 <div class="content">
 <?php
 $result = mysqli("SELECT * FROM accounts WHERE email= '$email' and password ='$password' LIMIT 1");
