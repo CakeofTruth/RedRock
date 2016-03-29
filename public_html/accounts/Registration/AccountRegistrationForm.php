@@ -16,12 +16,23 @@
 		border: 1px solid black;
 		border-collapse: collapse;
 	}
+	#wrap .statusmsg{
+    font-size: 12px; /* Set message font size  */
+    padding: 3px; /* Some padding to make some more space for our text  */
+    background: #EDEDED; /* Add a background color to our status message   */
+    border: 1px solid #DFDFDF; /* Add a border arround our status message   */
+	}
 	</style>
 	</head>
 	<body>
 	<img src= "C:\Users\Rae\Pictures\Red Rock Logo.jpg" style= "float:left;"/>
 		<h1> Account Registration </h1>
 		<h2> Customer Information </h2>
+		<?php 
+    if(isset($msg)){  // Check if $msg is not empty
+        echo '<div class="statusmsg">'.$msg.'</div>'; // Display our message and wrap it with a div with the class "statusmsg".
+    } 
+?>
 		<form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post">
 		<table>
 			<tr> 
@@ -118,7 +129,6 @@
 			</tr>
 			<tr> 
 				<td> Zip Code: </td>
-<<<<<<< HEAD:public_html/accounts/Registration/AccountRegistrationForm.php
 				<td> <input type="text" name="zipCode" value="85024" required></td>
 			</tr>	
 			<tr> 
@@ -132,21 +142,6 @@
 			<tr> 
 				<td> Service Provider Code: </td>
 				<td> <input type="text" name= "spCode" value="MEOW"></td>
-=======
-				<td> <input type="text" name="zipCode"></td>
-			</tr>	
-			<tr> 
-				<td> Telephone Number: </td>
-				<td> <input type="text" name="telephoneNumber"></td>
-			</tr>
-			<tr>
-				<td> Email Address: </td>
-				<td> <input type="text" name= "emailAddress"></td>
-			</tr>
-			<tr> 
-				<td> Service Provider Code: </td>
-				<td> <input type="text" name= "spCode"></td>
->>>>>>> 3eb5cbade5b74286553ff4e49d5014446ee7f1ee:public_html/AccountRegistrationForm.php
 			</tr>
 		</table>
 		<input type="submit" value="Submit">
