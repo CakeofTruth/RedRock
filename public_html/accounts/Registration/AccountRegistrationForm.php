@@ -118,6 +118,7 @@
 			</tr>
 			<tr> 
 				<td> Zip Code: </td>
+<<<<<<< HEAD:public_html/accounts/Registration/AccountRegistrationForm.php
 				<td> <input type="text" name="zipCode" value="85024" required></td>
 			</tr>	
 			<tr> 
@@ -131,6 +132,21 @@
 			<tr> 
 				<td> Service Provider Code: </td>
 				<td> <input type="text" name= "spCode" value="MEOW"></td>
+=======
+				<td> <input type="text" name="zipCode"></td>
+			</tr>	
+			<tr> 
+				<td> Telephone Number: </td>
+				<td> <input type="text" name="telephoneNumber"></td>
+			</tr>
+			<tr>
+				<td> Email Address: </td>
+				<td> <input type="text" name= "emailAddress"></td>
+			</tr>
+			<tr> 
+				<td> Service Provider Code: </td>
+				<td> <input type="text" name= "spCode"></td>
+>>>>>>> 3eb5cbade5b74286553ff4e49d5014446ee7f1ee:public_html/AccountRegistrationForm.php
 			</tr>
 		</table>
 		<input type="submit" value="Submit">

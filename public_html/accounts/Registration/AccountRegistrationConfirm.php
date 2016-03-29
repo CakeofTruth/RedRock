@@ -50,10 +50,13 @@ function test_input($data) {
 
 <?php
 /*
+=======
+>>>>>>> 3eb5cbade5b74286553ff4e49d5014446ee7f1ee:public_html/AccountRegistrationConfirm.php
 $servername = "198.71.225.56:3306";
 $dbusername = "redrock";
 $dbpassword = "@dm!nP@$$1001";
 $dbname = "RedRock";
+<<<<<<< HEAD:public_html/accounts/Registration/AccountRegistrationConfirm.php
 */
 $servername = "localhost:3306";
 $dbusername = "root";
