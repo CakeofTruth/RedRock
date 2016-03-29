@@ -1,8 +1,6 @@
 <html>
 	<head>
-		<img src= " C:\Users\Rae\Pictures\Red Rock Logo.jpg" style= "float:left;"/>
 	<title> Account Registration </title>
-		<h1> Account Registration </h1>
 	<style>
 	h1 {
 		font-size: 50px; 
@@ -21,6 +19,8 @@
 	</style>
 	</head>
 	<body>
+		<h1> Account Registration </h1>
+		<img src= " C:\Users\Rae\Pictures\Red Rock Logo.jpg" style= "float:left;"/>
 		<h2> Customer Information </h2>
 		<form action="Customer_Registration.php" method="post">
 		<table>
@@ -30,11 +30,11 @@
 			</tr>	
 			<tr>
 				<td> Password: </td>
-				<td> <input type="password" name="Password" minlength="8" maxlength="15"> </td>
+				<td> <input type="password" name="Password" maxlength="15"> </td>
 			</tr>
 			<tr>
 				<td> Password Confirm: </td>
-				<td> <input type="password" name="Password_Confirm" minlength="8" maxlength="15"> </td>
+				<td> <input type="password" name="Password_Confirm" maxlength="15"> </td>
 			</tr>
 			<tr>
 				<td> Reseller Name: </td>
@@ -111,7 +111,6 @@
 			<tr> 
 				<td> Zip Code: </td>
 				<td> <input type="text" name="Zip Code"> </td>
-			</tr>
 			</tr>
 			<tr> 
 				<td> Telephone Number: </td>
