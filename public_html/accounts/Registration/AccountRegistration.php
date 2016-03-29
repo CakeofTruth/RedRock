@@ -3,4 +3,3 @@
 <?php else: ?>
 	<?php include("AccountRegistrationConfirm.php"); ?>
 <?php endif; ?>
-
