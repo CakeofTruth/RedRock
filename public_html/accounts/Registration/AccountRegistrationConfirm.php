@@ -44,18 +44,28 @@ function test_input($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
-
+$Email = mysql_escape_string($_Post['emailAddress']);
+if(!eregi("^[_a-z0-9-]+(\.[a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$", $Email)){
+	$msg ='The email you have entered is invalid, please try again.';
+}else{
+	$msg = 'Your account has been created, <br/> please activate it by clicking 
+			the link that has been sent to your email.';
+}
+$hash = md5( rand(0,1000) );
 
 ?>
 
 <?php
 /*
+=======
+>>>>>>> 3eb5cbade5b74286553ff4e49d5014446ee7f1ee:public_html/AccountRegistrationConfirm.php
 $servername = "198.71.225.56:3306";
 $dbusername = "redrock";
 $dbpassword = "@dm!nP@$$1001";
 $dbname = "RedRock";
+<<<<<<< HEAD:public_html/accounts/Registration/AccountRegistrationConfirm.php
 */
-$servername = "localhost:3306";
+$servername = "localhost:85";
 $dbusername = "root";
 $dbpassword = "Redrock123";
 $dbname = "redrock";
@@ -104,7 +114,6 @@ function generateResellerInsertString(){
 	$sql = $sql . "'" . test_input($_POST["zipCode"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["telephoneNumber"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["resellerName"]) . "')";
-
 	return $sql;
 }
 
@@ -116,8 +125,22 @@ function generateAccountInsertString(){
 	$sql = $sql . "'" . test_input($_POST["firstName"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["lastName"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["emailAddress"]) . "')";
-	
+	$sql = $sql . "'" . test_input($_POST["hash"]) . "')" or die(mysql_error());
 	return $sql;
 }
-
+$to = $email;
+$subject = 'Signup | Verification';
+$message = '
+	Thank you for signing up! Your account has been created.  You can login with the 
+	following credentials after you have activated your account by clicking the url below.
+		
+------------------------
+Username: '.$username.'
+Password: '.$password.'
+------------------------
+	Please click this ink to activate your account:
+	http://www.redrocktelecom.com/verify.php?email='.$email.'&hash='.$hash.'
+	';
+$headers = 'From:noreply@yourwebsite.com'  . "\r\n";
+mail($to, $subject,$message, $headers);
 ?>
