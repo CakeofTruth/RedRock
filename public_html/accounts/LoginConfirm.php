@@ -43,4 +43,23 @@ function setSessionVariables($row){
 	$_SESSION["Last_Name"] = $row["Last_Name"];
 	$_SESSION["Approver"] = $row["Approver"];
 }
+
 ?>
+<?php 
+		mysqli_connect("localhost:85", "RedRock", "Redrock123") or die(mysqli_error());
+		mysqli_select_db("accounts") or die(mysqli_error());
+		if(isset($_POST['username']) && !empty($_POST['username']) AND isset($_POST['password']) && !empty($_POST['password'])){
+		$username = mysqli_escape_string($_POST['username']);
+		$password = mysqli_escape_string(md5($_POST['password']));
+		
+		$search = mysqli_query("SELECT username, password, active FROM accounts WHERE username='".$username."' AND password='".$password."' AND active='1'")
+		or die(mysqli_error());
+		$match = mysqli_num_rows ($search);
+			if($match > 0){
+				$msg = 'Login Complete! Thank you!';
+			}else{
+				$msg = 'Login Failed! Please make sure that you entered the correct details and that you have activated your account';
+			}
+		}
+		
+	?>

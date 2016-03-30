@@ -1,6 +1,6 @@
 <?php
 	$pagetitle = "About Us";
-	include $root . 'header.php';
+	include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
 ?>
 
 	<h1>Red Rock Telecommunications</h1>
