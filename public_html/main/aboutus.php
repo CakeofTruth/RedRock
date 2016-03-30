@@ -1,11 +1,8 @@
 <?php
-	$root = $_SERVER["DOCUMENT_ROOT"];
 	$pagetitle = "About Us";
-	include 'header.php';
+	include $root . 'header.php';
 ?>
-<!DOCTYPE html>
-<html>
-<body>
+
 	<h1>Red Rock Telecommunications</h1>
 	<a href="index.html"> <img id="logo" src="<?php $root ?>/assets/images/Redrocklogo.jpg" alt="logo"/></a>
 	<?php include 'menu.php' ?>
@@ -16,11 +13,5 @@
 		 Rock delivers reliable high quality hosted PBX, SIP Trunking, voice to text capabilities, mobile device integration,
 		 and much more. </p>
 	</div>	
-	<div id="resources" style="text-align: center;">
-		<a href="login.php"><span style= "color: black; position: fixed; bottom: 0pt;">Resources</span></a>
-	</div>
-</body>
-</html>
-
-
-
+	
+<?php include $root . '/main/footer.php'?>

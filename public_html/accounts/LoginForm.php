@@ -70,4 +70,3 @@ if ($_SERVER ["REQUEST_METHOD"] == "POST") {
 ?>
 <!-- link for password reset (change, forgot_password, reset_password, reset) is  http://www.dreamincode.net/forums/topic/370692-reset-password-system/-->
 <!-- link for email verification of accounts (verify and login) is  http://code.tutsplus.com/tutorials/how-to-implement-email-verification-for-new-members--net-3824-->
-<!-- To improve this system, look at  http://www.troyhunt.com/2012/05/everything-you-ever-wanted-to-know.html-->
