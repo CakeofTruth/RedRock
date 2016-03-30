@@ -1,10 +1,7 @@
 <?php
 
-// $servername = "198.71.225.56:3306";
-// $dbusername = "redrock";
-// $dbpassword = "@dm!nP@$$1001";
-// $dbname = "RedRock";
-echo "This is the login confirm page!<br>";
+$root = $_SERVER["DOCUMENT_ROOT"];
+include_once $root . '/classes/DBUtils.php';
 
 SignIn ();
 
@@ -14,45 +11,36 @@ function SignIn() {
 		
 		$selectString = generateSelectString ();
 		
-		$conn = getDBConnection();
+		$dbutils = new DBUtils();
+		$conn = $dbutils->getDBConnection();
 
 		$result = $conn->query ( $selectString );
 		if ($result->num_rows > 0) {
 			// output data of each row
 			$row = $result->fetch_assoc () ;
-			echo "Welcome, " . $row ["First_Name"] . " " . $row ["Last_Name"];
- 			echo "<script> window.location = 'PlaceOrder.php' </script>";
+			setSessionVariables($row);
+			//echo "Hi, " . $_SESSION["First_Name"]  . " " . $_SESSION["Last_Name"];
+ 			echo "<script> window.location = 'portal.php' </script>";
 		} else {
-			echo "Username and Password Combination not recognized, try again.";
+			echo "Username and Password Combination not recognized, please try again.";
 		}
 	} else {
 		echo "How did you get here without a POST?";
 	}
 }
 
-function getDBConnection() {
-	$servername = "localhost:3306";
-	$dbusername = "root";
-	$dbpassword = "Redrock123";
-	$dbname = "redrock";
-	
-	// Create connection
-	$conn = new mysqli ( $servername, $dbusername, $dbpassword, $dbname );
-	// Check connection
-	if ($conn->connect_error) {
-		die ( "Connection failed: " . $conn->connect_error );
-	} else {
-		return $conn;
-	}
-}
+
 
 function generateSelectString() {
-	$sql = "SELECT Username, Password, First_Name, Last_Name FROM Accounts 
+	$sql = "SELECT Username, Password, First_Name, Last_Name, Approver FROM Accounts 
 			where username = '" . $_POST ['username'] . "' and password = '" . $_POST ['password'] . "'";
 	return $sql;
 }
 
-if (isset ( $_POST ['submit'] )) {
-	SignIn ();
+function setSessionVariables($row){
+	$_SESSION["username"] = $row["Username"];
+	$_SESSION["First_Name"] = $row["First_Name"];
+	$_SESSION["Last_Name"] = $row["Last_Name"];
+	$_SESSION["Approver"] = $row["Approver"];
 }
 ?>

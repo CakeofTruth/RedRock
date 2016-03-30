@@ -1,4 +1,7 @@
 <?php
+$root = $_SERVER["DOCUMENT_ROOT"];
+include_once $root . '/classes/DBUtils.php';
+
 $resellername = $resellerba1 = $resellerba2 = $city = $state =$zipcode = $telephonenumber = $emailaddress = $resellercn = $salesrep = $accountnumber = $spcode = 
 $endusername = $cmtelephone = $resellerrefid = $requestedbuilt = $requestedinservice = $orsooner = $addtoexistingcustomer = $customertimezone = $emergprovisionrequired = 
 $emergaddress1 = $emergaddress2 = $emergcity = $emergstate =$emergzipcode = $emergphonenumber = "";
@@ -55,7 +58,9 @@ echo $emergzipcode; echo "<br>"; echo $emergphonenumber;
 ?>
 
 <?php
- $conn = getDBConnection();
+ 
+	$dbutils = new DBUtils();
+	$conn = $dbutils->getDBConnection();
  
  $customerInsertString = generateCustomerInsertString();
  

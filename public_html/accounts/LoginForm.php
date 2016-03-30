@@ -25,7 +25,6 @@
 </body>
 
 <?php
-$username = $password = "";
 if ($_SERVER ["REQUEST_METHOD"] == "POST") {
 	$username = test_input ( $_POST ["username"] );
 	$password = validate_password ( $_POST ["password"] );
