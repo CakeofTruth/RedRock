@@ -22,8 +22,8 @@ include ($_SERVER ["DOCUMENT_ROOT"] . 'main/header.php');
 	<input type="submit" value="Submit">
 </form>
 <div id="newaccount">
-	<a href="AccountRegistrationForm.php">Create a New Account</a> 
-	<a href="forgot_password.php">Forgot Your Password?</a>
+	<a href="/accounts/Registration/AccountRegistrationForm.php">Create a New Account</a> 
+	<a href="/accounts/Registration/forgot_password.php">Forgot Your Password?</a>
 </div>
 
 

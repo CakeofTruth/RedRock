@@ -9,3 +9,6 @@
 	<link rel="icon" type="image/png" href="<?php $root ?>/assets/images/Redrockfavicon.png"/>
 </head>
 <body>
+<a href="index.php"><img id="logo"
+	src="\assets\images\Redrocklogo.jpg" alt="logo" /></a>
+	

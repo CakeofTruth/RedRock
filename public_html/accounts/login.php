@@ -29,7 +29,7 @@ function AttemptSignIn($username,$password) {
 		if($row["Active"] > 0){
 			session_start (); 
 			setSessionVariables($row);
-	 		echo "<script> window.location = '" . $root . "/accounts/portal.php' </script>";
+	 		echo "<script> window.location = '" . $root . "/accounts/portal/portal.php' </script>";
 		}
 		else{
 			echo "Account is inactive. Check your email!";

@@ -3,10 +3,9 @@ $pagetitle = 'RedRock';
 $csspath = '/assets/css/redrock.css';
 include 'main/header.php';
 ?>
-
+<div class ="top">
 <h1>Red Rock Telecommunications</h1>
-<a href="index.html"> <img id="logo"
-	src="\assets\images\Redrocklogo.jpg" alt="logo" /></a>
+</div>
 <?php include 'main/menu.php'?>
 <div class="description">
 	<h2>The Future is Now- Cloud Based Telephone Services</h2>
