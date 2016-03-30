@@ -1,20 +1,14 @@
+<?php
+	$root = $_SERVER["DOCUMENT_ROOT"];
+	$pagetitle = "About Us";
+	include 'header.php';
+?>
 <!DOCTYPE html>
 <html>
-<head>
-	<title>About Us</title>
-	<link rel="stylesheet" href="redrock.css">
-</head>
 <body>
 	<h1>Red Rock Telecommunications</h1>
-	<a href="index.html"> <img id="logo" src="C:\MAMP\htdocs\RedRock\Red_Rock_Logo.jpg" alt="logo"/></a>
-	<div id="menu">
-		<ul>
-			<li><a href="index.html"><font color="#21B6A8">Home</font></a></li>
-			<li><a href="aboutus.html"><font color="#21B6A8">About Us</font></a>
-			<li><a href="http://support.redrocktelecom.com"><font color="#21B6A8">Customer Service</font></a></li>
-			<li><a href="contactus.html"><font color="#21B6A8">Contact Us</font></a></li>	
-		</ul>
-	</div>
+	<a href="index.html"> <img id="logo" src="<?php $root ?>/assets/images/Redrocklogo.jpg" alt="logo"/></a>
+	<?php include 'menu.php' ?>
 	<div class="description"><h2>About Us</h2></div>
 	<div class="content">
 		<p> Red Rock Telecommunications is the first company in the world to combine the power of Metaswitch with the voice 
