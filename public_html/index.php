@@ -1,6 +1,7 @@
 <?php
 $pagetitle = 'RedRock';
-include 'main/header.php'
+$csspath = '/assets/css/redrock.css';
+include 'main/header.php';
 ?>
 
 <h1>Red Rock Telecommunications</h1>
