@@ -1,16 +1,19 @@
 body {
-	background: maroon;
+	background: Champagne;
 	}
 h1 {
-	margin:auto;
+	color: maroon;
 	}
+#top{
+	margin: auto;
+}
 #menu{
 	margin-top: 40px;
 	padding: 24px;
 	text-align: center;
 	font-family: Raleway;
 	box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-	background-image: url(stonetexture.png);
+	background-image: url('/assets/images/stonetexture.png');
 	color:#BEC991;
 	font-size:20px;
 	text-decoration:none;
@@ -38,11 +41,6 @@ div {
 	border-radius: 20px;
 	background-color: teal;
 }
-h1 {
-	text-align: center;
-	padding-right: 300px;
-	color:#005D5E
-	}
 .description {
 	text-align: center;
 	color: #BEC991;

@@ -31,10 +31,10 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
 		}else{
 			echo '<div class="statusmsg">The url is either invalid 
 			or you already have activated your account.</div>';
-	}else{
+		}else{
 		}echo '<div class="statusmsg">Invalid approach,
 				please use the link that has been send to your email.</div>';
 }
-php?>
+?>
 </body>
 </html>
