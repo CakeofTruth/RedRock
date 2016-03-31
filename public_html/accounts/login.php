@@ -44,7 +44,7 @@ function AttemptSignIn($username,$password) {
 
 function generateSelectString($username,$password) {
 	$sql = "SELECT Username, Password, First_Name, Last_Name, Approver, Active FROM Accounts 
-			where username = '" . $username . "' and password = '" . $password . "'";
+			where username = '" . $username . "' and password = '" . $password . "' and Active='1'";
 	return $sql;
 }
 

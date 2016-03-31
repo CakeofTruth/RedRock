@@ -6,8 +6,6 @@ if(!empty($_GET['email']) && !empty($_GET['hash'])){
 	// Verify data
 	$email = $_GET['email']; // Set email variable
 	$hash = $_GET['hash']; // Set hash variable
-	echo 'Email: ' . $email . '<br>';
-	echo 'hash: ' . $hash;
 	}
 	$dbutil = new DBUtils();
 	$conn = $dbutil->getDBConnection();
@@ -18,9 +16,10 @@ if(!empty($_GET['email']) && !empty($_GET['hash'])){
 	echo "Match value: " . $match . '<br>';
 	if($match > 0){
 		$updateString = "UPDATE Accounts SET active='1' WHERE email='".$email."' AND hash='".$hash."' AND active='0'";
-		echo $updateString . '<br>';
 		$update = mysqli_query($conn,$updateString); 
 		echo '<div class="statusmsg">Your account has been activated, you can now login</div>';
+		//echo "<script> document.ready(window.setTimeout(location.href = '" . $root . "/accounts/login.php',5000)); </script>";
+		echo "<script> window.location = '/accounts/login.php' </script>";
 	}else{
 		echo '<div class="statusmsg">The url is either invalid or you already have activated your account.</div>';
 	}
