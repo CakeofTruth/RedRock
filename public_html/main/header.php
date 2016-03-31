@@ -9,6 +9,8 @@
 	<link rel="icon" type="image/png" href="<?php $root ?>/assets/images/Redrockfavicon.png"/>
 </head>
 <body>
-<a href="index.php"><img id="logo"
-	src="\assets\images\Redrocklogo.jpg" alt="logo" /></a>
+<a href="index.php"><img id="logo" src="\assets\images\Redrocklogo.jpg" alt="logo" /></a>
+<div class ="top">
+<h1>Red Rock Telecommunications</h1>
+</div>
 	
