@@ -1,39 +1,9 @@
-<html>
-	<head>	
-	<title> Create a New Account </title>
-	<style>
-	h1 {
-		font-size: 50px; 
-		text-align: center;
-	}
-	h2 {
-		text-align: center;
-	}
-	table {
-		margin: 0 auto;
-	}
-	table, th, td {
-		border: 1px solid black;
-		border-collapse: collapse;
-	}
-	#wrap .statusmsg{
-    font-size: 12px; /* Set message font size  */
-    padding: 3px; /* Some padding to make some more space for our text  */
-    background: #EDEDED; /* Add a background color to our status message   */
-    border: 1px solid #DFDFDF; /* Add a border arround our status message   */
-	}
-	</style>
-	</head>
-	<body>
-	<img src= "C:\Users\Rae\Pictures\Red Rock Logo.jpg" style= "float:left;"/>
+	<img src= "<?php $root ?>/assets/images/Redrocklogo.jpg" style= "float:left;"/>
 		<h1> Account Registration </h1>
 		<h2> Customer Information </h2>
 		<?php 
-    if(isset($msg)){  // Check if $msg is not empty
-        echo '<div class="statusmsg">'.$msg.'</div>'; // Display our message and wrap it with a div with the class "statusmsg".
-    } 
 ?>
-		<form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post">
+		<form action=<?php echo $root . '/accounts/Registration/AccountRegistration.php'; ?> method="post">
 		<table>
 			<tr> 
 				<td> First Name </td>

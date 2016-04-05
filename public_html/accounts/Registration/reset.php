@@ -1,5 +1,5 @@
 <?php
-	$host = "localhost:85";
+	$host = "107.180.46.223";
 	$dbusername = "redrock";
 	$dbpassword = "@dm!nP@$$1001";
 	$dbname = "RedRock";

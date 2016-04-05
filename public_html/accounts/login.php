@@ -29,7 +29,7 @@ function AttemptSignIn($username,$password) {
 		if($row["Active"] > 0){
 			session_start (); 
 			setSessionVariables($row);
-	 		echo "<script> window.location = '" . $root . "/accounts/portal/portal.php' </script>";
+	 		echo "<script> window.location = '" . $root . "/portal/portal.php' </script>";
 		}
 		else{
 			echo "Account is inactive. Check your email!";
@@ -44,7 +44,7 @@ function AttemptSignIn($username,$password) {
 
 function generateSelectString($username,$password) {
 	$sql = "SELECT Username, Password, First_Name, Last_Name, Approver, Active FROM Accounts 
-			where username = '" . $username . "' and password = '" . $password . "'";
+			where username = '" . $username . "' and password = '" . $password . "' and Active='1'";
 	return $sql;
 }
 
