@@ -12,10 +12,10 @@ $dbname = "RedRock";
 */
 
 	function getDBConnection() {
-		$servername = "localhost:3306";
-		$dbname = "Redrock_Cake";
-		$dbusername = "root";
-		$dbpassword = "Redrock123";
+		$servername = "107.180.46.223";
+		$dbname = "RedRock";
+		$dbusername = "redrock";
+		$dbpassword = "@dm!nP@$$1001";
 		
 		// Create connection
 		$conn = new mysqli ( $servername, $dbusername, $dbpassword, $dbname );
