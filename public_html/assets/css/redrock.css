@@ -1,47 +1,78 @@
+@CHARSET "ISO-8859-1";
 body {
 	background: Champagne;
-	}
+}
+
 h1 {
 	color: maroon;
-	}
-#top{
+}
+
+h2 {
+	text-align: center;
+}
+
+#top {
 	margin: auto;
 }
-#menu{
+
+#menu {
 	margin-top: 40px;
 	padding: 24px;
 	text-align: center;
 	font-family: Raleway;
-	box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 	background-image: url('/assets/images/stonetexture.png');
-	color:#BEC991;
-	font-size:20px;
-	text-decoration:none;
+	color: #BEC991;
+	font-size: 20px;
+	text-decoration: none;
 	padding: 0 10px;
 	margin: 0 10px;
-		}
-#menu li{
-	display:inline;
-	padding:20px;
+}
+
+#menu li {
+	display: inline;
+	padding: 20px;
 	color: #BEC991
-	}
+}
+
 #menu li:hover {
-	color:teal;
-	background-color:#B7641F;
-	}	 
+	color: teal;
+	background-color: #B7641F;
+}
+
 div {
 	border-raidus: 25px;
 	color: #BEC991
-	}
+}
+
 .content {
 	margin: auto;
 	width: 40%;
 	padding: 5px;
-	border:5px;
+	border: 5px;
 	border-radius: 20px;
 	background-color: teal;
 }
+
 .description {
 	text-align: center;
 	color: #BEC991;
-	}
+}
+
+table {
+	margin: 0 auto;
+}
+
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+#wrap .statusmsg {
+	font-size: 12px; /* Set message font size  */
+	padding: 3px; /* Some padding to make some more space for our text  */
+	background: #EDEDED;
+	/* Add a background color to our status message   */
+	border: 1px solid #DFDFDF;
+	/* Add a border arround our status message   */
+}

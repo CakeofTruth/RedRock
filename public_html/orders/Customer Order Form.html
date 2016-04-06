@@ -14,7 +14,7 @@
 	<body>
 		<h1> Red Rock Telecommunications Order Form <img src=" C:\Users\Rae\Pictures\Red Rock Logo.jpg" style= "float:left;"/></h1>
 		<h2> Customer Information </h2>
-	<form action= "customerorderform.php>" method="post">
+	<form action= "customerorderform.php>" method="post" enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td> Reseller Name: </td>
@@ -245,6 +245,8 @@
 		</table>
 		<h4>Order Details</h4>
 		<textarea name="orderdetails" rows="10" cols="100"></textarea>
+		<label for='uploaded_file'>Select A File To Upload:</label>
+		<input type="file" name="uploaded_file">
 		<br><br>
 		<input type="submit" value="Submit">
 		</form>

@@ -3,8 +3,6 @@
 	include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
 ?>
 
-	<h1>Red Rock Telecommunications</h1>
-	<a href="index.html"> <img id="logo" src="<?php $root ?>/assets/images/Redrocklogo.jpg" alt="logo"/></a>
 	<?php include 'menu.php' ?>
 	<div class="description"><h2>About Us</h2></div>
 	<div class="content">
