@@ -4,7 +4,6 @@ $csspath = '/assets/css/redrock.css';
 include 'main/header.php';
 ?>
 <div class ="top">
-<h1>Red Rock Telecommunications</h1>
 </div>
 <?php include 'main/menu.php'?>
 <div class="description">
