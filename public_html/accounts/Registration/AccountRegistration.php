@@ -79,7 +79,7 @@ Password: '.$password.'
 	Please click this ink to activate your account:
 	http://www.redrocktelecom.com/verify.php?email='.$email.'&hash='.$hash.'
 	';
-$headers = 'From:noreply@yourwebsite.com'  . "\r\n";
+$headers = 'From:noreply@redrocktelecom.com'  . "\r\n";
 mail($to, $subject,$message, $headers);
 echo "Mail Sent!";
 
@@ -116,7 +116,7 @@ function generateAccountInsertString($hash){
 
 function matches_password($confirm){
 	if(strcmp($confirm, $password)){
-		echo 'The password matches<br>';
+		echo 'The passwords match<br>';
 	}
 	else{
 		echo 'Passwords do not match';
@@ -128,7 +128,8 @@ function validate_password($password){
 		echo 'Your password doesn\'t suck<br>';
 	}
 	else{
-		echo 'Your password sucks.<br>';
+		echo 'Please create a password that is 8-15 characters and includes at least one uppercase letter, 
+				one lowercase letter, one number and one special character.<br>';
 	}
 	return $password;
 }
