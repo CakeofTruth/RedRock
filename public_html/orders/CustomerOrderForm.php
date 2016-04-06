@@ -1,3 +1,25 @@
+<?php 
+
+	include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
+	
+	include_once $root . '/classes/DBUtils.php';
+
+
+	$selectString = generateSelectString("HCON");//Will eventually be a $_SESSION variable
+	$dbutils = new DBUtils();
+	$conn = $dbutils->getDBConnection();
+
+	$result = $conn->query ( $selectString );
+	
+	if ($result->num_rows > 0) {
+		$row = $result->fetch_assoc () ;
+	}
+	else{
+		echo "Reseller not found";	
+	}
+
+?>
+
 <html>
 	<head>
 	<title> Customer Order Form </title>
@@ -18,7 +40,7 @@
 		<table>
 			<tr>
 				<td> Reseller Name: </td>
-				<td>  <input type="text" name="resellername" value="Meowchi TalkyTalks" > </td>
+				<td>  <input type="text" name="resellername" value="<?php echo $row["Company_Name"];?>" readonly> </td>
 			</tr>	
 			<tr>
 				<td> Reseller Billing Address 1: </td>
@@ -117,7 +139,7 @@
 			</tr>
 			<tr> 
 				<td> Service Provider Code: </td>
-				<td> <input type="text" name="spcode" value="MEOW"> </td>
+				<td> <input type="text" name="spcode" value="HCON"> </td>
 			<tr>
 				<td> End User Customer Name: </td>
 				<td> <input type="text" name="endusername" value="Princess_Fluffybutt"> </td>
@@ -248,7 +270,7 @@
 		<label for='uploaded_file'>Select A File To Upload:</label>
 		<input type="file" name="uploaded_file">
 		<br><br>
-		<input type="submit" value="Submit">
+		<input type="submit" value="Next">
 		</form>
 		<?php 
 			$name_of_uploaded_file =
@@ -289,3 +311,12 @@
 		?>
 	</body>
 </html>
+<?php 
+
+function generateSelectString($reseller) {
+	$sql = "SELECT `Serv_Prov_CD`, `Address1`, `Address2`, `City`, `State`, `Zip`, `Phone`, `Company_Name`, `Tier` FROM `Resellers`  
+			WHERE SERV_PROV_CD = '" . $reseller . "'";
+	return $sql;
+}
+
+?>
