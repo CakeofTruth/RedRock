@@ -14,7 +14,7 @@
 	<body>
 		<h1> Red Rock Telecommunications Order Form <img src=" C:\Users\Rae\Pictures\Red Rock Logo.jpg" style= "float:left;"/></h1>
 		<h2> Customer Information </h2>
-	<form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post">
+	<form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post" enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td> Reseller Name: </td>
@@ -245,8 +245,47 @@
 		</table>
 		<h4>Order Details</h4>
 		<textarea name="orderdetails" rows="10" cols="100"></textarea>
+		<label for='uploaded_file'>Select A File To Upload:</label>
+		<input type="file" name="uploaded_file">
 		<br><br>
 		<input type="submit" value="Submit">
 		</form>
-	<body>
+		<?php 
+			$name_of_uploaded_file =
+				basename($_FILES['uploaded_file']['name']);
+			$type_of_uploaded_file =
+				substr($name_of_uploaded_file,
+				strrpos($name_of_uploaded_file, '.') +1);
+			$size_of_uploaded_file =
+				$_FILES["uploaded_file"]["size"]/1024;
+			$max_allowed_file_size = 500;
+			$allowed_extensions = array("jpg", "jpeg", "doc", "pdf", "docx", "xls", "xlsx", "csv");
+			if($size_of_uploaded_file > $max_allowed_file_size)
+			{
+				$errors .= "\n Size of file should be less than $max_allowed_file_size";
+			}
+			$allowed_ext = false;
+			for ($i=0; $i<sizeof($allowed_extensions); $i++)
+			{
+				if(strcasecmp($allowed_extensions[$i],$type_of_uploaded_file) == 0)
+				{
+					$allowed_ext = true;
+				}
+			}
+			if(!$allowed_ext)
+			{$errors .="\n The uploaded file is not a supported file type.".
+			"Only the following file types are supported: ".implode(',',$allowed_extensions);
+			}
+			$path_of_uploaded_file = $upload_folder . $name_of_upload_file;
+			$tmp_path = $_FILES["uploaded_file"]["tmp_name"];
+			if(is_uploaded_file($tmp_path))
+			{
+				if(!copy($tmp_path,$path_of_uploaded_file))
+				{
+					$errors .= '\n Error while copying the uploaded file';
+				}
+			}
+			//http://www.html-form-guide.com/email-form/php-email-form-attachment.html guide for php email form attachment//
+		?>
+	</body>
 </html>

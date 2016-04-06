@@ -3,6 +3,8 @@ $pagetitle = 'RedRock';
 $csspath = '/assets/css/redrock.css';
 include 'main/header.php';
 ?>
+<div class ="top">
+</div>
 <?php include 'main/menu.php'?>
 <div class="description">
 	<h2>The Future is Now- Cloud Based Telephone Services</h2>
