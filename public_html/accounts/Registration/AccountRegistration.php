@@ -80,8 +80,8 @@ Password: '.$password.'
 	http://www.redrocktelecom.com/verify.php?email='.$email.'&hash='.$hash.'
 	';
 $headers = 'From:noreply@redrocktelecom.com'  . "\r\n";
-mail($to, $subject,$message, $headers);
-echo "Mail Sent!";
+$didsend = mail($to, $subject,$message, $headers);
+echo "Mail Sent status: " . $didsend;
 
 //echo "<script> window.location = 'login.php' </script>";
 }
