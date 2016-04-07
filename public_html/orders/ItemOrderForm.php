@@ -72,6 +72,7 @@
 						$rowhtml = '<tr>'
 							. '<td> <input type="number" name="' . $row["USOC"] . '"> </td>'
 							. '<td>' . $row["USOC"] . "</td>" 
+							. '<td>' . $row["Description"] . "</td>"
 							. '<td>' . $row["One_Time_Charge"] . "</td>" 
 							. '<td>' . $row["Recurring_Price"] . "</td>"
 							. '</tr>';
@@ -89,8 +90,8 @@
 
 <?php 
 	function getResellerItems($spcode){
-		$sql = "select RP.USOC as USOC, P.One_Time_Charge as One_Time_Charge, P.Recurring_Price as Recurring_Price
-		from Prices P join ResellerProducts RP on P.USOC = RP.USOC
+		$sql = "select RP.USOC as USOC, P.Description as Description, P.One_Time_Charge as One_Time_Charge, P.Recurring_Price as Recurring_Price
+		from Products P join ResellerProducts RP on P.USOC = RP.USOC
 		where RP.Reseller =\"" . $spcode . "\"";
 			
 		$dbutils = new DBUtils();
