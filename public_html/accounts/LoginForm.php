@@ -1,6 +1,5 @@
 <?php
 $pagetitle = "Red Rock Telecommunications Login Page";
-include ($_SERVER ["DOCUMENT_ROOT"] . 'main/header.php');
 ?>
 <div class="description">
 	<h1>Login Form</h1>
@@ -28,5 +27,5 @@ include ($_SERVER ["DOCUMENT_ROOT"] . 'main/header.php');
 
 
 <?php
-include ($_SERVER ["DOCUMENT_ROOT"] . 'main/footer.php');
+include ($_SERVER ["DOCUMENT_ROOT"] . '/main/footer.php');
 ?>

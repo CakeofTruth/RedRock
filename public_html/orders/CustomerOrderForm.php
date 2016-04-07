@@ -5,19 +5,30 @@
 	include_once $root . '/classes/DBUtils.php';
 
 
-	$selectString = generateSelectString("HCON");//Will eventually be a $_SESSION variable
+	$resellerSelect = generateResellersSelectString("HCON");//Will eventually be a $_SESSION variable
 	$dbutils = new DBUtils();
 	$conn = $dbutils->getDBConnection();
 
-	$result = $conn->query ( $selectString );
+	$resellerResult = $conn->query ( $resellerSelect );
 	
-	if ($result->num_rows > 0) {
-		$row = $result->fetch_assoc () ;
+	if ($resellerResult->num_rows > 0) {
+		$resellerRow = $resellerResult->fetch_assoc () ;
 	}
 	else{
 		echo "Reseller not found";	
 	}
+	
+	$accountsSelect = generateAccountsSelectString("3");
+	$accountResult = $conn->query ( $accountsSelect );
+	
+	if ($accountResult->num_rows > 0) {
 
+		$accountRow = $accountResult->fetch_assoc () ;
+	}
+	else{
+		echo "Account not found";	
+	}
+	
 ?>
 
 <html>
@@ -40,39 +51,38 @@
 		<table>
 			<tr>
 				<td> Reseller Name: </td>
-				<td>  <input type="text" name="resellername" value="<?php echo $row["Company_Name"];?>" readonly> </td>
+				<td>  <input type="text" name="resellername" value="<?php echo $resellerRow["Company_Name"];?>" readonly> </td>
 			</tr>	
 			<tr>
 				<td> Reseller Billing Address 1: </td>
-				<td> <input type="text" name="resellerba1" value="<?php echo $row["Address1"];?>" readonly> </td>
+				<td> <input type="text" name="resellerba1" value="<?php echo $resellerRow["Address1"];?>" readonly> </td>
 			</tr>
 			<tr>
 				<td> Reseller Billing Address 2: </td>
-				<td> <input type="text" name="resellerba2" value="<?php echo $row["Address2"];?>" readonly> </td>
+				<td> <input type="text" name="resellerba2" value="<?php echo $resellerRow["Address2"];?>" readonly> </td>
 			</tr>
 			<tr>
 				<td> City: </td>
-				<td> <input type="text" name="city" value="<?php echo $row["City"];?>" readonly> </td>
+				<td> <input type="text" name="city" value="<?php echo $resellerRow["City"];?>" readonly> </td>
 			</tr>
 			<tr>
 				<td> State: </td>
-				<td> <input type="text" name="state" value="<?php echo $row["State"];?>" readonly>
-						
+				<td> <input type="text" name="state" value="<?php echo $resellerRow["State"];?>" readonly>						
 			<tr> 
 				<td> Zip Code: </td>
-				<td> <input type="text" name="zipcode" value="<?php echo $row["Zip"];?>" readonly> </td>
+				<td> <input type="text" name="zipcode" value="<?php echo $resellerRow["Zip"];?>" readonly> </td>
 			</tr>
 			<tr> 
 				<td> Telephone Number: </td>
-				<td> <input type="text" name="telephonenumber" value="<?php echo $row["Phone"];?>" readonly> </td>
+				<td> <input type="text" name="telephonenumber" value="<?php echo $resellerRow["Phone"];?>" readonly> </td>
 			</tr>
 			<tr>
 				<td> Email Address: </td>
-				<td> <input type="text" name="emailaddress" value="<?php echo $row["Email"];?>" readonly> </td>
+				<td> <input type="text" name="emailaddress" value="<?php echo $accountRow["Email"];?>" readonly> </td>
 			</tr>
 			<tr>
 				<td> Reseller Contact Name: </td>
-				<td> <input type="text" name="resellercn" value="<?php echo $row["First_Name"]; echo $row["Last_Name"]?>" readonly> </td>
+				<td> <input type="text" name="resellercn" value="<?php echo $accountRow["First_Name"]; echo " " . $accountRow["Last_Name"]?>" readonly> </td>
 			<tr>
 				<td> Sales Representative: </td>
 				<td> <select name="salesrep">
@@ -83,22 +93,22 @@
 				</td>
 			<tr>
 				<td> Account Number: </td>
-				<td> <input type="text" name="accountnumber" value="<?php echo $row["Acct_No"];?>" readonly> </td>
+				<td> <input type="text" name="accountnumber" value="<?php echo $accountRow["Acct_No"];?>" readonly> </td>
 			</tr>
 			<tr> 
 				<td> Service Provider Code: </td>
-				<td> <input type="text" name="spcode" value="<?php echo $row["Serv_Prov_CD"];?>" readonly></td>
+				<td> <input type="text" name="spcode" value="<?php echo $resellerRow["Serv_Prov_CD"];?>" readonly></td>
 			<tr>
 				<td> End User Customer Name: </td>
-				<td> <input type="text" name="endusername" value="Princess_Fluffybutt"> </td>
+				<td> <input type="text" name="endusername" > </td>
 			</tr>
 			<tr>
 				<td> Main Telephone Number: </td>
-				<td> <input type="text" name="cmtelephone" value="484848484848"> </td>
+				<td> <input type="text" name="cmtelephone" > </td>
 			</tr>
 			<tr>
 				<td> Reseller Reference ID: </td>
-				<td>  <input type="text" name="resellerrefid" value="whateverthefuckthisis"> </td>
+				<td>  <input type="text" name="resellerrefid" > </td>
 			</tr>
 			<tr>
 				<td> Requested Built/ Service Provisioned Date: </td>
@@ -122,13 +132,13 @@
 				<td> Customer Time Zone: </td>
 				<td> <select name="customertimezone">
 						<option value = "customertimezone"> Customer Time Zone </option>
-						<option value = "customertimezone"> Eastern Time Zone </option>
-						<option value = "customertimezone"> Central Time Zone </option>
-						<option value = "customertimezone" selected> Mountain Time Zone </option>
-						<option value = "customertimezone"> Arizona Time Zone </option>
-						<option value = "customertimezone"> Pacific Time Zone </option>
-						<option value = "customertimezone"> Alaska Time Zone </option>
-						<option value = "customertimezone"> Hawaii-Aleutian Time Zone </option>
+						<option value = "easterntimezone"> Eastern Time Zone </option>
+						<option value = "centraltimezone"> Central Time Zone </option>
+						<option value = "mountaintimezone" selected> Mountain Time Zone </option>
+						<option value = "arizonatimezone"> Arizona Time Zone </option>
+						<option value = "pacifictimezone"> Pacific Time Zone </option>
+						<option value = "alaskatimezone"> Alaska Time Zone </option>
+						<option value = "hawaiialeutiantimezone"> Hawaii-Aleutian Time Zone </option>
 					</select>
 				</td>
 		</table>
@@ -137,7 +147,7 @@
 			<tr>
 				<td> Does this order require that 911 be provisioned per the data provided below? </td>
 				<td> <input type="radio" name="emergprovisionrequired"  value= "Yes"> Yes<br> </td>
-				<td> <input type="radio" name="emergprovisionrequired" value= "No"> No<br> </td>
+				<td> <input type="radio" name="emergprovisionrequired" value= "No" selected> No<br> </td>
 			</tr>
 			<tr>
 				<td> Service/911 Address 1: </td>
@@ -214,13 +224,13 @@
 			</tr>	
 		</table>
 		<h4>Order Details</h4>
-		<textarea name="orderdetails" rows="10" cols="100"></textarea>
-		<label for='uploaded_file'>Select A File To Upload:</label>
-		<input type="file" name="uploaded_file">
+		<textarea name="orderdetails" resellerRows="100" cols="100"></textarea>
+		<!--<label for='uploaded_file'>Select A File To Upload:</label>
+		input type="file" name="uploaded_file"-->
 		<br><br>
 		<input type="submit" value="Next">
 		</form>
-		<?php 
+	<!--<?php 
 			$name_of_uploaded_file =
 				basename($_FILES['uploaded_file']['name']);
 			$type_of_uploaded_file =
@@ -256,15 +266,19 @@
 				}
 			}
 			//http://www.html-form-guide.com/email-form/php-email-form-attachment.html guide for php email form attachment//
-		?>
+		?> -->
 	</body>
 </html>
 <?php 
 
-function generateSelectString($reseller) {
+function generateResellersSelectString($reseller) {
 	$sql = "SELECT `Serv_Prov_CD`, `Address1`, `Address2`, `City`, `State`, `Zip`, `Phone`, `Company_Name`, `Tier` FROM `Resellers`  
-			WHERE SERV_PROV_CD = '" . $reseller . "'";
+			WHERE SERV_PROV_CD = '" . $reseller . "'";		
 	return $sql;
 }
-
+function generateAccountsSelectString ($Acct_No) {
+	$sql = "Select Email ,First_Name, Last_Name, Acct_No FROM Accounts
+			WHERE Acct_No = '" . $Acct_No . "'";
+	return $sql;
+}
 ?>

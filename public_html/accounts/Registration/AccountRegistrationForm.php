@@ -1,9 +1,8 @@
 	<img src= "<?php $root ?>/assets/images/Redrocklogo.jpg" style= "float:left;"/>
 		<h1> Account Registration </h1>
 		<h2> Customer Information </h2>
-		<?php 
-?>
-		<form action=<?php echo $root . '/accounts/Registration/AccountRegistration.php'; ?> method="post">
+
+		<form action="<?php echo $root ?>/accounts/Registration/AccountRegistration.php" method="post">
 		<table>
 			<tr> 
 				<td> First Name </td>

@@ -3,22 +3,17 @@
 	include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
 
 	if ( empty ( $_POST )) {
-		echo "this isn't going to work<br>";	
-	}
-	else{
-		echo "this might work <br>";
+		echo  "<script> window.location = 'PlaceOrder.php' </script>";
 	}
 		
 	include_once $root . '/classes/DBUtils.php';
 
 	$result = getResellerItems($_POST["spcode"]);
 
-	if ($result->num_rows > 0) {
-		echo "found some stuff";
-	}
-	else{
+	if ($result->num_rows == 0) {
 		echo "didn't find any product information";
 	}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -53,7 +48,7 @@
 	<body>
 	<h1> Red Rock Ordering System </h1>
 		<img src= " C:\Users\Rae\Pictures\Red Rock Logo.jpg" style= "float:left;"/>
-		<form action="OrderForm.php" method="post">	
+		<form action="OrderConfirm.php" method="post">	
 		<table>
 			<thead>
 				<tr>
@@ -67,8 +62,7 @@
 			<tbody>
 				<?php 
 					while($row  = $result->fetch_array()){
-						echo 'is tacos on tuesdays';
-						
+
 						$rowhtml = '<tr>'
 							. '<td> <input type="number" name="' . $row["USOC"] . '"> </td>'
 							. '<td>' . $row["USOC"] . "</td>" 
@@ -82,6 +76,34 @@
 
 				?>
 			</table>
+			<input type="hidden" name="resellername" value="<?php echo $_POST["resellername"]; ?>">
+			<input type="hidden" name="resellerba1" value="<?php echo $_POST["resellerba1"]; ?>">
+			<input type="hidden" name="resellerba2" value="<?php echo $_POST["resellerba2"]; ?>">
+			<input type="hidden" name="city" value="<?php echo $_POST["city"]; ?>">
+			<input type="hidden" name="state" value="<?php echo $_POST["state"]; ?>">
+			<input type="hidden" name="zipcode" value="<?php echo $_POST["zipcode"]; ?>">
+			<input type="hidden" name="telephonenumber" value="<?php echo $_POST["telephonenumber"]; ?>">
+			<input type="hidden" name="emailaddress" value="<?php echo $_POST["emailaddress"]; ?>">
+			<input type="hidden" name="resellercn" value="<?php echo $_POST["resellercn"]; ?>">
+			<input type="hidden" name="salesrep" value="<?php echo $_POST["salesrep"]; ?>">
+			<input type="hidden" name="accountnumber" value="<?php echo $_POST["accountnumber"]; ?>">
+			<input type="hidden" name="spcode" value="<?php echo $_POST["spcode"]; ?>">
+			<input type="hidden" name="endusername" value="<?php echo $_POST["endusername"]; ?>">
+			<input type="hidden" name="cmtelephone" value="<?php echo $_POST["cmtelephone"]; ?>">
+			<input type="hidden" name="resellerrefid" value="<?php echo $_POST["resellerrefid"]; ?>">
+			<input type="hidden" name="requestedbuilt" value="<?php echo $_POST["requestedbuilt"]; ?>">
+			<input type="hidden" name="requestedinservice" value="<?php echo $_POST["requestedinservice"]; ?>">
+			<input type="hidden" name="orsooner" value="<?php echo $_POST["orsooner"]; ?>">
+			<input type="hidden" name="addtoexistingcustomer" value="<?php echo $_POST["addtoexistingcustomer"]; ?>">
+			<input type="hidden" name="customertimezone" value="<?php echo $_POST["customertimezone"]; ?>">
+			<input type="hidden" name="emergprovisionrequired" value="<?php echo $_POST["emergprovisionrequired"]; ?>">
+			<input type="hidden" name="emergaddress1" value="<?php echo $_POST["emergaddress1"]; ?>">
+			<input type="hidden" name="emergaddress2" value="<?php echo $_POST["emergaddress2"]; ?>">
+			<input type="hidden" name="emergcity" value="<?php echo $_POST["emergcity"]; ?>">
+			<input type="hidden" name="emergstate" value="<?php echo $_POST["emergstate"]; ?>">
+			<input type="hidden" name="emergzipcode" value="<?php echo $_POST["emergzipcode"]; ?>">
+			<input type="hidden" name="emergphonenumber" value="<?php echo $_POST["emergphonenumber"]; ?>">
+			<input type="hidden" name="orderdetails" value="<?php echo $_POST["orderdetails"]; ?>">
 			<input type="submit" value="Submit">
 		</form>
 	</body>
