@@ -1,7 +1,112 @@
-<?php 
-	include 'main/header.php';
-?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
 
+    <!-- this line will appear only if the website is visited with an iPad -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2, user-scalable=yes" />
+
+    <title>Red Rock Telecommunications</title>
+
+    <!-- RESET STYLESHEET -->
+    <link rel="stylesheet" type="text/css" media="all" href="/css/reset.css" />
+    <!-- BOOTSTRAP STYLESHEET -->
+    <link rel="stylesheet" type="text/css" media="all" href="/css/bootstrap.css" />
+    <!-- MAIN THEME STYLESHEET -->
+    <link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+
+    <!-- [favicon] begin -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <!-- [favicon] end -->
+
+    <!-- Touch icons more info: http://mathiasbynens.be/notes/touch-icons -->
+    <!-- For iPad3 with retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x.png" />
+    <!-- For first- and second-generation iPad: -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x.png" />
+    <!-- For first- and second-generation iPad: -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x.png">
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-57x.png" />
+    <link rel='stylesheet' id='thickbox-css'  href='/js/thickbox/thickbox.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='usquare-css-css'  href='/sliders/usquare/css/frontend/usquare_style.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='google-fonts-css'  href='http://fonts.googleapis.com/css?family=Playfair+Display%7COpen+Sans+Condensed%3A300%7COpen+Sans%7CShadows+Into+Light%7CMuli%7CDroid+Sans%7CArbutus+Slab%7CAbel&#038;ver=3.5.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='responsive-css'  href='/css/responsive.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='polaroid-slider-css'  href='/sliders/polaroid/css/polaroid.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='ahortcodes-css'  href='/css/shortcodes.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='contact-form-css'  href='/css/contact_form.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='custom-css'  href='/css/custom.css' type='text/css' media='all' />
+
+    <style type="text/css">
+            body { background-color: #ffffff; background-image: url('images/bg-pattern.png'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }
+    </style>
+
+    <script type='text/javascript' src='js/jquery/jquery.js'></script>
+    
+
+</head>
+<!-- END HEAD -->
+<!-- START BODY -->
+<body class="home page no_js responsive stretched">
+
+<!-- START BG SHADOW -->
+<div class="bg-shadow">
+
+<!-- START WRAPPER -->
+    <div id="wrapper" class="container group">
+
+        <!-- START TOP BAR -->
+        <div id="topbar">
+            <div class="container">
+                <div class="row">
+                    <div id="nav" class="span12 light">
+
+                        <!-- START MAIN NAVIGATION -->
+
+                        <ul id="menu-menu" class="level-1">
+							<li><a href="/index.php"><font color="#21B6A8">Home</font></a></li>
+							<li><a href="/main/aboutus.php"><font color="#21B6A8">About Us</font></a>
+							<li><a href="http://support.redrocktelecom.com"><font color="#21B6A8">Customer Service</font></a></li>
+							<li><a href="/main/contactus.php"><font color="#21B6A8">Contact Us</font></a></li>
+                        </ul>
+                        <!-- END MAIN NAVIGATION -->
+                        </div>
+                </div>
+            </div>
+        </div>
+         <!-- END TOP BAR -->
+
+    <!-- START HEADER -->
+    <div id="header" class="group margin-bottom">
+
+        <div class="group container">
+            <div class="row" id="logo-headersidebar-container">
+                <!-- START LOGO -->
+                <div id="logo" class="span8 group">
+                    <a id="logo-img" href="\index.php" title="Red Rock">
+                        <img src="\assets\images\redrocklogo.png" title="Red Rock" alt="Red Rock" />
+                    </a>
+					<p id='tagline'>The Future is Now- Cloud Based Telephone Services</p>
+                </div>
+                <!-- END LOGO -->
+
+                <!-- START HEADER SIDEBAR -->
+                <div id="header-sidebar" class="span4 group">
+                    <div class="widget-first widget header-text-image">
+                        <div class="text-image" style="text-align:left">
+                            <img src="/images/phone1.png" alt="CUSTOMER SUPPORT" />
+                        </div>
+                        <div class="text-content">
+                            <h3>CUSTOMER SUPPORT</h3>
+                            <p>(602) 802-8450</p>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                 </div>
+            </div>
+        </div>
         <!-- BEGIN FLEXSLIDER SLIDER -->
         <div id="slider-polaroid-0" class="slider slider-polaroid polaroid no-responsive" style="height:400px;">
             <div class="thumbs  container">
@@ -9,7 +114,7 @@
                     <img src="images/slider/flexslider/001-150x150.png" alt="images/slider/flexslider/001.png" />
                     <div class="slide-content container align-right" style="background-image:url('images/slider/flexslider/001.png');">
                         <div class="text">
-                            <h2>With Libra we will make you HAPPY.</h2>
+                            <h2>With Red Rock we will make you HAPPY.</h2>
                             <p>
                                 Quisque nec mi eu nibh aliquam elementum. Ut cursus nisl sit amet sapien dignissim at adipiscing lectus ornare. Aenean id lorem orci.
                                 Morbi lacinia nunc quis lectus condimentum rutrum.
@@ -41,19 +146,19 @@
                         <div class="container">
                             <div class="text">
                                 <h2>
-                                    <span style="color: #0c243d;">Need a WordPress</span>
+                                    <span style="color: #0c243d;">Need a Communications</span>
                                     <span style="color: #919303;">solution?</span>
                                 </h2>
 
                                 <p>
-                                    <span style="color: #434f5b;">Check this theme.</span>
+                                    <span style="color: #434f5b;">Come meet RedRock</span>
                                     <br />
-                                    <span style="color: #8b8005;">Flexible, versatile, pixel perfect.</span>
+                                    <span style="color: #8b8005;">Flexible, versatile, and impeccable customer service</span>
                                 </p>
 
                                 <p>
                                     <span style="color: #434f5b;">
-                                    A complete solution for your corporate/portfolio site.<br />
+                                    A complete solution for your large or small business<br />
                                     </span>
                                 </p>
                             </div>
@@ -97,20 +202,16 @@
                         <div class="box-sections numbers-sections margin-bottom ">
                                 <div class="number number-left number-zero"></div>
                                 <div class="number number-right number-1"></div>
-                                <h4>
-                                    Marketing <span class="title-highlight">solutions</span>
-                                </h4>
+                                <a href="/main/metaswitchsolutions.php"><h4>Metaswitch <span class="title-highlight">Solutions</span></h4></a>
                                 <p>
-                                    Quisque nec mi eu nibh aliquam elementum. Ut cursus nisl sit amet sapien dignissim at adipiscing lectus ornare lorem lorem dieus.
+                                  Experience the innovative and transformative power of the Metaswitch.  Click here to learn more about its features.
                                 </p>
                         </div>
 
                         <div class="box-sections numbers-sections margin-bottom ">
                             <div class="number number-left number-zero"></div>
                             <div class="number number-right number-2"></div>
-                            <h4>
-                                Brand <span class="title-highlight">identity</span>
-                            </h4>
+                           	<a href="/main/avayasolutions.php"><h4>Avaya <span class="title-highlight">Solutions</span></h4></a>
                             <p>
                                 Quisque nec mi eu nibh aliquam elementum. Ut cursus nisl sit amet sapien dignissim at adipiscing lectus ornare lorem lorem dieus.
                             </p>
@@ -119,11 +220,9 @@
                         <div class="box-sections numbers-sections margin-bottom ">
                             <div class="number number-left number-zero"></div>
                             <div class="number number-right number-3"></div>
-                            <h4>
-                                Web <span class="title-highlight">design</span>
-                            </h4>
+                            <a href="/main/whycloud.php"><h4>Why <span class="title-highlight">Cloud?</span></h4></a>
                             <p>
-                                Quisque nec mi eu nibh aliquam elementum. Ut cursus nisl sit amet sapien dignissim at adipiscing lectus ornare lorem lorem dieus.
+                                Want to discover how the Cloud can transform the way you do business? Click here to find out!
                             </p>
                         </div>
 
@@ -154,14 +253,14 @@
                                         </li>
 
                                         <li style="height: 70px;">
-                                            <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/Tutti_1_01.png" style="max-height: 70px;" class="logo" />
+                                            <a href="http://www.avaya.com/usa" class="bwWrapper" >
+                                                <img src="/assets/images/avayalogo.png" style="max-height: 70px;" class="logo" />
                                             </a>
                                         </li>
 
                                         <li style="height: 70px;">
-                                            <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/tiecafe-011.png" style="max-height: 70px;" class="logo" />
+                                            <a href="http://www.metaswitch.com" class="bwWrapper" >
+                                                <img src="/assets/images/metaswitchlogo.png" style="max-height: 70px;" class="logo" />
                                             </a>
                                         </li>
 
@@ -239,7 +338,6 @@
 
                         <script type="text/javascript">
                             jQuery(function($){
-
                                 $('.logos-slides').imagesLoaded(function(){
                                     $('.logos-slides').carouFredSel({
                                         auto: true,
@@ -254,7 +352,6 @@
                                             duration  :	500				}
                                     });
                                 });
-
                                 $('.bwWrapper').BlackAndWhite({
                                     hoverEffect : true, // default true
                                     // set the path to BnWWorker.js for a superfast implementation
@@ -266,9 +363,7 @@
                                         fadeOut: 300 // 800ms for fadeOut animations
                                     }
                                 });
-
                                 $("a.bwWrapper[href='#']").click(function(){ return false })
-
                             });
                         </script>
 
@@ -293,21 +388,21 @@
         <div class="container">
             <div class="row">
                 <div class="footer-widgets-area with-sidebar-right">
-                    <div class="widget-first widget span2 widget_text"><h3>About us</h3>
+                    <div class="widget-first widget span2 widget_text"><a href="/main/aboutus.php"><h3>About Us</h3></a>
                         <div class="textwidget">
-                            Aliquam pellentesque pellentesque turpis, ut <a href="#">bibendum sapien</a> sollicitudin nec
+                            Aliquam pellentesque pellentesque turpis, ut sollicitudin nec
                             plasiren.
                             Pellentesque posuere ornare placerat. Suspendisse potenti.
                         </div>
                     </div>
 
                     <div class="widget span2 widget_nav_menu">
-                        <h3>A menu widget</h3>
+                        <h3>Navigation</h3>
 
                         <div class="menu-widget-footer-container">
                             <ul id="menu-widget-footer" class="menu">
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="accordion-style.html">About</a>
+                                    <a href="/main/ourteam.php">Our Team</a>
                                 </li>
 
                                 <li class="menu-item menu-item-type-post_type">
@@ -330,117 +425,17 @@
                                     <a href="/accounts/login.php">Resources</a>
                                 </li>
                             </ul>
+                        </div>   
+                        </div>   
+                   		 <div class="footer-widgets-area with-sidebar-right">
+                  	  	 	<div class="widget-first widget span2 widget_text"><a href="/main/contactus.php"><h3>Contact Us</h3></a>
+                        		<div class="textwidget">
+                   		 		 	Address: 3719 E La Salle St. <br>
+					 				Phoenix, AZ, 85040 <br>
+									Front Desk: (602)-802-8400 <br>
+									Customer Service: (602)-802-8450 <br>
                         </div>
-                    </div>
-
-                    <div class="widget-last widget span2 widget_nav_menu">
-                        <h3>Socialize</h3>
-
-                        <div class="menu-socialize-container">
-                            <ul id="menu-socialize" class="menu">
-
-                                <li class="menu-item menu-item-type-custom">
-                                    <a href="#">Facebook</a>
-                                </li>
-
-                                <li class="menu-item menu-item-type-custom">
-                                    <a href="#">Twitter</a>
-                                </li>
-
-                                <li class="menu-item menu-item-type-custom">
-                                    <a href="#">LinkedIn</a>
-                                </li>
-
-                                <li class="menu-item menu-item-type-custom">
-                                    <a href="#">Google+</a>
-                                </li>
-
-                                <li class="menu-item menu-item-type-custom">
-                                    <a href="#">Pinterest</a>
-                                </li>
-
-                                <li class="menu-item menu-item-type-custom">
-                                    <a href="#">Flickr</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="footer-widgets-sidebar with-sidebar-right">
-                    <div  class="widget-first widget span6 yit_quick_contact">
-                        <h3>Get in touch</h3>
-
-                        <form class="contact-form row" method="post" action="" enctype="multipart/form-data">
-
-                            <div class="usermessagea"></div>
-                            <fieldset>
-                                <ul>
-                                    <li class="text-field with-icon span3">
-                                        <label>
-                                            <span class="mainlabel">Name</span>
-                                        </label>
-
-                                        <div class="input-prepend">
-                                            <span class="add-on">
-                                                <img src="images/footer/author-footer.png" alt="" title=""/></span>
-                                            <input type="text" name="yit_contact[name]" class="with-icon required" value=""/>
-                                        </div>
-                                        <div class="msg-error"></div>
-                                        <div class="clear"></div>
-                                    </li>
-
-                                    <li class="text-field with-icon span3">
-                                        <label>
-                                            <span class="mainlabel">Email</span>
-                                        </label>
-
-                                        <div class="input-prepend">
-                                            <span class="add-on">
-                                                <img src="images/footer/envelope-footer.png" alt="" title=""/>
-                                            </span>
-                                            <input type="text" name="yit_contact[email]" class="with-icon required email-validate" value=""/>
-                                        </div>
-                                        <div class="msg-error"></div>
-                                        <div class="clear"></div>
-                                    </li>
-
-                                    <li class="textarea-field with-icon span6">
-                                        <label>
-                                            <span class="mainlabel">Message</span>
-                                        </label>
-
-                                        <div class="input-prepend">
-                                            <span class="add-on">
-                                                <img src="images/footer/pencil-footer.png" alt="" title=""/>
-                                            </span>
-                                            <textarea name="yit_contact[message]" rows="8" cols="30" class="with-icon required"></textarea>
-                                        </div>
-                                        <div class="msg-error"></div>
-                                        <div class="clear"></div>
-                                    </li>
-
-                                    <li class="submit-button span6">
-                                        <div style="position:absolute;left:-9999px;">
-                                            <input type="text" name="email_check_2" id="email_check_2" value=""/>
-                                        </div>
-                                        <input type="hidden" name="yit_action" value="sendemail" id="yit_action"/>
-                                        <input type="hidden" name="yit_referer" value="index.html"/>
-                                        <input type="hidden" name="id_form" value="228"/>
-                                        <input type="submit" name="yit_sendemail" value="SEND" class="sendmail alignright"/>
-                                        <div class="clear"></div>
-                                    </li>
-                                </ul>
-                            </fieldset>
-                        </form>
-
-                        <script type="text/javascript">
-                            var messages_form_228 = {
-                                name: "Insert the name",
-                                email: "Insert a valid email",
-                                message: "Insert a message"
-                            };
-                        </script>
-
+                   	 </div>
                     </div>
                 </div>
             </div>

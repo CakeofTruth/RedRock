@@ -2,7 +2,7 @@
 	$pagetitle = "About Us";
 	include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
 ?>
-
+	<div class="clear"></div>
 	<div class="description"><h2>About Us</h2></div>
 	<div class="content">
 		<p> Red Rock Telecommunications is the first company in the world to combine the power of Metaswitch with the voice 
