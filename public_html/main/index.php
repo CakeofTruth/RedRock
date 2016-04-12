@@ -111,7 +111,7 @@
         <div id="slider-polaroid-0" class="slider slider-polaroid polaroid no-responsive" style="height:400px;">
             <div class="thumbs  container">
                 <div class="thumb">
-                    <img src="images/slider/flexslider/001-150x150.png" alt="images/slider/flexslider/001.png" />
+                    <img src="/assets/images/phonecustomer.png" alt="/assets/images/phonecustomer.png" />
                     <div class="slide-content container align-right" style="background-image:url('images/slider/flexslider/001.png');">
                         <div class="text">
                             <h2>With Red Rock we will make you HAPPY.</h2>
