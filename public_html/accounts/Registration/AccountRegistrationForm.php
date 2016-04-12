@@ -1,4 +1,6 @@
+
 	<img src= "<?php $root ?>/assets/images/Redrocklogo.jpg" style= "float:left;"/>
+
 		<h1> Account Registration </h1>
 		<h2> Customer Information </h2>
 
