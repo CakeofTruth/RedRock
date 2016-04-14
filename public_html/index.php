@@ -200,32 +200,42 @@
                 <div id="content-home" class="span12 content group">
                     <div class="page type-page status-publish hentry group">
                         <div class="box-sections numbers-sections margin-bottom ">
-                                <div class="number number-left number-zero"></div>
-                                <div class="number number-right number-1"></div>
-                                <a href="/main/metaswitchsolutions.php"><h4>Metaswitch <span class="title-highlight">Solutions</span></h4></a>
-                                <p>
-                                  Experience the innovative and transformative power of the Metaswitch.  Click here to learn more about its features.
-                                </p>
-                        </div>
-
-                        <div class="box-sections numbers-sections margin-bottom ">
-                            <div class="number number-left number-zero"></div>
-                            <div class="number number-right number-2"></div>
-                           	<a href="/main/avayasolutions.php"><h4>Avaya <span class="title-highlight">Solutions</span></h4></a>
+                        	<a href="/main/whycloud.php">
+                            	<div class="number number-left number-zero"></div>
+                            	<div class="number number-right number-1"></div>
+                            </a>
+                           <h4>Why <span class="title-highlight">Cloud?</span></h4>
                             <p>
-                                Quisque nec mi eu nibh aliquam elementum. Ut cursus nisl sit amet sapien dignissim at adipiscing lectus ornare lorem lorem dieus.
+                                Providing a professional experience when your customers call is critical - it can be the difference
+								between winning or losing business. So no matter how small your business, you should have access
+								to the same features and professional functionality of a big company. With Hosted Voice, Red Rock
+								delivers a best-in-class phone system with all the bells and whistles of a big company phone system
+								- all at an incredibly attractive price.
                             </p>
                         </div>
+                        <div class="box-sections numbers-sections margin-bottom ">
+                        		<a href="/main/mobileintegration.php">
+                                	<div class="number number-left number-zero"></div>
+                                	<div class="number number-right number-2"></div>
+                                </a>
+                                <h4>Mobile<span class="title-highlight">Integration</span></h4>
+                                <p>
+                                 Your working life moves constantly from desk to laptop to smartphone to iPad.  Now you can use all the features of
+                                 RedRock phone services whether at your desk, at home or on the move.
+                                 </p>
+                        </div>
 
                         <div class="box-sections numbers-sections margin-bottom ">
+                            <a href="/main/contactcenter.php">
                             <div class="number number-left number-zero"></div>
                             <div class="number number-right number-3"></div>
-                            <a href="/main/whycloud.php"><h4>Why <span class="title-highlight">Cloud?</span></h4></a>
+                           	<h4>Contact <span class="title-highlight">Center</span></h4>
+                           	</a>
                             <p>
-                                Want to discover how the Cloud can transform the way you do business? Click here to find out!
+                                Cloud Contact Center offers more functionality than traditional hardware at a fraction of the cost.  Our Cloud Contact Center
+                                delivers a customizeable and easy to use call center solution so you can enhance your customer experience and deliver world class support.
                             </p>
                         </div>
-
                         <div class="box-sections numbers-sections margin-bottom  last">
                             <div class="number number-left number-zero"></div>
                             <div class="number number-right number-4"></div>
