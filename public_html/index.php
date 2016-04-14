@@ -85,7 +85,7 @@
                 <!-- START LOGO -->
                 <div id="logo" class="span8 group">
                     <a id="logo-img" href="\index.php" title="Red Rock">
-                        <img src="\assets\images\redrocklogo.png" title="Red Rock" alt="Red Rock" />
+                        <img src="\assets\images\Redrocklogo.jpg" title="Red Rock" alt="Red Rock" />
                     </a>
 					<p id='tagline'>The Future is Now- Cloud Based Telephone Services</p>
                 </div>
