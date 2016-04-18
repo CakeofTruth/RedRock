@@ -24,7 +24,7 @@
 						</span>
 						<input type="text" name="yit_contact[name]" class="with-icon required" value>
 					</div>
-					<div class-"msg-error"></div>
+					<div class="msg-error"></div>
 					<div class="clear"></div>
 					</li>
 					<li class="text-field with-icon span3">
@@ -42,11 +42,11 @@
 					</li>
 					<li class="textarea-field with-icon span6">
 					<label>
-						<span class-"mainlabel">Message</span>
+						<span class="mainlabel">Message</span>
 					</label>
 					<div class="input-prepend">
 						<span class="add-on">
-							<img src="/iamges/footer/pencil-footer.png" alt title>
+							<img src="/images/footer/pencil-footer.png" alt title>
 						</span>
 						<textarea name="yit_contact[message]" rows="8" cols="30" class="with-icon required"></textarea>
 					</div>
@@ -55,7 +55,7 @@
 					</li>
 					<li class="submit-button span6">
 						<div style="position:absolute;left:-9999px;"></div>
-							<input type="text" name-"email_check_2" id="email_check_2" value>
+							<input type="text" name="email_check_2" id="email_check_2" value>
 						</div>
 						<input type="hidden" name="yit_action" value="sendemail" id="yit_action">
 						<input type="hidden" name="yit_referer" value="index.php">
