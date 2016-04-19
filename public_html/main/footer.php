@@ -1,17 +1,16 @@
-<div id="footer">
+    <!-- START FOOTER -->
+    <div id="footer">
         <div class="container">
             <div class="row">
                 <div class="footer-widgets-area with-sidebar-right">
-                    <div class="widget-first widget span2 widget_text"><a href="/main/aboutus.php">
+                    <div class="widget-first widget span2 widget_text"><a href="/main/aboutus.php"><h3>About Us</h3></a>
                         <div class="textwidget">
-                        	<h3>About Us</h3>
                             Aliquam pellentesque pellentesque turpis, ut sollicitudin nec
                             plasiren.
                             Pellentesque posuere ornare placerat. Suspendisse potenti.
-                            </a>
                         </div>
                     </div>
-					
+
                     <div class="widget span2 widget_nav_menu">
                         <h3>Navigation</h3>
 
@@ -43,15 +42,16 @@
                             </ul>
                         </div>   
                         </div>   
-                        <div class="clear space"></div>
-                   		 <div class="footer-widgets-sidebar with-sidebar-right">
-                   		 <div class= "contact-info">
-                   		 	<h3>Contact Us</h3> 
+                   		 <div class="footer-widgets-area with-sidebar-right">
+                  	  	 	<div class="widget-first widget span3 widget_text"><a href="/main/contactus.php">
+                  	  	 		<h3>Contact Us</h3>
+                        		<div class= "contact-info"> 
 								<div class="sidebar-nav">
 									<ul>
 										<li>
 											<i class="icon-map-marker" style="color#979797; font-size:20px"></i>
-												Address: 3719 E La Salle St. Phoenix, AZ, 85040
+												Address: 3719 E La Salle St. <br>
+												Phoenix, AZ, 85040
 										</li>
 										<li>
 											<i class="icon-info-sign" style="color:#979797; font-size:20px"></i>
@@ -68,10 +68,13 @@
 									</ul>
 								</div>
 							</div>
-							</div>
-                		</div>
-           			 </div>
-      			  </div>
+							</a>
+                   	 </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- END FOOTER -->
 
     <!-- START COPYRIGHT -->
@@ -102,26 +105,26 @@
 </div>
 <!-- END BG SHADOW -->
 
-<script type='text/javascript' src='js/comment-reply.min.js'></script>
-<script type='text/javascript' src='js/underscore.min.js'></script>
-<script type='text/javascript' src='js/jquery/jquery.masonry.min.js'></script>
-<script type='text/javascript' src='sliders/polaroid/js/jquery.polaroid.js'></script>
-<script type='text/javascript' src='js/jquery.colorbox-min.js'></script>
-<script type='text/javascript' src='js/jquery.easing.js'></script>
-<script type='text/javascript' src='js/jquery.carouFredSel-6.1.0-packed.js'></script>
-<script type='text/javascript' src='js/jQuery.BlackAndWhite.js'></script>
-<script type='text/javascript' src='js/jquery.touchSwipe.min.js'></script>
-<script type='text/javascript' src='sliders/polaroid/js/jquery.transform-0.8.0.min.js'></script>
-<script type='text/javascript' src='sliders/polaroid/js/jquery.preloader.js'></script>
-<script type='text/javascript' src='js/responsive.js'></script>
-<script type='text/javascript' src='js/mobilemenu.js'></script>
-<script type='text/javascript' src='js/jquery.superfish.js'></script>
-<script type='text/javascript' src='js/jquery.placeholder.js'></script>
-<script type='text/javascript' src='js/contact.js'></script>
-<script type='text/javascript' src='js/jquery.tipsy.js'></script>
-<script type='text/javascript' src='js/jquery.cycle.min.js'></script>
-<script type='text/javascript' src='js/shortcodes.js'></script>
-<script type='text/javascript' src='js/jquery.custom.js'></script>
+<script type='text/javascript' src='/js/comment-reply.min.js'></script>
+<script type='text/javascript' src='/js/underscore.min.js'></script>
+<script type='text/javascript' src='/js/jquery/jquery.masonry.min.js'></script>
+<script type='text/javascript' src='/sliders/polaroid/js/jquery.polaroid.js'></script>
+<script type='text/javascript' src='/js/jquery.colorbox-min.js'></script>
+<script type='text/javascript' src='/js/jquery.easing.js'></script>
+<script type='text/javascript' src='/js/jquery.carouFredSel-6.1.0-packed.js'></script>
+<script type='text/javascript' src='/js/jQuery.BlackAndWhite.js'></script>
+<script type='text/javascript' src='/js/jquery.touchSwipe.min.js'></script>
+<script type='text/javascript' src='/sliders/polaroid/js/jquery.transform-0.8.0.min.js'></script>
+<script type='text/javascript' src='/sliders/polaroid/js/jquery.preloader.js'></script>
+<script type='text/javascript' src='/js/responsive.js'></script>
+<script type='text/javascript' src='/js/mobilemenu.js'></script>
+<script type='text/javascript' src='/js/jquery.superfish.js'></script>
+<script type='text/javascript' src='/js/jquery.placeholder.js'></script>
+<script type='text/javascript' src='/js/contact.js'></script>
+<script type='text/javascript' src='/js/jquery.tipsy.js'></script>
+<script type='text/javascript' src='/js/jquery.cycle.min.js'></script>
+<script type='text/javascript' src='/js/shortcodes.js'></script>
+<script type='text/javascript' src='/js/jquery.custom.js'></script>
 
 </body>
 <!-- END BODY -->

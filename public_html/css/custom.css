@@ -1,13 +1,13 @@
 .slider-elastic .ei-title h2, .slider-elastic .ei-title h2 a { font-size: 40px; font-family: 'Playfair Display', sans-serif; color: #000000; font-style: italic; font-weight: normal; }
 .slider-elastic .ei-title h3, .slider-elastic .ei-title h3 a { font-size: 40px; font-family: 'Open Sans Condensed', sans-serif; color: #4D4C4C; font-style: normal; font-weight: 400; }
 .slider-flexslider-elegant.slider ul li .slider-caption h2, .slider-flexslider-elegant.slider ul li .slider-caption h2 a { font-size: 17px; font-family: 'Open Sans', sans-serif; color: #ffffff; font-style: normal; font-weight: 700; }
-.slider-flexslider-elegant.slider ul li .slider-caption p { font-size: 12px; font-family: 'Open Sans', sans-serif; color: #ffffff; font-style: normal; font-weight: 400; }
-.slider-flexslider-elegant.slider ul li .slider-caption .special-font { font-size: 24px; font-family: 'Shadows Into Light', sans-serif; color: #ffffff; font-style: normal; font-weight: 400; }
-.slider-polaroid.slider .slide-content h2, .slider-polaroid.slider .slide-content h2, .text-polaroid h2 { font-size: 24px; font-family: 'Open Sans', sans-serif; color: #e5f99a; font-style: normal; font-weight: 800; }
-.slider-polaroid.slider .slide-content p, .slider-polaroid.slider .slide-content p, .text-polaroid p { font-size: 12px; font-family: 'Open Sans', sans-serif; color: #ffffff; font-style: normal; font-weight: 400; }
+.slider-flexslider-elegant.slider ul li .slider-caption p { font-size: 12px; font-family: 'Open Sans', sans-serif; color: #007e71; font-style: normal; font-weight: 400; }
+.slider-flexslider-elegant.slider ul li .slider-caption .special-font { font-size: 24px; font-family: 'Shadows Into Light', sans-serif; color: #007e71; font-style: normal; font-weight: 400; }
+.slider-polaroid.slider .slide-content h2, .slider-polaroid.slider .slide-content h2, .text-polaroid h2 { font-size: 24px; font-family: 'Open Sans', sans-serif; color: #009E8E; font-style: normal; font-weight: 800; }
+.slider-polaroid.slider .slide-content p, .slider-polaroid.slider .slide-content p, .text-polaroid p { font-size: 12px; font-family: 'Open Sans', sans-serif; color: #108488; font-style: normal; font-weight: 400; }
 .slider-thumbnails.slider.thumbnails .showcase-caption p { font-size: 13px; font-family: 'Muli', sans-serif; color: #585555; font-style: normal; font-weight: 400; }
 .slider-thumbnails.slider.thumbnails div.showcase-tooltip { font-size: 12px; font-family: 'Muli', sans-serif; color: #000; font-style: normal; font-weight: 400; }
-.slider-usquare.slider .usquare_module_wrapper h2 { font-size: 17px; font-family: 'Open Sans', sans-serif; color: #aca12a; font-style: normal; font-weight: 400; }
+.slider-usquare.slider .usquare_module_wrapper h2 { font-size: 17px; font-family: 'Open Sans', sans-serif; color:#009E8E ; font-style: normal; font-weight: 400; }
 .slider-usquare.slider .usquare_module_wrapper span, .slider-usquare.slider .usquare_block_extended, .slider-usquare.slider .usquare_block_extended .usquare_about { font-size: 11px; font-family: 'Open Sans', sans-serif; color: #676768; font-style: normal; font-weight: 400; }
 .slider-266.slider .usquare_module_wrapper h2 { font-size: 17px; font-family: 'Open Sans', sans-serif; color: #aca12a; font-style: normal; font-weight: 400; }
 .slider-266.slider .usquare_module_wrapper span, .slider-266.slider .usquare_block_extended, .slider-266.slider .usquare_block_extended .usquare_about { font-size: 11px; font-family: 'Open Sans', sans-serif; color: #676768; font-style: normal; font-weight: 400; }
@@ -25,18 +25,18 @@ code, pre, body hr, #copyright .inner, #footer .inner, .gallery img, .gallery im
 .portfolio-big-image .work-thumbnail .thumb-wrapper:hover, .related_project .related_img:hover, .portfolio-categories ul li:hover, #portfolio .more-link:hover, .portfolio-big-image a.more:hover, #portfolio.columns .overlay_a:hover, .showcase-thumbnail img:hover, .widget_archive ul li a:hover, .widget_nav_menu ul li a:hover, .widget_pages ul li a:hover, .widget_categories ul li a:hover, .picture_overlay:hover, .section-portfolio-classic .work-projects a.img:hover, .section-portfolio-classic .work-projects a.img.active { border-color: #cccccc; }
 #page-meta { background-color: rgba( 235, 232, 232, 0.3 ); }
 #back-top { background-color: #666565; }
-#header, #header .slider.polaroid .thumbs .thumb img { background-color: #193654; background-image: url('http://yit.com/libra/wp-content/themes/libra/images/header-pattern.png'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }
-#topbar_login a.topbar_login { border-color: #19344E; background-color: #102438; font-size: 8px; font-family: 'Open Sans', sans-serif; color: #ffffff; font-style: normal; font-weight: 700; }
+#header, #header .slider.polaroid .thumbs .thumb img { background-color: #9F000F; background-image: url('http://yit.com/libra/wp-content/themes/libra/images/header-pattern.png'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }
+#topbar_login a.topbar_login { border-color: #009E8E; background-color: #102438; font-size: 8px; font-family: 'Open Sans', sans-serif; color: #ffffff; font-style: normal; font-weight: 700; }
 #fast-login { background-color: rgba( 16, 36, 56, 0.88 ); }
 #fast-login input { border-color: #1B3754; background-color: #0D2033; }
 #fast-login input.input-submit { border-color: #17324E; background-color: #29435E; }
 #fast-login input.input-submit:hover { background-color: #304e6d; }
-#topbar { background-color: #152f49; }
+#topbar { background-color: #9F000F; }
 #nav ul.sub-menu, #nav ul.children { background-color: rgba( 17, 37, 58, 0.88 ); }
-#nav ul li a:hover, #nav ul li:hover a { background-color: #12273d; }
-#nav .current-menu-item > a, #nav .current-menu-ancestor > a, #nav .current_page_ancestor > a,div#nav ul .current_page_item > a { background-color: #12273d; }
+#nav ul li a:hover, #nav ul li:hover a { background-color: #9F000F; }
+#nav .current-menu-item > a, #nav .current-menu-ancestor > a, #nav .current_page_ancestor > a,div#nav ul .current_page_item > a { background-color: #9F000F; }
 #nav .megamenu ul.sub-menu li.menu-item-custom-content p { color: #ffffff; }
-#nav .megamenu ul.sub-menu li.menu-item-custom-content span.highlight { color: #e5f99a; }
+#nav .megamenu ul.sub-menu li.menu-item-custom-content span.highlight { color: #009E8E; }
 .error-404-text p { font-size: 18px; font-family: 'Open Sans', sans-serif; color: #676768; font-style: normal; font-weight: 400; }
 .error-404-text p a { color: #919303; }
 .error-404-text p a:hover { color: #6c6d03; }
@@ -94,7 +94,7 @@ ul.short li { font-size: 12px; font-family: 'Open Sans', sans-serif; color: #676
 #copyright a, #copyright div a, #copyright div p a { color: #e6e90d; }
 #copyright a:hover, #copyright div a:hover, #copyright div p a:hover { color: #d7d789; }
 a, p, li, address, dd, blockquote, td, th, .paragraph-links a, a.text-color, ul.filters li a, .menu-select select, .testimonial-widget li a, .testimonial-widget li p, #search_mini, .newsletter-input input, .newsletter-submit input, .features-tab-container .features-tab-labels li, .features-tab-content, .portfolio-libra .work-projects ul.pagination_nav li a { font-size: 12px; font-family: 'Open Sans', sans-serif; color: #676768; font-style: normal; font-weight: 400; }
-a, a.text-color:hover, ul.filters li a:hover, ul.filters li a.active { color: #919303; }
+a, a.text-color:hover, ul.filters li a:hover, ul.filters li a.active { color: #009E8E; }
 a:hover, body .login_register a:hover, #multistep_step1 .step1_login_form form.login_checkout .lost_password:hover, .portfolio-libra .work-projects ul.pagination_nav li a:hover, a:hover .title-highlight { color: #6c6d03; }
 #page-meta #yit-breadcrumb, #page-meta #yit-breadcrumb a, .breadcrumbs span { font-size: 11px; font-family: 'Open Sans', sans-serif; color: #676768; font-style: normal; font-weight: 400; }
 #page-meta #yit-breadcrumb a:hover { color: #535353; }
@@ -108,7 +108,7 @@ h6, h6 a { font-size: 14px; font-family: 'Open Sans', sans-serif; color: #0c243d
 .slogan h2 { font-size: 26px; font-family: 'Open Sans', sans-serif; color: #425262; font-style: normal; font-weight: 800; }
 .slogan h3 { font-size: 18px; font-family: 'Open Sans', sans-serif; color: #676768; font-style: normal; font-weight: 400; }
 .special-font { font-size: 12px; font-family: 'Shadows Into Light', sans-serif; color: #030303; font-style: normal; font-weight: 400; }
-h1 span.title-highlight, h2 span.title-highlight, h3 span.title-highlight, h4 span.title-highlight, h5 span.title-highlight, h6 span.title-highlight, .box-sections span.title-highlight, .box-sections-border span.title-highlight, span.highlight { color: #919303; }
+h1 span.title-highlight, h2 span.title-highlight, h3 span.title-highlight, h4 span.title-highlight, h5 span.title-highlight, h6 span.title-highlight, .box-sections span.title-highlight, .box-sections-border span.title-highlight, span.highlight { color: #009E8E; }
 #back-top a, #back-top a:hover { font-size: 12px; font-family: 'Open Sans', sans-serif; color: #ffffff; font-style: normal; font-weight: 400; }
 #header #logo #textual, span.logo { font-size: 60px; font-family: 'Georgia', sans-serif; color: #ffffff; font-style: normal; font-weight: 400; }
 #header #logo #textual span { font-size: 40px; font-family: 'Georgia', sans-serif; color: #919303; font-style: normal; font-weight: 400; }
@@ -127,7 +127,7 @@ h1 span.title-highlight, h2 span.title-highlight, h3 span.title-highlight, h4 sp
 #nav ul ul .current-menu-item > a, #nav ul ul .current-menu-ancestor > a, div#nav ul ul .current_page_item > a, #nav .megamenu ul.sub-menu li a { color: #e5f99a; }
 .sidebar h1, .sidebar h2, .sidebar h3, .sidebar h4, .sidebar h5, .sidebar h6 { font-size: 15px; font-family: 'Open Sans', sans-serif; color: #0c243d; font-style: normal; font-weight: 800; }
 .sidebar p, .sidebar li, .sidebar div { font-size: 12px; font-family: 'Open Sans', sans-serif; color: #676768; font-style: normal; font-weight: 400; }
-.sidebar a { color: #989a14; }
+.sidebar a { color: #009E8E; }
 .sidebar a:hover { color: #213140; }
 .testimonial-widget li blockquote p, .testimonial-widget li blockquote p:first-child { font-size: 12px; font-family: 'Open Sans', sans-serif; color: #676768; font-style: normal; font-weight: 400; }
 .testimonial-widget li .name-testimonial { font-size: 11px; font-family: 'Open Sans', sans-serif; color: #000000; font-style: normal; font-weight: 400; }

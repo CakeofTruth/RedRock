@@ -42,7 +42,7 @@
             body { background-color: #ffffff; background-image: url('images/bg-pattern.png'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }
     </style>
 
-    <script type='text/javascript' src='js/jquery/jquery.js'></script>
+    <script type='text/javascript' src='/js/jquery/jquery.js'></script>
     
 
 </head>
@@ -65,10 +65,10 @@
                         <!-- START MAIN NAVIGATION -->
 
                         <ul id="menu-menu" class="level-1">
-							<li><a href="/index.php"><font color="#21B6A8">Home</font></a></li>
-							<li><a href="/main/aboutus.php"><font color="#21B6A8">About Us</font></a>
-							<li><a href="http://support.redrocktelecom.com"><font color="#21B6A8">Customer Service</font></a></li>
-							<li><a href="/main/contactus.php"><font color="#21B6A8">Contact Us</font></a></li>
+							<li><a href="/index.php"><font color="#ffffff">Home</font></a></li>
+							<li><a href="/main/aboutus.php"><font color="#ffffff">About Us</font></a>
+							<li><a href="http://support.redrocktelecom.com"><font color="#ffffff">Customer Service</font></a></li>
+							<li><a href="/main/contactus.php"><font color="#ffffff">Contact Us</font></a></li>
                         </ul>
                         <!-- END MAIN NAVIGATION -->
                         </div>
@@ -147,13 +147,13 @@
                             <div class="text">
                                 <h2>
                                     <span style="color: #0c243d;">Need a Communications</span>
-                                    <span style="color: #919303;">solution?</span>
+                                    <span style="color: #009E8E;">solution?</span>
                                 </h2>
 
                                 <p>
                                     <span style="color: #434f5b;">Come meet RedRock</span>
                                     <br />
-                                    <span style="color: #8b8005;">Flexible, versatile, and impeccable customer service</span>
+                                    <span style="color: #007e71;">Flexible, versatile, and impeccable customer service</span>
                                 </p>
 
                                 <p>
@@ -218,7 +218,7 @@
                                 	<div class="number number-left number-zero"></div>
                                 	<div class="number number-right number-2"></div>
                                 </a>
-                                <h4>Mobile<span class="title-highlight">Integration</span></h4>
+                                <h4>Mobile <span class="title-highlight">Integration</span></h4>
                                 <p>
                                  Your working life moves constantly from desk to laptop to smartphone to iPad.  Now you can use all the features of
                                  RedRock phone services whether at your desk, at home or on the move.
@@ -240,7 +240,7 @@
                             <div class="number number-left number-zero"></div>
                             <div class="number number-right number-4"></div>
                             <h4>
-                                Another <span class="title-highlight">service!</span>
+                                Another <span class="title-highlight">Service!</span>
                             </h4>
                             <p>
                                 Quisque nec mi eu nibh aliquam elementum. Ut cursus nisl sit amet sapien dignissim at adipiscing lectus ornare lorem lorem dieus.
