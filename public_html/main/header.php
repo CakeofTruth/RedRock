@@ -87,7 +87,7 @@
             <div class="row" id="logo-headersidebar-container">
                 <!-- START LOGO -->
                 <div id="logo" class="span8 group">
-                    <a id="logo-img" href="index.html" title="Libra">
+                    <a id="logo-img" href="\index.php" title="Libra">
                         <img src="\assets\images\Redrocklogo.jpg" title="Libra" alt="Libra" />
                     </a>
 					<p id='tagline'>The Future is Now- Cloud Based Telephone Services</p>
