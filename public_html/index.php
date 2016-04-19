@@ -42,7 +42,7 @@
             body { background-color: #ffffff; background-image: url('images/bg-pattern.png'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }
     </style>
 
-    <script type='text/javascript' src='js/jquery/jquery.js'></script>
+    <script type='text/javascript' src='/js/jquery/jquery.js'></script>
     
 
 </head>

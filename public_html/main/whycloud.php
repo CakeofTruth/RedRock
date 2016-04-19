@@ -2,11 +2,12 @@
 	$pagetitle = "Why Cloud?";
 	include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
 ?>   
-<div id="slider-polaroid-0" class="slider slider-polaroid polaroid no-responsive" style="height:400px;">
+        <!-- BEGIN FLEXSLIDER SLIDER -->
+        <div id="slider-polaroid-0" class="slider slider-polaroid polaroid no-responsive" style="height:400px;">
             <div class="thumbs  container">
                 <div class="thumb">
-                    <img src="../images/slider/flexslider/001-150x150.png" alt="../images/slider/flexslider/001.png" />
-                    <div class="slide-content container align-right" style="background-image:url('../images/slider/flexslider/001.png');">
+                    <img src="/images/slider/flexslider/001-150x150.png" alt="/images/slider/flexslider/001.png" />
+                    <div class="slide-content container align-right" style="background-image:url('/images/slider/flexslider/001.png');">
                         <div class="text">
                             <h2>With Red Rock we will make you HAPPY.</h2>
                             <p>
@@ -18,12 +19,12 @@
                 </div>
 
                 <div class="thumb">
-                    <img src="../images/slider/flexslider/0026-150x150.jpg" alt="../images/slider/flexslider/0026.jpg" />
+                    <img src="/images/slider/flexslider/0026-150x150.jpg" alt="/images/slider/flexslider/0026.jpg" />
                 </div>
 
                 <div class="thumb">
-                    <img src="../images/slider/flexslider/003-150x150.png" alt="../images/slider/flexslider/003.png" />
-                    <div class="slide-content container align-right" style="background-image:url('../images/slider/flexslider/003.png');">
+                    <img src="/images/slider/flexslider/003-150x150.png" alt="/images/slider/flexslider/003.png" />
+                    <div class="slide-content container align-right" style="background-image:url('/images/slider/flexslider/003.png');">
                         <div class="text">
                             <h2>Be nice. Be original.</h2>
                             <p>
@@ -35,8 +36,8 @@
                 </div>
 
                 <div class="thumb">
-                    <img src="../images/slider/flexslider/0043-150x150.jpg" alt="../images/slider/flexslider/0043.jpg" />
-                    <div class="slide-content container align-right full" style="background-image:url('../images/slider/flexslider/0043.jpg');">
+                    <img src="/images/slider/flexslider/0043-150x150.jpg" alt="/images/slider/flexslider/0043.jpg" />
+                    <div class="slide-content container align-right full" style="background-image:url('/images/slider/flexslider/0043.jpg');">
                         <div class="container">
                             <div class="text">
                                 <h2>
@@ -61,8 +62,8 @@
                 </div>
 
                 <div class="thumb">
-                    <img src="../images/slider/flexslider/0052-150x150.jpg" alt="../images/slider/flexslider/0052.jpg" />
-                    <div class="slide-content container align-right full" style="background-image:url('../images/slider/flexslider/0052.jpg');">
+                    <img src="/images/slider/flexslider/0052-150x150.jpg" alt="/images/slider/flexslider/0052.jpg" />
+                    <div class="slide-content container align-right full" style="background-image:url('/images/slider/flexslider/0052.jpg');">
                         <div class="container"></div>
                     </div>
                 </div>
@@ -80,9 +81,11 @@
 
         <div class="mobile-slider">
             <div class="slider fixed-image container">
-                <img src="../images/slider/flexslider/fixed-polaroid.jpg" alt="" />
+                <img src="/images/slider/flexslider/fixed-polaroid.jpg" alt="" />
             </div>
         </div>
+    </div>
+    <!-- END HEADER -->
         
 	<div class="clear"></div>
 	<div id="primary" class="sidebar-no">
@@ -145,24 +148,4 @@
 	</div>
 	</div>
 	</div>
-<script type='text/javascript' src='js/comment-reply.min.js'></script>
-<script type='text/javascript' src='js/underscore.min.js'></script>
-<script type='text/javascript' src='js/jquery/jquery.masonry.min.js'></script>
-<script type='text/javascript' src='sliders/polaroid/js/jquery.polaroid.js'></script>
-<script type='text/javascript' src='js/jquery.colorbox-min.js'></script>
-<script type='text/javascript' src='js/jquery.easing.js'></script>
-<script type='text/javascript' src='js/jquery.carouFredSel-6.1.0-packed.js'></script>
-<script type='text/javascript' src='js/jQuery.BlackAndWhite.js'></script>
-<script type='text/javascript' src='js/jquery.touchSwipe.min.js'></script>
-<script type='text/javascript' src='sliders/polaroid/js/jquery.transform-0.8.0.min.js'></script>
-<script type='text/javascript' src='sliders/polaroid/js/jquery.preloader.js'></script>
-<script type='text/javascript' src='js/responsive.js'></script>
-<script type='text/javascript' src='js/mobilemenu.js'></script>
-<script type='text/javascript' src='js/jquery.superfish.js'></script>
-<script type='text/javascript' src='js/jquery.placeholder.js'></script>
-<script type='text/javascript' src='js/contact.js'></script>
-<script type='text/javascript' src='js/jquery.tipsy.js'></script>
-<script type='text/javascript' src='js/jquery.cycle.min.js'></script>
-<script type='text/javascript' src='js/shortcodes.js'></script>
-<script type='text/javascript' src='js/jquery.custom.js'></script>
 <?php include $root . '/main/footer.php'?>

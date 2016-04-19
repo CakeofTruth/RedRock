@@ -5,7 +5,6 @@
 	include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
 ?>
 <body>
-	<?php include 'menu.php' ?>
 	<div class="container">
 	<div class="row">
 	<div class="widget-last widget span6 yit_quick_contact">
@@ -60,7 +59,7 @@
 						<input type="hidden" name="yit_action" value="sendemail" id="yit_action">
 						<input type="hidden" name="yit_referer" value="index.php">
 						<input type="hidden" name="id_form" value="228">
-						<input type="submit" name="yit_sendemail" value="SEND" class="sendmail alignright">
+						<input type="submit" name="yit_sendemail" value="Send" class="sendmail alignright">
 						<div class="clear"></div>
 					</li>
 				</ul>			
