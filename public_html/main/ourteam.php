@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<head>Our Team</head>
 <body>
 <?php
 	$pagetitle = "Our Team";
@@ -22,13 +21,11 @@
 									<li style="height:422px; margin-right:12px;">
 										<div class="team-circle bwWrapper">
 											<canvas width="130" height="130" style="position: absolute; top: 0px; left: 0px; width: 130px;
-											height: 130px; display: block;">
-												<img src="/assets/images/brenda.png" alt="Brenda Beall">
+											height: 130px; display: block;"></canvas>
+												<img src="/assets/images/brenda.jpg" alt="Brenda Beall">
 										</div>
-										<h6> Brenda Beall <h6>
-										<p>
-											Here is some information about Brenda that we will fill in later."
-										</p>
+										<h6> Brenda Beall </h6>
+										<p> Here is some information about Brenda that we will fill in later."</p>
 										<div class= "meta">
 											<p>
 												<strong> Sales </strong>
@@ -38,10 +35,10 @@
 									<li style="height:422px; margin-right:12px;">
 										<div class="team-circle bwWrapper">
 											<canvas width="130" height="130" style="position: absolute; top: 0px; left: 0px; width: 130px;
-											height: 130px; display: block;">
-												<img src="/assets/images/neil.png" alt="Neil Wilson">
+											height: 130px; display: block;"></canvas>
+												<img src="/assets/images/neil.jpg" alt="Neil Wilson">
 										</div>
-										<h6> Neil Wilson <h6>
+										<h6> Neil Wilson </h6>
 										<p>
 											Here is some information about Neil that we will fill in later."
 										</p>
@@ -54,10 +51,10 @@
 									<li style="height:422px; margin-right:12px;">
 										<div class="team-circle bwWrapper">
 											<canvas width="130" height="130" style="position: absolute; top: 0px; left: 0px; width: 130px;
-											height: 130px; display: block;">
-												<img src="/assets/images/greg.png" alt="Greg Paduganan">
+											height: 130px; display: block;"></canvas>
+												<img src="/assets/images/greg.jpg" alt="Greg Paduganan">
 										</div>
-										<h6> Greg Paduganan <h6>
+										<h6> Greg Paduganan </h6>
 										<p>
 											Here is some information about Greg that we will fill in later."
 										</p>
@@ -70,12 +67,12 @@
 									<li style="height:422px; margin-right:12px;">
 										<div class="team-circle bwWrapper">
 											<canvas width="130" height="130" style="position: absolute; top: 0px; left: 0px; width: 130px;
-											height: 130px; display: block;">
-												<img src="/assets/images/chris.png" alt="Christopher Pleiter">
+											height: 130px; display: block;"></canvas>
+												<img src="/assets/images/chris.jpg" alt="Christopher Pleiter">
 										</div>
-										<h6> Christopher Pleiter <h6>
+										<h6> Christopher Pleiter </h6>
 										<p>
-											Here is some information about Christopher that we will fill in later."
+											Here is some information about Christopher/Anna that we will fill in later."
 										</p>
 										<div class= "meta">
 											<p>
@@ -86,10 +83,10 @@
 									<li style="height:422px; margin-right:12px;">
 										<div class="team-circle bwWrapper">
 											<canvas width="130" height="130" style="position: absolute; top: 0px; left: 0px; width: 130px;
-											height: 130px; display: block;">
-												<img src="/assets/images/rae.png" alt="Rae LeClaire">
+											height: 130px; display: block;"></canvas>
+												<img src="/assets/images/rae.jpg" alt="Rae LeClaire">
 										</div>
-										<h6> Rae LeClaire <h6>
+										<h6> Rae LeClaire </h6>
 										<p>
 											Here is some information about Rae that we will fill in later."
 										</p>
@@ -102,10 +99,10 @@
 									<li style="height:422px; margin-right:12px;">
 										<div class="team-circle bwWrapper">
 											<canvas width="130" height="130" style="position: absolute; top: 0px; left: 0px; width: 130px;
-											height: 130px; display: block;">
+											height: 130px; display: block;"></canvas>
 												<img src="/assets/images/kevin.png" alt="Kevin Stalker">
 										</div>
-										<h6> Kevin Stalker <h6>
+										<h6> Kevin Stalker </h6>
 										<p>
 											Here is some information about Kevin that we will fill in later."
 										</p>
@@ -118,10 +115,10 @@
 									<li style="height:422px; margin-right:12px;">
 										<div class="team-circle bwWrapper">
 											<canvas width="130" height="130" style="position: absolute; top: 0px; left: 0px; width: 130px;
-											height: 130px; display: block;">
+											height: 130px; display: block;"></canvas>
 												<img src="/assets/images/lance.png" alt="Lance McGee">
 										</div>
-										<h6> Lance McGee <h6>
+										<h6> Lance McGee </h6>
 										<p>
 											Here is some information about Lance that we will fill in later."
 										</p>
@@ -134,10 +131,10 @@
 									<li style="height:422px; margin-right:12px;">
 										<div class="team-circle bwWrapper">
 											<canvas width="130" height="130" style="position: absolute; top: 0px; left: 0px; width: 130px;
-											height: 130px; display: block;">
+											height: 130px; display: block;"></canvas>
 												<img src="/assets/images/shane.png" alt="Shane Gregory">
 										</div>
-										<h6> Shane Gregory <h6>
+										<h6> Shane Gregory </h6>
 										<p>
 											Here is some information about Shane that we will fill in later."
 										</p>
@@ -150,10 +147,10 @@
 									<li style="height:422px; margin-right:12px;">
 										<div class="team-circle bwWrapper">
 											<canvas width="130" height="130" style="position: absolute; top: 0px; left: 0px; width: 130px;
-											height: 130px; display: block;">
+											height: 130px; display: block;"></canvas>
 												<img src="/assets/images/tom.png" alt="Tom LeClaire">
 										</div>
-										<h6> Tom LeClaire <h6>
+										<h6> Tom LeClaire </h6>
 										<p>
 											Here is some information about Tom that we will fill in later."
 										</p>
@@ -166,12 +163,12 @@
 									<li style="height:422px; margin-right:12px;">
 										<div class="team-circle bwWrapper">
 											<canvas width="130" height="130" style="position: absolute; top: 0px; left: 0px; width: 130px;
-											height: 130px; display: block;">
+											height: 130px; display: block;"></canvas>>
 												<img src="/assets/images/jack.png" alt="Jack Pleiter">
 										</div>
-										<h6> Jack Pleiter <h6>
+										<h6> Jack Pleiter </h6>
 										<p>
-											Here is some information about Brenda that we will fill in later."
+											Here is some information about Jack that we will fill in later."
 										</p>
 										<div class= "meta">
 											<p>
@@ -189,6 +186,10 @@
 							<a id="team-slider-next" class="next" href="#" style="display:block;"></a>
 						</div>
 					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 					<script type="text/javascript">
 								jQyery(function ($)) {
 									var maxHeight = 0;
