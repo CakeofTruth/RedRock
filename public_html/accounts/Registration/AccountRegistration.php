@@ -138,6 +138,4 @@ function insertReseller(){
 		// echo "Error: " . $resellerInsertString . "<br>" . mysqli_error($conn);
 	}
 }
-
-
 ?>
