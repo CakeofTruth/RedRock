@@ -2,14 +2,16 @@
         <div class="container">
             <div class="row">
                 <div class="footer-widgets-area with-sidebar-right">
-                    <div class="widget-first widget span2 widget_text"><a href="/main/aboutus.php"><h3>About Us</h3></a>
+                    <div class="widget-first widget span2 widget_text"><a href="/main/aboutus.php">
                         <div class="textwidget">
+                        	<h3>About Us</h3>
                             Aliquam pellentesque pellentesque turpis, ut sollicitudin nec
                             plasiren.
                             Pellentesque posuere ornare placerat. Suspendisse potenti.
+                            </a>
                         </div>
                     </div>
-
+					
                     <div class="widget span2 widget_nav_menu">
                         <h3>Navigation</h3>
 
@@ -41,32 +43,35 @@
                             </ul>
                         </div>   
                         </div>   
-                   		 <div class= "contact-info"><h3>Contact Us</h3> 
-							<div class="sidebar-nav">
-								<ul>
-									<li>
-										<i class="icon-map-marker" style="color#979797; font-size:20px"></i>
-										"Address: 3719 E La Salle St. Phoenix, AZ, 85040
-									</li>
-									<li>
-										<i class="icon-info-sign" style="color:#979797; font-size:20px"></i>
-										"Front Desk: (602) 802-8400"
-									</li>
-									<li>
-										<i class="icon-info-sign" style="color:#979797; font-size:20px"></i>
-										"Customer Service: (602) 802-8450"
-									</li>
-									<li>
-										<i class="icon-envelope" style="color#979797; font-size:20px"></i>
-										"Email:redrock@redrocktelecom.com"
-									</li>
-								</ul>
+                        <div class="clear space"></div>
+                   		 <div class="footer-widgets-sidebar with-sidebar-right">
+                   		 <div class= "contact-info">
+                   		 	<h3>Contact Us</h3> 
+								<div class="sidebar-nav">
+									<ul>
+										<li>
+											<i class="icon-map-marker" style="color#979797; font-size:20px"></i>
+												Address: 3719 E La Salle St. Phoenix, AZ, 85040
+										</li>
+										<li>
+											<i class="icon-info-sign" style="color:#979797; font-size:20px"></i>
+												Front Desk: (602) 802-8400
+										</li>
+										<li>
+											<i class="icon-info-sign" style="color:#979797; font-size:20px"></i>
+												Customer Service: (602) 802-8450
+										</li>
+										<li>
+											<i class="icon-envelope" style="color#979797; font-size:20px"></i>
+												Email:redrock@redrocktelecom.com
+										</li>
+									</ul>
+								</div>
 							</div>
-						</div>
-                </div>
-            </div>
-        </div>
-    </div>
+							</div>
+                		</div>
+           			 </div>
+      			  </div>
     <!-- END FOOTER -->
 
     <!-- START COPYRIGHT -->
