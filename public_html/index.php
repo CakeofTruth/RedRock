@@ -16,8 +16,8 @@
     <link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
 
     <!-- [favicon] begin -->
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/Redrockfavicon.png" />
+    <link rel="icon" type="image/x-icon" href="/assets/images/Redrockfavicon.png" />
     <!-- [favicon] end -->
 
     <!-- Touch icons more info: http://mathiasbynens.be/notes/touch-icons -->
@@ -36,8 +36,8 @@
     <link rel='stylesheet' id='polaroid-slider-css'  href='/sliders/polaroid/css/polaroid.css' type='text/css' media='all' />
     <link rel='stylesheet' id='ahortcodes-css'  href='/css/shortcodes.css' type='text/css' media='all' />
     <link rel='stylesheet' id='contact-form-css'  href='/css/contact_form.css' type='text/css' media='all' />
-    <link rel='stylesheet' id='custom-css'  href='/css/custom.css' type='text/css' media='all' />
-
+    <link rel='stylesheet' id='custom-css'  href='/css/custom.css' type='text/css' media='all' /> 
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <style type="text/css">
             body { background-color: #ffffff; background-image: url('/assets/images/sandtexture6.png'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }
     </style>
@@ -65,10 +65,10 @@
                         <!-- START MAIN NAVIGATION -->
 
                         <ul id="menu-menu" class="level-1">
-							<li><a href="/index.php"><font color="#ffffff">Home</font></a></li>
-							<li><a href="/main/aboutus.php"><font color="#ffffff">About Us</font></a>
-							<li><a href="http://support.redrocktelecom.com"><font color="#ffffff">Customer Service</font></a></li>
-							<li><a href="/main/contactus.php"><font color="#ffffff">Contact Us</font></a></li>
+							<li><a href="/index.php"><font color="#009E8E">Home</font></a></li>
+							<li><a href="/main/aboutus.php"><font color="#009E8E">About Us</font></a>
+							<li><a href="http://support.redrocktelecom.com"><font color="#009E8E">Customer Service</font></a></li>
+							<li><a href="/main/contactus.php"><font color="#009E8E">Contact Us</font></a></li>
                         </ul>
                         <!-- END MAIN NAVIGATION -->
                         </div>
@@ -98,7 +98,7 @@
                             <img src="/images/phone1.png" alt="CUSTOMER SUPPORT" />
                         </div>
                         <div class="text-content">
-                            <h3>CUSTOMER SUPPORT</h3>
+                            <h3><font color="#009E8E">CUSTOMER SUPPORT</font></h3>
                             <p>(602) 802-8450</p>
                         </div>
                     </div>
@@ -420,19 +420,23 @@
                                 </li>
 
                                 <li class="menu-item menu-item-type-post_type">
-                                    <a href="testimonials.html">Testimonials</a>
+                                    <a href="/main/whycloud.php">Why the Cloud?</a>
                                 </li>
 
                                 <li class="menu-item menu-item-type-post_type">
-                                    <a href="portfolio-3-columns.html">Portfolio</a>
+                                    <a href="/main/mobileintegration.php">Mobile Integration</a>
                                 </li>
 
-                                <li class="menu-item menu-item-type-post_type">
-                                    <a href="get-in-touch.html">Get in touch</a>
+								<li class="menu-item menu-item-type-custom">
+                                    <a href="/main/contactcenter.php">Get in Touch</a>
                                 </li>
-
+                                
                                 <li class="menu-item menu-item-type-custom">
-                                    <a href="#">Policy</a>
+                                    <a href="/main/communicationssolutions.php">Communications Solutions</a>
+                                </li>
+                                
+                                <li class="menu-item menu-item-type-post_type">
+                                    <a href="/main/contactus.php">Get in touch</a>
                                 </li>
 
                                 <li class="menu-item menu-item-type-custom">
@@ -442,25 +446,26 @@
                         </div>   
                         </div>   
                    		 <div class="footer-widgets-area with-sidebar-right">
-                  	  	 	<div class="widget-first widget span2 widget_text"><a href="/main/contactus.php">
+                  	  	 	<div class="widget-first widget span6 widget_text"><a href="/main/contactus.php">
                   	  	 		<h3>Contact Us</h3>
                         		<div class= "contact-info"> 
 								<div class="sidebar-nav">
 									<ul>
 										<li>
-											<i class="icon-map-marker" style="color#979797; font-size:20px"></i>
-												Address: 3719 E La Salle St. Phoenix, AZ, 85040
+											<i class="fa fa-map-marker" style="color#979797; font-size:20px"></i>
+												Address: 3719 E La Salle St.
+												Phoenix, AZ, 85040
 										</li>
 										<li>
-											<i class="icon-info-sign" style="color:#979797; font-size:20px"></i>
+											<i class="fa fa-phone" style="color:#979797; font-size:20px"></i>
 												Front Desk: (602) 802-8400
 										</li>
 										<li>
-											<i class="icon-info-sign" style="color:#979797; font-size:20px"></i>
+											<i class="fa fa-phone" style="color:#979797; font-size:20px"></i>
 												Customer Service: (602) 802-8450
 										</li>
 										<li>
-											<i class="icon-envelope" style="color#979797; font-size:20px"></i>
+											<i class="fa fa-envelope-o" style="color#979797; font-size:20px"></i>
 												Email:redrock@redrocktelecom.com
 										</li>
 									</ul>
