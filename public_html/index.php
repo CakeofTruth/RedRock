@@ -39,7 +39,7 @@
     <link rel='stylesheet' id='custom-css'  href='/css/custom.css' type='text/css' media='all' />
 
     <style type="text/css">
-            body { background-color: #ffffff; background-image: url('images/bg-pattern.png'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }
+            body { background-color: #ffffff; background-image: url('/assets/images/sandtexture6.png'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }
     </style>
 
     <script type='text/javascript' src='/js/jquery/jquery.js'></script>
@@ -237,13 +237,17 @@
                             </p>
                         </div>
                         <div class="box-sections numbers-sections margin-bottom  last">
+                        	<a href="/main/communicationssolutions.php">
                             <div class="number number-left number-zero"></div>
                             <div class="number number-right number-4"></div>
                             <h4>
-                                Another <span class="title-highlight">Service!</span>
+                                Communications <span class="title-highlight">Solutions</span>
                             </h4>
                             <p>
-                                Quisque nec mi eu nibh aliquam elementum. Ut cursus nisl sit amet sapien dignissim at adipiscing lectus ornare lorem lorem dieus.
+                                At Red Rock, we want to provide you with more than just a phone solution.  We have many tools available to you so that you can ensure your business is run as
+                                efficiently as possible.  Whether you cannot commit to the expense of purchasing and maintaining a phone system, but want all the perks that come with a 
+                                traditional phone system, or you want to be able to collaborate on a project in real time with a colleague on the other side of the world, we have a solution
+                                that will fit your needs.
                             </p>
                         </div>
                         <div class="clear"></div>

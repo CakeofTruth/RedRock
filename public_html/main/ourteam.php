@@ -116,7 +116,7 @@
 										<div class="team-circle bwWrapper">
 											<canvas width="130" height="130" style="position: absolute; top: 0px; left: 0px; width: 130px;
 											height: 130px; display: block;"></canvas>
-												<img src="/assets/images/lance.png" alt="Lance McGee">
+												<img src="/assets/images/lance.jpg" alt="Lance McGee">
 										</div>
 										<h6> Lance McGee </h6>
 										<p>
