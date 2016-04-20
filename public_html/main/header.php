@@ -42,7 +42,7 @@ $root = $_SERVER ["DOCUMENT_ROOT"];
     <link rel='stylesheet' id='custom-css'  href='/css/custom.css' type='text/css' media='all' />
 
     <style type="text/css">
-            body { background-color: #ffffff; background-image: url('/images/bg-pattern.png'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }
+            body { background-color: #ffffff; background-image: url('/assets/images/sandtexture3.png'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }
     </style>
 
     <script type='text/javascript' src='/js/jquery/jquery.js'></script>

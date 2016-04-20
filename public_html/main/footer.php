@@ -21,19 +21,19 @@
                                 </li>
 
                                 <li class="menu-item menu-item-type-post_type">
-                                    <a href="testimonials.html">Testimonials</a>
+                                    <a href="/main/whycloud.php">Why the Cloud?</a>
                                 </li>
 
                                 <li class="menu-item menu-item-type-post_type">
-                                    <a href="portfolio-3-columns.html">Portfolio</a>
+                                    <a href="/main/mobileintegration.php">Mobile Integration</a>
                                 </li>
 
                                 <li class="menu-item menu-item-type-post_type">
-                                    <a href="get-in-touch.html">Get in touch</a>
+                                    <a href="/main/contactcenter.php">Contact Center</a>
                                 </li>
 
                                 <li class="menu-item menu-item-type-custom">
-                                    <a href="#">Policy</a>
+                                    <a href="/main/contactus.php">Get in Touch</a>
                                 </li>
 
                                 <li class="menu-item menu-item-type-custom">

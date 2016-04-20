@@ -1,9 +1,91 @@
 <?php
-	$pagetitle = "Metaswitch Solutions";
+	$pagetitle = "Mobile Integration";
 	include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
 ?>
 
 	<div class="clear"></div>
+	 <div id="slider-polaroid-0" class="slider slider-polaroid polaroid no-responsive" style="height:400px;">
+            <div class="thumbs  container">
+                <div class="thumb">
+                    <img src="/assets/images/accession.png" alt="/images/slider/flexslider/001.png" />
+                    <div class="slide-content container align-right" style="background-image:url('/assets/images/accession.png');">
+                        <div class="text">
+                            <h2>With Red Rock we will make you HAPPY.</h2>
+                            <p>
+                                Quisque nec mi eu nibh aliquam elementum. Ut cursus nisl sit amet sapien dignissim at adipiscing lectus ornare. Aenean id lorem orci.
+                                Morbi lacinia nunc quis lectus condimentum rutrum.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="thumb">
+                    <img src="/images/slider/flexslider/0026-150x150.jpg" alt="/images/slider/flexslider/0026.jpg" />
+                </div>
+
+                <div class="thumb">
+                    <img src="/images/slider/flexslider/003-150x150.png" alt="/images/slider/flexslider/003.png" />
+                    <div class="slide-content container align-right" style="background-image:url('/assets/images/accessionman.png');">
+                        <div class="text">
+                            <h2>Be nice. Be original.</h2>
+                            <p>
+                                Quisque nec mi eu nibh aliquam elementum. Ut cursus nisl sit amet sapien dignissim at adipiscing lectus ornare. Aenean id lorem orci.
+                                Morbi lacinia nunc quis lectus condimentum rutrum.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="thumb">
+                    <img src="/images/slider/flexslider/0043-150x150.jpg" alt="/images/slider/flexslider/0043.jpg" />
+                    <div class="slide-content container align-right full" style="background-image:url('/assets/images/accessionphone.png');">
+                        <div class="container">
+                            <div class="text">
+                                <h2>
+                                    <span style="color: #0c243d;">Need a Communications</span>
+                                    <span style="color: #919303;">solution?</span>
+                                </h2>
+
+                                <p>
+                                    <span style="color: #434f5b;">Come meet RedRock</span>
+                                    <br />
+                                    <span style="color: #8b8005;">Flexible, versatile, and impeccable customer service</span>
+                                </p>
+
+                                <p>
+                                    <span style="color: #434f5b;">
+                                    A complete solution for your large or small business<br />
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="thumb">
+                    <img src="/images/slider/flexslider/0052-150x150.jpg" alt="/images/slider/flexslider/0052.jpg" />
+                    <div class="slide-content container align-right full" style="background-image:url('/assets/images/accessionphone.png');">
+                        <div class="container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            jQuery(document).ready(function($){
+                $('#slider-polaroid-0').polaroid({
+                    animation: '',
+                    pause: 8000,
+                    animationSpeed: 800			    });
+            });
+        </script>
+
+        <div class="mobile-slider">
+            <div class="slider fixed-image container">
+                <img src="/images/slider/flexslider/fixed-polaroid.jpg" alt="" />
+            </div>
+        </div>
+    </div>
 	<div id="primary" class="sidebar-no">
 	<div class="container group">
 	<div class="row">
@@ -24,7 +106,7 @@
 				<li> Softphone enables voice communications, either within the client itself or integrated with the desk phone or mobile device </li>
 				<li> Corporate directory/contact management &ndash; communicate with a click of a mouse, via IM, voice, or video. Add and subtract contacts from in or outside your company, 
 				or integrate with your Outlook contacts </li>
-				<li> &ldquo;Presence&rdquo; capabilities &ndash; know the status of your co-workers real time &ndash; available, away, in a meeting, or offline &ndash so you know the best way to reach them </li>
+				<li> &ldquo;Presence&rdquo; capabilities &ndash; know the status of your co-workers in real time &ndash; available, away, in a meeting, or offline &ndash so you know the best way to reach them </li>
 				<li> Works with Windows and Mac&ndash; based operating systems </li>
 				<li> Visual voicemail &ndash; listen to your voicemails in any order, also see the voice to text transcription</li>
 				<li> Integrate with Outlook email to see presence status and click to dial or chat </li>
