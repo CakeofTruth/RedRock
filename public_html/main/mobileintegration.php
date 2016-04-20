@@ -4,33 +4,33 @@
 ?>
 
 	<div class="clear"></div>
-	 <div id="slider-polaroid-0" class="slider slider-polaroid polaroid no-responsive" style="height:400px;">
+        <!-- BEGIN FLEXSLIDER SLIDER -->
+        <div id="slider-polaroid-0" class="slider slider-polaroid polaroid no-responsive" style="height:400px;">
             <div class="thumbs  container">
                 <div class="thumb">
-                    <img src="/assets/images/accession.png" alt="/images/slider/flexslider/001.png" />
-                    <div class="slide-content container align-right" style="background-image:url('/assets/images/accession.png');">
+                    <img src="/assets/images/accessionmanthumbnail.png" alt="/assets/images/accessionmanthumbnail.png" />
+                    <div class="slide-content container align-right" style="background-image:url('/assets/images/accessionman.png');">
                         <div class="text">
-                            <h2>With Red Rock we will make you HAPPY.</h2>
+                            <h2>With Red Rock we go where you go.</h2>
                             <p>
-                                Quisque nec mi eu nibh aliquam elementum. Ut cursus nisl sit amet sapien dignissim at adipiscing lectus ornare. Aenean id lorem orci.
-                                Morbi lacinia nunc quis lectus condimentum rutrum.
+                                Across town or across the globe, we will ensure that you have access to everything you need to run your business smoothly.
                             </p>
                         </div>
                     </div>
                 </div>
 
                 <div class="thumb">
-                    <img src="/images/slider/flexslider/0026-150x150.jpg" alt="/images/slider/flexslider/0026.jpg" />
+                    <img src="/assets/images/phonecustomerthumbnail.png" alt="/assets/images/phonelady.png" />
                 </div>
 
                 <div class="thumb">
-                    <img src="/images/slider/flexslider/003-150x150.png" alt="/images/slider/flexslider/003.png" />
-                    <div class="slide-content container align-right" style="background-image:url('/assets/images/accessionman.png');">
+                    <img src="/assets/images/accessionformatsthumbnail.png" alt="/assets/images/accessionformats.png" />
+                    <div class="slide-content container align-right" style="background-image:url('/assets/images/accessionformats.png');">
                         <div class="text">
-                            <h2>Be nice. Be original.</h2>
+                            <h2>Nontraditional Business?</h2>
                             <p>
-                                Quisque nec mi eu nibh aliquam elementum. Ut cursus nisl sit amet sapien dignissim at adipiscing lectus ornare. Aenean id lorem orci.
-                                Morbi lacinia nunc quis lectus condimentum rutrum.
+                                Try our nontraditional solutions.  Our mobile apps can be used on your computer, tablet, or smartphone.  So whether you are at a remote site,
+                                or simply want all of the amenities of your office at home, we have a solution for you.
                             </p>
                         </div>
                     </div>
@@ -38,18 +38,18 @@
 
                 <div class="thumb">
                     <img src="/images/slider/flexslider/0043-150x150.jpg" alt="/images/slider/flexslider/0043.jpg" />
-                    <div class="slide-content container align-right full" style="background-image:url('/assets/images/accessionphone.png');">
+                    <div class="slide-content container align-right full" style="background-image:url('/images/slider/flexslider/0043.jpg');">
                         <div class="container">
                             <div class="text">
                                 <h2>
                                     <span style="color: #0c243d;">Need a Communications</span>
-                                    <span style="color: #919303;">solution?</span>
+                                    <span style="color: #009E8E;">solution?</span>
                                 </h2>
 
                                 <p>
                                     <span style="color: #434f5b;">Come meet RedRock</span>
                                     <br />
-                                    <span style="color: #8b8005;">Flexible, versatile, and impeccable customer service</span>
+                                    <span style="color: #007e71;">Flexible, versatile, and impeccable customer service</span>
                                 </p>
 
                                 <p>
@@ -63,8 +63,8 @@
                 </div>
 
                 <div class="thumb">
-                    <img src="/images/slider/flexslider/0052-150x150.jpg" alt="/images/slider/flexslider/0052.jpg" />
-                    <div class="slide-content container align-right full" style="background-image:url('/assets/images/accessionphone.png');">
+                    <img src="/assets/images/hostedvoicethumbnail.png" alt="/assets/images/hostedvoice.png" />
+                    <div class="slide-content container align-right full" style="background-image:url('/assets/images/hostedvoice.png');">
                         <div class="container"></div>
                     </div>
                 </div>
@@ -82,10 +82,9 @@
 
         <div class="mobile-slider">
             <div class="slider fixed-image container">
-                <img src="/images/slider/flexslider/fixed-polaroid.jpg" alt="" />
+                <img src="images/slider/flexslider/fixed-polaroid.jpg" alt="" />
             </div>
         </div>
-    </div>
 	<div id="primary" class="sidebar-no">
 	<div class="container group">
 	<div class="row">
