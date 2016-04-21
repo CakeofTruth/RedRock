@@ -40,9 +40,9 @@ $root = $_SERVER ["DOCUMENT_ROOT"];
     <link rel='stylesheet' id='shortcodes-css'  href='/css/shortcodes.css' type='text/css' media='all' />
     <link rel='stylesheet' id='contact-form-css'  href='/css/contact_form.css' type='text/css' media='all' />
     <link rel='stylesheet' id='custom-css'  href='/css/custom.css' type='text/css' media='all' />
-
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <style type="text/css">
-            body { background-color: #ffffff; background-image: url('/assets/images/sandtexture3.png'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }
+            body { background-color: #ffffff; background-image: url('/assets/images/sandtexture5.png'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }
     </style>
 
     <script type='text/javascript' src='/js/jquery/jquery.js'></script>
@@ -68,10 +68,10 @@ $root = $_SERVER ["DOCUMENT_ROOT"];
                         <!-- START MAIN NAVIGATION -->
 
                         <ul id="menu-menu" class="level-1">
-							<li><a href="/index.php"><font color="#21B6A8">Home</font></a></li>
-							<li><a href="/main/aboutus.php"><font color="#21B6A8">About Us</font></a>
-							<li><a href="http://support.redrocktelecom.com"><font color="#21B6A8">Customer Service</font></a></li>
-							<li><a href="/main/contactus.php"><font color="#21B6A8">Contact Us</font></a></li>
+							<li><a href="/index.php"><font color="#ffffff">Home</font></a></li>
+							<li><a href="/main/aboutus.php"><font color="#ffffff">About Us</font></a>
+							<li><a href="http://support.redrocktelecom.com"><font color="#ffffff">Customer Service</font></a></li>
+							<li><a href="/main/contactus.php"><font color="#ffffff">Contact Us</font></a></li>
                         </ul>
                         <!-- END MAIN NAVIGATION -->
                         </div>
@@ -101,7 +101,7 @@ $root = $_SERVER ["DOCUMENT_ROOT"];
                             <img src="/images/phone1.png" alt="CUSTOMER SUPPORT" />
                         </div>
                         <div class="text-content">
-                            <h3>CUSTOMER SUPPORT</h3>
+                            <h3><font color="#ffffff">CUSTOMER SUPPORT</font></h3>
                             <p>(602) 802-8450</p>
                         </div>
                     </div>
@@ -110,3 +110,4 @@ $root = $_SERVER ["DOCUMENT_ROOT"];
                  </div>
             </div>
         </div>
+      </div>

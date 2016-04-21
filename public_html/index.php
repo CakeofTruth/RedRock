@@ -16,8 +16,8 @@
     <link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
 
     <!-- [favicon] begin -->
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/Redrockfavicon.png" />
+    <link rel="icon" type="image/x-icon" href="/assets/images/Redrockfavicon.png" />
     <!-- [favicon] end -->
 
     <!-- Touch icons more info: http://mathiasbynens.be/notes/touch-icons -->
@@ -36,8 +36,8 @@
     <link rel='stylesheet' id='polaroid-slider-css'  href='/sliders/polaroid/css/polaroid.css' type='text/css' media='all' />
     <link rel='stylesheet' id='ahortcodes-css'  href='/css/shortcodes.css' type='text/css' media='all' />
     <link rel='stylesheet' id='contact-form-css'  href='/css/contact_form.css' type='text/css' media='all' />
-    <link rel='stylesheet' id='custom-css'  href='/css/custom.css' type='text/css' media='all' />
-
+    <link rel='stylesheet' id='custom-css'  href='/css/custom.css' type='text/css' media='all' /> 
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <style type="text/css">
             body { background-color: #ffffff; background-image: url('/assets/images/sandtexture6.png'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }
     </style>
@@ -98,7 +98,7 @@
                             <img src="/images/phone1.png" alt="CUSTOMER SUPPORT" />
                         </div>
                         <div class="text-content">
-                            <h3>CUSTOMER SUPPORT</h3>
+                            <h3><font color="#ffffff">CUSTOMER SUPPORT</font></h3>
                             <p>(602) 802-8450</p>
                         </div>
                     </div>
@@ -111,30 +111,29 @@
         <div id="slider-polaroid-0" class="slider slider-polaroid polaroid no-responsive" style="height:400px;">
             <div class="thumbs  container">
                 <div class="thumb">
-                    <img src="images/slider/flexslider/001-150x150.png" alt="images/slider/flexslider/001.png" />
-                    <div class="slide-content container align-right" style="background-image:url('images/slider/flexslider/001.png');">
+                    <img src="/assets/images/accessionmanthumbnail.png" alt="/assets/images/accessionmanthumbnail.png" />
+                    <div class="slide-content container align-right" style="background-image:url('/assets/images/accessionman.png');">
                         <div class="text">
-                            <h2>With Red Rock we will make you HAPPY.</h2>
+                            <h2>With Red Rock we go where you go.</h2>
                             <p>
-                                Quisque nec mi eu nibh aliquam elementum. Ut cursus nisl sit amet sapien dignissim at adipiscing lectus ornare. Aenean id lorem orci.
-                                Morbi lacinia nunc quis lectus condimentum rutrum.
+                                Across town or across the globe, we will ensure that you have access to everything you need to run your business smoothly.
                             </p>
                         </div>
                     </div>
                 </div>
 
                 <div class="thumb">
-                    <img src="images/slider/flexslider/0026-150x150.jpg" alt="images/slider/flexslider/0026.jpg" />
+                    <img src="/assets/images/phonecustomerthumbnail.png" alt="/assets/images/phonelady.png" />
                 </div>
 
                 <div class="thumb">
-                    <img src="images/slider/flexslider/003-150x150.png" alt="images/slider/flexslider/003.png" />
-                    <div class="slide-content container align-right" style="background-image:url('images/slider/flexslider/003.png');">
+                    <img src="/assets/images/accessionformatsthumbnail.png" alt="/assets/images/accessionformats.png" />
+                    <div class="slide-content container align-right" style="background-image:url('/assets/images/accessionformats.png');">
                         <div class="text">
-                            <h2>Be nice. Be original.</h2>
+                            <h2>Nontraditional Business?</h2>
                             <p>
-                                Quisque nec mi eu nibh aliquam elementum. Ut cursus nisl sit amet sapien dignissim at adipiscing lectus ornare. Aenean id lorem orci.
-                                Morbi lacinia nunc quis lectus condimentum rutrum.
+                                Try our nontraditional solutions.  Our mobile apps can be used on your computer, tablet, or smartphone.  So whether you are at a remote site,
+                                or simply want all of the amenities of your office at home, we have a solution for you.
                             </p>
                         </div>
                     </div>
@@ -167,8 +166,8 @@
                 </div>
 
                 <div class="thumb">
-                    <img src="images/slider/flexslider/0052-150x150.jpg" alt="images/slider/flexslider/0052.jpg" />
-                    <div class="slide-content container align-right full" style="background-image:url('images/slider/flexslider/0052.jpg');">
+                    <img src="/assets/images/hostedvoicethumbnail.png" alt="/assets/images/hostedvoice.png" />
+                    <div class="slide-content container align-right full" style="background-image:url('/assets/images/hostedvoice.png');">
                         <div class="container"></div>
                     </div>
                 </div>
@@ -286,7 +285,7 @@
 
                                         <li style="height: 70px;">
                                             <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/nolt_400x4001.png" style="max-height: 70px;" class="logo" />
+                                                <img src="assets/images/polycomlogo.png" style="max-height: 70px;" class="logo" />
                                             </a>
                                         </li>
 
@@ -304,39 +303,16 @@
 
                                         <li style="height: 70px;">
                                             <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/ken.png" style="max-height: 70px;" class="logo" />
+                                                <img src="assets/images/mitellogo.png" style="max-height: 70px;" class="logo" />
                                             </a>
                                         </li>
 
                                         <li style="height: 70px;">
                                             <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/icecreammedia-011.png" style="max-height: 70px;" class="logo" />
+                                                <img src="assets/images/adtranlogo.png" style="max-height: 70px;" class="logo" />
                                             </a>
                                         </li>
-
-                                        <li style="height: 70px;">
-                                            <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/garnise_011.png" style="max-height: 70px;" class="logo" />
-                                            </a>
-                                        </li>
-
-                                        <li style="height: 70px;">
-                                            <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/capitan-cook1.png" style="max-height: 70px;" class="logo" />
-                                            </a>
-                                        </li>
-
-                                        <li style="height: 70px;">
-                                            <a href="#" class="bwWrapper" >
-                                               <img src="images/slider/bread1.png" style="max-height: 70px;" class="logo" />
-                                            </a>
-                                        </li>
-
-                                        <li style="height: 70px;">
-                                            <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/Apuragreen2.png" style="max-height: 70px;" class="logo" />
-                                            </a>
-                                        </li>
+                                        
                                     </ul>
                                 </div>
                                 <div class="clear"></div>
@@ -420,19 +396,23 @@
                                 </li>
 
                                 <li class="menu-item menu-item-type-post_type">
-                                    <a href="testimonials.html">Testimonials</a>
+                                    <a href="/main/whycloud.php">Why the Cloud?</a>
                                 </li>
 
                                 <li class="menu-item menu-item-type-post_type">
-                                    <a href="portfolio-3-columns.html">Portfolio</a>
+                                    <a href="/main/mobileintegration.php">Mobile Integration</a>
                                 </li>
 
-                                <li class="menu-item menu-item-type-post_type">
-                                    <a href="get-in-touch.html">Get in touch</a>
+								<li class="menu-item menu-item-type-custom">
+                                    <a href="/main/contactcenter.php">Get in Touch</a>
                                 </li>
-
+                                
                                 <li class="menu-item menu-item-type-custom">
-                                    <a href="#">Policy</a>
+                                    <a href="/main/communicationssolutions.php">Communications Solutions</a>
+                                </li>
+                                
+                                <li class="menu-item menu-item-type-post_type">
+                                    <a href="/main/contactus.php">Get in touch</a>
                                 </li>
 
                                 <li class="menu-item menu-item-type-custom">
@@ -442,25 +422,26 @@
                         </div>   
                         </div>   
                    		 <div class="footer-widgets-area with-sidebar-right">
-                  	  	 	<div class="widget-first widget span2 widget_text"><a href="/main/contactus.php">
+                  	  	 	<div class="widget-first widget span6 widget_text"><a href="/main/contactus.php">
                   	  	 		<h3>Contact Us</h3>
                         		<div class= "contact-info"> 
 								<div class="sidebar-nav">
 									<ul>
 										<li>
-											<i class="icon-map-marker" style="color#979797; font-size:20px"></i>
-												Address: 3719 E La Salle St. Phoenix, AZ, 85040
+											<i class="fa fa-map-marker" style="color#979797; font-size:20px"></i>
+												Address: 3719 E La Salle St.
+												Phoenix, AZ, 85040
 										</li>
 										<li>
-											<i class="icon-info-sign" style="color:#979797; font-size:20px"></i>
+											<i class="fa fa-phone" style="color:#979797; font-size:20px"></i>
 												Front Desk: (602) 802-8400
 										</li>
 										<li>
-											<i class="icon-info-sign" style="color:#979797; font-size:20px"></i>
+											<i class="fa fa-phone" style="color:#979797; font-size:20px"></i>
 												Customer Service: (602) 802-8450
 										</li>
 										<li>
-											<i class="icon-envelope" style="color#979797; font-size:20px"></i>
+											<i class="fa fa-envelope-o" style="color#979797; font-size:20px"></i>
 												Email:redrock@redrocktelecom.com
 										</li>
 									</ul>
