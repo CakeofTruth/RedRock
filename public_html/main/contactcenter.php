@@ -1,5 +1,5 @@
 <?php
-	$pagetitle = "Avaya Solutions";
+	$pagetitle = "Contact Center";
 	include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
 ?>
 <div class="clear"></div>
