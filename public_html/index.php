@@ -65,10 +65,10 @@
                         <!-- START MAIN NAVIGATION -->
 
                         <ul id="menu-menu" class="level-1">
-							<li><a href="/index.php"><font color="#009E8E">Home</font></a></li>
-							<li><a href="/main/aboutus.php"><font color="#009E8E">About Us</font></a>
-							<li><a href="http://support.redrocktelecom.com"><font color="#009E8E">Customer Service</font></a></li>
-							<li><a href="/main/contactus.php"><font color="#009E8E">Contact Us</font></a></li>
+							<li><a href="/index.php"><font color="#ffffff">Home</font></a></li>
+							<li><a href="/main/aboutus.php"><font color="#ffffff">About Us</font></a>
+							<li><a href="http://support.redrocktelecom.com"><font color="#ffffff">Customer Service</font></a></li>
+							<li><a href="/main/contactus.php"><font color="#ffffff">Contact Us</font></a></li>
                         </ul>
                         <!-- END MAIN NAVIGATION -->
                         </div>
@@ -98,7 +98,7 @@
                             <img src="/images/phone1.png" alt="CUSTOMER SUPPORT" />
                         </div>
                         <div class="text-content">
-                            <h3><font color="#009E8E">CUSTOMER SUPPORT</font></h3>
+                            <h3><font color="#ffffff">CUSTOMER SUPPORT</font></h3>
                             <p>(602) 802-8450</p>
                         </div>
                     </div>
@@ -111,30 +111,29 @@
         <div id="slider-polaroid-0" class="slider slider-polaroid polaroid no-responsive" style="height:400px;">
             <div class="thumbs  container">
                 <div class="thumb">
-                    <img src="images/slider/flexslider/001-150x150.png" alt="images/slider/flexslider/001.png" />
-                    <div class="slide-content container align-right" style="background-image:url('images/slider/flexslider/001.png');">
+                    <img src="/assets/images/accessionmanthumbnail.png" alt="/assets/images/accessionmanthumbnail.png" />
+                    <div class="slide-content container align-right" style="background-image:url('/assets/images/accessionman.png');">
                         <div class="text">
-                            <h2>With Red Rock we will make you HAPPY.</h2>
+                            <h2>With Red Rock we go where you go.</h2>
                             <p>
-                                Quisque nec mi eu nibh aliquam elementum. Ut cursus nisl sit amet sapien dignissim at adipiscing lectus ornare. Aenean id lorem orci.
-                                Morbi lacinia nunc quis lectus condimentum rutrum.
+                                Across town or across the globe, we will ensure that you have access to everything you need to run your business smoothly.
                             </p>
                         </div>
                     </div>
                 </div>
 
                 <div class="thumb">
-                    <img src="images/slider/flexslider/0026-150x150.jpg" alt="images/slider/flexslider/0026.jpg" />
+                    <img src="/assets/images/phonecustomerthumbnail.png" alt="/assets/images/phonelady.png" />
                 </div>
 
                 <div class="thumb">
-                    <img src="images/slider/flexslider/003-150x150.png" alt="images/slider/flexslider/003.png" />
-                    <div class="slide-content container align-right" style="background-image:url('images/slider/flexslider/003.png');">
+                    <img src="/assets/images/accessionformatsthumbnail.png" alt="/assets/images/accessionformats.png" />
+                    <div class="slide-content container align-right" style="background-image:url('/assets/images/accessionformats.png');">
                         <div class="text">
-                            <h2>Be nice. Be original.</h2>
+                            <h2>Nontraditional Business?</h2>
                             <p>
-                                Quisque nec mi eu nibh aliquam elementum. Ut cursus nisl sit amet sapien dignissim at adipiscing lectus ornare. Aenean id lorem orci.
-                                Morbi lacinia nunc quis lectus condimentum rutrum.
+                                Try our nontraditional solutions.  Our mobile apps can be used on your computer, tablet, or smartphone.  So whether you are at a remote site,
+                                or simply want all of the amenities of your office at home, we have a solution for you.
                             </p>
                         </div>
                     </div>
@@ -167,8 +166,8 @@
                 </div>
 
                 <div class="thumb">
-                    <img src="images/slider/flexslider/0052-150x150.jpg" alt="images/slider/flexslider/0052.jpg" />
-                    <div class="slide-content container align-right full" style="background-image:url('images/slider/flexslider/0052.jpg');">
+                    <img src="/assets/images/hostedvoicethumbnail.png" alt="/assets/images/hostedvoice.png" />
+                    <div class="slide-content container align-right full" style="background-image:url('/assets/images/hostedvoice.png');">
                         <div class="container"></div>
                     </div>
                 </div>
@@ -286,7 +285,7 @@
 
                                         <li style="height: 70px;">
                                             <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/nolt_400x4001.png" style="max-height: 70px;" class="logo" />
+                                                <img src="assets/images/polycomlogo.png" style="max-height: 70px;" class="logo" />
                                             </a>
                                         </li>
 
@@ -304,39 +303,16 @@
 
                                         <li style="height: 70px;">
                                             <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/ken.png" style="max-height: 70px;" class="logo" />
+                                                <img src="assets/images/mitellogo.png" style="max-height: 70px;" class="logo" />
                                             </a>
                                         </li>
 
                                         <li style="height: 70px;">
                                             <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/icecreammedia-011.png" style="max-height: 70px;" class="logo" />
+                                                <img src="assets/images/adtranlogo.png" style="max-height: 70px;" class="logo" />
                                             </a>
                                         </li>
-
-                                        <li style="height: 70px;">
-                                            <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/garnise_011.png" style="max-height: 70px;" class="logo" />
-                                            </a>
-                                        </li>
-
-                                        <li style="height: 70px;">
-                                            <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/capitan-cook1.png" style="max-height: 70px;" class="logo" />
-                                            </a>
-                                        </li>
-
-                                        <li style="height: 70px;">
-                                            <a href="#" class="bwWrapper" >
-                                               <img src="images/slider/bread1.png" style="max-height: 70px;" class="logo" />
-                                            </a>
-                                        </li>
-
-                                        <li style="height: 70px;">
-                                            <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/Apuragreen2.png" style="max-height: 70px;" class="logo" />
-                                            </a>
-                                        </li>
+                                        
                                     </ul>
                                 </div>
                                 <div class="clear"></div>
