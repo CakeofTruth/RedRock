@@ -13,7 +13,7 @@
 					<div class="team-slider wrapper team-rounded margin-top margin-bottom">
 						<div class="list_carousel">
 							<div class="caroufredsel_wrapper" style="display:block; text-align: start; 
-							float:none; position: relative; top: auto; right: auto; bottom: auto; left: auto;
+							float:none; position: relative; top: auto; right: auto; bottom: auto; left: auto;/
 							z-index: auto; width: 1170px; height: 422px; margin: 0px; overflow: hidden;">
 								<ul class="team-slides" style="text-align: left; float: none; position:
 								absolute; top: 0px; right: auto; bottom: auto; left: 3px; margin: 0px; width: 3886px;
@@ -191,10 +191,10 @@
 		</div>
 	</div>
 					<script type="text/javascript">
-								jQyery(function ($)) {
+								jQuery(function ($) {
 									var maxHeight = 0;
 									
-									$('.team-slides li').each(function ()) {
+									$('.team-slides li').each(function () {
 										if ($(this).height() > maxHeight) {
 											maxHeight = $(this).height();
 										}
