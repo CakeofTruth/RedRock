@@ -90,10 +90,10 @@ function getMailer(){
 
 	$mail->IsSMTP();
 	$mail->SMTPAuth = true;
-	$mail->Host = "smtp.gmail.com";
+	$mail->Host = "email.hostaccount.com";
 	$mail->Port = 587;
-	$mail->Username = "joshredrock@gmail.com";
-	$mail->Password = "713cuntcakes";
+	$mail->Username = "noreply@redrocktelecom.com";
+	$mail->Password = "Telco123!";
 	
 	return $mail;
 }
