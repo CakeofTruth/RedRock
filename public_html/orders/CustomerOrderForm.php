@@ -1,6 +1,6 @@
 <?php 
 
-	include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
+	include ($_SERVER ["DOCUMENT_ROOT"] . '/portal/portalheader.php');
 	
 	include_once $root . '/classes/DBUtils.php';
 
@@ -45,92 +45,84 @@
 	</style>
 	</head>
 	<body>
-		<h1> Red Rock Telecommunications Order Form <img src=" C:\Users\Rae\Pictures\Red Rock Logo.jpg" style= "float:left;"/></h1>
-		<h2> Customer Information </h2>
-	<form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post" enctype="multipart/form-data">
-		<table>
-			<tr>
-				<td> Reseller Name: </td>
-				<td>  <input type="text" name="resellername" value="<?php echo $resellerRow["Company_Name"];?>" readonly> </td>
-			</tr>	
-			<tr>
-				<td> Reseller Billing Address 1: </td>
-				<td> <input type="text" name="resellerba1" value="<?php echo $resellerRow["Address1"];?>" readonly> </td>
-			</tr>
-			<tr>
-				<td> Reseller Billing Address 2: </td>
-				<td> <input type="text" name="resellerba2" value="<?php echo $resellerRow["Address2"];?>" readonly> </td>
-			</tr>
-			<tr>
-				<td> City: </td>
-				<td> <input type="text" name="city" value="<?php echo $resellerRow["City"];?>" readonly> </td>
-			</tr>
-			<tr>
-				<td> State: </td>
-				<td> <input type="text" name="state" value="<?php echo $resellerRow["State"];?>" readonly>						
-			<tr> 
-				<td> Zip Code: </td>
-				<td> <input type="text" name="zipcode" value="<?php echo $resellerRow["Zip"];?>" readonly> </td>
-			</tr>
-			<tr> 
-				<td> Telephone Number: </td>
-				<td> <input type="text" name="telephonenumber" value="<?php echo $resellerRow["Phone"];?>" readonly> </td>
-			</tr>
-			<tr>
-				<td> Email Address: </td>
-				<td> <input type="text" name="emailaddress" value="<?php echo $accountRow["Email"];?>" readonly> </td>
-			</tr>
-			<tr>
-				<td> Reseller Contact Name: </td>
-				<td> <input type="text" name="resellercn" value="<?php echo $accountRow["First_Name"]; echo " " . $accountRow["Last_Name"]?>" readonly> </td>
-			<tr>
-				<td> Sales Representative: </td>
-				<td> <select name="salesrep">
+		<!--<label for='uploaded_file'>Select A File To Upload:</label>
+		input type="file" name="uploaded_file"-->
+		<h3>Red Rock Telecommunications</h3>
+		<h4>Customer Order Form</h4>
+		<h5>Reseller Contact Information</h5>
+		<br><br>
+		<input type="submit" value="Next">
+		<form method="post" action="process.php">
+        <label for="name">Reseller Name:</label>
+        	<input type="text" name="resellername" value="<?php echo $resellerRow["Company_Name"];?>" readonly>
+		
+		<label for="resellerba1">Reseller Billing Address 1:</label>
+ 			<input type="text" name="resellerba1" value="<?php echo $resellerRow["Address1"];?>" readonly>
+ 		
+ 		<label for="resellerba2">Reseller Billing Address 2:</label>
+ 			<input type="text" name="resellerba2" value="<?php echo $resellerRow["Address2"];?>" readonly>
+ 		
+ 		<label for="city">City:</label>
+ 			<input type="text" name="city" value="<?php echo $resellerRow["City"];?>" readonly>
+ 		
+ 		<label for="state">State:</label>	
+ 			<input type="text" name="state" value="<?php echo $resellerRow["State"];?>" readonly>
+ 			
+ 		<label for="zipcode">Zip Code:</label>
+ 			<input type="text" name="zipcode" value="<?php echo $resellerRow["Zip"];?>" readonly>
+ 		
+ 		<label for="telephonenumber">Telephone Number:</label>
+ 			<input type="text" name="telephonenumber" value="<?php echo $resellerRow["telephonenumber"];?>" readonly>
+ 			
+ 		<label for="emailaddress">Email Address:</label>
+ 			<input type="text" name="emailaddress" value="<?php echo $accountRow["emailaddress"];?>" readonly>
+ 			
+		<label for="telephone">Telephone: </label>
+			<input type="tel" id="telephone" name="telephone" value="<?php echo ($sr && !$cf['form_ok']) ? $cf['posted_form_data']['telephone'] : '' ?>" />
+ 
+ 		<label for="resellercn">Reseller Contact Name: </label>
+ 			<input type="text" name="resellercn" value="<?php echo $accountRow["First_Name"]; echo " " . $accountRow["Last_Name"]?>">
+ 			
+ 		<label for="salesrep">Sales Representative: </label>
+ 			<select id="salesrep">
 						<option value = ""> Select a Sales Representative</option>
 						<option value = "Breanda Beall"> Brenda Beall </option>
 						<option value = "other"> Other </option> 
 					</select>
-				</td>
-			<tr>
-				<td> Account Number: </td>
-				<td> <input type="text" name="accountnumber" value="<?php echo $accountRow["Acct_No"];?>" readonly> </td>
-			</tr>
-			<tr> 
-				<td> Service Provider Code: </td>
-				<td> <input type="text" name="spcode" value="<?php echo $resellerRow["Serv_Prov_CD"];?>" readonly></td>
-			<tr>
-				<td> End User Customer Name: </td>
-				<td> <input type="text" name="endusername" > </td>
-			</tr>
-			<tr>
-				<td> Main Telephone Number: </td>
-				<td> <input type="text" name="cmtelephone" > </td>
-			</tr>
-			<tr>
-				<td> Reseller Reference ID: </td>
-				<td>  <input type="text" name="resellerrefid" > </td>
-			</tr>
-			<tr>
-				<td> Requested Built/ Service Provisioned Date: </td>
-				<td> <input type="date" name= "requestedbuilt" > </td>
-			</tr>
-			<tr>
-				<td> Requested In Service/ Effective Billing Date </td>
-				<td> <input type="date" name= "requestedinservice"> </td>
-			</tr>
-			<tr>
-				<td> Or Sooner: </td>
-				<td> <input type="radio" name="orsooner" value= "Yes" checked="checked"> Yes<br> </td>
-				<td> <input type="radio" name="orsooner" value= "No"> No<br> </td>
-			</tr>
-			<tr>
-				<td> Add to Existing Customer: </td>
-				<td> <input type="radio" name="addtoexistingcustomer" value= "Yes"> Yes<br> </td>
-				<td> <input type="radio" name="addtoexistingcustomer" value= "No" checked="checked"> No<br> </td>
-			</tr>
-			<tr>
-				<td> Customer Time Zone: </td>
-				<td> <select name="customertimezone">
+		
+		<label for="accountnumber">Account Number: </label>
+			<input type="text" name="accountnumber" value="<?php echo $accountRow["Acct_No"];?>" readonly>
+		
+		<label for="spcode">Service Provider Code: </label>
+			<input type="text" name="spcode" value="<?php echo $resellerRow["Serv_Prov_CD"];?>" readonly>
+		
+		<h5>Customer Information</h5>
+		
+		<label for="endusername">End User Customer Name: <span class="required">*</span></label>
+			<input type="text" name="endusername" required="required"><?php echo ($sr && !$cf['form_ok']) ? $cf['posted_form_data']['endusername'] : '' ?>
+		
+		<label for="cmtelephone">Billing Telephone Number: <span class="required">*</span></label>
+			<input type="text" name="cmtelephone" required="required"><?php echo ($sr && !$cf['form_ok']) ? $cf['posted_form_data']['message'] : '' ?>
+			
+		<label for="resellerrefid">Reseller Reference ID: </label>
+			<input type="text" name="resellerrefid">
+			
+		<label for="requestedbuilt">Requested Built/Service Provisioned Date: <span class="required">*</span></label>
+			<input type="date" name= "requestedbuilt" required="required"><?php echo ($sr && !$cf['form_ok']) ? $cf['posted_form_data']['message'] : '' ?>
+			
+		<label for="requestedinservice">Requested In Service/Effective Billing Date: <span class="required">*</span></label>
+			<input type="date" name= "requestedbuilt" required="required"><?php echo ($sr && !$cf['form_ok']) ? $cf['posted_form_data']['message'] : '' ?>
+			
+		<label for="orsooner">Or Sooner: </label>
+				<input type="radio" name="orsooner" value= "Yes" checked="checked"> Yes
+				<input type="radio" name="orsooner" value= "No"> No<br>
+		
+		<label for="addtoexistingcustomer"> Add to Existing Customer:</label>
+			<input type="radio" name="addtoexistingcustomer" value= "Yes"> Yes
+			<input type="radio" name="addtoexistingcustomer" value= "No" checked="checked"> No<br>
+		
+		<label for="customertimezone"> Customer Time Zone:</label>
+			<select name="customertimezone">
 						<option value = "customertimezone"> Customer Time Zone </option>
 						<option value = "easterntimezone"> Eastern Time Zone </option>
 						<option value = "centraltimezone"> Central Time Zone </option>
@@ -140,28 +132,24 @@
 						<option value = "alaskatimezone"> Alaska Time Zone </option>
 						<option value = "hawaiialeutiantimezone"> Hawaii-Aleutian Time Zone </option>
 					</select>
-				</td>
-		</table>
-	<h3> Service/ 911 Addresses </h3>
-		<table>
-			<tr>
-				<td> Does this order require that 911 be provisioned per the data provided below? </td>
-				<td> <input type="radio" name="emergprovisionrequired"  value= "Yes"> Yes<br> </td>
-				<td> <input type="radio" name="emergprovisionrequired" value= "No" selected> No<br> </td>
-			</tr>
-			<tr>
-				<td> Service/911 Address 1: </td>
-				<td> <input type="text" name= "emergaddress1"> </td>
-			</tr>
-			<tr>
-				<td> Service/911 Address 2 (Suite#): </td>
-				<td> <input type="text" name= "emergaddress2"> </td>
-			</tr>
-			<tr>
-				<td> City: </td>
-				<td> <input type="text" name= "emergcity"> </td>
-				<td> State: </td>
-				<td> <select name="emergstate">
+			
+		<h5>Service/911 Addresses</h5>
+		
+		<label for="emergprovisionrequired">Does this order require that 911 be provisioned per the data provided below?<span class="required">*</span></label>
+			<input type="radio" name="emergprovisionrequired"  value= "Yes" checked="checked"> Yes
+			<input type="radio" name="emergprovisionrequired" value= "No"> No<br>
+		
+		<label for="emergaddress1">Service/911 Address 1:</label>
+			<input type="text" name= "emergaddress1">
+			
+		<label for="emergaddress2"> Service/911 Address 2:</label>
+			<input type="text" name= "emergaddress2">
+			
+		<label for="emergcity">City:</label>
+			<input type="text" name= "emergcity">
+			
+		<label for="emergstate">State:</label>
+			<select name="emergstate">
 						<option value= "Alabama">AL</option>
 						<option value= "Alaska">AK</option>
 						<option value= "Arizona">AZ</option>
@@ -213,23 +201,22 @@
 						<option value= "West Virginia">WV</option>
 						<option value= "Wisconsin">WI</option>
 						<option value= "Wyoming">WY</option>
-				</select> </td>
-			<tr>
-				<td> Zip Code: </td>
-				<td> <input type="text" name= "emergzipcode"> </td>
-			</tr>
-			<tr>
-				<td> 911 Phone Number: </td>
-				<td> <input type="text" name="emergphonenumber"> </td>
-			</tr>	
-		</table>
-		<h4>Order Details</h4>
-		<textarea name="orderdetails" resellerRows="100" cols="100"></textarea>
-		<!--<label for='uploaded_file'>Select A File To Upload:</label>
-		input type="file" name="uploaded_file"-->
-		<br><br>
-		<input type="submit" value="Next">
-		</form>
+				</select>
+				
+		<label for="emergzipcode">Zip Code:</label>
+			<input type="text" name= "emergzipcode">
+			
+		<label for="emergzipcode"> 911 Phone Number:</label>
+			<input type="text" name="emergphonenumber">
+		
+ 		<h5>Order Details</h5>
+		<label for="message">Order Details: <span class="required">*</span></label>
+			<textarea id="orderdetails" name="orderdetails" placeholder="Your message must be greater than 20 charcters" 
+			required="required" data-minlength="20"><?php echo ($sr && !$cf['form_ok']) ? $cf['posted_form_data']['message'] : '' ?></textarea>
+ 				<span id="loading"></span>
+				<input type="submit" value="Submit" id="submit-button" />
+				<p id="req-field-desc"><span class="required">*</span> indicates a required field</p>
+    </form>
 	<!--<?php 
 			$name_of_uploaded_file =
 				basename($_FILES['uploaded_file']['name']);

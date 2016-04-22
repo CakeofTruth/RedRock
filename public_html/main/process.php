@@ -48,6 +48,28 @@ if( isset($_POST) ){
 	
 	//send email if all is ok
 	if($formok){
+		function getMailer(){
+			include_once ($_SERVER ["DOCUMENT_ROOT"] .'/mail/class.phpmailer.php');
+			$mail = new PHPMailer();
+		
+			$recipient = (empty($_POST['recipient'])) ? 'default' : $_POST['recipient'];
+			$email_addresses = array('a' => 'gpaduganan@redrocktelecom.com', 'b'=> 'sales@redrocktelecom.com', 'c'=>'support@redrocktelecom.com',
+					'd'=> 'ops@redrocktelecom.com');
+			if(!array_key_exists($recipient, $email_addresses) {
+				$recipient = $email_addresses['default'];
+			}
+			else {
+				$recipient = $email_addresses[$recipient];
+			}
+			$mail->IsSMTP();
+			$mail->SMTPAuth = true;
+			$mail->Host = "email.hostaccount.com";
+			$mail->Port = 587;
+			$mail->Username = "noreply@redrocktelecom.com";
+			$mail->Password = "Telco123!";
+		
+			return $mail;
+		}
 		$headers = "From: noreply@redrocktelecom.com" . "\r\n";
 		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 		 

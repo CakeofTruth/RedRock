@@ -21,7 +21,7 @@ $pagetitle = "Red Rock Telecommunications Login Page";
 	<input type="submit" value="Submit">
 </form>
 <div id="newaccount">
-	<a href="/accounts/Registration/AccountRegistrationForm.php">Create a New Account</a> <br>
+	<a href="/accounts/Registration/AccountRegistration.php">Create a New Account</a> <br>
 	<a href="/accounts/Registration/forgot_password.php">Forgot Your Password?</a>
 </div>
 

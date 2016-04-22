@@ -9,7 +9,7 @@ $root = $_SERVER ["DOCUMENT_ROOT"];
     <!-- this line will appear only if the website is visited with an iPad -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2, user-scalable=yes" />
 
-    <title>Red Rock Telecommunications</title>
+    <title>Red Rock Telecommunications Portal</title>
 
     <!-- RESET STYLESHEET -->
     <link rel="stylesheet" type="text/css" media="all" href="/css/reset.css" />
@@ -68,10 +68,8 @@ $root = $_SERVER ["DOCUMENT_ROOT"];
                         <!-- START MAIN NAVIGATION -->
 
                         <ul id="menu-menu" class="level-1">
-							<li><a href="/index.php"><font color="#ffffff">Home</font></a></li>
-							<li><a href="/main/aboutus.php"><font color="#ffffff">About Us</font></a>
-							<li><a href="http://support.redrocktelecom.com"><font color="#ffffff">Customer Service</font></a></li>
-							<li><a href="/main/contactus.php"><font color="#ffffff">Contact Us</font></a></li>
+							<li><a href="/portal/portal.php"><font color="#ffffff">Home</font></a></li>
+							<li><a href="/portal/CustomerOrderForm.php"><font color="#ffffff">Place an Order</font></a>
                         </ul>
                         <!-- END MAIN NAVIGATION -->
                         </div>
