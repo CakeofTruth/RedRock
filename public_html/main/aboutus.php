@@ -90,11 +90,14 @@
 	<div class="row">
 	<div id="content-page" class="span 12 content group">
 	<div id="post-302" class="post-302 page type-page status-publish hentry group">
-	<h2> How Can I Unify my Communications? </h2>
+	<h2> What makes Red Rock different? </h2>
 	<div class="three-fourth">
 		<p>
 			Red Rock Telecommunications is a built from scratch Cloud solutions company delivering resilient communications networks with the latest generation
 			Avaya and Metaswitch technology.  We provide businesses with Hosted Service for the deployment of voice and multimedia Sessions over Internet Protocol.
+		</p>
+		<p>
+			Our collaboration and engagement with our clients enhances productivity, increases profitability, and improves brand image.
 			Our executive and engineering teams created the second largest telecommunications company in Arizona with 99.9% client satisfaction and zero churn
 			over a ten year period.
 		</p>

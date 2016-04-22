@@ -14,7 +14,7 @@ if( isset($_POST) ){
 	$name = $_POST['name'];
 	$email = $_POST['email'];
 	$telephone = $_POST['telephone'];
-	$enquiry = $_POST['enquiry'];
+	$inquiry = $_POST['inquiry'];
 	$message = $_POST['message'];
 	
 }
@@ -48,41 +48,40 @@ if( isset($_POST) ){
 	
 	//send email if all is ok
 	if($formok){
-		function getMailer(){
-			include_once ($_SERVER ["DOCUMENT_ROOT"] .'/mail/class.phpmailer.php');
-			$mail = new PHPMailer();
+
+		$mail = getMailer();
 		
-			$recipient = (empty($_POST['recipient'])) ? 'default' : $_POST['recipient'];
-			$email_addresses = array('a' => 'gpaduganan@redrocktelecom.com', 'b'=> 'sales@redrocktelecom.com', 'c'=>'support@redrocktelecom.com',
-					'd'=> 'ops@redrocktelecom.com');
-			if(!array_key_exists($recipient, $email_addresses) {
-				$recipient = $email_addresses['default'];
-			}
-			else {
-				$recipient = $email_addresses[$recipient];
-			}
-			$mail->IsSMTP();
-			$mail->SMTPAuth = true;
-			$mail->Host = "email.hostaccount.com";
-			$mail->Port = 587;
-			$mail->Username = "noreply@redrocktelecom.com";
-			$mail->Password = "Telco123!";
-		
-			return $mail;
+		$recipient = (empty($_POST['enquiry'])) ? 'default' : $_POST['enquiry'];
+		$email_addresses = array('a' => 'gpaduganan@redrocktelecom.com', 'b'=> 'sales@redrocktelecom.com', 'c'=>'support@redrocktelecom.com',
+				'd'=> 'ops@redrocktelecom.com');
+		if(array_key_exists($recipient, $email_addresses)) {
+			$recipient = $email_addresses[$recipient];
 		}
-		$headers = "From: noreply@redrocktelecom.com" . "\r\n";
-		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+		else {
+			$recipient = $email_addresses['default'];
+		}
+		
+// 		$headers = "From: noreply@redrocktelecom.com" . "\r\n";
+// 		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 		 
-		$emailbody = "<p>You have recieved a new message from the enquiries form on your website.</p>
+		$emailbody = "<p>You have recieved a new message from the inquiries form on your website.</p>
 		<p><strong>Name: </strong> {$name} </p>
 		<p><strong>Email Address: </strong> {$email} </p>
 		<p><strong>Telephone: </strong> {$telephone} </p>
-		<p><strong>Enquiry: </strong> {$enquiry} </p>
+		<p><strong>inquiry: </strong> {$inquiry} </p>
 		<p><strong>Message: </strong> {$message} </p>
 		<p>This message was sent from the IP Address: {$ipaddress} on {$date} at {$time}</p>";
 		 
-		mail("rachel@redrocktelecom.com","New Enquiry",$emailbody,$headers);
-		 
+		$mail->SetFrom('noreply@redrocktelecom.com', 'Web App');
+		$mail->Subject = "Contact Us Submission";
+		$mail->MsgHTML($emailbody);
+		$mail->AddAddress($recipient);
+		
+		if($mail->Send()) {
+			echo "Message sent!";
+		} else {
+			echo "Mailer Error: " . $mail->ErrorInfo;
+		}
 	}
 	
 	//what we need to return back to our form
@@ -107,6 +106,21 @@ if( isset($_POST) ){
 		 
 		//redirect back to form
 		header('location: ' . $_SERVER['HTTP_REFERER']);
+	
+	}
+	
+	function getMailer(){
+		include_once ($_SERVER ["DOCUMENT_ROOT"] .'/mail/class.phpmailer.php');
+		$mail = new PHPMailer();
+		$mail->IsSMTP();
+		$mail->SMTPAuth = true;
+		$mail->Host = "email.hostaccount.com";
+		$mail->Port = 587;
+		$mail->Username = "noreply@redrocktelecom.com";
+		$mail->Password = "Telco123!";
+
+		
+		return $mail;
 	
 	}
 ?>

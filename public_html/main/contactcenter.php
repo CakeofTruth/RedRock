@@ -90,7 +90,7 @@
 	<div class="row">
 	<div id="content-page" class="span 12 content group">
 	<div id="post-302" class="post-302 page type-page status-publish hentry group">
-	<h2> Why Cloud? </h2>
+	<h2> The Cloud and Contact Centers </h2>
 	<div class="two-third">
 		<p>
 		Contact Centers increasingly see the benefits of moving their infrastructure into a cloud-based environment. 

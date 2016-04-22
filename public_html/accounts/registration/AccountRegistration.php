@@ -67,7 +67,6 @@ function sendVerificationEmail($hash){
 		' . $_SERVER ["DOCUMENT_ROOT"] . '/accounts/registration/verify.php?email=' . $to . '&hash=' . $hash . '
 	';
 
-	$headers = 'From:noreply@redrocktelecom.com' . "\r\n";
 	
 	$mail->SetFrom('noreply@redrocktelecom.com', 'Web App');
 	$mail->Subject = "Signup | Verification";

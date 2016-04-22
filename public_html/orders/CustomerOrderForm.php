@@ -3,9 +3,41 @@
 	include ($_SERVER ["DOCUMENT_ROOT"] . '/portal/portalheader.php');
 	
 	include_once $root . '/classes/DBUtils.php';
-
-
-	$resellerSelect = generateResellersSelectString("HCON");//Will eventually be a $_SESSION variable
+	
+	if (empty ( $_POST )) {
+	$firstName = "firstName";
+	$lastName = "lastName";
+	$username = "username";
+	$password = "password";
+	$passwordconfirm = "passwordconfirm";
+	$resellername = "resellername";
+	$resellerba1 = "resellerba1";
+	$resellerba2 = "resellerba2";
+	$city = "city";
+	$state = "state";
+	$zipcode = "zipcode";
+	$telephoneNumber = "telephoneNunmber";
+	$emailAddress = "emailAddress";
+	$spcode = "spCode";
+	
+	}else{
+		$firstName = $_POST ["firstName"];
+		$lastName = $_POST ["lastName"];
+		$username = $_POST ["username"];
+		$password = $_POST ["password"];
+		$passwordconfirm = $_POST ["passwordConfirm"];
+		$resellername = $_POST ["resellerName"];
+		$resellerba1 = $_POST ["resellerBA1"];
+		$resellerba2 = $_POST ["resellerBA2"];
+		$city = $_POST ["city"];
+		$state = $_POST ["state"];
+		$zipcode = $_POST ["zipCode"];
+		$telephoneNumber = $_POST ["telephoneNumber"];
+		$emailAddress = $_POST ["emailAddress"];
+		$spcode = $_POST ["spCode"];
+	}
+	
+	$resellerSelect = "generateResellersSelectString("HCON");//Will eventually be a $_SESSION variable
 	$dbutils = new DBUtils();
 	$conn = $dbutils->getDBConnection();
 

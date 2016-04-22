@@ -3,8 +3,6 @@
 	include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
 ?>   
         <!-- BEGIN FLEXSLIDER SLIDER -->
-       <div class="clear"></div>
-        <!-- BEGIN FLEXSLIDER SLIDER -->
         <div id="slider-polaroid-0" class="slider slider-polaroid polaroid no-responsive" style="height:400px;">
             <div class="thumbs  container">
                 <div class="thumb">
@@ -85,7 +83,6 @@
                 <img src="images/slider/flexslider/fixed-polaroid.jpg" alt="" />
             </div>
         </div>
-    </div>
     <!-- END HEADER -->
         
 	<div class="clear"></div>
@@ -127,7 +124,7 @@
 		phone virtually anywhere with an Internet connection and have it
 		work seamlessly with the rest of your business.
 	</p>
-	<h4>Administer the service through the Hosted Voice Web Portal</h4>
+	<h4>Administer the Service through the Hosted Voice Web Portal</h4>
 	<p>
 		Hosted Voice provides a convenient web portal access that
 		makes it easy to listen to voicemail, view faxes, and change
