@@ -1,9 +1,12 @@
+<!DOCTYPE html>
+<html>
+<link rel='stylesheet' id='custom-css'  href='/css/contactform.css' type='text/css' media='all' />
+<body>
 <?php 
 
 	include ($_SERVER ["DOCUMENT_ROOT"] . '/portal/portalheader.php');
 	
 	include_once $root . '/classes/DBUtils.php';
-	
 	if (empty ( $_POST )) {
 	$firstName = "firstName";
 	$lastName = "lastName";
@@ -37,7 +40,7 @@
 		$spcode = $_POST ["spCode"];
 	}
 	
-	$resellerSelect = "generateResellersSelectString("HCON");//Will eventually be a $_SESSION variable
+	//$resellerSelect = "generateResellersSelectString("HCON");//Will eventually be a $_SESSION variable
 	$dbutils = new DBUtils();
 	$conn = $dbutils->getDBConnection();
 
@@ -86,7 +89,7 @@
 		<input type="submit" value="Next">
 		<form method="post" action="process.php">
         <label for="name">Reseller Name:</label>
-        	<input type="text" name="resellername" value="<?php echo $resellerRow["Company_Name"];?>" readonly>
+        	<input type="text" name="resellername" value="<?php echo $resellerRow["Company_Name"]?>" readonly>
 		
 		<label for="resellerba1">Reseller Billing Address 1:</label>
  			<input type="text" name="resellerba1" value="<?php echo $resellerRow["Address1"];?>" readonly>
@@ -301,3 +304,4 @@ function generateAccountsSelectString ($Acct_No) {
 	return $sql;
 }
 ?>
+</body>

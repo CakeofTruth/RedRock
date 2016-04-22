@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html>
+<head>
+<style type="text/css">
+		body{ background-color: #ffffff; background-image: url("assets/images/sandtexture5.png"); background-repeat: repeat; background-position: top left; 
+		background-attachment: Scroll;}
+</style>
+<script type="text/javascript" src="/js/jquery/jquery.js"></script>
+</head>
 <body>
 <?php
 	$pagetitle = "Our Team";

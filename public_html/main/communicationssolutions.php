@@ -8,8 +8,8 @@
         <div id="slider-polaroid-0" class="slider slider-polaroid polaroid no-responsive" style="height:400px;">
             <div class="thumbs  container">
                 <div class="thumb">
-                    <img src="/assets/images/accessionmanthumbnail.png" alt="/assets/images/accessionmanthumbnail.png" />
-                    <div class="slide-content container align-right" style="background-image:url('/assets/images/accessionman.png');">
+                    <img src="/assets/images/accessionphonethumbnail.png" alt="/assets/images/accessionphonethumbnail.png" />
+                    <div class="slide-content container align-right" style="background-image:url('/assets/images/accessionphone1.png');">
                         <div class="text">
                             <h2>With Red Rock we go where you go.</h2>
                             <p>
@@ -37,8 +37,8 @@
                 </div>
 
                 <div class="thumb">
-                    <img src="/images/slider/flexslider/0043-150x150.jpg" alt="/images/slider/flexslider/0043.jpg" />
-                    <div class="slide-content container align-right full" style="background-image:url('/images/slider/flexslider/0043.jpg');">
+                    <img src="/assets/images/accessionmeeting4thumbnail.png" alt="/assets/images/accessionmeeting4thumbnail.png" />
+                    <div class="slide-content container align-right full" style="background-image:url('/assets/images/accessionmeeting4.png');">
                         <div class="container">
                             <div class="text">
                                 <h2>
@@ -90,7 +90,29 @@
 	<div class="row">
 	<div id="content-page" class="span 12 content group">
 	<div id="post-302" class="post-302 page type-page status-publish hentry group">
-	
+	<div class="two-fourth">
+		<p> Accession Meeting is a web conferencings and collaboration integrated within Accession </p>
+		<p> Meeting is fully integrated within Accession desktop and mobile 	&ndash; one click to begin </p>
+		<p> Invites can be both internal (within the app) or external (via email link)</p>
+		<p>Multiple views available &ndash; gallery, active speaker, condensed </p>
+		<p> Works on any Accession enabled device 	&ndash; mobile or desktop </p>
+		<p> Schedule directly from Outlook with a single mouse click </p>
+		<p> Voice and video conferencing  </p>
+		<p> Gallery view and speaker focus view </p>
+		<p> Rich, integrated moderator controls </p>
+		<p> 25 Attendee 	&ndash; All 25 can share video </p>
+		<p> Screen and application sharing </p>
+		<p> Share desktop screen or individual applications with collaborators </p>
+		<p> Share iPhone and iPad screens using Airplay mirror </p>
+		<p> Desktop Remote Control </p>
+		<p> Outlook Calendar Plugin </p>
+		<p> Intuitive user experience </p>
+		<p> Native one-click uplift from Accession</p>
+		<p> Mobile device support </p>
+	</div>
+	<div class="two-fourth last">
+		<img src="/assets/images/accessionmeeting2.png" alt="" />
+	</div>
 	</div>
 	</div>
 	</div>

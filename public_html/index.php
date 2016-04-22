@@ -111,8 +111,8 @@
         <div id="slider-polaroid-0" class="slider slider-polaroid polaroid no-responsive" style="height:400px;">
             <div class="thumbs  container">
                 <div class="thumb">
-                    <img src="/assets/images/accessionmanthumbnail.png" alt="/assets/images/accessionmanthumbnail.png" />
-                    <div class="slide-content container align-right" style="background-image:url('/assets/images/accessionman.png');">
+                    <img src="/assets/images/accessionphonethumbnail.png" alt="/assets/images/accessionphonethumbnail.png" />
+                    <div class="slide-content container align-right" style="background-image:url('/assets/images/accessionphone1.png');">
                         <div class="text">
                             <h2>With Red Rock we go where you go.</h2>
                             <p>
