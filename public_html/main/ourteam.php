@@ -235,6 +235,25 @@
 							</script>
 						</div>
 <?php include $root . '/main/footer.php'?>
+<script type="text/javascript src="/js/comment-reply.min.js"></script>
+<script type="text/javascript" src="/js/underscore.min.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery.masonry.min.js"></script>
+<script type="text/javascript" src="/js/jquery.easing.js"></script>
+<script type="text/javascript" src="/js/hoverIntent.min.js"></script>
+<script type="text/javascript" src="/js/jQuery.BlackAndWhite.js"></script>
+<script type="text/javascript" src="/js/jquery.carouFredSel-6.1.0-packed.js"></script>
+<script type="text/javascript" src="/js/jquery.colorbox-min.js"></script>
+<script type="text/javascript" src="/js/media-upload.min.js"></script>
+<script type="text/javascript" src="/js/jquery.clickout.min.js"></script>
+<script type="text/javascript" src="/js/responsive.js"></script>
+<script type="text/javascript" src="/js/mobilemenu.js"></script>
+<script type="text/javascript" src="/js/jquery.superfish.js"></script>
+<script type="text/javascript" src="/js/jquery.placeholder.js"></script>
+<script type="text/javascript" src="/js/contact.js"></script>
+<script type="text/javascript" src="/js/jquery.tipsy.js"></script>
+<script type="text/javascript" src="/js/jquery.cycle.min.js"></script>
+<script type="text/javascript" src="/js/shortcodes.js"></script>
+<script type="text/javascript" src="js/jquery.cusstom.js"></script>
 </body>
 </html>
 								

@@ -1,44 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html> 
+	<head> 
+		<title> Customer Order Form </title>
 <link rel='stylesheet' id='custom-css'  href='/css/contactform.css' type='text/css' media='all' />
-<body>
+	<style>
+		body {
+			text-align:center;
+			}
+		form {
+			display: inline-block;
+			text-align: center;		
+			}
+	</style>
+	</head>
+	<body>
 <?php 
 
 	include ($_SERVER ["DOCUMENT_ROOT"] . '/portal/portalheader.php');
 	
 	include_once $root . '/classes/DBUtils.php';
-	if (empty ( $_POST )) {
-	$firstName = "firstName";
-	$lastName = "lastName";
-	$username = "username";
-	$password = "password";
-	$passwordconfirm = "passwordconfirm";
-	$resellername = "resellername";
-	$resellerba1 = "resellerba1";
-	$resellerba2 = "resellerba2";
-	$city = "city";
-	$state = "state";
-	$zipcode = "zipcode";
-	$telephoneNumber = "telephoneNunmber";
-	$emailAddress = "emailAddress";
-	$spcode = "spCode";
-	
-	}else{
-		$firstName = $_POST ["firstName"];
-		$lastName = $_POST ["lastName"];
-		$username = $_POST ["username"];
-		$password = $_POST ["password"];
-		$passwordconfirm = $_POST ["passwordConfirm"];
-		$resellername = $_POST ["resellerName"];
-		$resellerba1 = $_POST ["resellerBA1"];
-		$resellerba2 = $_POST ["resellerBA2"];
-		$city = $_POST ["city"];
-		$state = $_POST ["state"];
-		$zipcode = $_POST ["zipCode"];
-		$telephoneNumber = $_POST ["telephoneNumber"];
-		$emailAddress = $_POST ["emailAddress"];
-		$spcode = $_POST ["spCode"];
-	}
 	
 	//$resellerSelect = "generateResellersSelectString("HCON");//Will eventually be a $_SESSION variable
 	$dbutils = new DBUtils();
@@ -65,31 +45,16 @@
 	}
 	
 ?>
-
-<html>
-	<head>
-	<title> Customer Order Form </title>
-	<style>
-		body {
-			text-align:center;
-			}
-		form {
-			display: inline-block;
-			text-align: center;		
-			}
-	</style>
-	</head>
-	<body>
 		<!--<label for='uploaded_file'>Select A File To Upload:</label>
 		input type="file" name="uploaded_file"-->
 		<h3>Red Rock Telecommunications</h3>
 		<h4>Customer Order Form</h4>
 		<h5>Reseller Contact Information</h5>
 		<br><br>
+		<form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post" enctype="multipart/form-data">
 		<input type="submit" value="Next">
-		<form method="post" action="process.php">
         <label for="name">Reseller Name:</label>
-        	<input type="text" name="resellername" value="<?php echo $resellerRow["Company_Name"]?>" readonly>
+        	<input type="text" name="resellername" value="<?php echo $resellerRow["Company_Name"];?>" readonly>
 		
 		<label for="resellerba1">Reseller Billing Address 1:</label>
  			<input type="text" name="resellerba1" value="<?php echo $resellerRow["Address1"];?>" readonly>
@@ -113,7 +78,7 @@
  			<input type="text" name="emailaddress" value="<?php echo $accountRow["emailaddress"];?>" readonly>
  			
 		<label for="telephone">Telephone: </label>
-			<input type="tel" id="telephone" name="telephone" value="<?php echo ($sr && !$cf['form_ok']) ? $cf['posted_form_data']['telephone'] : '' ?>" />
+			<input type="tel" id="telephone" name="telephone" value="<?php echo ($sr && !$cf['form_ok']) ? $cf['posted_form_data']['Phone'] : '' ?>" />
  
  		<label for="resellercn">Reseller Contact Name: </label>
  			<input type="text" name="resellercn" value="<?php echo $accountRow["First_Name"]; echo " " . $accountRow["Last_Name"]?>">
@@ -246,7 +211,7 @@
 		
  		<h5>Order Details</h5>
 		<label for="message">Order Details: <span class="required">*</span></label>
-			<textarea id="orderdetails" name="orderdetails" placeholder="Your message must be greater than 20 charcters" 
+			<textarea rows="4" cols="50" id="orderdetails" name="orderdetails" placeholder="Your message must be greater than 20 characters" 
 			required="required" data-minlength="20"><?php echo ($sr && !$cf['form_ok']) ? $cf['posted_form_data']['message'] : '' ?></textarea>
  				<span id="loading"></span>
 				<input type="submit" value="Submit" id="submit-button" />

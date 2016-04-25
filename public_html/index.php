@@ -84,8 +84,8 @@
             <div class="row" id="logo-headersidebar-container">
                 <!-- START LOGO -->
                 <div id="logo" class="span8 group">
-                    <a id="logo-img" href="\index.php" title="Red Rock">
-                        <img src="\assets\images\Redrocklogo.jpg" title="Red Rock" alt="Red Rock" />
+                    <a id="logo-img" href="/index.php" title="Red Rock">
+                        <img src="/assets/images/Redrocklogo.jpg" title="Red Rock" alt="Red Rock" />
                     </a>
 					<p id='tagline'>The Future is Now- Cloud Based Telephone Services</p>
                 </div>
@@ -99,7 +99,7 @@
                         </div>
                         <div class="text-content">
                             <h3><font color="#ffffff">CUSTOMER SUPPORT</font></h3>
-                            <p>(602) 802-8450</p>
+                            <p><a href="tel:602-802-8450"><font color="#ffffff">(602) 802-8450</font></a></p>
                         </div>
                     </div>
                     </div>
@@ -150,7 +150,7 @@
                                 </h2>
 
                                 <p>
-                                    <span style="color: #434f5b;">Come meet RedRock</span>
+                                    <span style="color: #434f5b;">Come meet Red Rock</span>
                                     <br />
                                     <span style="color: #007e71;">Flexible, versatile, and impeccable customer service</span>
                                 </p>
@@ -220,7 +220,9 @@
                                 <h4>Mobile <span class="title-highlight">Integration</span></h4>
                                 <p>
                                  Your working life moves constantly from desk to laptop to smartphone to iPad.  Now you can use all the features of
-                                 RedRock phone services whether at your desk, at home or on the move.
+                                 Red Rock phone services whether at your desk, at home or on the move.  Look up your contacts, make and receive voice or video
+                                 calls or chat with colleagues, no matter which device you are using or where you are.  You can seamlessly move from device to 
+                                 device, or from cellular to Wi-Fi, even in the middle of a call.
                                  </p>
                         </div>
 
@@ -420,34 +422,34 @@
                                 </li>
                             </ul>
                         </div>   
-                        </div>   
+                        </div>
+                        <a href="/main/contactus.php"><h3>Contact Us</h3></a>  
                    		 <div class="footer-widgets-area with-sidebar-right">
-                  	  	 	<div class="widget-first widget span6 widget_text"><a href="/main/contactus.php">
-                  	  	 		<h3>Contact Us</h3>
+                  	  	 	<div class="widget-first widget span6 widget_text">
                         		<div class= "contact-info"> 
 								<div class="sidebar-nav">
 									<ul>
 										<li>
-											<i class="fa fa-map-marker" style="color#979797; font-size:20px"></i>
+											<i class="fa fa-map-marker" style="color:#979797; font-size:20px"></i>
 												Address: 3719 E La Salle St.
 												Phoenix, AZ, 85040
 										</li>
 										<li>
 											<i class="fa fa-phone" style="color:#979797; font-size:20px"></i>
-												Front Desk: (602) 802-8400
+												<a href="tel:602-802-8450">Front Desk:(602) 802-8400</a>
 										</li>
 										<li>
 											<i class="fa fa-phone" style="color:#979797; font-size:20px"></i>
-												Customer Service: (602) 802-8450
+												<a href="tel:602-802-8450">Customer Service:(602) 802-8450</a>
 										</li>
 										<li>
-											<i class="fa fa-envelope-o" style="color#979797; font-size:20px"></i>
-												Email:redrock@redrocktelecom.com
+											<i class="fa fa-envelope-o" style="color:#979797; font-size:20px"></i>
+												<a href="mailto:redrock@redrocktelecom.com?Subject=More%20Information" target="_top">
+												Email: redrock@redrocktelecom.com</a>
 										</li>
 									</ul>
 								</div>
 							</div>
-							</a>
                    	 </div>
                     </div>
                 </div>

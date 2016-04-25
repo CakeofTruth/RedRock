@@ -100,7 +100,7 @@ $root = $_SERVER ["DOCUMENT_ROOT"];
                         </div>
                         <div class="text-content">
                             <h3><font color="#ffffff">CUSTOMER SUPPORT</font></h3>
-                            <p>(602) 802-8450</p>
+                            <p><a href="tel:602-802-8450"><font color="#ffffff">(602) 802-8450</font></a></p>
                         </div>
                     </div>
                     </div>

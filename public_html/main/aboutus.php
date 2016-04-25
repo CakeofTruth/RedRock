@@ -47,7 +47,7 @@
                                 </h2>
 
                                 <p>
-                                    <span style="color: #434f5b;">Come meet RedRock</span>
+                                    <span style="color: #434f5b;">Come meet Red Rock</span>
                                     <br />
                                     <span style="color: #007e71;">Flexible, versatile, and impeccable customer service</span>
                                 </p>

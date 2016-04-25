@@ -47,7 +47,7 @@
                                 </h2>
 
                                 <p>
-                                    <span style="color: #434f5b;">Come meet RedRock</span>
+                                    <span style="color: #434f5b;">Come meet Red Rock</span>
                                     <br />
                                     <span style="color: #007e71;">Flexible, versatile, and impeccable customer service</span>
                                 </p>
@@ -91,24 +91,24 @@
 	<div id="content-page" class="span 12 content group">
 	<div id="post-302" class="post-302 page type-page status-publish hentry group">
 	<div class="two-fourth">
-		<p> Accession Meeting is a web conferencings and collaboration integrated within Accession </p>
-		<p> Meeting is fully integrated within Accession desktop and mobile 	&ndash; one click to begin </p>
-		<p> Invites can be both internal (within the app) or external (via email link)</p>
-		<p>Multiple views available &ndash; gallery, active speaker, condensed </p>
-		<p> Works on any Accession enabled device 	&ndash; mobile or desktop </p>
-		<p> Schedule directly from Outlook with a single mouse click </p>
-		<p> Voice and video conferencing  </p>
-		<p> Gallery view and speaker focus view </p>
-		<p> Rich, integrated moderator controls </p>
-		<p> 25 Attendee 	&ndash; All 25 can share video </p>
-		<p> Screen and application sharing </p>
-		<p> Share desktop screen or individual applications with collaborators </p>
-		<p> Share iPhone and iPad screens using Airplay mirror </p>
-		<p> Desktop Remote Control </p>
-		<p> Outlook Calendar Plugin </p>
-		<p> Intuitive user experience </p>
-		<p> Native one-click uplift from Accession</p>
-		<p> Mobile device support </p>
+		
+		<p> Accession Meeting is a web conferencings and collaboration integrated within Accession. 
+		Meeting is fully integrated within Accession desktop and mobile &ndash; simply one click to begin.  Choose between sharing your desktop 
+		or just sharing an indivdual application. From there, you are free to send media back and forth between collaborators, including any saved 
+		changes or annotations.</p>
+		<ul style="list-style=type:circle">
+		<li> Invites can be both internal (within the app) or external (via email link)</li>
+		<li>Multiple views available &ndash; gallery, active speaker, condensed </li>
+		<li> Gallery view and speaker focus view </li>
+		<li> Rich, integrated moderator controls </li>
+		<li> Up to 25 Attendees &ndash; All 25 can share video </li>
+		<li> Screen and application sharing </li>
+		<li> Share desktop screen or individual applications with collaborators </li>
+		<li> Outlook Calendar Plugin </li>
+		<li> Intuitive user experience </li>
+		<li> Native one-click uplift from Accession</li>
+		<li> Mobile device support </li>
+		</ul>
 	</div>
 	<div class="two-fourth last">
 		<img src="/assets/images/accessionmeeting2.png" alt="" />
