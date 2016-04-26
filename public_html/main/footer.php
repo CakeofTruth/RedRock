@@ -3,15 +3,14 @@
         <div class="container">
             <div class="row">
                 <div class="footer-widgets-area with-sidebar-right">
-                    <div class="widget-first widget span2 widget_text"><a href="/main/aboutus.php"><h3>About Us</h3></a>
+                    <div class="widget-first widget span3 widget_text"><a href="/main/aboutus.php"><h3>About Us</h3></a>
                         <div class="textwidget">
-                            Aliquam pellentesque pellentesque turpis, ut sollicitudin nec
-                            plasiren.
-                            Pellentesque posuere ornare placerat. Suspendisse potenti.
+                           Red Rock Telecommunications is a built from scratch Cloud solutions company delivering 
+                           resilient communications networks with the latest generation Avaya and Metaswitch technology.
                         </div>
                     </div>
 
-                    <div class="widget span2 widget_nav_menu">
+                    <div class="widget span3 widget_nav_menu">
                         <h3>Navigation</h3>
 
                         <div class="menu-widget-footer-container">

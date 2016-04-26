@@ -42,7 +42,7 @@ $root = $_SERVER ["DOCUMENT_ROOT"];
     <link rel='stylesheet' id='custom-css'  href='/css/custom.css' type='text/css' media='all' />
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <style type="text/css">
-            body { background-color: #ffffff; background-image: url('/assets/images/sandtexture5.png'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }
+            body { background-color: #ffffff; background-image: url('/assets/images/sandtexture6.png'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }
     </style>
 
     <script type='text/javascript' src='/js/jquery/jquery.js'></script>

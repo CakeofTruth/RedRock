@@ -10,7 +10,7 @@
                     <img src="/assets/images/accessionphonethumbnail.png" alt="/assets/images/accessionphonethumbnail.png" />
                     <div class="slide-content container align-right" style="background-image:url('/assets/images/accessionphone1.png');">
                         <div class="text">
-                            <h2>With Red Rock we go where you go.</h2>
+                            <h2>We Go Where You Go.</h2>
                             <p>
                                 Across town or across the globe, we will ensure that you have access to everything you need to run your business smoothly.
                             </p>
