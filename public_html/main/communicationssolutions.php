@@ -125,7 +125,7 @@
 		</ul>
 	</div>
 	<div class="two-fourth last">
-		<img src="/assets/images/accessionmeeting2.png" alt="" />
+		<img src="/assets/images/cloud.png">
 	</div>
 	</div>
 	</div>

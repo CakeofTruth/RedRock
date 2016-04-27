@@ -3,15 +3,6 @@
 	<head> 
 		<title> Customer Order Form </title>
 <link rel='stylesheet' id='custom-css'  href='/css/contactform.css' type='text/css' media='all' />
-	<!--style>
-		body {
-			text-align:center;
-			}
-		form {
-			display: inline-block;
-			text-align: center;		
-			}
-	</style-->
 	</head>
 	<body>
 <?php 
@@ -47,13 +38,12 @@
 ?>
 		<!--<label for='uploaded_file'>Select A File To Upload:</label>
 		input type="file" name="uploaded_file"-->
-		<h3>Red Rock Telecommunications</h3>
+		<h2>Red Rock Telecommunications</h2>
 		<div id="contact-form">
 		<h4>Customer Order Form</h4>
-		<h5>Reseller Contact Information</h5>
 		<br><br>
+		<h5>Reseller Contact Information:</h5>
 		<form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post" enctype="multipart/form-data">
-		<input type="submit" value="Next">
         <label for="name">Reseller Name:</label>
         	<input type="text" name="resellername" value="<?php echo $resellerRow["Company_Name"];?>" readonly>
 		
@@ -115,12 +105,12 @@
 			<input type="date" name= "requestedbuilt" required>
 			
 		<label for="orsooner">Or Sooner: </label>
-				<input type="radio" name="orsooner" value= "Yes" checked="checked"> Yes
+				<input type="radio" name="orsooner" value= "Yes"> Yes
 				<input type="radio" name="orsooner" value= "No"> No<br>
 		
 		<label for="addtoexistingcustomer"> Add to Existing Customer:</label>
 			<input type="radio" name="addtoexistingcustomer" value= "Yes"> Yes
-			<input type="radio" name="addtoexistingcustomer" value= "No" checked="checked"> No<br>
+			<input type="radio" name="addtoexistingcustomer" value= "No"> No<br>
 		
 		<label for="customertimezone"> Customer Time Zone:</label>
 			<select name="customertimezone">
@@ -214,6 +204,7 @@
 			<textarea id="contact-form" class="form textarea" rows="10" cols="100" id="orderdetails" name="orderdetails" placeholder="Your message must be greater than 20 characters" 
 			required="required" data-minlength="20"></textarea>
  				<span id="loading"></span>
+ 				<!--<input type="submit" value="Next">  -->
 				<input type="submit" value="Submit" id="submit-button" />
 				<p id="req-field-desc"><span class="required">*</span> indicates a required field</p>
     </form>
