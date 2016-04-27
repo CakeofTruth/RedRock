@@ -84,8 +84,8 @@
             <div class="row" id="logo-headersidebar-container">
                 <!-- START LOGO -->
                 <div id="logo" class="span8 group">
-                    <a id="logo-img" href="\index.php" title="Red Rock">
-                        <img src="\assets\images\Redrocklogo.jpg" title="Red Rock" alt="Red Rock" />
+                    <a id="logo-img" href="/index.php" title="Red Rock">
+                        <img src="/assets/images/Redrocklogo.jpg" title="Red Rock" alt="Red Rock" />
                     </a>
 					<p id='tagline'>The Future is Now- Cloud Based Telephone Services</p>
                 </div>
@@ -99,7 +99,7 @@
                         </div>
                         <div class="text-content">
                             <h3><font color="#ffffff">CUSTOMER SUPPORT</font></h3>
-                            <p>(602) 802-8450</p>
+                            <p><a href="tel:602-802-8450"><font color="#ffffff">(602) 802-8450</font></a></p>
                         </div>
                     </div>
                     </div>
@@ -111,10 +111,10 @@
         <div id="slider-polaroid-0" class="slider slider-polaroid polaroid no-responsive" style="height:400px;">
             <div class="thumbs  container">
                 <div class="thumb">
-                    <img src="/assets/images/accessionmanthumbnail.png" alt="/assets/images/accessionmanthumbnail.png" />
-                    <div class="slide-content container align-right" style="background-image:url('/assets/images/accessionman.png');">
+                    <img src="/assets/images/accessionphonethumbnail.png" alt="/assets/images/accessionphonethumbnail.png" />
+                    <div class="slide-content container align-right" style="background-image:url('/assets/images/accessionphone1.png');">
                         <div class="text">
-                            <h2>With Red Rock we go where you go.</h2>
+                            <h2>With Red Rock We Go Where You Go.</h2>
                             <p>
                                 Across town or across the globe, we will ensure that you have access to everything you need to run your business smoothly.
                             </p>
@@ -123,7 +123,17 @@
                 </div>
 
                 <div class="thumb">
-                    <img src="/assets/images/phonecustomerthumbnail.png" alt="/assets/images/phonelady.png" />
+                    <img src="/assets/images/phonecustomerthumbnail.png" alt="/assets/images/phonecustomer.png" />
+                    <div class="slide-content container align-right" style="background-image:url('/assets/images/phonecustomer.png');">
+                    	 <div class="container">
+                    	 <div class="text">
+                    	 <h2>Hosted Voice</h2>
+                         <h4><span style="color: #434f5b;">The phone system you need. <br> A price you can afford. </span></h4>
+                         	<p>The phone system you need <br> A price you can afford </p>
+                        </div>
+                    </div>
+                </div>
+                    	 
                 </div>
 
                 <div class="thumb">
@@ -132,27 +142,27 @@
                         <div class="text">
                             <h2>Nontraditional Business?</h2>
                             <p>
-                                Try our nontraditional solutions.  Our mobile apps can be used on your computer, tablet, or smartphone.  So whether you are at a remote site,
-                                or simply want all of the amenities of your office at home, we have a solution for you.
+                                Try our nontraditional solutions.  Our mobile apps can be used on your computer, tablet, or smartphone.  So whether you are 
+                                at a remote site, or simply want all of the amenities of your office at home, we have a solution for you.
                             </p>
                         </div>
                     </div>
                 </div>
 
                 <div class="thumb">
-                    <img src="images/slider/flexslider/0043-150x150.jpg" alt="images/slider/flexslider/0043.jpg" />
-                    <div class="slide-content container align-right full" style="background-image:url('images/slider/flexslider/0043.jpg');">
+                    <img src="/assets/images/contactcenterthumbnail.png" alt="/assets/images/contactcenter.png" />
+                    <div class="slide-content container align-right full" style="background-image:url('/assets/images/contactcenter.png');">
                         <div class="container">
                             <div class="text">
                                 <h2>
                                     <span style="color: #0c243d;">Need a Communications</span>
-                                    <span style="color: #009E8E;">solution?</span>
+                                    <span style="color: #009E8E;">Solution?</span>
                                 </h2>
 
                                 <p>
-                                    <span style="color: #434f5b;">Come meet RedRock</span>
+                                    <span style="color: #434f5b;">Come meet Red Rock,</span>
                                     <br />
-                                    <span style="color: #007e71;">Flexible, versatile, and impeccable customer service</span>
+                                    <span style="color: #009E8E;">The last phone system you will ever need.</span>
                                 </p>
 
                                 <p>
@@ -166,13 +176,18 @@
                 </div>
 
                 <div class="thumb">
-                    <img src="/assets/images/hostedvoicethumbnail.png" alt="/assets/images/hostedvoice.png" />
-                    <div class="slide-content container align-right full" style="background-image:url('/assets/images/hostedvoice.png');">
-                        <div class="container"></div>
+                    <img src="/assets/images/teamworkthumbnail.png" alt="/assets/images/teamwork.png" />
+                    <div class="slide-content container align-right" style="background-image:url('/assets/images/teamwork.png');">
+                        <div class="text">
+                            <h2>Move Your Business Into the Future</h2>
+                            <p>
+                               No matter the size of your business, you should have access to the same features and professional functionality of a big
+                               company.
+                            </p>
+                        </div>
                     </div>
+                   </div>
                 </div>
-            </div>
-        </div>
 
         <script type="text/javascript">
             jQuery(document).ready(function($){
@@ -220,7 +235,9 @@
                                 <h4>Mobile <span class="title-highlight">Integration</span></h4>
                                 <p>
                                  Your working life moves constantly from desk to laptop to smartphone to iPad.  Now you can use all the features of
-                                 RedRock phone services whether at your desk, at home or on the move.
+                                 Red Rock phone services whether at your desk, at home or on the move.  Look up your contacts, make and receive voice or video
+                                 calls or chat with colleagues, no matter which device you are using or where you are.  You can seamlessly move from device to 
+                                 device, or from cellular to Wi-Fi, even in the middle of a call.
                                  </p>
                         </div>
 
@@ -232,7 +249,8 @@
                            	</a>
                             <p>
                                 Cloud Contact Center offers more functionality than traditional hardware at a fraction of the cost.  Our Cloud Contact Center
-                                delivers a customizeable and easy to use call center solution so you can enhance your customer experience and deliver world class support.
+                                delivers a customizeable and easy to use call center solution so you can enhance your customer experience and deliver world 
+                                class support.Cloud Contact Center can provide the reliability and security you require for mission-critical business applications. 
                             </p>
                         </div>
                         <div class="box-sections numbers-sections margin-bottom  last">
@@ -286,18 +304,6 @@
                                         <li style="height: 70px;">
                                             <a href="#" class="bwWrapper" >
                                                 <img src="assets/images/polycomlogo.png" style="max-height: 70px;" class="logo" />
-                                            </a>
-                                        </li>
-
-                                        <li style="height: 70px;">
-                                            <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/muffinstudio-011.png" style="max-height: 70px;" class="logo" />
-                                            </a>
-                                        </li>
-
-                                        <li style="height: 70px;">
-                                            <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/logo-mix-1.png" style="max-height: 70px;" class="logo" />
                                             </a>
                                         </li>
 
@@ -378,23 +384,19 @@
         <div class="container">
             <div class="row">
                 <div class="footer-widgets-area with-sidebar-right">
-                    <div class="widget-first widget span2 widget_text"><a href="/main/aboutus.php"><h3>About Us</h3></a>
+                    <div class="widget-first widget span3 widget_text"><a href="/main/aboutus.php"><h3>About Us</h3></a>
                         <div class="textwidget">
-                            Aliquam pellentesque pellentesque turpis, ut sollicitudin nec
-                            plasiren.
-                            Pellentesque posuere ornare placerat. Suspendisse potenti.
+                         Red Rock Telecommunications is a built from scratch Cloud solutions company delivering resilient 
+                         communications networks with the latest generation Avaya and Metaswitch technology.   
                         </div>
                     </div>
 
-                    <div class="widget span2 widget_nav_menu">
+                    <div class="widget span3 widget_nav_menu">
                         <h3>Navigation</h3>
 
                         <div class="menu-widget-footer-container">
                             <ul id="menu-widget-footer" class="menu">
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="/main/ourteam.php">Our Team</a>
-                                </li>
-
+                         
                                 <li class="menu-item menu-item-type-post_type">
                                     <a href="/main/whycloud.php">Why the Cloud?</a>
                                 </li>
@@ -404,7 +406,7 @@
                                 </li>
 
 								<li class="menu-item menu-item-type-custom">
-                                    <a href="/main/contactcenter.php">Get in Touch</a>
+                                    <a href="/main/contactcenter.php">Contact Center</a>
                                 </li>
                                 
                                 <li class="menu-item menu-item-type-custom">
@@ -420,34 +422,34 @@
                                 </li>
                             </ul>
                         </div>   
-                        </div>   
+                        </div>
+                        <a href="/main/contactus.php"><h3>Contact Us</h3></a>  
                    		 <div class="footer-widgets-area with-sidebar-right">
-                  	  	 	<div class="widget-first widget span6 widget_text"><a href="/main/contactus.php">
-                  	  	 		<h3>Contact Us</h3>
+                  	  	 	<div class="widget-first widget span6 widget_text">
                         		<div class= "contact-info"> 
 								<div class="sidebar-nav">
 									<ul>
 										<li>
-											<i class="fa fa-map-marker" style="color#979797; font-size:20px"></i>
+											<i class="fa fa-map-marker" style="color:#979797; font-size:20px"></i>
 												Address: 3719 E La Salle St.
 												Phoenix, AZ, 85040
 										</li>
 										<li>
 											<i class="fa fa-phone" style="color:#979797; font-size:20px"></i>
-												Front Desk: (602) 802-8400
+												<a href="tel:602-802-8450">Front Desk:(602) 802-8400</a>
 										</li>
 										<li>
 											<i class="fa fa-phone" style="color:#979797; font-size:20px"></i>
-												Customer Service: (602) 802-8450
+												<a href="tel:602-802-8450">Customer Service:(602) 802-8450</a>
 										</li>
 										<li>
-											<i class="fa fa-envelope-o" style="color#979797; font-size:20px"></i>
-												Email:redrock@redrocktelecom.com
+											<i class="fa fa-envelope-o" style="color:#979797; font-size:20px"></i>
+												<a href="mailto:redrock@redrocktelecom.com?Subject=More%20Information" target="_top">
+												Email: redrock@redrocktelecom.com</a>
 										</li>
 									</ul>
 								</div>
 							</div>
-							</a>
                    	 </div>
                     </div>
                 </div>

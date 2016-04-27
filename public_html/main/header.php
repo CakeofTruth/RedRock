@@ -42,7 +42,7 @@ $root = $_SERVER ["DOCUMENT_ROOT"];
     <link rel='stylesheet' id='custom-css'  href='/css/custom.css' type='text/css' media='all' />
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <style type="text/css">
-            body { background-color: #ffffff; background-image: url('/assets/images/sandtexture5.png'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }
+            body { background-color: #ffffff; background-image: url('/assets/images/sandtexture6.png'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }
     </style>
 
     <script type='text/javascript' src='/js/jquery/jquery.js'></script>
@@ -102,7 +102,7 @@ $root = $_SERVER ["DOCUMENT_ROOT"];
                         </div>
                         <div class="text-content">
                             <h3><font color="#ffffff">CUSTOMER SUPPORT</font></h3>
-                            <p>(602) 802-8450</p>
+                            <p><a href="tel:602-802-8450"><font color="#ffffff">(602) 802-8450</font></a></p>
                         </div>
                     </div>
                     </div>

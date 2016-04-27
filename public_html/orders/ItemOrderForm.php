@@ -47,7 +47,7 @@
 	</head>
 	<body>
 	<h1> Red Rock Ordering System </h1>
-		<img src= " C:\Users\Rae\Pictures\Red Rock Logo.jpg" style= "float:left;"/>
+		<img src= " C:\Users\Rae\Pictures\RedRockLogo.jpg" style= "float:left;"/>
 		<form action="OrderConfirm.php" method="post">	
 		<table>
 			<thead>

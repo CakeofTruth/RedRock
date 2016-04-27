@@ -3,15 +3,14 @@
         <div class="container">
             <div class="row">
                 <div class="footer-widgets-area with-sidebar-right">
-                    <div class="widget-first widget span2 widget_text"><a href="/main/aboutus.php"><h3>About Us</h3></a>
+                    <div class="widget-first widget span3 widget_text"><a href="/main/aboutus.php"><h3>About Us</h3></a>
                         <div class="textwidget">
-                            Aliquam pellentesque pellentesque turpis, ut sollicitudin nec
-                            plasiren.
-                            Pellentesque posuere ornare placerat. Suspendisse potenti.
+                           Red Rock Telecommunications is a built from scratch Cloud solutions company delivering 
+                           resilient communications networks with the latest generation Avaya and Metaswitch technology.
                         </div>
                     </div>
 
-                    <div class="widget span2 widget_nav_menu">
+                    <div class="widget span3 widget_nav_menu">
                         <h3>Navigation</h3>
 
                         <div class="menu-widget-footer-container">
@@ -41,10 +40,12 @@
                                 </li>
                             </ul>
                         </div>   
-                        </div>   
+                        </div>
+                        <h3>Contact Us</h3>   
                    		 <div class="footer-widgets-area with-sidebar-right">
-                  	  	 	<div class="widget-first widget span6 widget_text"><a href="/main/contactus.php">
-                  	  	 		<h3>Contact Us</h3>
+                  	  	 	<div class="widget-first widget span6 widget_text">
+                  	  	 	<a href="/main/contactus.php">
+                  	  	 		</a>
                         		<div class= "contact-info"> 
 								<div class="sidebar-nav">
 									<ul>
@@ -55,20 +56,20 @@
 										</li>
 										<li>
 											<i class="fa fa-phone" style="color:#979797; font-size:20px"></i>
-												Front Desk: (602) 802-8400
+												<a href="tel:602-802-8450">Front Desk:(602) 802-8400</a>
 										</li>
 										<li>
 											<i class="fa fa-phone" style="color:#979797; font-size:20px"></i>
-												Customer Service: (602) 802-8450
+												<a href="tel:602-802-8450">Customer Service:(602) 802-8450</a>
 										</li>
 										<li>
-											<i class="fa fa-envelope-o" style="color#979797; font-size:20px"></i>
-												Email:redrock@redrocktelecom.com
+											<i class="fa fa-envelope-o" style="color:#979797; font-size:20px"></i>
+												<a href="mailto:redrock@redrocktelecom.com?Subject=More%20Information" target="_top">
+												Email: redrock@redrocktelecom.com</a>
 										</li>
 									</ul>
 								</div>
 							</div>
-							</a>
                    	 </div>
                     </div>
                 </div>

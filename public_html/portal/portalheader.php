@@ -69,7 +69,7 @@ $root = $_SERVER ["DOCUMENT_ROOT"];
 
                         <ul id="menu-menu" class="level-1">
 							<li><a href="/portal/portal.php"><font color="#ffffff">Home</font></a></li>
-							<li><a href="/portal/CustomerOrderForm.php"><font color="#ffffff">Place an Order</font></a>
+							<li><a href="/orders/CustomerOrderForm.php"><font color="#ffffff">Place an Order</font></a>
                         </ul>
                         <!-- END MAIN NAVIGATION -->
                         </div>
@@ -100,7 +100,7 @@ $root = $_SERVER ["DOCUMENT_ROOT"];
                         </div>
                         <div class="text-content">
                             <h3><font color="#ffffff">CUSTOMER SUPPORT</font></h3>
-                            <p>(602) 802-8450</p>
+                            <p><a href="tel:602-802-8450"><font color="#ffffff">(602) 802-8450</font></a></p>
                         </div>
                     </div>
                     </div>
