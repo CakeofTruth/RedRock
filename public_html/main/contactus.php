@@ -1,4 +1,3 @@
-<?php session_start() ?>
 <!DOCTYPE html>
 <html>
 <script src="contactform.js"></script>
@@ -19,7 +18,7 @@
 		if(isset($_SESSION['cf_returndata'])){
   			$cf = $_SESSION['cf_returndata'];
    			$sr = true;
-}
+		}
 ?>
 
     <ul id="errors" class="<?php echo ($sr === true && $cf['form_ok'] === false) ? 'visible' : ''; ?>">

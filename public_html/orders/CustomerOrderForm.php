@@ -3,7 +3,7 @@
 	<head> 
 		<title> Customer Order Form </title>
 <link rel='stylesheet' id='custom-css'  href='/css/contactform.css' type='text/css' media='all' />
-	<style>
+	<!--style>
 		body {
 			text-align:center;
 			}
@@ -11,7 +11,7 @@
 			display: inline-block;
 			text-align: center;		
 			}
-	</style>
+	</style-->
 	</head>
 	<body>
 <?php 
@@ -20,7 +20,7 @@
 	
 	include_once $root . '/classes/DBUtils.php';
 	
-	//$resellerSelect = "generateResellersSelectString("HCON");//Will eventually be a $_SESSION variable
+	$resellerSelect = generateResellersSelectString("HCON");//Will eventually be a $_SESSION variable
 	$dbutils = new DBUtils();
 	$conn = $dbutils->getDBConnection();
 
@@ -48,6 +48,7 @@
 		<!--<label for='uploaded_file'>Select A File To Upload:</label>
 		input type="file" name="uploaded_file"-->
 		<h3>Red Rock Telecommunications</h3>
+		<div id="contact-form">
 		<h4>Customer Order Form</h4>
 		<h5>Reseller Contact Information</h5>
 		<br><br>
@@ -72,13 +73,13 @@
  			<input type="text" name="zipcode" value="<?php echo $resellerRow["Zip"];?>" readonly>
  		
  		<label for="telephonenumber">Telephone Number:</label>
- 			<input type="text" name="telephonenumber" value="<?php echo $resellerRow["telephonenumber"];?>" readonly>
+ 			<input type="text" name="telephonenumber" value="<?php echo $resellerRow["Phone"];?>" readonly>
  			
  		<label for="emailaddress">Email Address:</label>
- 			<input type="text" name="emailaddress" value="<?php echo $accountRow["emailaddress"];?>" readonly>
+ 			<input type="text" name="emailaddress" value="<?php echo $accountRow["Email"];?>" readonly>
  			
-		<label for="telephone">Telephone: </label>
-			<input type="tel" id="telephone" name="telephone" value="<?php echo ($sr && !$cf['form_ok']) ? $cf['posted_form_data']['Phone'] : '' ?>" />
+		<label for="telephone">Contact Telephone Number: </label>
+			<input type="tel" name="contactTelephone" required>
  
  		<label for="resellercn">Reseller Contact Name: </label>
  			<input type="text" name="resellercn" value="<?php echo $accountRow["First_Name"]; echo " " . $accountRow["Last_Name"]?>">
@@ -99,19 +100,19 @@
 		<h5>Customer Information</h5>
 		
 		<label for="endusername">End User Customer Name: <span class="required">*</span></label>
-			<input type="text" name="endusername" required="required"><?php echo ($sr && !$cf['form_ok']) ? $cf['posted_form_data']['endusername'] : '' ?>
+			<input type="text" name="endusername" required>
 		
 		<label for="cmtelephone">Billing Telephone Number: <span class="required">*</span></label>
-			<input type="text" name="cmtelephone" required="required"><?php echo ($sr && !$cf['form_ok']) ? $cf['posted_form_data']['message'] : '' ?>
+			<input type="text" name="cmtelephone" >
 			
 		<label for="resellerrefid">Reseller Reference ID: </label>
 			<input type="text" name="resellerrefid">
 			
 		<label for="requestedbuilt">Requested Built/Service Provisioned Date: <span class="required">*</span></label>
-			<input type="date" name= "requestedbuilt" required="required"><?php echo ($sr && !$cf['form_ok']) ? $cf['posted_form_data']['message'] : '' ?>
+			<input type="date" name= "requestedbuilt" required>
 			
 		<label for="requestedinservice">Requested In Service/Effective Billing Date: <span class="required">*</span></label>
-			<input type="date" name= "requestedbuilt" required="required"><?php echo ($sr && !$cf['form_ok']) ? $cf['posted_form_data']['message'] : '' ?>
+			<input type="date" name= "requestedbuilt" required>
 			
 		<label for="orsooner">Or Sooner: </label>
 				<input type="radio" name="orsooner" value= "Yes" checked="checked"> Yes
@@ -209,10 +210,9 @@
 		<label for="emergzipcode"> 911 Phone Number:</label>
 			<input type="text" name="emergphonenumber">
 		
- 		<h5>Order Details</h5>
-		<label for="message">Order Details: <span class="required">*</span></label>
-			<textarea rows="4" cols="50" id="orderdetails" name="orderdetails" placeholder="Your message must be greater than 20 characters" 
-			required="required" data-minlength="20"><?php echo ($sr && !$cf['form_ok']) ? $cf['posted_form_data']['message'] : '' ?></textarea>
+		<label for="message">Order Details <span class="required">*</span></label>
+			<textarea id="contact-form" class="form textarea" rows="10" cols="100" id="orderdetails" name="orderdetails" placeholder="Your message must be greater than 20 characters" 
+			required="required" data-minlength="20"></textarea>
  				<span id="loading"></span>
 				<input type="submit" value="Submit" id="submit-button" />
 				<p id="req-field-desc"><span class="required">*</span> indicates a required field</p>
@@ -254,6 +254,7 @@
 			}
 			//http://www.html-form-guide.com/email-form/php-email-form-attachment.html guide for php email form attachment//
 		?> -->
+		</div><!-- End contact-form div -->
 	</body>
 </html>
 <?php 
