@@ -38,7 +38,6 @@
 ?>
 		<!--<label for='uploaded_file'>Select A File To Upload:</label>
 		input type="file" name="uploaded_file"-->
-		<h2>Red Rock Telecommunications</h2>
 		<div id="contact-form">
 		<h4>Customer Order Form</h4>
 		<br><br>
@@ -104,13 +103,15 @@
 		<label for="requestedinservice">Requested In Service/Effective Billing Date: <span class="required">*</span></label>
 			<input type="date" name= "requestedbuilt" required>
 			
-		<label for="orsooner">Or Sooner: </label>
-				<input type="radio" name="orsooner" value= "Yes"> Yes
-				<input type="radio" name="orsooner" value= "No"> No<br>
-		
+		<div name="orsooner_div" >
+			<label>Or Sooner: </label>
+					Yes <input type="radio" >
+					No<input type="radio" ><br>
+		</div>
 		<label for="addtoexistingcustomer"> Add to Existing Customer:</label>
-			<input type="radio" name="addtoexistingcustomer" value= "Yes"> Yes
-			<input type="radio" name="addtoexistingcustomer" value= "No"> No<br>
+			 Yes<input type="radio" name="addtoexistingcustomer" value= "Yes">
+			 No<input type="radio" name="addtoexistingcustomer" value= "No">
+			<br>
 		
 		<label for="customertimezone"> Customer Time Zone:</label>
 			<select name="customertimezone">
@@ -127,8 +128,9 @@
 		<h5>Service/911 Addresses</h5>
 		
 		<label for="emergprovisionrequired">Does this order require that 911 be provisioned per the data provided below?<span class="required">*</span></label>
-			<input type="radio" name="emergprovisionrequired"  value= "Yes" checked="checked"> Yes
-			<input type="radio" name="emergprovisionrequired" value= "No"> No<br>
+			Yes<input type="radio" name="emergprovisionrequired"  value= "Yes" checked="checked"> 
+			No<input type="radio" name="emergprovisionrequired" value= "No">
+			<br>
 		
 		<label for="emergaddress1">Service/911 Address 1:</label>
 			<input type="text" name= "emergaddress1">
