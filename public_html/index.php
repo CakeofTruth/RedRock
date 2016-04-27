@@ -1,5 +1,8 @@
 <?php 
 	include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
+	if($_SESSION["loggedin"]){
+	 	echo "<script> window.location = '/portal/portal.php' </script>";
+	}
 ?>
         <!-- BEGIN FLEXSLIDER SLIDER -->
         <div id="slider-polaroid-0" class="slider slider-polaroid polaroid no-responsive" style="height:400px;">

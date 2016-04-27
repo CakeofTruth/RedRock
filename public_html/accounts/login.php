@@ -45,16 +45,17 @@ function AttemptSignIn($username,$password) {
 
 
 function generateSelectString($username,$password) {
-	$sql = "SELECT Username, Password, First_Name, Last_Name, Approver, Active FROM Accounts 
+	$sql = "SELECT Username, Password, First_Name, Last_Name, Approver, Serv_Prov_CD, Active FROM Accounts 
 			where username = '" . $username . "' and password = '" . $password . "' and Active='1'";
 	return $sql;
 }
 
 function setSessionVariables($row){
-	$_SESSION["username"] = $row["Username"];
+	$_SESSION["Username"] = $row["Username"];
 	$_SESSION["First_Name"] = $row["First_Name"];
 	$_SESSION["Last_Name"] = $row["Last_Name"];
 	$_SESSION["Approver"] = $row["Approver"];
+	$_SESSION["Serv_Prov_CD"] = $row["Serv_Prov_CD"];
 	$_SESSION["loggedin"] = true;
 }
 

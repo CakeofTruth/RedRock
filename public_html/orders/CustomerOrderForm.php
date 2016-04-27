@@ -20,7 +20,7 @@
 	
 	include_once $root . '/classes/DBUtils.php';
 	
-	$resellerSelect = generateResellersSelectString("HCON");//Will eventually be a $_SESSION variable
+	$resellerSelect = generateResellersSelectString($_SESSION["Serv_Prov_CD"]);//Will eventually be a $_SESSION variable
 	$dbutils = new DBUtils();
 	$conn = $dbutils->getDBConnection();
 
