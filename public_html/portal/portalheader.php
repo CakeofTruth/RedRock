@@ -1,5 +1,6 @@
 <?php
-$root = $_SERVER ["DOCUMENT_ROOT"];
+	session_start();
+	$root = $_SERVER ["DOCUMENT_ROOT"];
 ?>
 <!DOCTYPE html>
 <html>
@@ -70,6 +71,7 @@ $root = $_SERVER ["DOCUMENT_ROOT"];
                         <ul id="menu-menu" class="level-1">
 							<li><a href="/portal/portal.php"><font color="#ffffff">Home</font></a></li>
 							<li><a href="/orders/CustomerOrderForm.php"><font color="#ffffff">Place an Order</font></a>
+							<li><a href="/accounts/logout.php"><font color="#ffffff">Log out</font></a></li>;
                         </ul>
                         <!-- END MAIN NAVIGATION -->
                         </div>
