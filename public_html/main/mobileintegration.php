@@ -137,7 +137,7 @@
 		</ul>
 	</div>
 	<div class= "one-third last">
-		<br><br><br><br><br><br><br><br><br><br><img src="/assets/images/cloud.png">
+		<img src="/assets/images/accessionmeeting2.png" alt="" />
 	</div>
 	</div>
 	</div>
