@@ -2,10 +2,6 @@
 $root = $_SERVER["DOCUMENT_ROOT"];
 include_once $root . '/classes/DBUtils.php';
 
-$resellername = $resellerba1 = $resellerba2 = $city = $state =$zipcode = $telephonenumber = $emailaddress = $resellercn = $salesrep = $accountnumber = $spcode = 
-$endusername = $cmtelephone = $resellerrefid = $requestedbuilt = $requestedinservice = $orsooner = $addtoexistingcustomer = $customertimezone = $emergprovisionrequired = 
-$emergaddress1 = $emergaddress2 = $emergcity = $emergstate =$emergzipcode = $emergphonenumber = "";
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$resellername = test_input($_POST["resellername"]);
 	$resellerba1 = test_input($_POST["resellerba1"]);
@@ -37,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$accountnumber = test_input($_POST["accountnumber"]);
 	$spcode = test_input($_POST["spcode"]);
 	/***********************************************************************/
+	
 }
 
 function test_input($data) {
@@ -48,13 +45,7 @@ function test_input($data) {
 
 ?>
 <?php 
-echo $resellername; echo "<br>"; echo $resellerba1; echo "<br>"; echo $resellerba2; echo "<br>"; echo $city; echo "<br>"; echo $state;
-echo "<br>"; echo $zipcode; echo "<br>"; echo $telephonenumber; echo "<br>"; echo $emailaddress; echo "<br>"; echo $resellercn; echo "<br>";
-echo $salesrep; echo "<br>"; echo $accountnumber; echo "<br>"; echo $spcode; echo "<br>"; echo $endusername; echo "<br>"; echo $cmtelephone;
-echo "<br>"; echo $resellerrefid; echo "<br>"; echo $requestedbuilt; echo "<br>"; echo $requestedinservice; echo "<br>"; echo $orsooner;
-echo "<br>"; echo $addtoexistingcustomer; echo "<br>"; echo $customertimezone; echo "<br>"; echo $emergprovisionrequired; echo "<br>";
-echo $emergaddress1; echo "<br>"; echo $emergaddress2; echo "<br>"; echo $emergcity; echo "<br>"; echo $emergstate; echo "<br>";
-echo $emergzipcode; echo "<br>"; echo $emergphonenumber;
+
 ?>
 
 <?php
@@ -64,16 +55,18 @@ echo $emergzipcode; echo "<br>"; echo $emergphonenumber;
  
  $customerInsertString = generateCustomerInsertString();
  
- echo 'Executing: ' . $customerInsertString . '<br>';
+ //echo 'Executing: ' . $customerInsertString . '<br>';
   
   if (mysqli_query($conn, $customerInsertString )) {
-  	echo "New record created successfully";
+  	//echo "New record created successfully";
  	$customerID = $conn -> insert_id;
- 	echo "Inserted record " . $customerID . '<br>';
+ 	//echo "Inserted record " . $customerID . '<br>';
  	$orderInsertString = generateOrderInsertString($customerID);
  	$orderInsertSuccess = mysqli_query($conn, $orderInsertString);
 	if($orderInsertSuccess){
-		echo "Order Inserted Successfulylylylyl?";	
+		echo "Order Created Successfully!  <br>";	
+		echo '<a href= "/portal/portal.php">Return to portal</a>';	
+		//echo  "<script> window.setTimeout(location.href = \"" . $root . "/portal/portal.php" . "\",5000) </script>";
 	}
 	else{
 		echo "Error inserting Order information: " . mysqli_error($conn);
@@ -127,22 +120,5 @@ echo $emergzipcode; echo "<br>"; echo $emergphonenumber;
  
  	return $sql;
  }
- 
-
-function getDBConnection() {
-	$servername = "107.180.46.223";
-	$dbusername = "redrock";
-	$dbpassword = "@dm!nP@$$1001";
-	$dbname = "RedRock";
-	
-	// Create connection
-	$conn = new mysqli ( $servername, $dbusername, $dbpassword, $dbname );
-	// Check connection
-	if ($conn->connect_error) {
-		die ( "Connection failed: " . $conn->connect_error );
-	} else {
-		return $conn;
-	}
-}
  
  ?>

@@ -1,16 +1,19 @@
 <?php
+
 	$pagetitle = "Login";
 	include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
 	include_once $root . '/classes/DBUtils.php';
-	include 'LoginForm.php';
+	if($_SESSION["loggedin"]){
+	 		echo "<script> window.location = '/portal/portal.php' </script>";
+	}
+	else{
+		if (!(empty($_POST['username']) || empty($_POST['password']))) { 
+			AttemptSignIn ($_POST['username'],$_POST['password']);
+		}
+		include 'LoginForm.php';
+	}
 	
-	if (isset ( $msg )) {
-		echo '<div class="statusmsg">' . $msg . '</div>';
-	}
 	//If both username and password are present
-	if (!(empty($_POST['username']) || empty($_POST['password']))) { 
-		AttemptSignIn ($_POST['username'],$_POST['password']);
-	}
 
 function AttemptSignIn($username,$password) {
 	$username = test_input($username);	
@@ -27,9 +30,8 @@ function AttemptSignIn($username,$password) {
 		$row = $result->fetch_assoc () ;
 		
 		if($row["Active"] > 0){
-			session_start (); 
 			setSessionVariables($row);
-	 		echo "<script> window.location = '" . $root . "/portal/portal.php' </script>";
+	 		echo "<script> window.location = '/portal/portal.php' </script>";
 		}
 		else{
 			echo "Account is inactive. Check your email!";
@@ -53,6 +55,7 @@ function setSessionVariables($row){
 	$_SESSION["First_Name"] = $row["First_Name"];
 	$_SESSION["Last_Name"] = $row["Last_Name"];
 	$_SESSION["Approver"] = $row["Approver"];
+	$_SESSION["loggedin"] = true;
 }
 
 function test_input($data) {
