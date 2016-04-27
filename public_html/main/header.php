@@ -1,5 +1,14 @@
 <?php
-$root = $_SERVER ["DOCUMENT_ROOT"];
+	session_start();
+	$root = $_SERVER ["DOCUMENT_ROOT"];
+	if(empty($_SESSION['exists'])){
+		//Handle new sessions here
+		$_SESSION["loggedin"] = 0;
+		$_SESSION['exists'] = true;
+		echo "new session";
+	}else{
+		echo "old session";
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -68,7 +77,7 @@ $root = $_SERVER ["DOCUMENT_ROOT"];
                         <!-- START MAIN NAVIGATION -->
 
                         <ul id="menu-menu" class="level-1">
-							<li><a href="/index.php"><font color="#ffffff">Home</font></a></li>
+							<li><a href="/"><font color="#ffffff">Home</font></a></li>
 							<li><a href="/main/aboutus.php"><font color="#ffffff">About Us</font></a>
 							<li><a href="http://support.redrocktelecom.com"><font color="#ffffff">Customer Service</font></a></li>
 							<li><a href="/main/contactus.php"><font color="#ffffff">Contact Us</font></a></li>
@@ -87,7 +96,7 @@ $root = $_SERVER ["DOCUMENT_ROOT"];
             <div class="row" id="logo-headersidebar-container">
                 <!-- START LOGO -->
                 <div id="logo" class="span8 group">
-                    <a id="logo-img" href="\index.php" title="Red Rock">
+                    <a id="logo-img" href="/" title="Red Rock">
                         <img src="\assets\images\Redrocklogo.jpg" title="Red Rock" alt="Red Rock" />
                     </a>
 					<p id='tagline'>The Future is Now- Cloud Based Telephone Services</p>
