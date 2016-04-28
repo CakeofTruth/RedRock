@@ -20,8 +20,8 @@
     <link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
 
     <!-- [favicon] begin -->
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/Redrockfavicon.png" />
+    <link rel="icon" type="image/x-icon" href="/assets/images/Redrockfavicon.png" />
     <!-- [favicon] end -->
 
     <!-- Touch icons more info: http://mathiasbynens.be/notes/touch-icons -->
@@ -43,7 +43,8 @@
     <link rel='stylesheet' id='custom-css'  href='/css/custom.css' type='text/css' media='all' />
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <style type="text/css">
-            body { background-color: #ffffff; background-image: url('/assets/images/sandtexture5.png'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }
+            body { background-color: #ffffff; background-image: url('/assets/images/sandtexture5.png'); background-repeat: repeat; 
+            background-position: top left; background-attachment: scroll; }
     </style>
 
     <script type='text/javascript' src='/js/jquery/jquery.js'></script>
@@ -71,8 +72,8 @@
                         <ul id="menu-menu" class="level-1">
 							<li><a href="/portal/portal.php"><font color="#ffffff">Home</font></a></li>
 							<li><a href="/orders/CustomerOrderForm.php"><font color="#ffffff">Place an Order</font></a>
-							<li><a href="/accounts/logout.php"><font color="#ffffff">Log out</font></a></li>;
-                        </ul>
+							<li><a href="/accounts/logout.php"><font color="#ffffff">Log out</font></a></li>
+							</ul>
                         <!-- END MAIN NAVIGATION -->
                         </div>
                 </div>
