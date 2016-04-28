@@ -11,7 +11,7 @@
 	
 	include_once $root . '/classes/DBUtils.php';
 	
-	$resellerSelect = generateResellersSelectString($_SESSION["Serv_Prov_CD"]);//Will eventually be a $_SESSION variable
+	$resellerSelect = generateResellersSelectString($_SESSION["Serv_Prov_CD"]);
 	$dbutils = new DBUtils();
 	$conn = $dbutils->getDBConnection();
 
@@ -42,7 +42,7 @@
 		<h4>Customer Order Form</h4>
 		<br><br>
 		<h5>Reseller Contact Information:</h5>
-		<form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post" enctype="multipart/form-data">
+		<form action="/orders/OrderConfirm.php" method="post" enctype="multipart/form-data">
         <label for="name">Reseller Name:</label>
         	<input type="text" name="resellername" value="<?php echo $resellerRow["Company_Name"];?>" readonly>
 		
@@ -67,14 +67,14 @@
  		<label for="emailaddress">Email Address:</label>
  			<input type="text" name="emailaddress" value="<?php echo $accountRow["Email"];?>" readonly>
  			
-		<label for="telephone">Contact Telephone Number: </label>
+		<label for="telephone">Contact Telephone Number: <span class="required">*</span></label>
 			<input type="tel" name="contactTelephone" required>
  
  		<label for="resellercn">Reseller Contact Name: </label>
  			<input type="text" name="resellercn" value="<?php echo $accountRow["First_Name"]; echo " " . $accountRow["Last_Name"]?>">
  			
  		<label for="salesrep">Sales Representative: </label>
- 			<select id="salesrep">
+ 			<select id="salesrep" name="salesrep">
 						<option value = ""> Select a Sales Representative</option>
 						<option value = "Breanda Beall"> Brenda Beall </option>
 						<option value = "other"> Other </option> 
@@ -90,7 +90,24 @@
 		
 		<label for="endusername">End User Customer Name: <span class="required">*</span></label>
 			<input type="text" name="endusername" required>
-		
+
+		<label for="address1">Customer Address 1: <span class="required">*</span></label>
+			<input type="text" name= "address1" required>
+			
+		<label for="address2">Customer Address 2: <span class="required">*</span></label>
+			<input type="text" name= "address2">
+			
+		<label for="city">City: <span class="required">*</span></label>
+			<input type="text" name= "city" required>
+			
+		<label for="state">State: <span class="required">*</span></label>
+			<select name="state" required>
+				<option value= "Alabama">AL</option> <option value= "Alaska">AK</option> <option value= "Arizona">AZ</option> <option value= "Arkansas">AR</option> <option value= "California">CA</option> <option value= "Colorado">CO</option> <option value= "Connecticut">CT</option> <option value= "Delaware">AL</option> <option value= "District of Columbia">DC</option> <option value= "Florida">FL</option> <option value= "Georgia">GA</option> <option value= "Hawaii">HI</option> <option value= "Idaho">ID</option> <option value= "Illinois">IL</option> <option value= "Indiana">IN</option> <option value= "Iowa">IA</option> <option value= "Kansas">KS</option> <option value= "Kentucky">KY</option> <option value= "Louisiana">LA</option> <option value= "Maine">ME</option> <option value= "Maryland">MD</option> <option value= "Massachusetts">MA</option> <option value= "Michigan">MI</option> <option value= "Minnesota">MN</option> <option value= "Mississippi">MS</option> <option value= "Missouri">MO</option> <option value= "Montana">MT</option> <option value= "Nebraska">NE</option> <option value= "Nevada">NV</option> <option value= "New Hampshire">NH</option> <option value= "New Jersey">NJ</option> <option value= "New Mexico">NM</option> <option value= "New York">NY</option> <option value= "North Carolina">NC</option> <option value= "North Dakota">ND</option> <option value= "Ohio">OH</option> <option value= "Oklahoma">OK</option> <option value= "Oregon">OR</option> <option value= "Pennsylvania">PA</option> <option value= "Rhode Island">RI</option> <option value= "South Carolina">SC</option> <option value= "South Dakota">SD</option> <option value= "Tennessee">TN</option> <option value= "Texas">TX</option> <option value= "Utah">UT</option> <option value= "Vermont">VT</option> <option value= "Virginia">VA</option> <option value= "Washington">WA</option> <option value= "West Virginia">WV</option> <option value= "Wisconsin">WI</option> <option value= "Wyoming">WY</option>
+			</select>
+				
+		<label for="zipcode">Zip Code: <span class="required">*</span></label>
+			<input type="text" name= "zipcode" required>
+			
 		<label for="cmtelephone">Billing Telephone Number: <span class="required">*</span></label>
 			<input type="text" name="cmtelephone" >
 			
@@ -101,12 +118,12 @@
 			<input type="date" name= "requestedbuilt" required>
 			
 		<label for="requestedinservice">Requested In Service/Effective Billing Date: <span class="required">*</span></label>
-			<input type="date" name= "requestedbuilt" required>
+			<input type="date" name="requestedinservice" required>
 			
 		<div name="orsooner_div" >
 			<label>Or Sooner: </label>
-					Yes <input type="radio" >
-					No<input type="radio" ><br>
+					Yes <input type="radio" name="orsooner" value= "Yes">
+					No<input type="radio" name="orsooner" value="No"><br>
 		</div>
 		<label for="addtoexistingcustomer"> Add to Existing Customer:</label>
 			 Yes<input type="radio" name="addtoexistingcustomer" value= "Yes">
@@ -143,58 +160,8 @@
 			
 		<label for="emergstate">State:</label>
 			<select name="emergstate">
-						<option value= "Alabama">AL</option>
-						<option value= "Alaska">AK</option>
-						<option value= "Arizona">AZ</option>
-						<option value= "Arkansas">AR</option>
-						<option value= "California">CA</option>
-						<option value= "Colorado">CO</option>
-						<option value= "Connecticut">CT</option>
-						<option value= "Delaware">AL</option>
-						<option value= "District of Columbia">DC</option>
-						<option value= "Florida">FL</option>
-						<option value= "Georgia">GA</option>
-						<option value= "Hawaii">HI</option>
-						<option value= "Idaho">ID</option>
-						<option value= "Illinois">IL</option>
-						<option value= "Indiana">IN</option>
-						<option value= "Iowa">IA</option>
-						<option value= "Kansas">KS</option>
-						<option value= "Kentucky">KY</option>
-						<option value= "Louisiana">LA</option>
-						<option value= "Maine">ME</option>
-						<option value= "Maryland">MD</option>
-						<option value= "Massachusetts">MA</option>
-						<option value= "Michigan">MI</option>
-						<option value= "Minnesota">MN</option>
-						<option value= "Mississippi">MS</option>
-						<option value= "Missouri">MO</option>
-						<option value= "Montana">MT</option>
-						<option value= "Nebraska">NE</option>
-						<option value= "Nevada">NV</option>
-						<option value= "New Hampshire">NH</option>
-						<option value= "New Jersey">NJ</option>
-						<option value= "New Mexico">NM</option>
-						<option value= "New York">NY</option>
-						<option value= "North Carolina">NC</option>
-						<option value= "North Dakota">ND</option>
-						<option value= "Ohio">OH</option>
-						<option value= "Oklahoma">OK</option>
-						<option value= "Oregon">OR</option>
-						<option value= "Pennsylvania">PA</option>
-						<option value= "Rhode Island">RI</option>
-						<option value= "South Carolina">SC</option>
-						<option value= "South Dakota">SD</option>
-						<option value= "Tennessee">TN</option>
-						<option value= "Texas">TX</option>
-						<option value= "Utah">UT</option>
-						<option value= "Vermont">VT</option>
-						<option value= "Virginia">VA</option>
-						<option value= "Washington">WA</option>
-						<option value= "West Virginia">WV</option>
-						<option value= "Wisconsin">WI</option>
-						<option value= "Wyoming">WY</option>
-				</select>
+				<option value= "Alabama">AL</option> <option value= "Alaska">AK</option> <option value= "Arizona">AZ</option> <option value= "Arkansas">AR</option> <option value= "California">CA</option> <option value= "Colorado">CO</option> <option value= "Connecticut">CT</option> <option value= "Delaware">AL</option> <option value= "District of Columbia">DC</option> <option value= "Florida">FL</option> <option value= "Georgia">GA</option> <option value= "Hawaii">HI</option> <option value= "Idaho">ID</option> <option value= "Illinois">IL</option> <option value= "Indiana">IN</option> <option value= "Iowa">IA</option> <option value= "Kansas">KS</option> <option value= "Kentucky">KY</option> <option value= "Louisiana">LA</option> <option value= "Maine">ME</option> <option value= "Maryland">MD</option> <option value= "Massachusetts">MA</option> <option value= "Michigan">MI</option> <option value= "Minnesota">MN</option> <option value= "Mississippi">MS</option> <option value= "Missouri">MO</option> <option value= "Montana">MT</option> <option value= "Nebraska">NE</option> <option value= "Nevada">NV</option> <option value= "New Hampshire">NH</option> <option value= "New Jersey">NJ</option> <option value= "New Mexico">NM</option> <option value= "New York">NY</option> <option value= "North Carolina">NC</option> <option value= "North Dakota">ND</option> <option value= "Ohio">OH</option> <option value= "Oklahoma">OK</option> <option value= "Oregon">OR</option> <option value= "Pennsylvania">PA</option> <option value= "Rhode Island">RI</option> <option value= "South Carolina">SC</option> <option value= "South Dakota">SD</option> <option value= "Tennessee">TN</option> <option value= "Texas">TX</option> <option value= "Utah">UT</option> <option value= "Vermont">VT</option> <option value= "Virginia">VA</option> <option value= "Washington">WA</option> <option value= "West Virginia">WV</option> <option value= "Wisconsin">WI</option> <option value= "Wyoming">WY</option>
+			</select>
 				
 		<label for="emergzipcode">Zip Code:</label>
 			<input type="text" name= "emergzipcode">
@@ -206,7 +173,6 @@
 			<textarea id="contact-form" class="form textarea" rows="10" cols="100" id="orderdetails" name="orderdetails" placeholder="Your message must be greater than 20 characters" 
 			required="required" data-minlength="20"></textarea>
  				<span id="loading"></span>
- 				<!--<input type="submit" value="Next">  -->
 				<input type="submit" value="Submit" id="submit-button" />
 				<p id="req-field-desc"><span class="required">*</span> indicates a required field</p>
     </form>
