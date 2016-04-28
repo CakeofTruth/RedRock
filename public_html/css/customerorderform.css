@@ -1,5 +1,5 @@
 @CHARSET "ISO-8859-1";
-#contact-form {
+#order-form {
     background-color:#FBDED6;
     width:465px;
     padding:20px;
@@ -11,25 +11,24 @@
     position:relative;
 }
  
-#contact-form h1 {
+#order-form h1 {
     font-size:42px;
 }
  
-#contact-form h2 {
+#order-form h2 {
     margin-bottom:15px;
     font-weight:normal;
     text-align: center;
 }
- 
-#contact-form input, 
-#contact-form select, 
-#contact-form textarea, 
-#contact-form label {
+
+#order-form input, 
+#order-form select, 
+#order-form textarea, 
+#order-form label {
     font-size:15px;
     margin-bottom:2px;
 }
- 
-#contact-form input, 
+
 #contact-form select, 
 #contact-form textarea {
     width:450px;
@@ -38,13 +37,13 @@
     padding:4px;
 }
 
-#contact-form input:focus, 
-#contact-form select:focus, 
-#contact-form textarea:focus {
+#order-form input:focus, 
+#order-form select:focus, 
+#order-form textarea:focus {
     border: 1px solid #AFCDD8;
     background-color: #EBF2F4;
 }
- 
+
 #contact-form textarea {
     height:150px;
     resize: none;
