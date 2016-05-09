@@ -168,7 +168,7 @@
                         <div class="margin-bottom">
                             <div class="logos-slider wrapper">
                                 <h2>
-                                    Our <span class="title-highlight">partners</span>
+                                    Our <span class="title-highlight">Partners</span>
                                 </h2>
                                 <div class="list_carousel">
                                     <ul class="logos-slides">
