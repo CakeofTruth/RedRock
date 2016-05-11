@@ -16,7 +16,7 @@ if (empty ($_POST)){
 		$formisvalid = 0;
 	}
 	if(!meetsPasswordRequirements($_POST["password"])){
-		$passwordError = 'Please create a password that is 8-15 characters and includes at least one uppercase letter, 
+		$passwordError = 'Please create a password that is at least 8 characters and includes at least one uppercase letter, 
 					one lowercase letter, one number and one special character.<br>';
 		$formisvalid = 0;
 	}
@@ -63,8 +63,8 @@ function sendVerificationEmail($hash){
 	Password: ' . $_POST["password"] . '<br>
 	------------------------
 	<br><br>
-		Please click this ink to activate your account:<br>
-		' . $_SERVER ["DOCUMENT_ROOT"] . '/accounts/registration/verify.php?email=' . $to . '&hash=' . $hash . '
+		Please click this link to activate your account:<br>
+		www.RedrockTelecom.com/accounts/registration/verify.php?email=' . $to . '&hash=' . $hash . '
 	';
 
 	

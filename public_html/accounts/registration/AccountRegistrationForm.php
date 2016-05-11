@@ -40,17 +40,14 @@ if (empty ( $_POST )) {
 	<table>
 		<tr>
 			<td>First Name</td>
-			<td><input type="text" name="firstName"
-				value="<?php echo $firstName; ?>" required></td>
+			<td><input type="text" name="firstName" required></td>
 		</tr>
 		<tr>
 			<td>Last Name</td>
-			<td><input type="text" name="lastName"
-				value="<?php echo $lastName; ?>" required></td>
+			<td><input type="text" name="lastName" required></td>
 		</tr>
 		<tr>
-			<td>Username</td>
-			<td><input type="text" name="username" value="<?php echo $username; ?>" required></td>
+			<td>Username</td> <td><input type="text" name="username"  required></td>
 		</tr>
 		<tr>
 			<td>Password:</td>
@@ -58,24 +55,22 @@ if (empty ( $_POST )) {
 		</tr>
 		<tr>
 			<td>Password Confirm:</td>
-			<td><input type="password" name="passwordConfirm" required></td><td><?php echo $passwordMatchError; ?></td>
+			<td><input type="password" name="passwordConfirm" minlength="7" required></td><td><?php echo $passwordMatchError; ?></td>
 		</tr>
 		<tr>
-			<td>Reseller Name:</td>
-			<td><input type="text" name="resellerName" value="<?php echo $resellername; ?>"
-				required></td>
+			<td>Reseller Name:</td> <td><input type="text" name="resellerName" required></td>
 		</tr>
 		<tr>
 			<td>Reseller Billing Address 1:</td>
-			<td><input type="text" name="resellerBA1" value="<?php echo $resellerba1; ?>" required></td>
+			<td><input type="text" name="resellerBA1"  required></td>
 		</tr>
 		<tr>
 			<td>Reseller Billing Address 2:</td>
-			<td><input type="text" name="resellerBA2" value="<?php echo $resellerba2; ?>" required></td>
+			<td><input type="text" name="resellerBA2"  ></td>
 		</tr>
 		<tr>
 			<td>City:</td>
-			<td><input type="text" name="city" value="<?php echo $city; ?>" required></td>
+			<td><input type="text" name="city" required></td>
 		</tr>
 		<tr>
 			<td>State:</td>
@@ -140,19 +135,19 @@ if (empty ( $_POST )) {
 		</tr>
 		<tr>
 			<td>Zip Code:</td>
-			<td><input type="text" name="zipCode" value="<?php echo $zipcode; ?>"required></td>
+			<td><input type="text" name="zipCode" required></td>
 		</tr>
 		<tr>
 			<td>Telephone Number:</td>
-			<td><input type="text" name="telephoneNumber" value="<?php echo $telephoneNumber; ?>" required></td>
+			<td><input type="text" name="telephoneNumber"  required></td>
 		</tr>
 		<tr>
 			<td>Email Address:</td>
-			<td><input type="email" name="emailAddress" value="<?php echo $emailAddress; ?>" required></td><td><?php echo $emailError; ?></td>
+			<td><input type="email" name="emailAddress"  required></td><td><?php echo $emailError; ?></td>
 		</tr>
 		<tr>
 			<td>Service Provider Code:</td>
-			<td><input type="text" name="spCode" value="<?php echo $spcode; ?>"></td>
+			<td><input type="text" name="spCode" ></td>
 		</tr>
 	</table>
 	<input type="submit" value="Submit"> <input type="hidden" value="false">
