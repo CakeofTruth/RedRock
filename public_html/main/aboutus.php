@@ -26,7 +26,6 @@
                     	 <div class="text">
                     	 <h2>Hosted Voice</h2>
                          <h4><span style="color: #434f5b;">The phone system you need. <br> A price you can afford. </span></h4>
-                         	<p>The phone system you need <br> A price you can afford </p>
                         </div>
                     </div>
                 </div>
