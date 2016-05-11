@@ -5,9 +5,6 @@
 		//Handle new sessions here
 		$_SESSION["loggedin"] = 0;
 		$_SESSION['exists'] = true;
-		echo "new session";
-	}else{
-		echo "old session";
 	}
 ?>
 <!DOCTYPE html>
