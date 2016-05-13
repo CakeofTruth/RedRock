@@ -2,39 +2,70 @@
 $root = $_SERVER ["DOCUMENT_ROOT"];
 include_once ($_SERVER ["DOCUMENT_ROOT"] . '/portal/portalheader.php');
 include_once $root . '/classes/DBUtils.php';
+include_once $root . '/classes/OrderUtils.php';
 
 if (empty ( $_POST )) {
-	echo "Something went wrong.";
+	echo "Something went wrong with the order.";
 }
 
+$orderUtils = new OrderUtils();
 
-$dbutils = new DBUtils ();
+$dbutils = new DBUtils();
 $conn = $dbutils->getDBConnection ();
 
 $customerInsertString = generateCustomerInsertString ();
 
-// echo 'Executing: ' . $customerInsertString . '<br>';
+//echo 'Executing: ' . $customerInsertString . '<br>';
 
 if (mysqli_query ( $conn, $customerInsertString )) {
-	// echo "New record created successfully";
+	//echo "New customer created successfully";
 	$customerID = $conn->insert_id;
-	// echo "Inserted record " . $customerID . '<br>';
+	//echo "Inserted record " . $customerID . '<br>';
 	$orderInsertString = generateOrderInsertString ( $customerID );
+	echo 'Executing: ' . $orderInsertString . '<br>';
+
 	$orderInsertSuccess = mysqli_query ( $conn, $orderInsertString );
 
 	if ($orderInsertSuccess) {
 		echo "Order Created Successfully!  <br>";
-		sendOrderAlertEmail($conn->insert_id);
-		echo '<a href= "/portal/portal.php">Return to portal</a>';
-		// echo "<script> window.setTimeout(location.href = \"" . $root . "/portal/portal.php" . "\",5000) </script>";
+		$orderNumber = $conn->insert_id;
+		sendOrderAlertEmail($orderNumber,$orderUtils);
+		$itemizedInsert = generateItemizedInsertString($orderNumber,$orderUtils);
+		if (mysqli_query ( $conn, $itemizedInsert)) {
+			echo '<a href= "/portal/portal.php">Return to portal</a>';
+		}
+		else{
+			echo "Failed to insert Itemized order";
+		}
 	} else {
 		//echo "Error inserting Order information: " . mysqli_error ( $conn );
 	}
 } else {
-	//echo "Error: " . $customerInsertString . "<br>" . mysqli_error ( $conn );
+	echo "Error: " . $customerInsertString . "<br>" . mysqli_error ( $conn );
 }
 
 $conn->close ();
+
+function generateItemizedInsertString($orderNumber,$orderUtils){
+	$sql = 'INSERT INTO OrderItems(Order_No, USOC, Quantity) VALUES';
+	$result = $orderUtils->getResellerItems($_POST["spcode"]);
+	$firstValues = true;
+	while($row  = $result->fetch_array()){
+		$itemName = $row["USOC"];
+		$quantity = $_POST[$itemName];
+		if($quantity > 0){
+			if($firstValues){
+				$firstValues = false;
+			}else{
+				$sql = $sql . ', ';
+			}
+			$sql = $sql . "('" . $orderNumber . "',"; 
+			$sql = $sql . "'" . $itemName . "',"; 
+			$sql = $sql . "'" . $quantity. "')"; 
+		}
+	}
+	return $sql;
+}
 
 function generateCustomerInsertString() {
 	$sql = 'INSERT INTO Customers (End_User_Name, Cust_Telephone, Address_1, Address_2, City, State, Zip, Emerg_Address_1, Emerg_Address_2, Emerg_City, Emerg_State, Emerg_Zip, Emerg_Phone,Customer_Time_Zone) VALUES(';
@@ -68,7 +99,7 @@ function generateOrderInsertString($Cust_ID) {
 	$sql = 'INSERT INTO Orders (Emerg_Prov_Req, Order_Details, Customer_ID, Serv_Prov_CD, Res_Cont_Name, Sales_Rep, 
 			Reseller_Ref_ID, Request_Built, Request_Service, Or_Sooner, Add_Exist_Cust) VALUES(';
 	$sql = $sql . "'" . test_input ( $_POST ["emergprovisionrequired"] ) . "',";
-	$sql = $sql . "'" . test_input ( $_POST ["orderdetails"] ) . "',";
+	$sql = $sql . "'" . addslashes(test_input ( $_POST ["orderdetails"] )) . "',";
 	$sql = $sql . "'" . $Cust_ID . "',";
 	$sql = $sql . "'" . test_input ( $_POST ["spcode"] ) . "',";
 	$sql = $sql . "'" . test_input ( $_POST ["resellercn"] ) . "',";
@@ -90,7 +121,7 @@ function test_input($data) {
 
 
 
-function sendOrderAlertEmail($orderNumber){
+function sendOrderAlertEmail($orderNumber,$orderUtils){
 
 	$mail = getMailer();
 	$message = '
@@ -121,8 +152,19 @@ function sendOrderAlertEmail($orderNumber){
 	'Accountnumber: ' . 	test_input($_POST["accountnumber"]) . '<br>' .
 	'Spcode: ' . 	test_input($_POST["spcode"]) . '<br>' .
 	'Order Details:<br>' . 	test_input($_POST["orderdetails"]) . '<br>'
+	. '<br><br>'
 	;
 	
+	$result = $orderUtils->getResellerItems($_POST["spcode"]);
+	while($row  = $result->fetch_array()){
+		$itemName = $row["USOC"];
+		$quantity = $_POST[$itemName];
+		if($quantity > 0){
+			$message = $message . $quantity . " "; 
+			$message = $message . $itemName . "<br>"; 
+		}
+		
+	}
 	
 	$mail->SetFrom('noreply@redrocktelecom.com', 'Web App');
 	$mail->Subject = 'Order Number: ' . $orderNumber;

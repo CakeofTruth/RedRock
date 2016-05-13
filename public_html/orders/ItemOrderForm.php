@@ -7,8 +7,10 @@
 	}
 		
 	include_once $root . '/classes/DBUtils.php';
+	include_once $root . '/classes/OrderUtils.php';
 
-	$result = getResellerItems($_POST["spcode"]);
+	$orderUtils = new OrderUtils();
+	$result = $orderUtils->getResellerItems($_POST["spcode"]);
 
 	if ($result->num_rows == 0) {
 		echo "didn't find any product information";
@@ -46,9 +48,9 @@
 	</style>
 	</head>
 	<body>
-	<h1> Red Rock Ordering System </h1>
-		<img src= " C:\Users\Rae\Pictures\RedRockLogo.jpg" style= "float:left;"/>
-		<form action="OrderConfirm.php" method="post">	
+	<h4> Red Rock Ordering System </h4>
+		<img src= "\assets\images\Redrocklogo.jpg" style= "float:left;"/>
+		<form action="/orders/OrderConfirm.php" method="post">	
 		<table>
 			<thead>
 				<tr>
@@ -89,6 +91,8 @@
 			<input type="hidden" name="accountnumber" value="<?php echo $_POST["accountnumber"]; ?>">
 			<input type="hidden" name="spcode" value="<?php echo $_POST["spcode"]; ?>">
 			<input type="hidden" name="endusername" value="<?php echo $_POST["endusername"]; ?>">
+			<input type="hidden" name="address1" value="<?php echo $_POST["address1"]; ?>">
+			<input type="hidden" name="address2" value="<?php echo $_POST["address2"]; ?>">
 			<input type="hidden" name="cmtelephone" value="<?php echo $_POST["cmtelephone"]; ?>">
 			<input type="hidden" name="resellerrefid" value="<?php echo $_POST["resellerrefid"]; ?>">
 			<input type="hidden" name="requestedbuilt" value="<?php echo $_POST["requestedbuilt"]; ?>">
@@ -110,14 +114,3 @@
 </html>
 
 
-<?php 
-	function getResellerItems($spcode){
-		$sql = "select RP.USOC as USOC, P.Description as Description, P.One_Time_Charge as One_Time_Charge, P.Recurring_Price as Recurring_Price
-		from Products P join ResellerProducts RP on P.USOC = RP.USOC
-		where RP.Reseller =\"" . $spcode . "\"";
-			
-		$dbutils = new DBUtils();
-		$conn = $dbutils->getDBConnection();
-		return $conn->query ( $sql);
-	}
-?>
