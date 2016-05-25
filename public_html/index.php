@@ -215,6 +215,12 @@
                                             </a>
                                         </li>
                                         
+                                        <li style="height: 70px;">
+                                            <a href="#" class="bwWrapper" >
+                                                <img src="assets/images/simplewanlogo.png" style="max-height: 70px;" class="logo" />
+                                            </a>
+                                        </li>
+                                        
                                     </ul>
                                 </div>
                                 <div class="clear"></div>
