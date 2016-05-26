@@ -14,10 +14,10 @@ $pagetitle = "Red Rock Telecommunications Login Page";
 		<label>Password:</label><input type="password" name="password">
 		<input type="submit" value="Submit">
 	</form>
-	<div id="newaccount">
-		<a href="/accounts/Registration/AccountRegistration.php">Create a New Account</a> <br> 
-		<a href="/accounts/Registration/forgot_password.php">Forgot Your Password?</a>
-	</div>
+	<!--<div id="newaccount">
+		<a href="/accounts/registration/AccountRegistration.php">Create a New Account</a> <br> 
+		<a href="/accounts/registration/forgot_password.php">Forgot Your Password?</a>
+	</div> --!>
 </div>
 
 

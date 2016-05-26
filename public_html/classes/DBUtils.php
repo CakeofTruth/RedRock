@@ -12,9 +12,9 @@ $dbname = "RedRock";
 */
 
 	function getDBConnection() {
-		$servername = "198.71.225.56:3306";
-		$dbname = "RedRock";
-		$dbusername = "redrock";
+		$servername = "localhost";
+		$dbname = "redroc91_redrock";
+		$dbusername = "redroc91_redrock";
 		$dbpassword = "@dm!nP@$$1001";
 		
 		// Create connection

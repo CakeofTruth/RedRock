@@ -66,7 +66,7 @@
 					while($row  = $result->fetch_array()){
 
 						$rowhtml = '<tr>'
-							. '<td> <input type="number" min="0" name="' . $row["USOC"] . ' id="' . $row["USOC"] . '" onchange="updateAmount(this)" > </td>'
+							. '<td> <input type="number" min="0" name="' . $row["USOC"] . '" id="' . $row["USOC"] . '" onchange="updateAmount(this)" > </td>'
 							. '<td>' . $row["USOC"] . "</td>" 
 							. '<td>' . $row["Description"] . "</td>"
 							. '<td>' . $row["One_Time_Charge"] . "</td>" 
@@ -145,8 +145,10 @@
 				totalNonRecurring = totalNonRecurring + (amount*nonRecurring);
 			}	
 		}
-		document.getElementById("totalMonthly").innerHTML = formatInDollars(totalMonthly);
-		document.getElementById("totalNonRecurring").innerHTML = formatInDollars(totalNonRecurring);
+		document.getElementById("totalMonthly").outerHTML = '<td><input id="totalMonthly" name="totalMonthly" value"' + formatInDollars(totalMonthly) + '"/></td>';
+		document.getElementById("totalNonRecurring").outerHTML = '<td><input id="totalNonRecurring" name="totalNonRecurring" value"' + formatInDollars(totalNonRecurring) + '"/></td>';
+		document.getElementById("totalMonthly").value = formatInDollars(totalMonthly);
+		document.getElementById("totalNonRecurring").value = formatInDollars(totalNonRecurring);
 		console.log("totalMonthly: " + totalMonthly);
 		console.log("totalNonRecurring: " + totalNonRecurring);
 	}

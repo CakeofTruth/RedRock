@@ -3,6 +3,11 @@ $pagetitle = "Portal";
 include ($_SERVER ["DOCUMENT_ROOT"] . '/portal/portalheader.php');
 
 ?>
+<html>
+<head>
+<style>
+h2 {text-align:center;}
+</style>
 	<div class="slogan"></div>
 		<h2>Welcome, <?php echo $_SESSION["First_Name"]; echo " " . $_SESSION["Last_Name"]?></h2>
 </body>
