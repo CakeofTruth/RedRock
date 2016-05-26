@@ -84,7 +84,7 @@
 		<label for="address1">Customer Address 1: <span class="required">*</span></label>
 			<input type="text" name= "address1" required>
 			
-		<label for="address2">Customer Address 2: <span class="required">*</span></label>
+		<label for="address2">Customer Address 2: </label>
 			<input type="text" name= "address2">
 			
 		<label for="city">City: <span class="required">*</span></label>
@@ -114,9 +114,9 @@
 			Yes<input type="radio" name="orsooner" value="Yes" />
 			No<input type="radio" name="orsooner" value="No" />
 		
-		<!--  label for="addtoexistingcustomer"> Add to Existing Customer:</label>
+		<label for="addtoexistingcustomer"> Add to Existing Customer:</label>
 			 Yes<input type="radio" name="addtoexistingcustomer" value= "Yes">
-			 No<input type="radio" name="addtoexistingcustomer" value= "No"-->
+			 No<input type="radio" name="addtoexistingcustomer" value= "No">
 		
 		<label for="customertimezone"> Customer Time Zone:</label>
 			<select name="customertimezone">

@@ -22,7 +22,7 @@ if (mysqli_query ( $conn, $customerInsertString )) {
 	$customerID = $conn->insert_id;
 	//echo "Inserted record " . $customerID . '<br>';
 	$orderInsertString = generateOrderInsertString ( $customerID );
-	echo 'Executing: ' . $orderInsertString . '<br>';
+	//echo 'Executing: ' . $orderInsertString . '<br>';
 
 	$orderInsertSuccess = mysqli_query ( $conn, $orderInsertString );
 
@@ -109,10 +109,13 @@ function generateOrderInsertString($Cust_ID) {
 	$sql = $sql . "'" . test_input ( $_POST ["requestedinservice"] ) . "',";
 	$sql = $sql . "'" . test_input ( $_POST ["orsooner"] ) . "',";
 	$sql = $sql . "'" . test_input ( $_POST ["addtoexistingcustomer"] ) . "')";
-	
+
 	return $sql;
 }
 function test_input($data) {
+	if(empty($data)){
+		return "";
+	}
 	$data = trim ( $data );
 	$data = stripslashes ( $data );
 	$data = htmlspecialchars ( $data );
@@ -155,6 +158,8 @@ function sendOrderAlertEmail($orderNumber,$orderUtils){
 	. '<br><br>'
 	;
 	
+	$message = $message . "<h4>Itemized Order details:</h4>";
+	
 	$result = $orderUtils->getResellerItems($_POST["spcode"]);
 	while($row  = $result->fetch_array()){
 		$itemName = $row["USOC"];
@@ -163,8 +168,11 @@ function sendOrderAlertEmail($orderNumber,$orderUtils){
 			$message = $message . $quantity . " "; 
 			$message = $message . $itemName . "<br>"; 
 		}
-		
 	}
+	
+	$message = $message . "Total one time cost: " . $_POST["totalNonRecurring"] . "<br>";
+	$message = $message . "Total monthly recurring cost: " . $_POST["totalMonthly"] . "<br>";
+	
 	
 	$mail->SetFrom('noreply@redrocktelecom.com', 'Web App');
 	$mail->Subject = 'Order Number: ' . $orderNumber;
