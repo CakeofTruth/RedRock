@@ -172,7 +172,7 @@ function sendOrderAlertEmail($orderNumber,$orderUtils){
 	
 	$message = $message . "Total one time cost: " . $_POST["totalNonRecurring"] . "<br>";
 	$message = $message . "Total monthly recurring cost: " . $_POST["totalMonthly"] . "<br>";
-	
+
 	
 	$mail->SetFrom('noreply@redrocktelecom.com', 'Web App');
 	$mail->Subject = 'Order Number: ' . $orderNumber;

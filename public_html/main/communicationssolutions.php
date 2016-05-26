@@ -25,7 +25,6 @@
                     	 <div class="text">
                     	 <h2>Hosted Voice</h2>
                          <h4><span style="color: #434f5b;">The phone system you need. <br> A price you can afford. </span></h4>
-                         	<p>The phone system you need <br> A price you can afford </p>
                         </div>
                     </div>
                 </div>
@@ -99,6 +98,7 @@
             </div>
         </div>
         <div class= "clear"></div>
+        <div class= "clear"></div>
     	<div id="primary" class="sidebar-no">
 	<div class="container group">
 	<div class="row">
@@ -124,7 +124,7 @@
 		<li> Mobile device support </li>
 		</ul>
 	</div>
-	<div class="two-fourth last">
+        <div class="two-fourth last">
 		<img src="/assets/images/cloud.png">
 	</div>
 	</div>
