@@ -51,7 +51,7 @@
 	<h4> Red Rock Ordering System </h4>
 		<img src= "\assets\images\Redrocklogo.jpg" style= "float:left;"/>
 		<form action="/orders/OrderConfirm.php" method="post">	
-		<table>
+		<table id="ItemOrderTable">
 			<thead>
 				<tr>
 					<th> Amount </th>
@@ -66,7 +66,7 @@
 					while($row  = $result->fetch_array()){
 
 						$rowhtml = '<tr>'
-							. '<td> <input type="number" name="' . $row["USOC"] . '"> </td>'
+							. '<td> <input type="number" min="0" name="' . $row["USOC"] . ' id="' . $row["USOC"] . '" onchange="updateAmount(this)" > </td>'
 							. '<td>' . $row["USOC"] . "</td>" 
 							. '<td>' . $row["Description"] . "</td>"
 							. '<td>' . $row["One_Time_Charge"] . "</td>" 
@@ -74,10 +74,15 @@
 							. '</tr>';
 						echo $rowhtml;
 					}
-				
-
 				?>
-			</table>
+			<tr>
+				<td></td>
+				<td></td>
+				<td>Total Cost:</td>
+				<td id="totalMonthly" name="totalMonthly"></td>
+				<td id="totalNonRecurring" name="totalNonRecurring"></td>
+			</tr>
+		</table>
 			<input type="hidden" name="resellername" value="<?php echo $_POST["resellername"]; ?>">
 			<input type="hidden" name="resellerba1" value="<?php echo $_POST["resellerba1"]; ?>">
 			<input type="hidden" name="resellerba2" value="<?php echo $_POST["resellerba2"]; ?>">
@@ -114,3 +119,47 @@
 </html>
 
 
+<script>
+
+	function updateAmount(object){
+		var name = object.id;
+		var value = object.value;
+		var amount = document.getElementById(name).value = value;
+		//document.getElementById(name).value = value;
+		updateCost();
+	}
+	function updateCost(){
+		var table = document.getElementById("ItemOrderTable");
+		var rowCount = table.rows.length;
+		var totalMonthly = 0;
+		var totalNonRecurring = 0;
+		var cellLength = table.rows[0].cells.length;
+		for (var r = 1; r < rowCount; r++) {
+			var usoc = table.rows[r].cells[1].innerHTML;
+			if(document.getElementById(usoc) != null){
+				var amount = document.getElementById(usoc).value; 
+				//console.log("amount: " + amount);
+				var monthly = parseItemCostString(table.rows[r].cells[cellLength-2].innerHTML);
+				var nonRecurring = parseItemCostString(table.rows[r].cells[cellLength-1].innerHTML);
+				totalMonthly = totalMonthly + (amount*monthly);
+				totalNonRecurring = totalNonRecurring + (amount*nonRecurring);
+			}	
+		}
+		document.getElementById("totalMonthly").innerHTML = formatInDollars(totalMonthly);
+		document.getElementById("totalNonRecurring").innerHTML = formatInDollars(totalNonRecurring);
+		console.log("totalMonthly: " + totalMonthly);
+		console.log("totalNonRecurring: " + totalNonRecurring);
+	}
+
+	function formatInDollars(amount){
+		var str = "$" + amount.toString() + ".00";
+		return str;
+	}
+
+	function parseItemCostString(str){
+		if(str === "Included"){
+			return 0;
+		}
+		return str.match(/\d+/) // "3"
+	}
+</script>
