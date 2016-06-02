@@ -2,7 +2,7 @@
 
 include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
 
-$emailError = $passwordError = $passwordMatchError = ""; 
+$emailError = $passwordError = $passwordMatchError = $spcodeError= ""; 
 
 /*
  *  if the form is empty or there are errors -> $forisvalid = 0. Otherwise, include the form.
@@ -22,6 +22,11 @@ if (empty ($_POST)){
 	}
 	if(!matches_password($_POST["password"],$_POST["passwordConfirm"])){
 		$passwordMatchError = 'Passwords do not match';
+		$formisvalid = 0;
+	}
+	if(!meetsSpcodeRequirements($_POST["spCode"])){
+		$spcodeError = 'Please enter the Service Provider Code that has been provided to you by Red Rock Telecommunications Company.
+				If you have not received a Service Provider Code, please reach out to us at support@redrocktelecom.com. <br>';
 		$formisvalid = 0;
 	}
 }
@@ -131,6 +136,19 @@ function matches_password($password, $confirm) {
 function meetsPasswordRequirements($password) {
 	if (preg_match ( '/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*])/', $password )) {
 		$passwordError ="";
+		return 1;
+	}
+	return 0;
+}
+function meetsSpcodeRequirements($spcode) {
+	$registeredResellers = [
+			"HCON" => "HCON",
+			"RRTC" => "RRTC",
+			"CION" => "CION",
+			"CITY" => "CITY",
+	];
+	if (in_array($spcode, $registeredResellers)) {
+		$spcodeError ="";
 		return 1;
 	}
 	return 0;

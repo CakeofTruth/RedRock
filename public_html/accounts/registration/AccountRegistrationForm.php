@@ -33,53 +33,28 @@ if (empty ( $_POST )) {
 }
 ?>
 
+<link rel='stylesheet' id='custom-css' href='/css/contactform.css'
+	type='text/css' media='all' />
+
+<div id="contact-form">
+	<div class="description">
 <h1>Account Registration</h1>
 <h2>Customer Information</h2>
-
+	</div>
 <form action="/accounts/registration/AccountRegistration.php" method="post">
-	<table>
-		<tr>
-			<td>First Name</td>
-			<td><input type="text" name="firstName"
-				value="" required></td>
-		</tr>
-		<tr>
-			<td>Last Name</td>
-			<td><input type="text" name="lastName"
-				value="" required></td>
-		</tr>
-		<tr>
-			<td>Username</td>
-			<td><input type="text" name="username" value="" required></td>
-		</tr>
-		<tr>
-			<td>Password:</td>
-			<td><input type="password" name="password" required></td><td><?php echo $passwordError; ?></td>
-		</tr>
-		<tr>
-			<td>Password Confirm:</td>
-			<td><input type="password" name="passwordConfirm" required></td><td><?php echo $passwordMatchError; ?></td>
-		</tr>
-		<tr>
-			<td>Reseller Name:</td>
-			<td><input type="text" name="resellerName" value=""
-				required></td>
-		</tr>
-		<tr>
-			<td>Reseller Billing Address 1:</td>
-			<td><input type="text" name="resellerBA1" value="" required></td>
-		</tr>
-		<tr>
-			<td>Reseller Billing Address 2:</td>
-			<td><input type="text" name="resellerBA2" value="" required></td>
-		</tr>
-		<tr>
-			<td>City:</td>
-			<td><input type="text" name="city" value="" required></td>
-		</tr>
-		<tr>
-			<td>State:</td>
-			<td><select name="state">
+	<label>First Name:<span class="required">*</span></label><input type="text" name="firstName" value="" required>
+	<label>Last Name:<span class="required">*</span></label><input type="text" name="firstName" value="" required>
+	<label>Username:<span class="required">*</span></label><input type="text" name="username" value="" required>
+	<label>Password:<span class="required">*</span></label><input type="password" name="password" required></td><td><?php echo $passwordError; ?>
+	<label>Password Confirm:<span class="required">*</span></label><input type="password" name="passwordConfirm" 
+	required></td><td><?php echo $passwordMatchError; ?>
+	<label>Reseller Company Name:<span class="required">*</span></label><input type="text" name="resellerName" 
+	value="" required>
+	<label>Reseller Billing Address 1:<span class="required">*</span></label><input type="text" name="resellerBA1" 
+	value="" required>
+	<label>Reseller Billing Address 2:</label><input type="text" name="resellerBA2" value="">
+	<label>City:<span class="required">*</span></label><input type="text" name="city" value="" required>
+	<label>State:<span class="required">*</span></label><select name="state" required>
 			<?php 
 				if(!empty($_POST)  && !empty($state) ){ 
 					echo "<option value=". $state ." selected=selected >".$state ."</option>"; 
@@ -136,26 +111,19 @@ if (empty ( $_POST )) {
 					<option value="West Virginia">WV</option>
 					<option value="Wisconsin">WI</option>
 					<option value="Wyoming">WY</option>
-			</select></td>
-		</tr>
-		<tr>
-			<td>Zip Code:</td>
-			<td><input type="text" name="zipCode" value=""required></td>
-		</tr>
-		<tr>
-			<td>Telephone Number:</td>
-			<td><input type="text" name="telephoneNumber" value="" required></td>
-		</tr>
-		<tr>
-			<td>Email Address:</td>
-			<td><input type="email" name="emailAddress" value="" required></td><td><?php echo $emailError; ?></td>
-		</tr>
-		<tr>
-			<td>Service Provider Code:</td>
-			<td><input type="text" name="spCode" value=""></td>
-		</tr>
-	</table>
+				</select>
+		<label>Zip Code:<span class="required">*</span></label><input type="text" name="zipCode" value=""required>
+		<label>Contact Telephone Number:<span class="required">*</span></label><input type="text" name="telephoneNumber" value="" required>
+		<label>Email Address:<span class="required">*</span></label><input type="email" name="emailAddress" value="" required>
+		<?php echo $emailError; ?>
+		<label>Service Provider Code:<span class="required">*</span></label><input type="text" name="spCode" 
+		value="" maxlength="4" required><?php echo $spcodeError; ?>
 	<input type="submit" value="Submit"> <input type="hidden" value="false">
+	<p id="req-field-desc"><span class="required">*</span> indicates a required field</p>
 </form>
+</div>
+<?php
+include ($_SERVER ["DOCUMENT_ROOT"] . '/main/footer.php');
+?>
 </body>
 </html>
