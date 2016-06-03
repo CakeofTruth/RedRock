@@ -20,7 +20,6 @@ $pagetitle = "Red Rock Telecommunications Login Page";
 	</div>
 </div>
 
-
 <?php
 include ($_SERVER ["DOCUMENT_ROOT"] . '/main/footer.php');
 ?>
