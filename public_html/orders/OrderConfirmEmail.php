@@ -347,7 +347,7 @@
                                 'Address 2: ' . 	test_input($_POST["emergaddress2"]) . '<br>' .
                                 'City: ' . 	test_input($_POST["emergcity"]) . '<br>' .
                                 'Emergstate: ' . 	test_input($_POST["emergstate"]) . '<br>' .
-                                'Emergzipcode: ' . 	test_input($_POST["emergzipcode"]) . '<br>' .
+                                'Emergzipcode: ' . 	test_input($_POST["emergzipcode"]) . '<br>' ;
                                 ?>
                               </td>
                             </tr>

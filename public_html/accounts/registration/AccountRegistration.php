@@ -1,6 +1,7 @@
 <?php
 
 include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
+include_once $root . '/classes/DBUtils.php';
 
 $emailError = $passwordError = $passwordMatchError = ""; 
 
@@ -15,8 +16,12 @@ if (empty ($_POST)){
 		$emailError = 'The email you have entered is invalid, please try again.';
 		$formisvalid = 0;
 	}
+	if(!emailIsFree($_POST["emailAddress"])){
+		$emailError = 'The email you have entered is already in use!';
+		$formisvalid = 0;
+	}
 	if(!meetsPasswordRequirements($_POST["password"])){
-		$passwordError = 'Please create a password that is 8-15 characters and includes at least one uppercase letter, 
+		$passwordError = 'Please create a password that is at least 8 characters long and includes at least one uppercase letter, 
 					one lowercase letter, one number and one special character.<br>';
 		$formisvalid = 0;
 	}
@@ -28,7 +33,6 @@ if (empty ($_POST)){
 
 
 if($formisvalid){
-	include_once $root . '/classes/DBUtils.php';
 	$dbutil = new DBUtils();
 	$conn = $dbutil->getDBConnection();
 	$hash = makeHash($_POST["emailAddress"]);
@@ -64,7 +68,7 @@ function sendVerificationEmail($hash){
 	------------------------
 	<br><br>
 		Please click this link to activate your account:<br>
-		' . $_SERVER ["DOCUMENT_ROOT"] . '/accounts/registration/verify.php?email=' . $to . '&hash=' . $hash . '
+		' . $_SERVER ["HTTP_HOST"] . '/accounts/registration/verify.php?email=' . $to . '&hash=' . $hash . '
 	';
 
 	
@@ -89,7 +93,7 @@ function getMailer(){
 
 	$mail->IsSMTP();
 	$mail->SMTPAuth = true;
-        $mail->SMTPDebug = 2;
+    $mail->SMTPDebug = 0;
 	$mail->Host = "email.hostaccount.com";
 	$mail->Port = 587;
 	$mail->Username = "noreply@redrocktelecom.com";
@@ -149,8 +153,20 @@ function emailIsValid($email) {
 	return 0;
 }
 
+//Check to see if there is an account with that email already;
+function emailIsFree($email){
+	$sql = "SELECT email FROM Accounts where Email = '" . $email . "'"; 
+
+	$dbutils = new DBUtils();
+	$conn = $dbutils->getDBConnection();
+	$result = $conn->query ( $sql);
+	if ($result->num_rows > 0) {
+		return false;
+	}
+	return true;
+}
+
 function makeHash($email){
-	
 	$plusSalt = $email . rand ( 0, 1000 );
 	return hash ( "sha512", $plusSalt );
 }

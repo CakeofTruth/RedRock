@@ -71,7 +71,7 @@ if (empty ( $_POST )) {
 		</tr>
 		<tr>
 			<td>Reseller Billing Address 2:</td>
-			<td><input type="text" name="resellerBA2" value="" required></td>
+			<td><input type="text" name="resellerBA2" value="" ></td>
 		</tr>
 		<tr>
 			<td>City:</td>
