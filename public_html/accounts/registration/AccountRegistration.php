@@ -2,7 +2,7 @@
 
 include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
 
-$emailError = $passwordError = $passwordMatchError = ""; 
+$emailError = $passwordError = $passwordMatchError = $spcodeError= ""; 
 
 /*
  *  if the form is empty or there are errors -> $forisvalid = 0. Otherwise, include the form.
@@ -22,6 +22,11 @@ if (empty ($_POST)){
 	}
 	if(!matches_password($_POST["password"],$_POST["passwordConfirm"])){
 		$passwordMatchError = 'Passwords do not match';
+		$formisvalid = 0;
+	}
+	if(!meetsSpcodeRequirements($_POST["spCode"])){
+		$spcodeError = 'Please enter the Service Provider Code that has been provided to you by Red Rock Telecommunications Company.  
+				If you have not received a Service Provider Code, please reach out to us at support@redrocktelecom.com. <br>';
 		$formisvalid = 0;
 	}
 }
@@ -64,7 +69,7 @@ function sendVerificationEmail($hash){
 	------------------------
 	<br><br>
 		Please click this link to activate your account:<br>
-		' . $_SERVER ["DOCUMENT_ROOT"] . '/accounts/registration/verify.php?email=' . $to . '&hash=' . $hash . '
+		' . $_SERVER ["HTTP_HOST"] . '/accounts/registration/verify.php?email=' . $to . '&hash=' . $hash . '
 	';
 
 	
@@ -89,7 +94,6 @@ function getMailer(){
 
 	$mail->IsSMTP();
 	$mail->SMTPAuth = true;
-        $mail->SMTPDebug = 2;
 	$mail->Host = "email.hostaccount.com";
 	$mail->Port = 587;
 	$mail->Username = "noreply@redrocktelecom.com";
@@ -135,17 +139,31 @@ function meetsPasswordRequirements($password) {
 	}
 	return 0;
 }
+function meetsSpcodeRequirements($spcode) {
+	$registeredResellers = [
+		"HCON" => "HCON",
+		"RRTC" => "RRTC",
+		"CION" => "CION",
+		"CITY" => "CITY",
+	];
+	if (in_array($spcode, $registeredResellers)) {
+		$spcodeError ="";
+		return 1;
+	}
+	return 0;
+}
 function test_input($data) {
 	$data = trim ( $data );
 	$data = stripslashes ( $data );
 	$data = htmlspecialchars ( $data );
 	return $data;
 }
+
 function emailIsValid($email) {
 	if (preg_match ( "/^[_a-z0-9-]+(\.[a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", $email )) {
 		$emailError="";
 		return 1;
-	} 
+	}
 	return 0;
 }
 
@@ -178,4 +196,5 @@ function insertReseller($conn){
 		// echo "Error: " . $resellerInsertString . "<br>" . mysqli_error($conn);
 	}
 }
-?> 
+
+?>

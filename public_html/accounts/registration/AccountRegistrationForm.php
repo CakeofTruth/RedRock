@@ -32,10 +32,13 @@ if (empty ( $_POST )) {
 	$spcode = $_POST ["spCode"];
 }
 ?>
-
-<h1>Account Registration</h1>
-<h2>Customer Information</h2>
-
+<link rel='stylesheet' id='custom-css' href='/css/contactform.css'
+	type='text/css' media='all' />
+<div id="contact-form">
+	<div class="description">
+		<h1>Account Registration</h1>
+		<h2>Customer Information</h2>
+	</div>
 <form action="/accounts/registration/AccountRegistration.php" method="post">
 	<table>
 		<tr>
@@ -71,7 +74,7 @@ if (empty ( $_POST )) {
 		</tr>
 		<tr>
 			<td>Reseller Billing Address 2:</td>
-			<td><input type="text" name="resellerBA2" value="" required></td>
+			<td><input type="text" name="resellerBA2" value=""></td>
 		</tr>
 		<tr>
 			<td>City:</td>
@@ -152,10 +155,12 @@ if (empty ( $_POST )) {
 		</tr>
 		<tr>
 			<td>Service Provider Code:</td>
-			<td><input type="text" name="spCode" value=""></td>
+			<td><input type="text" name="spCode" value="" maxlength="4"></td><td><?php echo $spcodeError; ?></td>
 		</tr>
 	</table>
 	<input type="submit" value="Submit"> <input type="hidden" value="false">
 </form>
+
+</div>
 </body>
 </html>
