@@ -32,8 +32,7 @@ if (empty ( $_POST )) {
 	$spcode = $_POST ["spCode"];
 }
 ?>
-<link rel='stylesheet' id='custom-css' href='/css/contactform.css'
-	type='text/css' media='all' />
+<link rel='stylesheet' id='custom-css' href='/css/contactform.css' type='text/css' media='all' />
 <div id="contact-form">
 	<div class="description">
 		<h1>Account Registration</h1>

@@ -12,7 +12,7 @@ if (isset($_POST["ForgotPasswordEmail"])) {
 	if ($result->num_rows > 0) {
 		sendResetEmail($_POST["ForgotPasswordEmail"],$conn);
 	}
-	echo "A recovery email has been sent! If you need further assisstance, please contact the Red Rock support team at customerservice@redrocktelecom.com";
+	echo "A recovery email has been sent! <br> If you need further assisstance, please contact the Red Rock support team at customerservice@redrocktelecom.com";
 }
 
 function sendResetEmail($email,$conn){

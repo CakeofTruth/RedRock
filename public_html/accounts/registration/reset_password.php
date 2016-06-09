@@ -2,6 +2,7 @@
 
 include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
 include_once $root . '/classes/DBUtils.php';
+include_once $root . '/classes/MailUtils.php';
 
 $passwordError = $passwordMatchError = "";
 
@@ -12,7 +13,7 @@ $passwordError = $passwordMatchError = "";
 		if(empty($_POST)){
 			$formIsValid = 0;
 		}
-		if(!meetsPasswordRequirements($_POST["password"])){
+		if(isset($_POST["password"]) && !meetsPasswordRequirements($_POST["password"])){
 			$passwordError = 'Please create a password that is at least 8 characters long and includes at least one uppercase letter, 
 						one lowercase letter, one number and one special character.<br>';
 			$formIsValid = 0;
@@ -30,7 +31,7 @@ $passwordError = $passwordMatchError = "";
 			$email = getEmailFromHash($hash);
 			if(updatePassword($email,$_POST["password"])){
 				//TODO: send PasswordChangedEmail
-				//sendPasswordChangedEmail($email);
+				sendPasswordChangedEmail($email);
 				echo "Your password has been updated!";
 			}
 			else{
@@ -43,9 +44,25 @@ $passwordError = $passwordMatchError = "";
 
 	}
 	else{
-		echo 'This is the password reset page. If you requested a password reset and got here via an email link, 
+		echo 'This is the password reset page. If you requested a password reset and arrived here via an email link, 
 				please retry, or contact us at customerservice@redrocktelecom.com';
 	}
+	
+function sendPasswordChangedEmail($email){
+	$mailUtils = new MailUtils();
+		
+	$from = "noreply@redrocktelecom.com";
+	$fromname = "Red Rock Telecom";	
+	$subject = "Your Password has been changed";
+
+	$message ="Dear User, <br><br> 
+			Your password has been changed. If you did not request this change please contact us at customerservice@redrocktelecom.com." .
+			"<br><br> Best Regards, <br> Red Rock Telecommunications Customer Service Team"
+	;
+
+	$mailUtils->send($from,$fromname,$email,$subject,$message);
+
+}
 	
 function updatePassword($email,$password){
 	$sql = 'Update Accounts set Password = "' . $password . '" where Email = "' . $email . '"';
