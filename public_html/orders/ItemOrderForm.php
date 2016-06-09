@@ -69,8 +69,8 @@
 							. '<td> <input type="number" min="0" name="' . $row["USOC"] . '" id="' . $row["USOC"] . '" onchange="updateAmount(this)" > </td>'
 							. '<td>' . $row["USOC"] . "</td>" 
 							. '<td>' . $row["Description"] . "</td>"
-							. '<td>' . $row["One_Time_Charge"] . "</td>" 
 							. '<td>' . $row["Recurring_Price"] . "</td>"
+							. '<td>' . $row["One_Time_Charge"] . "</td>" 
 							. '</tr>';
 						echo $rowhtml;
 					}
@@ -138,9 +138,9 @@
 			var usoc = table.rows[r].cells[1].innerHTML;
 			if(document.getElementById(usoc) != null){
 				var amount = document.getElementById(usoc).value; 
-				//console.log("amount: " + amount);
 				var monthly = parseItemCostString(table.rows[r].cells[cellLength-2].innerHTML);
 				var nonRecurring = parseItemCostString(table.rows[r].cells[cellLength-1].innerHTML);
+				//console.log(usoc + ": " + monthly + ", " + nonRecurring);
 				totalMonthly = totalMonthly + (amount*monthly);
 				totalNonRecurring = totalNonRecurring + (amount*nonRecurring);
 			}	
@@ -149,12 +149,10 @@
 		document.getElementById("totalNonRecurring").outerHTML = '<td><input id="totalNonRecurring" name="totalNonRecurring" value"' + formatInDollars(totalNonRecurring) + '"/></td>';
 		document.getElementById("totalMonthly").value = formatInDollars(totalMonthly);
 		document.getElementById("totalNonRecurring").value = formatInDollars(totalNonRecurring);
-		console.log("totalMonthly: " + totalMonthly);
-		console.log("totalNonRecurring: " + totalNonRecurring);
 	}
 
 	function formatInDollars(amount){
-		var str = "$" + amount.toString() + ".00";
+		var str = "$" + amount.toFixed(2);
 		return str;
 	}
 
@@ -162,6 +160,6 @@
 		if(str === "Included"){
 			return 0;
 		}
-		return str.match(/\d+/) // "3"
+		return str.match(/\d+\.\d+/) // "3"
 	}
 </script>
