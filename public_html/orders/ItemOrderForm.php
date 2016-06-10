@@ -21,31 +21,6 @@
 <html>
 	<head>
 	<title> Red Rock Ordering System </title>
-	<style>
-	h1 {
-		font-size: 50px; 
-		number-align: center;
-	}
-	table {
-		margin: 0 auto;
-	}
-	table, th, td {
-		border: 1px solid black;
-		border-collapse: collapse;
-	}
-	table {
-		width: 70%;
-	}
-	th {
-    height: 20px;
-	}
-	tr:hover {
-	background-color: #ff8080
-	}
-	tr:nth-child(even) {
-	background-color: #B3C6FF
-	}
-	</style>
 	</head>
 	<body>
 	<h4> Red Rock Ordering System </h4>
