@@ -177,7 +177,7 @@ function sendOrderAlertEmail($orderNumber,$orderUtils){
 	$mail->SetFrom('noreply@redrocktelecom.com', 'Web App');
 	$mail->Subject = 'Order Number: ' . $orderNumber;
 	$mail->MsgHTML($message);
-	$mail->AddAddress("ops@redrocktelecom.com");
+	$mail->AddAddress("rachel@redrocktelecom.com");
 	
 	if($mail->Send()) {
 		//echo "Message sent!";
