@@ -24,7 +24,7 @@
 	for($i=0;$i<count($_FILES['uploads']['name']);$i++){
 		$tmplocation = $_FILES['uploads']['tmp_name'][$i];	
 		$destination = $uploaddir . $_FILES['uploads']['name'][$i];	
-		echo "destination: " . $destination . "<br>";
+		//echo "destination: " . $destination . "<br>";
 		if(move_uploaded_file($tmplocation ,$destination)){
 			if(empty($attachmentsString)){
 				$attachmentsString .= basename($destination);
@@ -34,7 +34,7 @@
 			}
 		}
 	}
-	echo $attachmentsString;
+	//echo $attachmentsString;
 
 ?>
 <!DOCTYPE html>
@@ -84,11 +84,11 @@
 			<tbody>
 				<?php 
 					while($row  = $result->fetch_array()){
-
+						$USOCdescription= $row["USOC"] . "description";
 						$rowhtml = '<tr>'
 							. '<td> <input type="number" min="0" name="' . $row["USOC"] . '" id="' . $row["USOC"] . '" onchange="updateAmount(this)" > </td>'
 							. '<td>' . $row["USOC"] . "</td>" 
-							. '<td>' . $row["Description"] . "</td>"
+							. '<td name="'. $USOCdescription . '">' . $row["Description"] . "</td>"
 							. '<td>' . $row["Recurring_Price"] . "</td>"
 							. '<td>' . $row["One_Time_Charge"] . "</td>" 
 							. '</tr>';

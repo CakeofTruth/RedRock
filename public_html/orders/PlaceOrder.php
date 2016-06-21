@@ -1,5 +1,6 @@
 <?php 
 
+$attachmentError = "";
 	if(!empty($_POST)){
 			$hasAttachment = 0;
 			//If there are attachments, validate they are the required size and of the right file type
