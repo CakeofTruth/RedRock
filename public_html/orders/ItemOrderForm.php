@@ -64,11 +64,11 @@
 			<tbody>
 				<?php 
 					while($row  = $result->fetch_array()){
-
+						$USOCdescription= $row["USOC"] . "description";
 						$rowhtml = '<tr>'
 							. '<td> <input type="number" min="0" name="' . $row["USOC"] . '" id="' . $row["USOC"] . '" onchange="updateAmount(this)" > </td>'
 							. '<td>' . $row["USOC"] . "</td>" 
-							. '<td>' . $row["Description"] . "</td>"
+							. '<td name="'. $USOCdescription . '">' . $row["Description"] . "</td>"
 							. '<td>' . $row["Recurring_Price"] . "</td>"
 							. '<td>' . $row["One_Time_Charge"] . "</td>" 
 							. '</tr>';
