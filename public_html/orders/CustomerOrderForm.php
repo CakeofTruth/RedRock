@@ -9,8 +9,9 @@
 <?php 
 
 	include ($_SERVER ["DOCUMENT_ROOT"] . '/portal/portalheader.php');
-	
 	include_once $root . '/classes/DBUtils.php';
+	
+	$attachmentError = "";
 	
 	$resellerSelect = generateResellersSelectString($_SESSION["Serv_Prov_CD"]);
 	$dbutils = new DBUtils();
@@ -24,7 +25,6 @@
 	else{
 		echo "Reseller not found";	
 	}
-	
 ?>
 		<!--<label for='uploaded_file'>Select A File To Upload:</label>
 		input type="file" name="uploaded_file"-->
@@ -32,7 +32,7 @@
 		<h4>Customer Order Form</h4>
 		<br><br>
 		<h5>Reseller Contact Information:</h5>
-		<form action="/orders/ItemOrderForm.php" method="post" enctype="multipart/form-data">
+		<form action="/orders/PlaceOrder.php" method="post" enctype="multipart/form-data">
         <label for="name">Reseller Name:</label>
         	<input type="text" name="resellername" value="<?php echo $resellerRow["Company_Name"];?>" readonly>
 		
@@ -57,38 +57,32 @@
  		<label for="emailaddress">Email Address:</label>
  			<input type="email" name="emailaddress" value="<?php echo $_SESSION["User_Email"];?>" readonly>
  			
-		<label for="telephone">Contact Telephone Number: <span class="required">*</span></label>
-			<input type="tel" name="contactTelephone" required>
  
  		<label for="resellercn">Reseller Contact Name: </label>
- 			<input type="text" name="resellercn" value="<?php echo $_SESSION["First_Name"]; echo " " . $_SESSION["Last_Name"];?>">
+ 			<input type="text" name="resellercn" value="<?php if(isset($_SESSION["First_Name"])){echo $_SESSION["First_Name"];} echo " " . $_SESSION["Last_Name"];?>">
  			
- 		<label for="salesrep">Sales Representative: </label>
- 			<select id="salesrep" name="salesrep">
-						<option value = ""> Select a Sales Representative</option>
-						<option value = "Breanda Beall"> Brenda Beall </option>
-						<option value = "other"> Other </option> 
-					</select>
-		
 		<label for="accountnumber">Account Number: </label>
-			<input type="text" name="accountnumber" value="<?php echo $_SESSION["Acct_No"];?>" readonly>
+			<input type="text" name="accountnumber" value="<?php if(isset($_SESSION["Acct_No"])){echo $_SESSION["Acct_No"];}?>" readonly>
 		
 		<label for="spcode">Service Provider Code: </label>
-			<input type="text" name="spcode" value="<?php echo $resellerRow["Serv_Prov_CD"];?>" readonly>
+			<input type="text" name="spcode" value="<?php if(isset($resellerRow["Serv_Prov_CD"])){echo $resellerRow["Serv_Prov_CD"];}?>" readonly>
+
+		<label for="telephone">Contact Telephone Number: <span class="required">*</span></label>
+			<input type="tel" name="contactTelephone" value="<?php if(isset($_POST["contactTelephone"])){echo $_POST["contactTelephone"];}?>" required>
 		
 		<h5>Customer Information</h5>
 		
 		<label for="endusername">End User Customer Name: <span class="required">*</span></label>
-			<input type="text" name="endusername" required>
+			<input type="text" name="endusername" value="<?php if(isset($_POST["endusername"])){echo $_POST["endusername"];}?>" required>
 
 		<label for="address1">Customer Address 1: <span class="required">*</span></label>
-			<input type="text" name= "address1" required>
+			<input type="text" name= "address1" value="<?php if(isset($_POST["address1"])){echo $_POST["address1"];}?>" required>
 			
 		<label for="address2">Customer Address 2: </label>
-			<input type="text" name= "address2">
+			<input type="text" name= "address2" value="<?php if(isset($_POST["address2"])){echo $_POST["address2"];}?>" >
 			
 		<label for="city">City: <span class="required">*</span></label>
-			<input type="text" name= "city" required>
+			<input type="text" name= "city" value="<?php if(isset($_POST["city"])){echo $_POST["city"];}?>" required>
 			
 		<label for="state">State: <span class="required">*</span></label>
 			<select name="state" required>
@@ -96,13 +90,13 @@
 			</select>
 				
 		<label for="zipcode">Zip Code: <span class="required">*</span></label>
-			<input type="text" name= "zipcode" required>
+			<input type="text" name= "zipcode"  value="<?php if(isset($_POST["zipcode"])){echo $_POST["zipcode"];}?>" required>
 			
 		<label for="cmtelephone">Billing Telephone Number: <span class="required">*</span></label>
-			<input type="text" name="cmtelephone" >
+			<input type="text" name="cmtelephone" value="<?php if(isset($_POST["cmtelephone"])){echo $_POST["cmtelephone"];}?>" >
 			
 		<label for="resellerrefid">Reseller Reference ID: </label>
-			<input type="text" name="resellerrefid">
+			<input type="text" name="resellerrefid" value="<?php if(isset($_POST["resellerrefid"])){echo $_POST["resellerrefid"];}?>" >
 			
 		<label for="requestedbuilt">Requested Built/Service Provisioned Date: <span class="required">*</span></label>
 			<input type="date" name= "requestedbuilt" required>
@@ -111,12 +105,12 @@
 			<input type="date" name="requestedinservice" required>
 			
 		<label for="orsooner">Or Sooner:</label>
-			Yes<input type="radio" name="orsooner" value="Yes" />
+			Yes<input type="radio" name="orsooner" value="Yes" checked="checked"/>
 			No<input type="radio" name="orsooner" value="No" />
 		
 		<label for="addtoexistingcustomer"> Add to Existing Customer:</label>
 			 Yes<input type="radio" name="addtoexistingcustomer" value= "Yes">
-			 No<input type="radio" name="addtoexistingcustomer" value= "No">
+			 No<input type="radio" name="addtoexistingcustomer" value= "No" checked="checked">
 		
 		<label for="customertimezone"> Customer Time Zone:</label>
 			<select name="customertimezone">
@@ -137,13 +131,13 @@
 			No<input type="radio" name="emergprovisionrequired" value= "No">
 		
 		<label for="emergaddress1">Service/911 Address 1:</label>
-			<input type="text" name= "emergaddress1">
+			<input type="text" name= "emergaddress1" value="<?php if(isset($_POST["emergaddress1"])){echo $_POST["emergaddress1"];}?>" >
 			
 		<label for="emergaddress2"> Service/911 Address 2:</label>
-			<input type="text" name= "emergaddress2">
+			<input type="text" name= "emergaddress2" value="<?php if(isset($_POST["emergaddress2"])){echo $_POST["emergaddress2"];}?>" >
 			
 		<label for="emergcity">City:</label>
-			<input type="text" name= "emergcity">
+			<input type="text" name= "emergcity" value="<?php if(isset($_POST["emergcity"])){echo $_POST["emergcity"];}?>" >
 			
 		<label for="emergstate">State:</label>
 			<select name="emergstate">
@@ -151,56 +145,21 @@
 			</select>
 				
 		<label for="emergzipcode">Zip Code:</label>
-			<input type="text" name= "emergzipcode">
+			<input type="text" name= "emergzipcode" value="<?php if(isset($_POST["emergzipcode"])){echo $_POST["emergzipcode"];}?>" >
 			
 		<label for="emergzipcode"> 911 Phone Number:</label>
-			<input type="text" name="emergphonenumber">
+			<input type="text" name="emergphonenumber" value="<?php if(isset($_POST["emergphonenumber"])){echo $_POST["emergphonenumber"];}?>" >
 		
 		<label for="message">Order Details <span class="required">*</span></label>
 			<textarea id="contact-form" class="form textarea" rows="10" cols="100" id="orderdetails" name="orderdetails" 
-			placeholder="Your message must be greater than 20 characters" required="required" data-minlength="20"></textarea>
+			placeholder="Your message must be greater than 20 characters"  data-minlength="20" value="<?php echo $_POST["orderdetails"]?>"></textarea>
 			<div class="clear"></div>
  			<span id="loading"></span>
-		<input type="submit" value="Next" id="submit-button" />
+
+ 		<input type="file" name="uploads[]" multiple="multiple"/>
+		<input type="submit" name="submit" value="Next" id="submit-button" /><?php echo $attachmentError; ?>
 		<p id="req-field-desc"><span class="required">*</span> indicates a required field</p>
     </form>
-	<!--<?php 
-			$name_of_uploaded_file =
-				basename($_FILES['uploaded_file']['name']);
-			$type_of_uploaded_file =
-				substr($name_of_uploaded_file,
-				strrpos($name_of_uploaded_file, '.') +1);
-			$size_of_uploaded_file =
-				$_FILES["uploaded_file"]["size"]/1024;
-			$max_allowed_file_size = 500;
-			$allowed_extensions = array("jpg", "jpeg", "doc", "pdf", "docx", "xls", "xlsx", "csv");
-			if($size_of_uploaded_file > $max_allowed_file_size)
-			{
-				$errors .= "\n Size of file should be less than $max_allowed_file_size";
-			}
-			$allowed_ext = false;
-			for ($i=0; $i<sizeof($allowed_extensions); $i++)
-			{
-				if(strcasecmp($allowed_extensions[$i],$type_of_uploaded_file) == 0)
-				{
-					$allowed_ext = true;
-				}
-			}
-			if(!$allowed_ext)
-			{$errors .="\n The uploaded file is not a supported file type.".
-			"Only the following file types are supported: ".implode(',',$allowed_extensions);
-			}
-			$path_of_uploaded_file = $upload_folder . $name_of_upload_file;
-			$tmp_path = $_FILES["uploaded_file"]["tmp_name"];
-			if(is_uploaded_file($tmp_path))
-			{
-				if(!copy($tmp_path,$path_of_uploaded_file))
-				{
-					$errors .= '\n Error while copying the uploaded file';
-				}
-			}
-			//http://www.html-form-guide.com/email-form/php-email-form-attachment.html guide for php email form attachment//
-		?> -->
 		</div><!-- End contact-form div -->
 	</body>
 </html>

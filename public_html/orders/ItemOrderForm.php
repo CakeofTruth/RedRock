@@ -16,6 +16,26 @@
 		echo "didn't find any product information";
 	}
 
+	$attachmentID = uniqid();
+	mkdir($_SERVER["DOCUMENT_ROOT"] . '/tmp/orderData/' . $attachmentID, 0777);
+	$uploaddir = $_SERVER["DOCUMENT_ROOT"] . '/tmp/orderData/' . $attachmentID . '/';
+
+	$attachmentsString = "";
+	for($i=0;$i<count($_FILES['uploads']['name']);$i++){
+		$tmplocation = $_FILES['uploads']['tmp_name'][$i];	
+		$destination = $uploaddir . $_FILES['uploads']['name'][$i];	
+		echo "destination: " . $destination . "<br>";
+		if(move_uploaded_file($tmplocation ,$destination)){
+			if(empty($attachmentsString)){
+				$attachmentsString .= basename($destination);
+			}
+			else{
+				$attachmentsString .= "," . basename($destination);
+			}
+		}
+	}
+	echo $attachmentsString;
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -92,7 +112,6 @@
 			<input type="hidden" name="telephonenumber" value="<?php echo $_POST["telephonenumber"]; ?>">
 			<input type="hidden" name="emailaddress" value="<?php echo $_POST["emailaddress"]; ?>">
 			<input type="hidden" name="resellercn" value="<?php echo $_POST["resellercn"]; ?>">
-			<input type="hidden" name="salesrep" value="<?php echo $_POST["salesrep"]; ?>">
 			<input type="hidden" name="accountnumber" value="<?php echo $_POST["accountnumber"]; ?>">
 			<input type="hidden" name="spcode" value="<?php echo $_POST["spcode"]; ?>">
 			<input type="hidden" name="endusername" value="<?php echo $_POST["endusername"]; ?>">
@@ -102,8 +121,8 @@
 			<input type="hidden" name="resellerrefid" value="<?php echo $_POST["resellerrefid"]; ?>">
 			<input type="hidden" name="requestedbuilt" value="<?php echo $_POST["requestedbuilt"]; ?>">
 			<input type="hidden" name="requestedinservice" value="<?php echo $_POST["requestedinservice"]; ?>">
-			<input type="hidden" name="orsooner" value="<?php echo $_POST["orsooner"]; ?>">
-			<input type="hidden" name="addtoexistingcustomer" value="<?php echo $_POST["addtoexistingcustomer"]; ?>">
+			<input type="hidden" name="orsooner" value="<?php $_POST["orsooner"]; ?>">
+			<input type="hidden" name="addtoexistingcustomer" value="<?php $_POST["addtoexistingcustomer"]; ?>">
 			<input type="hidden" name="customertimezone" value="<?php echo $_POST["customertimezone"]; ?>">
 			<input type="hidden" name="emergprovisionrequired" value="<?php echo $_POST["emergprovisionrequired"]; ?>">
 			<input type="hidden" name="emergaddress1" value="<?php echo $_POST["emergaddress1"]; ?>">
@@ -113,6 +132,8 @@
 			<input type="hidden" name="emergzipcode" value="<?php echo $_POST["emergzipcode"]; ?>">
 			<input type="hidden" name="emergphonenumber" value="<?php echo $_POST["emergphonenumber"]; ?>">
 			<input type="hidden" name="orderdetails" value="<?php echo $_POST["orderdetails"]; ?>">
+			<input type="hidden" name="attachments" value="<?php echo $attachmentsString; ?>">
+			<input type="hidden" name="attachmentDir" value="<?php echo $attachmentID; ?>">
 			<input type="submit" value="Submit">
 		</form>
 	</body>
@@ -161,5 +182,17 @@
 			return 0;
 		}
 		return str.match(/\d+\.\d+/) // "3"
+	}
+
+	function test_input($data) {
+		if(empty($data)){
+			return "";
+		}
+		$data = trim ( $data );
+		$data = stripslashes ( $data );
+		$data = htmlspecialchars ( $data );
+		$data = addslashes( $data );
+	
+		return $data;
 	}
 </script>

@@ -41,7 +41,7 @@ if (mysqli_query ( $conn, $customerInsertString )) {
 		//echo "Error inserting Order information: " . mysqli_error ( $conn );
 	}
 } else {
-	echo "Error: " . $customerInsertString . "<br>" . mysqli_error ( $conn );
+	//echo "Error: " . $customerInsertString . "<br>" . mysqli_error ( $conn );
 }
 
 $conn->close ();
@@ -88,7 +88,6 @@ function generateCustomerInsertString() {
 }
 function generateOrderInsertString($Cust_ID) {
 	$resellercn = test_input ( $_POST ["resellercn"] ); // order
-	$salesrep = test_input ( $_POST ["salesrep"] ); // order
 	$resellerrefid = test_input ( $_POST ["resellerrefid"] ); // order
 	$requestedbuilt = test_input ( $_POST ["requestedbuilt"] ); // order
 	$requestedinservice = test_input ( $_POST ["requestedinservice"] ); // order
@@ -96,14 +95,13 @@ function generateOrderInsertString($Cust_ID) {
 	$addtoexistingcustomer = test_input ( $_POST ["addtoexistingcustomer"] ); // order
 	$emergprovisionrequired = test_input ( $_POST ["emergprovisionrequired"] ); // order
 	
-	$sql = 'INSERT INTO Orders (Emerg_Prov_Req, Order_Details, Customer_ID, Serv_Prov_CD, Res_Cont_Name, Sales_Rep, 
+	$sql = 'INSERT INTO Orders (Emerg_Prov_Req, Order_Details, Customer_ID, Serv_Prov_CD, Res_Cont_Name, 
 			Reseller_Ref_ID, Request_Built, Request_Service, Or_Sooner, Add_Exist_Cust) VALUES(';
 	$sql = $sql . "'" . test_input ( $_POST ["emergprovisionrequired"] ) . "',";
 	$sql = $sql . "'" . addslashes(test_input ( $_POST ["orderdetails"] )) . "',";
 	$sql = $sql . "'" . $Cust_ID . "',";
 	$sql = $sql . "'" . test_input ( $_POST ["spcode"] ) . "',";
 	$sql = $sql . "'" . test_input ( $_POST ["resellercn"] ) . "',";
-	$sql = $sql . "'" . test_input ( $_POST ["salesrep"] ) . "',";
 	$sql = $sql . "'" . test_input ( $_POST ["resellerrefid"] ) . "',";
 	$sql = $sql . "'" . test_input ( $_POST ["requestedbuilt"] ) . "',";
 	$sql = $sql . "'" . test_input ( $_POST ["requestedinservice"] ) . "',";
@@ -112,15 +110,7 @@ function generateOrderInsertString($Cust_ID) {
 
 	return $sql;
 }
-function test_input($data) {
-	if(empty($data)){
-		return "";
-	}
-	$data = trim ( $data );
-	$data = stripslashes ( $data );
-	$data = htmlspecialchars ( $data );
-	return $data;
-}
+
 
 
 
@@ -135,7 +125,6 @@ function sendOrderAlertEmail($orderNumber,$orderUtils){
 	'Telephone Number: ' .	test_input($_POST["telephonenumber"]) . '<br>' .
 	'Email Address: ' . 	test_input($_POST["emailaddress"]) . '<br>' .
 	'Reseller Contact Name: ' . 	test_input($_POST["resellercn"]) . '<br>' .
-	'Salesrep: ' . 	test_input($_POST["salesrep"]) . '<br>' .
 	'Reseller Reference ID: ' . 	test_input($_POST["resellerrefid"]) . '<br>' .
 	'Requested built by date: ' . 	test_input($_POST["requestedbuilt"]) . '<br>' .
 	'Requested inservice by date: ' . 	test_input($_POST["requestedinservice"]) . '<br>' .
@@ -173,6 +162,8 @@ function sendOrderAlertEmail($orderNumber,$orderUtils){
 	$message = $message . "Total one time cost: " . $_POST["totalNonRecurring"] . "<br>";
 	$message = $message . "Total monthly recurring cost: " . $_POST["totalMonthly"] . "<br>";
 
+	addAttachments($mail,$_POST['attachmentDir'],$_POST["attachments"]);
+	cleanAttachments($_POST['attachmentDir']);
 	
 	$mail->SetFrom('noreply@redrocktelecom.com', 'Web App');
 	$mail->Subject = 'Order Number: ' . $orderNumber;
@@ -183,6 +174,40 @@ function sendOrderAlertEmail($orderNumber,$orderUtils){
 		//echo "Message sent!";
 	} else {
 		//echo "Mailer Error: " . $mail->ErrorInfo;
+	}
+}
+
+function cleanAttachments($dir) {
+	$toRemove = $_SERVER['DOCUMENT_ROOT'] . "/tmp/orderData/" . $dir;
+	//echo "attempting to remove attachments from dir: " . $toRemove . "<br> ";
+	if (is_dir($toRemove)) {
+		//echo "is a directory <br>";
+		$objects = scandir($toRemove);
+		foreach ($objects as $object) {
+			//echo "attempting to remove an object";
+			if ($object != "." && $object != "..") {
+				if (is_dir($toRemove."/".$object))
+					rrmdir($toRemove."/".$object);
+					else
+						unlink($toRemove."/".$object);
+			}
+		}
+		rmdir($toRemove);
+	}
+	else{
+		//echo "Is not a dir";
+	}
+}
+
+function addAttachments($mail,$attachmentDir,$attachmentString){
+	$array = explode(",",$attachmentString);
+	foreach($array as $fileName){
+		$path = $_SERVER['DOCUMENT_ROOT'] . "/tmp/orderData/" . $attachmentDir . '/' . $fileName;
+		//echo "adding attachment from path: " . $path . "<br>";
+		if(is_file($path)){
+			//echo " is a file!<br>";
+			$mail->addAttachment($path);
+		}
 	}
 }
 
@@ -200,4 +225,15 @@ function getMailer(){
 	return $mail;
 }
 
+function test_input($data) {
+	if(empty($data)){
+		return "";
+	}
+	$data = trim ( $data );
+	$data = stripslashes ( $data );
+	$data = htmlspecialchars ( $data );
+	$data = addslashes( $data );
+
+	return $data;
+}
 ?>

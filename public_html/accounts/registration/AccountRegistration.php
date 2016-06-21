@@ -42,7 +42,6 @@ if($formisvalid){
 	$conn = $dbutil->getDBConnection();
 	$hash = makeHash($_POST["emailAddress"]);
 	insertAccount($conn,$hash);
-	insertReseller($conn);
 	sendVerificationEmail($hash);
 	$conn->close ();
 	echo "<br>Account Created Successfully!";
@@ -106,18 +105,6 @@ function getMailer(){
 	return $mail;
 }
 
-function generateResellerInsertString() {
-	$sql = "INSERT INTO Resellers (Serv_Prov_CD,Address1,Address2,City,State,Zip,Phone,Company_Name) VALUES(";
-	$sql = $sql . "'" . test_input ( $_POST ["spCode"] ) . "',";
-	$sql = $sql . "'" . test_input ( $_POST ["resellerBA1"] ) . "',";
-	$sql = $sql . "'" . test_input ( $_POST ["resellerBA2"] ) . "',";
-	$sql = $sql . "'" . test_input ( $_POST ["city"] ) . "',";
-	$sql = $sql . "'" . test_input ( $_POST ["state"] ) . "',";
-	$sql = $sql . "'" . test_input ( $_POST ["zipCode"] ) . "',";
-	$sql = $sql . "'" . test_input ( $_POST ["telephoneNumber"] ) . "',";
-	$sql = $sql . "'" . test_input ( $_POST ["resellerName"] ) . "')";
-	return $sql;
-}
 function generateAccountInsertString($hash) {
 	$sql = 'INSERT INTO Accounts (Username, Password, Serv_Prov_CD, First_Name, Last_Name, Email,hash) VALUES(';
 	$sql = $sql . "'" . test_input ( $_POST ["username"] ) . "',";
@@ -164,7 +151,7 @@ function test_input($data) {
 }
 
 function emailIsValid($email) {
-	if (preg_match ( "/^[_a-z0-9-]+(\.[a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", $email )) {
+	if (preg_match ( "/^[_a-zA-Z0-9-]+(\.[a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", $email )) {
 		$emailError="";
 		return 1;
 	}
@@ -198,19 +185,6 @@ function insertAccount($conn,$hash){
 		$conn->insert_id;
 	}
 
-}
-
-function insertReseller($conn){
-	
-	$resellerInsertString = generateResellerInsertString ();
-
-	if (mysqli_query ( $conn, $resellerInsertString )) {
-		// echo "New record created successfully";
-		$resellerID = $conn->insert_id;
-		// echo "Inserted record " . $lastinsert . ' into Accounts Table.<br>';
-	} else {
-		// echo "Error: " . $resellerInsertString . "<br>" . mysqli_error($conn);
-	}
 }
 
 ?>
