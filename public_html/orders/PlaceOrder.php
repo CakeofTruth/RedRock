@@ -1,16 +1,22 @@
 <?php 
 
 $attachmentError = "";
+	$formisvalid = 0;
 	if(!empty($_POST)){
+			$formisvalid = 1;
 			$hasAttachment = 0;
 			//If there are attachments, validate they are the required size and of the right file type
-			if(isset($_POST['submit'])){
+			$numfiles = count($_FILES['uploads']['name']) ;
+			$realFiles = 0;
+			foreach($_FILES['uploads']['name'] as $name){
+				if(strlen($name) > 0 ){
+					$realFiles = 1;	
+				}
+			}
+			if($numfiles > 0  && $realFiles == 1){
 				$hasAttachment = 1;
 				$max_allowed_file_size = 1000;//1mb
 				$allowed_extensions = array("png","jpg", "jpeg", "doc", "pdf", "docx", "xls", "xlsx", "csv", "txt");
-		
-				$formisvalid = 1;
-				$numfiles = count($_FILES['uploads']['name']) ;
 
 				//validate extensions...
 				foreach($_FILES['uploads']['name'] as $name){
@@ -35,19 +41,15 @@ $attachmentError = "";
 						break;
 					}
 				}
-		
-				if($formisvalid){
-					include("ItemOrderForm.php");
-				}
-				else{
-					include("CustomerOrderForm.php");
-				}
 			}
+	}
+	if($formisvalid){
+		include("ItemOrderForm.php");
 	}
 	else{
 		include("CustomerOrderForm.php");
 	}
-
+	
 function extensionIsValid($extension){
 	$allowed_ext = false;
 	$allowed_extensions = array("jpg", "jpeg", "doc", "pdf", "docx", "xls", "xlsx", "csv", "txt");
