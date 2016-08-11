@@ -15,7 +15,7 @@ $attachmentError = "";
 			}
 			if($numfiles > 0  && $realFiles == 1){
 				$hasAttachment = 1;
-				$max_allowed_file_size = 1000;//1mb
+				$max_allowed_file_size = 5000;//1mb
 				$allowed_extensions = array("png","jpg", "jpeg", "doc", "pdf", "docx", "xls", "xlsx", "csv", "txt");
 
 				//validate extensions...

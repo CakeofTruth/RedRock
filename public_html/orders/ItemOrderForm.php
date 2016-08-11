@@ -19,6 +19,7 @@
 	$attachmentID = uniqid();
 	mkdir($_SERVER["DOCUMENT_ROOT"] . '/tmp/orderData/' . $attachmentID, 0777);
 	$uploaddir = $_SERVER["DOCUMENT_ROOT"] . '/tmp/orderData/' . $attachmentID . '/';
+    //echo "uploaded to: " . $uploaddir;
 
 	$attachmentsString = "";
 	for($i=0;$i<count($_FILES['uploads']['name']);$i++){

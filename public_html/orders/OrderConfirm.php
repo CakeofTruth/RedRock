@@ -3,6 +3,7 @@ $root = $_SERVER ["DOCUMENT_ROOT"];
 include_once ($_SERVER ["DOCUMENT_ROOT"] . '/portal/portalheader.php');
 include_once $root . '/classes/DBUtils.php';
 include_once $root . '/classes/OrderUtils.php';
+include_once $root . '/classes/MailUtils.php';
 
 if (empty ( $_POST )) {
 	echo "Something went wrong with the order.";
@@ -94,7 +95,7 @@ function generateOrderInsertString($Cust_ID) {
 	$orsooner = test_input ( $_POST ["orsooner"] ); // order
 	$addtoexistingcustomer = test_input ( $_POST ["addtoexistingcustomer"] ); // order
 	$emergprovisionrequired = test_input ( $_POST ["emergprovisionrequired"] ); // order
-	
+
 	$sql = 'INSERT INTO Orders (Emerg_Prov_Req, Order_Details, Customer_ID, Serv_Prov_CD, Res_Cont_Name, 
 			Reseller_Ref_ID, Request_Built, Request_Service, Or_Sooner, Add_Exist_Cust) VALUES(';
 	$sql = $sql . "'" . test_input ( $_POST ["emergprovisionrequired"] ) . "',";
@@ -112,11 +113,22 @@ function generateOrderInsertString($Cust_ID) {
 }
 
 
-
 function sendOrderAlertEmail($orderNumber,$orderUtils){
 
-	$mail = getMailer();
-	$message = '
+    $message = createOrderMessage($orderNumber,$orderUtils);
+    $from = 'noreply@redrocktelecom.com';
+    $fromname = 'Web App';
+    $subject = 'Red Rock Telecom Order Number: ' . $orderNumber;
+    $to = "ops@redrocktelecom.com," . $_SESSION["User_Email"];
+
+    $mailUtils = new MailUtils();
+    $mailUtils->sendWithAttachments($from, $fromname, $to, $subject, $message, $_POST['attachmentDir'],$_POST["attachments"]);
+
+}
+
+function createOrderMessage($orderNumber,$orderUtils){
+
+    	$message = '
 <html>
 <body style="font: 14px/1.4 Georgia, serif;">
 	<div id="page-wrap" style="width: 800px; margin: 0 auto;">
@@ -134,7 +146,7 @@ function sendOrderAlertEmail($orderNumber,$orderUtils){
 		</div>
 		<div style="clear:both"></div>
 		<div id="customer">
-            <div id="customer-title" style="font-size: 20px; font-weight: bold; float: left;"><?php echo nl2br("' .	test_input($_POST["resellername"]) . ' \n  
+            <div id="customer-title" style="font-size: 20px; font-weight: bold; float: left;"><?php echo nl2br("' .	test_input($_POST["resellername"]) . ' \n
             		' .	test_input($_POST["resellerba1"]) . ' \n ' .	test_input($_POST["city"]) . ' ' .	test_input($_POST["state"]) . ', ' .	test_input($_POST["zipcode"]) . '");?> </div>
             <table id="meta" style="margin-top: 1px; width: 300px; float: right;">
                 <tr>
@@ -156,7 +168,7 @@ function sendOrderAlertEmail($orderNumber,$orderUtils){
 		      <th style="background: #eee;">Monthly Recurring Cost</th>
 		      <th style="background: #eee;">One Time Cost</th>
 		  </tr>';
-	
+
 		$result = $orderUtils->getResellerItems($_POST["spcode"]);
 		while($row  = $result->fetch_array()){
 			$itemName = $row["USOC"];
@@ -164,7 +176,7 @@ function sendOrderAlertEmail($orderNumber,$orderUtils){
 			$description = $row["Description"] ;
 			$monthly = $row["Recurring_Price"];
 			$nonRecurring = $row["One_Time_Charge"];
-		
+
 			if($quantity > 0){
 				$message .= '<tr>';
 				$message .= '<td class="item-name"><div class="delete-wpr" style="width: 80px; height: 50px;">' . $itemName . '</div></td>';
@@ -185,7 +197,7 @@ function sendOrderAlertEmail($orderNumber,$orderUtils){
 		      <td colspan="2" class="blank"> </td>
 		      <td colspan="2" class="total-line" style="border-right: 0; text-align: right;">Non-Recurring Charge:</td>
 		      <td class="total-value" style="border-left: 0; padding: 10px;"><div id="total" style="height: 20px; background: none;">' . $_POST["totalNonRecurring"] . '</div></td>
-		  </tr>	
+		  </tr>
 		</table>
 		<h3>Customer Information:</h3>
 		<table id= "customer" style="clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black;">
@@ -193,7 +205,7 @@ function sendOrderAlertEmail($orderNumber,$orderUtils){
 				<td class="customer-name"><div class="delete-wpr" style="width: 100%; height: 50px;">Name: ' . 	test_input($_POST["endusername"]) . '</div></td>
 			</tr>
 			<tr class = "customer-row">
-				<td class="customer-address"><div class="delete-wpr" style="width: 100%; height: 50px;">Address: ' . 	test_input($_POST["emergaddress1"]) . ' ' 
+				<td class="customer-address"><div class="delete-wpr" style="width: 100%; height: 50px;">Address: ' . 	test_input($_POST["emergaddress1"]) . ' '
 						. test_input($_POST["emergaddress2"]) . ' ' . 	test_input($_POST["emergcity"]) . ', ' . 	test_input($_POST["emergstate"]) . ', ' . 	test_input($_POST["emergzipcode"]) . '</div></td>
 			</tr>
 			<tr class= "customer-row">
@@ -207,14 +219,14 @@ function sendOrderAlertEmail($orderNumber,$orderUtils){
 						' . 	test_input($_POST["requestedbuilt"]) . ' </div></td>
 			</tr>
 			<tr class= "customer-row">
-				<td class="customer-requested-service"><div class="delete-wpr" style="width: 100%; height: 50px;">Requested In Service/ Effective Billing Date: 
+				<td class="customer-requested-service"><div class="delete-wpr" style="width: 100%; height: 50px;">Requested In Service/ Effective Billing Date:
 								' . 	test_input($_POST["requestedinservice"]) . '</div></td>
 			</tr>
 			<tr class= "customer-row">
 				<td class="customer-existing"><div class="delete-wpr" style="width: 100%; height: 50px;">Add To Existing Customer: ' . 	test_input($_POST["addtoexistingcustomer"]) . '</div></td>
 			</tr>
 			<tr class= "customer-row">
-				<td class="customer-emergprovisionrequired"><div class="delete-wpr" style="width: 100%; height: 50px;">Does this order require that 911 be provisioned per the data provided below?: 
+				<td class="customer-emergprovisionrequired"><div class="delete-wpr" style="width: 100%; height: 50px;">Does this order require that 911 be provisioned per the data provided below?:
 			 ' . 	test_input($_POST["emergprovisionrequired"]) . ' </div></td>
 			</tr>
 			<tr class= "customer-row">
@@ -231,71 +243,14 @@ function sendOrderAlertEmail($orderNumber,$orderUtils){
 		</div>
 	</div>
 </body>
-</html>'
-	;
+</html>' ;
 
-	$mail->isHTML(true);
-	$mail->SetFrom('noreply@redrocktelecom.com', 'Web App');
-	$mail->Subject = 'Red Rock Telecom Order Number: ' . $orderNumber;
-	$mail->MsgHTML($message);
-	$mail->AddAddress("ops@redrocktelecom.com");
-	addAttachments($mail,$_POST['attachmentDir'],$_POST["attachments"]);
-	
-	if($mail->Send()) {
-		//echo "Message sent!";
-	} else {
-		//echo "Mailer Error: " . $mail->ErrorInfo;
-	}
-	cleanAttachments($_POST['attachmentDir']);
+    return $message;
 }
 
-function cleanAttachments($dir) {
-	$toRemove = $_SERVER['DOCUMENT_ROOT'] . "/tmp/orderData/" . $dir;
-	//echo "attempting to remove attachments from dir: " . $toRemove . "<br> ";
-	if (is_dir($toRemove)) {
-		//echo "is a directory <br>";
-		$objects = scandir($toRemove);
-		foreach ($objects as $object) {
-			//echo "attempting to remove an object";
-			if ($object != "." && $object != "..") {
-				if (is_dir($toRemove."/".$object))
-					rrmdir($toRemove."/".$object);
-					else
-						unlink($toRemove."/".$object);
-			}
-		}
-		rmdir($toRemove);
-	}
-	else{
-		//echo "Is not a dir";
-	}
-}
 
-function addAttachments($mail,$attachmentDir,$attachmentString){
-	$array = explode(",",$attachmentString);
-	foreach($array as $fileName){
-		$path = $_SERVER['DOCUMENT_ROOT'] . "/tmp/orderData/" . $attachmentDir . '/' . $fileName;
-		//echo "adding attachment from path: " . $path . "<br>";
-		if(is_file($path)){
-		//	echo " is a file!<br>";
-			$mail->addAttachment($path);
-		}
-	}
-}
 
-function getMailer(){
-	include_once ($_SERVER ["DOCUMENT_ROOT"] .'/mail/class.phpmailer.php');
-	$mail = new PHPMailer();
 
-	$mail->IsSMTP();
-	$mail->SMTPAuth = true;
-	$mail->Host = "email.hostaccount.com";
-	$mail->Port = 587;
-	$mail->Username = "noreply@redrocktelecom.com";
-	$mail->Password = "Telco123!";
-	
-	return $mail;
-}
 
 function test_input($data) {
 	if(empty($data)){

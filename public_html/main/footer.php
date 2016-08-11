@@ -28,9 +28,10 @@
                                     <a href="/main/contactcenter.php">Contact Center</a>
                                 </li>
 
+                                <!-- Taking this out until it's important enough to work on/include
                                 <li class="menu-item menu-item-type-custom">
                                     <a href="/main/contactus.php">Get in Touch</a>
-                                </li>
+                                </li-->
 
                                 <li class="menu-item menu-item-type-custom">
                                     <a href="/accounts/login.php">Resources</a>

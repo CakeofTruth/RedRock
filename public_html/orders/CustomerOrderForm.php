@@ -260,7 +260,9 @@ if ($resellerResult->num_rows > 0) {
 			<div class="clear"></div>
 			<span id="loading"></span> <input type="file" name="uploads[]"
 				multiple="multiple" /> <input type="submit" name="submit"
-				value="Next" id="submit-button" /><?php if(isset($attachmentError)){echo $attachmentError;} ?>
+				value="Next" id="submit-button" /><?php if(isset($attachmentError)){
+                                                        echo '<span class="error">' . $attachmentError . '</span>';}
+                                                    ?>
 		<p id="req-field-desc">
 				<span class="required">*</span> indicates a required field
 			</p>

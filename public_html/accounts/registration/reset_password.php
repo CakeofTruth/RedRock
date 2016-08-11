@@ -30,9 +30,9 @@ $passwordError = $passwordMatchError = "";
 		if($formIsValid){
 			$email = getEmailFromHash($hash);
 			if(updatePassword($email,$_POST["password"])){
-				//TODO: send PasswordChangedEmail
 				sendPasswordChangedEmail($email);
-				echo "Your password has been updated!";
+				echo "Your password has been updated!<br>";
+                echo 'To return to the login page, <a href="/accounts/login.php">click here</a>';
 			}
 			else{
 				echo "Failed to update password";

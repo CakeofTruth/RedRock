@@ -16,12 +16,6 @@ if (isset($_POST["ForgotPasswordEmail"])) {
 }
 
 function sendResetEmail($email,$conn){
-		
-	$mailUtils = new MailUtils();
-		
-	$from = "noreply@redrocktelecom.com";
-	$fromname = "Red Rock Telecom";	
-	$subject = "Password Reset";
 
 	$hash = makeHash($email);
 	insertPasswordHash($hash, $email, $conn);
@@ -30,7 +24,14 @@ function sendResetEmail($email,$conn){
 			"<br><br> Best Regards, <br> Red Rock Telecommunications Customer Service Team"
 	;
 
-	$mailUtils->send($from,$fromname,$email,$subject,$message);
+    $from = 'noreply@redrocktelecom.com';
+    $fromname = 'Red Rock Telecommunications';
+    $subject = 'Password Reset ';
+    $message = $message;
+    $to = $email;
+
+    $mailUtils = new MailUtils();
+    $mailUtils->send($from, $fromname, $to, $subject, $message);
 
 }
 

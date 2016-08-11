@@ -2,6 +2,7 @@
 
 include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
 include_once $root . '/classes/DBUtils.php';
+include_once $root . '/classes/MailUtils.php';
 
 $emailError = $passwordError = $passwordMatchError = $spcodeError= ""; 
 
@@ -57,8 +58,7 @@ if($formisvalid){
  */
 
 function sendVerificationEmail($hash){
-	$mail = getMailer();
-	
+
 	$to = $_POST["emailAddress"];
 	$subject = 'Signup | Verification';
 	$message = '
@@ -75,9 +75,11 @@ function sendVerificationEmail($hash){
 		' . $_SERVER ["HTTP_HOST"] . '/accounts/registration/verify.php?email=' . $to . '&hash=' . $hash . '
 	';
 
-	
-	$mail->SetFrom('noreply@redrocktelecom.com', 'Web App');
-	$mail->Subject = "Signup | Verification";
+
+    $from = 'noreply@redrocktelecom.com';
+    $fromname = 'Web App';
+    $mailUtils = new MailUtils();
+    $mail = $mailUtils->send($from,$fromname,$to,$subject,$message);
 	$mail->MsgHTML($message);
 	$mail->AddAddress($to, $_POST["firstName"],$_POST["lastName"]);
 
@@ -89,20 +91,6 @@ function sendVerificationEmail($hash){
 
 	//echo "<script> window.location = 'login.php' </script>";
 
-}
-
-function getMailer(){
-	include_once ($_SERVER ["DOCUMENT_ROOT"] .'/mail/class.phpmailer.php');
-	$mail = new PHPMailer();
-
-	$mail->IsSMTP();
-	$mail->SMTPAuth = true;
-	$mail->Host = "email.hostaccount.com";
-	$mail->Port = 587;
-	$mail->Username = "noreply@redrocktelecom.com";
-	$mail->Password = "Telco123!";
-	
-	return $mail;
 }
 
 function generateAccountInsertString($hash) {
