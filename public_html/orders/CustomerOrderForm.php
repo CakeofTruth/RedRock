@@ -254,6 +254,7 @@ if ($resellerResult->num_rows > 0) {
 				placeholder="Your message must be greater than 20 characters"
 				data-minlength="20" value="<?php echo $_POST["orderdetails"]?>"></textarea>
 			<div class="clear"></div>
+			<label for= "uploads[]" style= "color: red;"><strong>Files must be less than 5 Mb.</strong></label>
 			<span id="loading"></span> <input type="file" name="uploads[]"
 				multiple="multiple" /> <input type="submit" name="submit"
 				value="Next" id="submit-button" /><?php if(isset($attachmentError)){
