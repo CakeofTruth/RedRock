@@ -10,14 +10,10 @@
 <?php
 include ($_SERVER ["DOCUMENT_ROOT"] . '/portal/portalheader.php');
 include_once $root . '/classes/DBUtils.php';
-
-
 $resellerSelect = generateResellersSelectString ( $_SESSION ["Serv_Prov_CD"] );
 $dbutils = new DBUtils ();
 $conn = $dbutils->getDBConnection ();
-
 $resellerResult = $conn->query ( $resellerSelect );
-
 if ($resellerResult->num_rows > 0) {
 	$resellerRow = $resellerResult->fetch_assoc ();
 } else {
@@ -258,6 +254,7 @@ if ($resellerResult->num_rows > 0) {
 				placeholder="Your message must be greater than 20 characters"
 				data-minlength="20" value="<?php echo $_POST["orderdetails"]?>"></textarea>
 			<div class="clear"></div>
+			<label for= "uploads[]" style= "color: red;"><strong>Files must be less than 5 Mb.</strong></label>
 			<span id="loading"></span> <input type="file" name="uploads[]"
 				multiple="multiple" /> <input type="submit" name="submit"
 				value="Next" id="submit-button" /><?php if(isset($attachmentError)){

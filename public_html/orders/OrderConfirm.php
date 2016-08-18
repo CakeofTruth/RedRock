@@ -4,29 +4,21 @@ include_once ($_SERVER ["DOCUMENT_ROOT"] . '/portal/portalheader.php');
 include_once $root . '/classes/DBUtils.php';
 include_once $root . '/classes/OrderUtils.php';
 include_once $root . '/classes/MailUtils.php';
-
 if (empty ( $_POST )) {
 	echo "Something went wrong with the order.";
 }
-
 $orderUtils = new OrderUtils();
-
 $dbutils = new DBUtils();
 $conn = $dbutils->getDBConnection ();
-
 $customerInsertString = generateCustomerInsertString ();
-
 //echo 'Executing: ' . $customerInsertString . '<br>';
-
 if (mysqli_query ( $conn, $customerInsertString )) {
 	//echo "New customer created successfully";
 	$customerID = $conn->insert_id;
 	//echo "Inserted record " . $customerID . '<br>';
 	$orderInsertString = generateOrderInsertString ( $customerID );
 	//echo 'Executing: ' . $orderInsertString . '<br>';
-
 	$orderInsertSuccess = mysqli_query ( $conn, $orderInsertString );
-
 	if ($orderInsertSuccess) {
 		echo "Order Created Successfully!  <br>";
 		$orderNumber = $conn->insert_id;
@@ -44,9 +36,7 @@ if (mysqli_query ( $conn, $customerInsertString )) {
 } else {
 	//echo "Error: " . $customerInsertString . "<br>" . mysqli_error ( $conn );
 }
-
 $conn->close ();
-
 function generateItemizedInsertString($orderNumber,$orderUtils){
 	$sql = 'INSERT INTO OrderItems(Order_No, USOC, Quantity) VALUES';
 	$result = $orderUtils->getResellerItems($_POST["spcode"]);
@@ -67,7 +57,6 @@ function generateItemizedInsertString($orderNumber,$orderUtils){
 	}
 	return $sql;
 }
-
 function generateCustomerInsertString() {
 	$sql = 'INSERT INTO Customers (End_User_Name, Cust_Telephone, Address_1, Address_2, City, State, Zip, Emerg_Address_1, Emerg_Address_2, Emerg_City, Emerg_State, Emerg_Zip, Emerg_Phone,Customer_Time_Zone) VALUES(';
 	$sql = $sql . "'" . test_input($_POST["endusername"]) . "',";
@@ -95,7 +84,6 @@ function generateOrderInsertString($Cust_ID) {
 	$orsooner = test_input ( $_POST ["orsooner"] ); // order
 	$addtoexistingcustomer = test_input ( $_POST ["addtoexistingcustomer"] ); // order
 	$emergprovisionrequired = test_input ( $_POST ["emergprovisionrequired"] ); // order
-
 	$sql = 'INSERT INTO Orders (Emerg_Prov_Req, Order_Details, Customer_ID, Serv_Prov_CD, Res_Cont_Name, 
 			Reseller_Ref_ID, Request_Built, Request_Service, Or_Sooner, Add_Exist_Cust) VALUES(';
 	$sql = $sql . "'" . test_input ( $_POST ["emergprovisionrequired"] ) . "',";
@@ -108,26 +96,18 @@ function generateOrderInsertString($Cust_ID) {
 	$sql = $sql . "'" . test_input ( $_POST ["requestedinservice"] ) . "',";
 	$sql = $sql . "'" . test_input ( $_POST ["orsooner"] ) . "',";
 	$sql = $sql . "'" . test_input ( $_POST ["addtoexistingcustomer"] ) . "')";
-
 	return $sql;
 }
-
-
 function sendOrderAlertEmail($orderNumber,$orderUtils){
-
     $message = createOrderMessage($orderNumber,$orderUtils);
     $from = 'noreply@redrocktelecom.com';
     $fromname = 'Web App';
     $subject = 'Red Rock Telecom Order Number: ' . $orderNumber;
     $to = "ops@redrocktelecom.com," . $_SESSION["User_Email"];
-
     $mailUtils = new MailUtils();
     $mailUtils->sendWithAttachments($from, $fromname, $to, $subject, $message, $_POST['attachmentDir'],$_POST["attachments"]);
-
 }
-
 function createOrderMessage($orderNumber,$orderUtils){
-
     	$message = '
 <html>
 <body style="font: 14px/1.4 Georgia, serif;">
@@ -154,7 +134,6 @@ function createOrderMessage($orderNumber,$orderUtils){
                     <td><div id="orderno">' . $orderNumber . '</div></td>
                 </tr>
                 <tr>
-
                     <td class="meta-head" style="text-align: left; background: #eee;">Date</td>
                     <td><div id="date">'.  date("m/d/y") .'</div></td>
                 </tr>
@@ -168,7 +147,6 @@ function createOrderMessage($orderNumber,$orderUtils){
 		      <th style="background: #eee;">Monthly Recurring Cost</th>
 		      <th style="background: #eee;">One Time Cost</th>
 		  </tr>';
-
 		$result = $orderUtils->getResellerItems($_POST["spcode"]);
 		while($row  = $result->fetch_array()){
 			$itemName = $row["USOC"];
@@ -176,7 +154,6 @@ function createOrderMessage($orderNumber,$orderUtils){
 			$description = $row["Description"] ;
 			$monthly = $row["Recurring_Price"];
 			$nonRecurring = $row["One_Time_Charge"];
-
 			if($quantity > 0){
 				$message .= '<tr>';
 				$message .= '<td class="item-name"><div class="delete-wpr" style="width: 80px; height: 50px;">' . $itemName . '</div></td>';
@@ -187,7 +164,6 @@ function createOrderMessage($orderNumber,$orderUtils){
 				$message .= '</tr>';
 			}
 		}
-
 		 $message .= '<tr>
 		      <td colspan="2" class="blank"> </td>
 		      <td colspan="2" class="total-line" style="border-right: 0; text-align: right;">Monthly Recurring Charge:</td>
@@ -244,14 +220,8 @@ function createOrderMessage($orderNumber,$orderUtils){
 	</div>
 </body>
 </html>' ;
-
     return $message;
 }
-
-
-
-
-
 function test_input($data) {
 	if(empty($data)){
 		return "";
@@ -260,7 +230,6 @@ function test_input($data) {
 	$data = stripslashes ( $data );
 	$data = htmlspecialchars ( $data );
 	$data = addslashes( $data );
-
 	return $data;
 }
 ?>

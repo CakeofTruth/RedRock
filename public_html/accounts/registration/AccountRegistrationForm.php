@@ -1,5 +1,4 @@
 <?php
-
 if (empty ( $_POST )) {
 	$firstName = "firstName";
 	$lastName = "lastName";

@@ -1,8 +1,6 @@
 <?php
 	include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
-
 if (isset($_POST["ForgotPasswordEmail"])) {
-
 	include_once $root . '/classes/DBUtils.php';
 	include_once $root . '/classes/MailUtils.php';
 	$dbutils = new DBUtils();
@@ -14,36 +12,28 @@ if (isset($_POST["ForgotPasswordEmail"])) {
 	}
 	echo "A recovery email has been sent! <br> If you need further assisstance, please contact the Red Rock support team at customerservice@redrocktelecom.com";
 }
-
 function sendResetEmail($email,$conn){
-
 	$hash = makeHash($email);
 	insertPasswordHash($hash, $email, $conn);
 	$message ="Dear User, <br><br> A password reset was requested for your account. Please click the following link to reset your password:
 			<br><br> " . $_SERVER["HTTP_HOST"] . "/accounts/registration/reset_password.php?pwh=" . $hash . 
 			"<br><br> Best Regards, <br> Red Rock Telecommunications Customer Service Team"
 	;
-
     $from = 'noreply@redrocktelecom.com';
     $fromname = 'Red Rock Telecommunications';
     $subject = 'Password Reset ';
     $message = $message;
     $to = $email;
-
     $mailUtils = new MailUtils();
     $mailUtils->send($from, $fromname, $to, $subject, $message);
-
 }
-
 function insertPasswordHash($hash,$email,$conn){
 	$sql = 'Update Accounts set hash = "' . $hash . '" where Email = "' . $email . '"';
 	$conn->query($sql);
 }
-
 function makeHash($email){
 	$plusSalt = $email . rand ( 0, 1000 );
 	return hash ( "sha512", $plusSalt );
 }
-
 	include ($_SERVER ["DOCUMENT_ROOT"] . '/main/footer.php');
 ?>

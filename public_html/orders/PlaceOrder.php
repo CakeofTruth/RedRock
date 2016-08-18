@@ -1,5 +1,4 @@
 <?php 
-
 $attachmentError = "";
 	$formisvalid = 0;
 	if(!empty($_POST)){
@@ -17,7 +16,6 @@ $attachmentError = "";
 				$hasAttachment = 1;
 				$max_allowed_file_size = 5000;//1mb
 				$allowed_extensions = array("png","jpg", "jpeg", "doc", "pdf", "docx", "xls", "xlsx", "csv", "txt");
-
 				//validate extensions...
 				foreach($_FILES['uploads']['name'] as $name){
 					$type= substr($name, strrpos($name, '.') +1);

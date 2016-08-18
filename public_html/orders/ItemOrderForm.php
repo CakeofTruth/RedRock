@@ -1,26 +1,21 @@
 <?php 
 	
 	include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
-
 	if ( empty ( $_POST )) {
 		echo  "<script> window.location = 'PlaceOrder.php' </script>";
 	}
 		
 	include_once $root . '/classes/DBUtils.php';
 	include_once $root . '/classes/OrderUtils.php';
-
 	$orderUtils = new OrderUtils();
 	$result = $orderUtils->getResellerItems($_POST["spcode"]);
-
 	if ($result->num_rows == 0) {
 		echo "didn't find any product information";
 	}
-
 	$attachmentID = uniqid();
 	mkdir($_SERVER["DOCUMENT_ROOT"] . '/tmp/orderData/' . $attachmentID, 0777);
 	$uploaddir = $_SERVER["DOCUMENT_ROOT"] . '/tmp/orderData/' . $attachmentID . '/';
     //echo "uploaded to: " . $uploaddir;
-
 	$attachmentsString = "";
 	for($i=0;$i<count($_FILES['uploads']['name']);$i++){
 		$tmplocation = $_FILES['uploads']['tmp_name'][$i];	
@@ -36,7 +31,6 @@
 		}
 	}
 	//echo $attachmentsString;
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -142,7 +136,6 @@
 
 
 <script>
-
 	function updateAmount(object){
 		var name = object.id;
 		var value = object.value;
@@ -172,19 +165,16 @@
 		document.getElementById("totalMonthly").value = formatInDollars(totalMonthly);
 		document.getElementById("totalNonRecurring").value = formatInDollars(totalNonRecurring);
 	}
-
 	function formatInDollars(amount){
 		var str = "$" + amount.toFixed(2);
 		return str;
 	}
-
 	function parseItemCostString(str){
 		if(str === "Included"){
 			return 0;
 		}
 		return str.match(/\d+\.\d+/) // "3"
 	}
-
 	function test_input($data) {
 		if(empty($data)){
 			return "";

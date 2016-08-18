@@ -14,7 +14,6 @@
 		//init variables
 		$cf = array();
 		$sr = false;
-
 		if(isset($_SESSION['cf_returndata'])){
   			$cf = $_SESSION['cf_returndata'];
    			$sr = true;

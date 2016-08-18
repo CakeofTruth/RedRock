@@ -1,11 +1,8 @@
 <?php
-
 include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
 include_once $root . '/classes/DBUtils.php';
 include_once $root . '/classes/MailUtils.php';
-
 $emailError = $passwordError = $passwordMatchError = $spcodeError= ""; 
-
 /*
  *  if the form is empty or there are errors -> $forisvalid = 0. Otherwise, include the form.
  */
@@ -36,8 +33,6 @@ if (empty ($_POST)){
 		$formisvalid = 0;
 	}
 }
-
-
 if($formisvalid){
 	$dbutil = new DBUtils();
 	$conn = $dbutil->getDBConnection();
@@ -49,20 +44,15 @@ if($formisvalid){
 } else {
 	include ("AccountRegistrationForm.php");
 }
-
-
 /**
  * *****************************************************************************************
  * Functionssssss
  * ******************************************************************************************
  */
-
 function sendVerificationEmail($hash){
-
 	$to = $_POST["emailAddress"];
 	$subject = 'Signup | Verification';
 	$message = '
-
 	Thank you for signing up! Your account has been created.  You can login with the 
 	following credentials after you have activated your account by clicking the url below.
 	<br><br>
@@ -74,25 +64,19 @@ function sendVerificationEmail($hash){
 		Please click this link to activate your account:<br>
 		' . $_SERVER ["HTTP_HOST"] . '/accounts/registration/verify.php?email=' . $to . '&hash=' . $hash . '
 	';
-
-
     $from = 'noreply@redrocktelecom.com';
     $fromname = 'Web App';
     $mailUtils = new MailUtils();
     $mail = $mailUtils->send($from,$fromname,$to,$subject,$message);
 	$mail->MsgHTML($message);
 	$mail->AddAddress($to, $_POST["firstName"],$_POST["lastName"]);
-
 	if($mail->Send()) {
 		echo "Message sent!";
 	} else {
 		echo "Mailer Error: " . $mail->ErrorInfo;
 	}
-
 	//echo "<script> window.location = 'login.php' </script>";
-
 }
-
 function generateAccountInsertString($hash) {
 	$sql = 'INSERT INTO Accounts (Username, Password, Serv_Prov_CD, First_Name, Last_Name, Email,hash) VALUES(';
 	$sql = $sql . "'" . test_input ( $_POST ["username"] ) . "',";
@@ -137,7 +121,6 @@ function test_input($data) {
 	$data = htmlspecialchars ( $data );
 	return $data;
 }
-
 function emailIsValid($email) {
 	if (preg_match ( "/^[_a-zA-Z0-9-]+(\.[a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", $email )) {
 		$emailError="";
@@ -145,11 +128,9 @@ function emailIsValid($email) {
 	}
 	return 0;
 }
-
 //Check to see if there is an account with that email already;
 function emailIsFree($email){
 	$sql = "SELECT email FROM Accounts where Email = '" . $email . "'"; 
-
 	$dbutils = new DBUtils();
 	$conn = $dbutils->getDBConnection();
 	$result = $conn->query ( $sql);
@@ -158,21 +139,16 @@ function emailIsFree($email){
 	}
 	return true;
 }
-
 function makeHash($email){
 	$plusSalt = $email . rand ( 0, 1000 );
 	return hash ( "sha512", $plusSalt );
 }
-
 function insertAccount($conn,$hash){
 	
 	$accountInsertString = generateAccountInsertString ( $hash );
-
 	if (mysqli_query ( $conn, $accountInsertString )) {
 		//$customerID = $conn->insert_id;
 		$conn->insert_id;
 	}
-
 }
-
 ?>

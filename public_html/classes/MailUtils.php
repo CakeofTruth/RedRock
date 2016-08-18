@@ -1,14 +1,10 @@
 <?php
-
 class MailUtils
 {
-
     function send($from, $fromname, $to, $subject, $message) {
         $this->sendWithAttachments($from, $fromname, $to, $subject, $message, null, null);
     }
-
     function sendWithAttachments($from, $fromname, $to, $subject, $message, $attachmentDir, $attachmentString) {
-
         $mail = $this->getMailer();
         $mail->SetFrom($from, $fromname);
         $mail->Subject = $subject;
@@ -25,7 +21,6 @@ class MailUtils
             //echo "sending with attachments<br>";
             $this->addOrderAttachments($mail, $attachmentDir, $attachmentString);
         }
-
         if ($mail->Send()) {
             //echo "Message sent!";
         } else {
@@ -35,7 +30,6 @@ class MailUtils
             $this->cleanOrderAttachments($attachmentDir);
         }
     }
-
     /**
      * Returns a defualt mailer capable of sending emails.
      *
@@ -44,17 +38,14 @@ class MailUtils
     function getMailer() {
         include_once($_SERVER ["DOCUMENT_ROOT"] . '/mail/class.phpmailer.php');
         $mail = new PHPMailer();
-
         $mail->IsSMTP();
         $mail->SMTPAuth = true;
         $mail->Host = "email.hostaccount.com";
         $mail->Port = 587;
         $mail->Username = "noreply@redrocktelecom.com";
         $mail->Password = "Telco123!";
-
         return $mail;
     }
-
     /**
      * This method adds attachments to the given mail object. Attachments are taken from
      * the uniquely named folder for the current order, defined by the $attachmentDir.
@@ -74,7 +65,6 @@ class MailUtils
             }
         }
     }
-
     /**
      * This method recursively removes the contents of the folder from the temporary orderData.
      * @param $dir - the unique folder name for the current order being processed.
@@ -100,7 +90,5 @@ class MailUtils
 		//echo "Is not a dir";
 	}
 }
-
 }
-
 ?>
