@@ -36,7 +36,9 @@
 <html>
 	<head>
 	<title> Red Rock Ordering System </title>
-	<style>
+	<link rel='stylesheet' id='custom-css' href='/css/customerorderform.css'
+	type='text/css' media='all' />
+	<!-- <style>
 	h1 {
 		font-size: 50px; 
 		number-align: center;
@@ -60,11 +62,25 @@
 	tr:nth-child(even) {
 	background-color: #B3C6FF
 	}
+	</style> -->
+	<style>
+		table {
+		margin: 0 auto;
+		table-layout: fixed;
+	}
+	table, th, td {
+		border: 1px solid black;
+		border-collapse: collapse;
+		padding: 25px;
+	}
+	table {
+		width: 70%;
+	}
+
 	</style>
 	</head>
 	<body>
-	<h4> Red Rock Ordering System </h4>
-		<img src= "\assets\images\Redrocklogo.jpg" style= "float:left;"/>
+	<h4> Item Ordering </h4>
 		<form action="/orders/OrderConfirm.php" method="post">	
 		<table id="ItemOrderTable">
 			<thead>
