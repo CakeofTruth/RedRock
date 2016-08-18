@@ -60,7 +60,7 @@ if ($resellerResult->num_rows > 0) {
 				type="text" name="spcode"
 				value="<?php if(isset($resellerRow["Serv_Prov_CD"])){echo $resellerRow["Serv_Prov_CD"];}?>"
 				readonly> <label for="telephone">Contact Telephone Number: <span
-				class="required">*</span></label> <input type="tel"
+				class="required" style="color:red;">*</span></label> <input type="tel"
 				name="contactTelephone"
 				value="<?php if(isset($_POST["contactTelephone"])){echo $_POST["contactTelephone"];}?>"
 				required>
@@ -68,20 +68,20 @@ if ($resellerResult->num_rows > 0) {
 			<h5>Customer Information</h5>
 
 			<label for="endusername">End User Customer Name: <span
-				class="required">*</span></label> <input type="text"
+				class="required" style="color:red;">*</span></label> <input type="text"
 				name="endusername"
 				value="<?php if(isset($_POST["endusername"])){echo $_POST["endusername"];}?>"
 				required> <label for="address1">Customer Address 1: <span
-				class="required">*</span></label> <input type="text" name="address1"
+				class="required" style="color:red;">*</span></label> <input type="text" name="address1"
 				value="<?php if(isset($_POST["address1"])){echo $_POST["address1"];}?>"
 				required> <label for="address2">Customer Address 2: </label> <input
 				type="text" name="address2"
 				value="<?php if(isset($_POST["address2"])){echo $_POST["address2"];}?>">
 
-			<label for="city">City: <span class="required">*</span></label> <input
+			<label for="city">City: <span class="required" style="color:red;">*</span></label> <input
 				type="text" name="city"
 				value="<?php if(isset($_POST["city"])){echo $_POST["city"];}?>"
-				required> <label for="state">State: <span class="required">*</span></label>
+				required> <label for="state">State: <span class="required" style="color:red;">*</span></label>
 			<select name="state" required>
 				<option value="Alabama">AL</option>
 				<option value="Alaska">AK</option>
@@ -134,11 +134,11 @@ if ($resellerResult->num_rows > 0) {
 				<option value="West Virginia">WV</option>
 				<option value="Wisconsin">WI</option>
 				<option value="Wyoming">WY</option>
-			</select> <label for="zipcode">Zip Code: <span class="required">*</span></label>
+			</select> <label for="zipcode">Zip Code: <span class="required" style="color:red;">*</span></label>
 			<input type="text" name="zipcode"
 				value="<?php if(isset($_POST["zipcode"])){echo $_POST["zipcode"];}?>"
 				required> <label for="cmtelephone">Billing Telephone Number: <span
-				class="required">*</span></label> <input type="text"
+				class="required" style="color:red;">*</span></label> <input type="text"
 				name="cmtelephone"
 				value="<?php if(isset($_POST["cmtelephone"])){echo $_POST["cmtelephone"];}?>">
 
@@ -147,10 +147,10 @@ if ($resellerResult->num_rows > 0) {
 				value="<?php if(isset($_POST["resellerrefid"])){echo $_POST["resellerrefid"];}?>">
 
 			<label for="requestedbuilt">Requested Built/Service Provisioned Date:
-				<span class="required">*</span>
+				<span class="required" style="color:red;">*</span>
 			</label> <input type="date" name="requestedbuilt" required> <label
 				for="requestedinservice">Requested In Service/Effective Billing
-				Date: <span class="required">*</span>
+				Date: <span class="required" style="color:red;">*</span>
 			</label> <input type="date" name="requestedinservice" required> <label
 				for="orsooner">Or Sooner:</label> Yes<input type="radio"
 				name="orsooner" value="Yes" checked="checked" /> No<input
@@ -173,7 +173,7 @@ if ($resellerResult->num_rows > 0) {
 			<h5>Service/911 Addresses</h5>
 
 			<label for="emergprovisionrequired">Does this order require that 911
-				be provisioned per the data provided below?<span class="required">*</span>
+				be provisioned per the data provided below?<span class="required" style="color:red;">*</span>
 			</label> Yes<input type="radio" name="emergprovisionrequired"
 				value="Yes" checked="checked"> No<input type="radio"
 				name="emergprovisionrequired" value="No"> <label for="emergaddress1">Service/911
@@ -248,7 +248,7 @@ if ($resellerResult->num_rows > 0) {
 				type="text" name="emergphonenumber"
 				value="<?php if(isset($_POST["emergphonenumber"])){echo $_POST["emergphonenumber"];}?>">
 
-			<label for="message">Order Details <span class="required">*</span></label>
+			<label for="message">Order Details <span class="required" style="color:red;">*</span></label>
 			<textarea id="contact-form" class="form textarea" rows="10"
 				cols="100" id="orderdetails" name="orderdetails"
 				placeholder="Your message must be greater than 20 characters"
@@ -261,7 +261,7 @@ if ($resellerResult->num_rows > 0) {
                                                         echo '<span class="error">' . $attachmentError . '</span>';}
                                                     ?>
 		<p id="req-field-desc">
-				<span class="required">*</span> indicates a required field
+				<span class="required" style="color:red;">*</span> indicates a required field
 			</p>
 		</form>
 	</div>

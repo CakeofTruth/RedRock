@@ -64,23 +64,60 @@
 	}
 	</style> -->
 	<style>
+	h4 {
+		align: center;
+	}
 		table {
 		margin: 0 auto;
 		table-layout: fixed;
 	}
+	
+		#box {
+		border: 6px solid #800000;
+		padding: 5px;
+		background-color:#FBDED6;
+		width: 75%;
+		margin: 0 auto;
+		}
 	table, th, td {
 		border: 1px solid black;
 		border-collapse: collapse;
-		padding: 25px;
+		background-color:#FBDED6;
+		margin: 25px auto;
+		table-layout: fixed;
+		text-align: center;
 	}
 	table {
-		width: 70%;
+		width: 90%;
 	}
-
+	#submit-button {
+    	width: 100px;
+    	background-color:#333;
+    	color:#FFF;
+    	border:none;
+    	margin-top: 25px;
+    	margin-bottom:25px;
+    	margin-right:25px;
+    	background-color:#9F000F;
+    	-moz-border-radius:8px;
+	}
+ 
+	#submit-button:hover {
+    	background-color: #A6CFDD;
+	}
+ 
+	#submit-button:active {
+	    position:relative;
+	    top:1px;
+	}
+	.buttonHolder{
+		text-align: center;
+	}
 	</style>
 	</head>
 	<body>
 	<h4> Item Ordering </h4>
+		<div id="box">
 		<form action="/orders/OrderConfirm.php" method="post">	
 		<table id="ItemOrderTable">
 			<thead>
@@ -145,8 +182,11 @@
 			<input type="hidden" name="orderdetails" value="<?php echo $_POST["orderdetails"]; ?>">
 			<input type="hidden" name="attachments" value="<?php echo $attachmentsString; ?>">
 			<input type="hidden" name="attachmentDir" value="<?php echo $attachmentID; ?>">
-			<input type="submit" value="Submit">
+			<div class ="buttonHolder">
+			<input type="submit" value="Submit" id="submit-button">
+			</div>
 		</form>
+		</div>
 	</body>
 </html>
 
@@ -176,8 +216,8 @@
 				totalNonRecurring = totalNonRecurring + (amount*nonRecurring);
 			}	
 		}
-		document.getElementById("totalMonthly").outerHTML = '<td><input id="totalMonthly" name="totalMonthly" value"' + formatInDollars(totalMonthly) + '"/></td>';
-		document.getElementById("totalNonRecurring").outerHTML = '<td><input id="totalNonRecurring" name="totalNonRecurring" value"' + formatInDollars(totalNonRecurring) + '"/></td>';
+		document.getElementById("totalMonthly").outerHTML = '<td><input id="totalMonthly" name="totalMonthly" value"' + formatInDollars(totalMonthly) + '" readonly/></td>';
+		document.getElementById("totalNonRecurring").outerHTML = '<td><input id="totalNonRecurring" name="totalNonRecurring" value"' + formatInDollars(totalNonRecurring) + '" readonly/></td>';
 		document.getElementById("totalMonthly").value = formatInDollars(totalMonthly);
 		document.getElementById("totalNonRecurring").value = formatInDollars(totalNonRecurring);
 	}

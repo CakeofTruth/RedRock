@@ -30,6 +30,17 @@ if ($OrderItemsResult->num_rows > 0) {
 
 
 ?>
+<label for="porting">Will you be porting any numbers?<span class="required" style="color:red;">*</span>
+			</label> Yes<input type="radio" name="porting"
+				value="Yes" checked="checked"> No<input type="radio"
+				name="porting" value="No">
+<label for= "btn"> Which number is the BTN? <span class="required" style="color:red;">*</span></label>
+<label for="newnumbers">Do you need any new numbers?<span class="required" style="color:red;">*</span>
+			</label> Yes<input type="radio" name="newnumbers"
+				value="Yes" checked="checked"> No<input type="radio"
+				name="newnumbers" value="No">
+
+<label for= "emergphonenumber">Which number will be your 911 number?<span class="required" style="color:red;">*</span></label>
 <script>
 	function generate () {
 		var a = parseInt(document.getElementById("numberdetail").value);
