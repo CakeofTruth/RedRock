@@ -31,8 +31,7 @@ if ($OrderItemsResult->num_rows > 0) {
 ?>
 <div id="order-form" class="clearfix">
 <form>
-<div>
-<div>
+
 <label for="porting">Will you be porting any numbers?<span class="required" style="color:red;">*</span>
 			</label> Yes<input type="radio" name="porting" id="porting-yes"
 				value="Yes"> No<input type="radio"
@@ -42,10 +41,9 @@ if ($OrderItemsResult->num_rows > 0) {
     			<a href="javascript:void(0);" onclick="addElement();">Add</a>
     			<a href="javascript:void(0);" onclick="removeElement();">Remove</a>
 				<div id="content"></div>
-					
+				
 <label for= "btn"> Which number is the BTN? <span class="required" style="color:red;">*</span></label>
 <br>
-</div>
 </div>
 <label for="newnumbers">Do you need any new numbers?<span class="required" style="color:red;">*</span>
 			</label> Yes<input type="radio" name="newnumbers" id="newnumbers-yes"
@@ -70,10 +68,10 @@ if ($OrderItemsResult->num_rows > 0) {
 				type="text" name="vtnquantity"
 				value="">
 				</div>
-				</div>
+				
 </form>
 </div>
-<script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js">
 var intTextBox = 0;
 	function addElement() {
 		intTextBox++;
@@ -90,6 +88,19 @@ var intTextBox = 0;
 	        alert("No phone number to remove");
 	    }
 	}
+
+
+	$document).ready(function() {
+		$('input[type="radio"]').click(function() {
+			if($this).attr('id') == 'yes') {
+				$('#reveal-if-active').show();
+		}
+		else {
+			$('#reveal-if-active').hide();
+		}
+		});
+	});
+	/*
 	$(document).ready(function() {
 		$("#hide").click(function() {
 			$("p").hide();
@@ -131,6 +142,7 @@ var intTextBox = 0;
 			};
 
 			FormStuff.init();
+*/			
 </script>
 </body>
 </html>
