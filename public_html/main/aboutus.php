@@ -107,7 +107,7 @@
 	<h2> What makes Red Rock different? </h2>
 	<div class="two-third">
 		<p>
-			Red Rock Telecommunications is a built from scratch Cloud solutions company delivering resilient communications networks with the latest generation
+			Red Rock Telecommunications is a Cloud solutions company delivering resilient communications networks with the latest generation
 			Avaya and Metaswitch technology.  We provide businesses with Hosted Service for the deployment of voice and multimedia Sessions over Internet Protocol.
 		</p>
 		<p>

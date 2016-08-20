@@ -98,6 +98,7 @@
             </div>
         </div>
         <div class= "clear"></div>
+        <div class= "clear"></div>
     	<div id="primary" class="sidebar-no">
 	<div class="container group">
 	<div class="row">
@@ -123,7 +124,7 @@
 		<li> Mobile device support </li>
 		</ul>
 	</div>
-	<div class="two-fourth last">
+        <div class="two-fourth last">
 		<img src="/assets/images/cloud.png">
 	</div>
 	</div>

@@ -215,6 +215,12 @@
                                             </a>
                                         </li>
                                         
+                                        <li style="height: 70px;">
+                                            <a href="#" class="bwWrapper" >
+                                                <img src="assets/images/simplewanlogo.png" style="max-height: 70px;" class="logo" />
+                                            </a>
+                                        </li>
+                                        
                                     </ul>
                                 </div>
                                 <div class="clear"></div>
@@ -308,10 +314,11 @@
                                 <li class="menu-item menu-item-type-custom">
                                     <a href="/main/communicationssolutions.php">Communications Solutions</a>
                                 </li>
-                                
+
+                                <!-- Removed until this works
                                 <li class="menu-item menu-item-type-post_type">
                                     <a href="/main/contactus.php">Get in touch</a>
-                                </li>
+                                </li-->
 
                                 <li class="menu-item menu-item-type-custom">
                                     <a href="/accounts/login.php">Resources</a>

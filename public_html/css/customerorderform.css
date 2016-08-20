@@ -182,3 +182,20 @@ input.placeholder-text, textarea.placeholder-text  {
     color:#CCC;
     font-style:italic;
 }
+
+/* .reveal-if-active {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: scale(0.8);
+  transition: 0.5s;
+  input[type="radio"]:checked ~ &;
+  input[type="checkbox"]:checked ~ & {
+    opacity: 1;
+    max-height: 100px;
+    padding: 10px 20px;
+    transform: scale(1);
+    overflow: visible;  
+}
+}
+*/
