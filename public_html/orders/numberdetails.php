@@ -13,7 +13,7 @@ include_once $root . '/classes/DBUtils.php';
 
 ?>
 <div id="order-form" class="clearfix">
-<form>
+<form action="/orders/OrderConfirm.php" method="post">
 
 <label for="porting">Will you be porting any numbers?<span class="required" style="color:red;">*</span>
 			</label> Yes<input type="radio" name="porting" id="yes"
@@ -42,16 +42,17 @@ name="emergnewnumber" id="no-911new" value="no">
 </div>	
 <br>
 <label for="virtualnumbers">Will you need any virtual numbers<span class="required" style="color:red;">*</span>
-</label> Yes<input type="radio" name="virtualnumbers" id="virtualnumbers-yes"
+</label> Yes<input type="radio" name="virtualnumbers" id="VirtualNumbers-yes"
 				value="2"> No<input type="radio"
-				name="virtualnumbers" id="virtualnumbers-no" value="1">
+				name="virtualnumbers" id="VirtualNumbers-no" value="1">
 				<br>
 				<div class="yesvtn">
 <label for="vtnquantity"> How many numbers will you need?</label> <input
 				type="text" name="vtnquantity"
 				value="">
 				</div>
-				
+			<div class ="buttonHolder">
+			<input type="submit" value="Submit" id="submit-button">
 </form>
 </div>
 
@@ -61,8 +62,8 @@ var intTextBox = 0;
 		intTextBox++;
 		var objNewDiv = document.createElement('div');
 		objNewDiv.setAttribute('id', 'div_' + intTextBox);
-		objNewDiv.innerHTML = 'Phone Number ' + intTextBox + ': <input type= "text" id="tb_' + intTextBox + '" name="tb_' + intTextBox + '" />'
-		+ '911?: <input type = "checkbox" id="911_' + intTextBox + '" name="911_' + intTextBox + '" />' + 'BTN?: <input type = "checkbox" id="BTN_' + intTextBox + '" name="BTN_' + intTextBox + '" />' ;
+		objNewDiv.innerHTML = 'Phone Number ' + intTextBox + ': <input type= "text" id="tb_' + intTextBox + '" name="portednumber_' + intTextBox + '" />'
+		+ '911?: <input type = "checkbox" id="911_' + intTextBox + '" name="portnumber911_' + intTextBox + '" />' + 'BTN?: <input type = "checkbox" id="BTN_' + intTextBox + '" name="btnumber_' + intTextBox + '" />' ;
 		document.getElementById('content').appendChild(objNewDiv);
 	};
 	function removeElement() {

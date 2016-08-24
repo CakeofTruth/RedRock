@@ -20,7 +20,7 @@ if (mysqli_query ( $conn, $customerInsertString )) {
 	//echo 'Executing: ' . $orderInsertString . '<br>';
 	$orderInsertSuccess = mysqli_query ( $conn, $orderInsertString );
 	if ($orderInsertSuccess) {
-		echo "Order Created Successfully!  <br>";
+		echo "<p style= 'align:center';> Order Created Successfully!  </p><br>";
 		$orderNumber = $conn->insert_id;
 		sendOrderAlertEmail($orderNumber,$orderUtils);
 		$itemizedInsert = generateItemizedInsertString($orderNumber,$orderUtils);
@@ -57,8 +57,50 @@ function generateItemizedInsertString($orderNumber,$orderUtils){
 	}
 	return $sql;
 }
+
+function generateNumberInsertString($orderNumber, $orderUtils) {
+	$sql = 'INSERT INTO NumberDetails (Ported_Number, BTNumber, Port_Number_911) VALUES';
+	$index = 1;
+	$portednumName = "portednumber_" . $index;
+	$firstValues = true;
+	while(isset($_POST[$portednumName])){
+		$portnumber911Name = "portnumber911_" . $index;
+		$btnumberName = "btnumber_" . $index;
+		
+		if($firstValues){
+			$firstValues = false;
+		}else{
+			$sql = $sql . ', ';
+		}
+		$sql = $sql . "('" . $_POST[$portednumName] . ";,";
+		$sql = $sql . "'" . $_POST[$btnumberName] . "',";
+		$sql = $sql . "'" . $_POST[$portnumber911Name] . "')";
+		
+		
+		$index++;
+		$portednumName = "portednumber_" . $index;
+	}
+   }
+   
+function generateNumberInserString() {
+	$sql = 'INSERT INTO NumberDetails(Porting, New_Numbers, New_Number_Qty, New_Number_AC, Emerg_New_Number, Virtual_Numbers, VTN_quantity) VALUES(';
+	$sql = $sql . "'" . test_input($_POST["porting"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["portednumber"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["portnumber911"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["btnumber"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["newnumbers"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["newnumberquantity"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["newnumberac"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["emergnewnumber"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["virtualnumbers"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["vtnquantity"]) . "')";
+
+	return $sql;
+}
+
 function generateCustomerInsertString() {
 	$sql = 'INSERT INTO Customers (End_User_Name, Cust_Telephone, Address_1, Address_2, City, State, Zip, Emerg_Address_1, Emerg_Address_2, Emerg_City, Emerg_State, Emerg_Zip, Emerg_Phone,Customer_Time_Zone) VALUES(';
+	$sql = $sql . "'" . test_input($_POST["endusername"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["endusername"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["address1"]) ."',";
 	$sql = $sql . "'" . test_input($_POST["address2"]) ."',";

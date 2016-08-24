@@ -122,7 +122,7 @@
 	<body>
 	<h4> Item Ordering </h4>
 		<div id="box">
-		<form action="/orders/OrderConfirm.php" method="post">	
+		<form action="/orders/numberdetails.php" method="post">	
 		<table id="ItemOrderTable">
 			<thead>
 				<tr>
@@ -187,7 +187,7 @@
 			<input type="hidden" name="attachments" value="<?php echo $attachmentsString; ?>">
 			<input type="hidden" name="attachmentDir" value="<?php echo $attachmentID; ?>">
 			<div class ="buttonHolder">
-			<input type="submit" value="Submit" id="submit-button">
+			<input type="submit" value="Next" id="submit-button">
 			</div>
 		</form>
 		</div>
