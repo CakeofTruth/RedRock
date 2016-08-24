@@ -44,11 +44,10 @@ if ($resellerResult->num_rows > 0) {
 					<label for="accountnumber">Account Number: </label> <input type="text" name="accountnumber"
 					value="<?php if(isset($_SESSION["Acct_No"])){echo $_SESSION["Acct_No"];}?>" readonly> 
 					<label for="spcode">Service Provider Code: </label> <input type="text" name="spcode"
-					value="<?php if(isset($resellerRow["Serv_Prov_CD"])){echo $resellerRow["Serv_Prov_CD"];}?>" readonly> 
-				<div class="clear"></div>
-				<div class="clear"></div>
+					value="<?php if(isset($resellerRow["Serv_Prov_CD"])){echo $resellerRow["Serv_Prov_CD"];}?>" readonly>
 				<div class="clear"></div>
 				</div>
+				<div class="clear"></div>
 			<button class="accordion">Contact Information:</button>
 				<div class="panel">
 					<label for="resellercn">Reseller Contact Name: </label> <input type="text" name="resellercn"
