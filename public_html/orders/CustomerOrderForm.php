@@ -24,248 +24,231 @@ if ($resellerResult->num_rows > 0) {
 		input type="file" name="uploaded_file"-->
 	<div id="order-form" class="clearfix">
 		<h4>Customer Order Form</h4>
-		<br>
-		<br>
-		<h5>Reseller Contact Information:</h5>
 		<form action="/orders/PlaceOrder.php" method="post"
 			enctype="multipart/form-data">
-			<label for="name">Reseller Name:</label> <input type="text"
-				name="resellername"
-				value="<?php echo $resellerRow["Company_Name"];?>" readonly> <label
-				for="resellerba1">Reseller Billing Address 1:</label> <input
-				type="text" name="resellerba1"
-				value="<?php echo $resellerRow["Address1"];?>" readonly> <label
-				for="resellerba2">Reseller Billing Address 2:</label> <input
-				type="text" name="resellerba2"
-				value="<?php echo $resellerRow["Address2"];?>" readonly> <label
-				for="city">City:</label> <input type="text" name="city"
-				value="<?php echo $resellerRow["City"];?>" readonly> <label
-				for="state">State:</label> <input type="text" name="state"
-				value="<?php echo $resellerRow["State"];?>" readonly> <label
-				for="zipcode">Zip Code:</label> <input type="text" name="zipcode"
-				value="<?php echo $resellerRow["Zip"];?>" readonly> <label
-				for="telephonenumber">Telephone Number:</label> <input type="text"
-				name="telephonenumber" value="<?php echo $resellerRow["Phone"];?>"
-				readonly> <label for="emailaddress">Email Address:</label> <input
-				type="email" name="emailaddress"
-				value="<?php echo $_SESSION["User_Email"];?>" readonly> <label
-				for="resellercn">Reseller Contact Name: </label> <input type="text"
-				name="resellercn"
-				value="<?php if(isset($_SESSION["First_Name"])){echo $_SESSION["First_Name"];} echo " " . $_SESSION["Last_Name"];?>">
-
-			<label for="accountnumber">Account Number: </label> <input
-				type="text" name="accountnumber"
-				value="<?php if(isset($_SESSION["Acct_No"])){echo $_SESSION["Acct_No"];}?>"
-				readonly> <label for="spcode">Service Provider Code: </label> <input
-				type="text" name="spcode"
-				value="<?php if(isset($resellerRow["Serv_Prov_CD"])){echo $resellerRow["Serv_Prov_CD"];}?>"
-				readonly> <label for="telephone">Contact Telephone Number: <span
-				class="required" style="color:red;">*</span></label> <input type="tel"
-				name="contactTelephone"
-				value="<?php if(isset($_POST["contactTelephone"])){echo $_POST["contactTelephone"];}?>"
-				required>
-
-			<h5>Customer Information</h5>
-
-			<label for="endusername">End User Customer Name: <span
-				class="required" style="color:red;">*</span></label> <input type="text"
-				name="endusername"
-				value="<?php if(isset($_POST["endusername"])){echo $_POST["endusername"];}?>"
-				required> <label for="address1">Customer Address 1: <span
-				class="required" style="color:red;">*</span></label> <input type="text" name="address1"
-				value="<?php if(isset($_POST["address1"])){echo $_POST["address1"];}?>"
-				required> <label for="address2">Customer Address 2: </label> <input
-				type="text" name="address2"
-				value="<?php if(isset($_POST["address2"])){echo $_POST["address2"];}?>">
-
-			<label for="city">City: <span class="required" style="color:red;">*</span></label> <input
-				type="text" name="city"
-				value="<?php if(isset($_POST["city"])){echo $_POST["city"];}?>"
-				required> <label for="state">State: <span class="required" style="color:red;">*</span></label>
-			<select name="state" required>
-				<option value="Alabama">AL</option>
-				<option value="Alaska">AK</option>
-				<option value="Arizona">AZ</option>
-				<option value="Arkansas">AR</option>
-				<option value="California">CA</option>
-				<option value="Colorado">CO</option>
-				<option value="Connecticut">CT</option>
-				<option value="Delaware">AL</option>
-				<option value="District of Columbia">DC</option>
-				<option value="Florida">FL</option>
-				<option value="Georgia">GA</option>
-				<option value="Hawaii">HI</option>
-				<option value="Idaho">ID</option>
-				<option value="Illinois">IL</option>
-				<option value="Indiana">IN</option>
-				<option value="Iowa">IA</option>
-				<option value="Kansas">KS</option>
-				<option value="Kentucky">KY</option>
-				<option value="Louisiana">LA</option>
-				<option value="Maine">ME</option>
-				<option value="Maryland">MD</option>
-				<option value="Massachusetts">MA</option>
-				<option value="Michigan">MI</option>
-				<option value="Minnesota">MN</option>
-				<option value="Mississippi">MS</option>
-				<option value="Missouri">MO</option>
-				<option value="Montana">MT</option>
-				<option value="Nebraska">NE</option>
-				<option value="Nevada">NV</option>
-				<option value="New Hampshire">NH</option>
-				<option value="New Jersey">NJ</option>
-				<option value="New Mexico">NM</option>
-				<option value="New York">NY</option>
-				<option value="North Carolina">NC</option>
-				<option value="North Dakota">ND</option>
-				<option value="Ohio">OH</option>
-				<option value="Oklahoma">OK</option>
-				<option value="Oregon">OR</option>
-				<option value="Pennsylvania">PA</option>
-				<option value="Rhode Island">RI</option>
-				<option value="South Carolina">SC</option>
-				<option value="South Dakota">SD</option>
-				<option value="Tennessee">TN</option>
-				<option value="Texas">TX</option>
-				<option value="Utah">UT</option>
-				<option value="Vermont">VT</option>
-				<option value="Virginia">VA</option>
-				<option value="Washington">WA</option>
-				<option value="West Virginia">WV</option>
-				<option value="Wisconsin">WI</option>
-				<option value="Wyoming">WY</option>
-			</select> <label for="zipcode">Zip Code: <span class="required" style="color:red;">*</span></label>
-			<input type="text" name="zipcode"
-				value="<?php if(isset($_POST["zipcode"])){echo $_POST["zipcode"];}?>"
-				required> <label for="cmtelephone">Billing Telephone Number: <span
-				class="required" style="color:red;">*</span></label> <input type="text"
-				name="cmtelephone"
-				value="<?php if(isset($_POST["cmtelephone"])){echo $_POST["cmtelephone"];}?>">
-
-			<label for="resellerrefid">Reseller Reference ID: </label> <input
-				type="text" name="resellerrefid"
-				value="<?php if(isset($_POST["resellerrefid"])){echo $_POST["resellerrefid"];}?>">
-
-			<label for="requestedbuilt">Requested Built/Service Provisioned Date:
-				<span class="required" style="color:red;">*</span>
-			</label> <input type="date" name="requestedbuilt" required> <label
-				for="requestedinservice">Requested In Service/Effective Billing
-				Date: <span class="required" style="color:red;">*</span>
-			</label> <input type="date" name="requestedinservice" required> <label
-				for="orsooner">Or Sooner:</label> Yes<input type="radio"
-				name="orsooner" value="Yes" checked="checked" /> No<input
-				type="radio" name="orsooner" value="No" /> <label
-				for="addtoexistingcustomer"> Add to Existing Customer:</label> Yes<input
-				type="radio" name="addtoexistingcustomer" value="Yes"> No<input
-				type="radio" name="addtoexistingcustomer" value="No"
-				checked="checked"> <label for="customertimezone"> Customer Time
-				Zone:</label> <select name="customertimezone">
-				<option value="customertimezone">Customer Time Zone</option>
-				<option value="easterntimezone">Eastern Time Zone</option>
-				<option value="centraltimezone">Central Time Zone</option>
-				<option value="mountaintimezone" selected>Mountain Time Zone</option>
-				<option value="arizonatimezone">Arizona Time Zone</option>
-				<option value="pacifictimezone">Pacific Time Zone</option>
-				<option value="alaskatimezone">Alaska Time Zone</option>
-				<option value="hawaiialeutiantimezone">Hawaii-Aleutian Time Zone</option>
-			</select>
-
-			<h5>Service/911 Addresses</h5>
-
-			<label for="emergprovisionrequired">Does this order require that 911
-				be provisioned per the data provided below?<span class="required" style="color:red;">*</span>
-			</label> Yes<input type="radio" name="emergprovisionrequired"
-				value="Yes" checked="checked"> No<input type="radio"
-				name="emergprovisionrequired" value="No"> <label for="emergaddress1">Service/911
-				Address 1:</label> <input type="text" name="emergaddress1"
-				value="<?php if(isset($_POST["emergaddress1"])){echo $_POST["emergaddress1"];}?>">
-
-			<label for="emergaddress2"> Service/911 Address 2:</label> <input
-				type="text" name="emergaddress2"
-				value="<?php if(isset($_POST["emergaddress2"])){echo $_POST["emergaddress2"];}?>">
-
-			<label for="emergcity">City:</label> <input type="text"
-				name="emergcity"
-				value="<?php if(isset($_POST["emergcity"])){echo $_POST["emergcity"];}?>">
-
-			<label for="emergstate">State:</label> <select name="emergstate">
-				<option value="Alabama">AL</option>
-				<option value="Alaska">AK</option>
-				<option value="Arizona">AZ</option>
-				<option value="Arkansas">AR</option>
-				<option value="California">CA</option>
-				<option value="Colorado">CO</option>
-				<option value="Connecticut">CT</option>
-				<option value="Delaware">AL</option>
-				<option value="District of Columbia">DC</option>
-				<option value="Florida">FL</option>
-				<option value="Georgia">GA</option>
-				<option value="Hawaii">HI</option>
-				<option value="Idaho">ID</option>
-				<option value="Illinois">IL</option>
-				<option value="Indiana">IN</option>
-				<option value="Iowa">IA</option>
-				<option value="Kansas">KS</option>
-				<option value="Kentucky">KY</option>
-				<option value="Louisiana">LA</option>
-				<option value="Maine">ME</option>
-				<option value="Maryland">MD</option>
-				<option value="Massachusetts">MA</option>
-				<option value="Michigan">MI</option>
-				<option value="Minnesota">MN</option>
-				<option value="Mississippi">MS</option>
-				<option value="Missouri">MO</option>
-				<option value="Montana">MT</option>
-				<option value="Nebraska">NE</option>
-				<option value="Nevada">NV</option>
-				<option value="New Hampshire">NH</option>
-				<option value="New Jersey">NJ</option>
-				<option value="New Mexico">NM</option>
-				<option value="New York">NY</option>
-				<option value="North Carolina">NC</option>
-				<option value="North Dakota">ND</option>
-				<option value="Ohio">OH</option>
-				<option value="Oklahoma">OK</option>
-				<option value="Oregon">OR</option>
-				<option value="Pennsylvania">PA</option>
-				<option value="Rhode Island">RI</option>
-				<option value="South Carolina">SC</option>
-				<option value="South Dakota">SD</option>
-				<option value="Tennessee">TN</option>
-				<option value="Texas">TX</option>
-				<option value="Utah">UT</option>
-				<option value="Vermont">VT</option>
-				<option value="Virginia">VA</option>
-				<option value="Washington">WA</option>
-				<option value="West Virginia">WV</option>
-				<option value="Wisconsin">WI</option>
-				<option value="Wyoming">WY</option>
-			</select> <label for="emergzipcode">Zip Code:</label> <input
-				type="text" name="emergzipcode"
-				value="<?php if(isset($_POST["emergzipcode"])){echo $_POST["emergzipcode"];}?>">
-
-			<label for="emergzipcode"> 911 Phone Number:</label> <input
-				type="text" name="emergphonenumber"
-				value="<?php if(isset($_POST["emergphonenumber"])){echo $_POST["emergphonenumber"];}?>">
-
-			<label for="message">Order Details <span class="required" style="color:red;">*</span></label>
-			<textarea id="contact-form" class="form textarea" rows="10"
-				cols="100" id="orderdetails" name="orderdetails"
-				placeholder="Your message must be greater than 20 characters"
-				data-minlength="20" value="<?php echo $_POST["orderdetails"]?>"></textarea>
-			<div class="clear"></div>
-			<label for= "uploads[]" style= "color: red;"><strong>Files must be less than 5 Mb.</strong></label>
-			<span id="loading"></span> <input type="file" name="uploads[]"
-				multiple="multiple" /> <input type="submit" name="submit"
-				value="Next" id="submit-button" /><?php if(isset($attachmentError)){
-                                                        echo '<span class="error">' . $attachmentError . '</span>';}
-                                                    ?>
-		<p id="req-field-desc">
-				<span class="required" style="color:red;">*</span> indicates a required field
-			</p>
+			<button class="accordion">Reseller Company Information</button>
+				<div class="panel">
+					<label for="name">Reseller Name:</label> <input type="text" name="resellername"
+					value="<?php echo $resellerRow["Company_Name"];?>" readonly> 
+					<label for="resellerba1">Reseller Billing Address 1:</label> <input type="text" name="resellerba1"
+					value="<?php echo $resellerRow["Address1"];?>" readonly> 
+					<label for="resellerba2">Reseller Billing Address 2:</label> <input type="text" name="resellerba2"
+					value="<?php echo $resellerRow["Address2"];?>" readonly> 
+					<label for="city">City:</label> <input type="text" name="city" value="<?php echo $resellerRow["City"];?>" readonly> 
+					<label for="state">State:</label> <input type="text" name="state" value="<?php echo $resellerRow["State"];?>" readonly> 
+					<label for="zipcode">Zip Code:</label> <input type="text" name="zipcode" value="<?php echo $resellerRow["Zip"];?>" readonly>
+					<label for="telephonenumber">Telephone Number:</label> <input type="text" name="telephonenumber" 
+					value="<?php echo $resellerRow["Phone"];?>" readonly> 
+					<label for="emailaddress">Email Address:</label> <input type="email" name="emailaddress" 
+					value="<?php echo $_SESSION["User_Email"];?>" readonly>
+					<label for="accountnumber">Account Number: </label> <input type="text" name="accountnumber"
+					value="<?php if(isset($_SESSION["Acct_No"])){echo $_SESSION["Acct_No"];}?>" readonly> 
+					<label for="spcode">Service Provider Code: </label> <input type="text" name="spcode"
+					value="<?php if(isset($resellerRow["Serv_Prov_CD"])){echo $resellerRow["Serv_Prov_CD"];}?>" readonly> 
+				<div class="clear"></div>
+				<div class="clear"></div>
+				<div class="clear"></div>
+				</div>
+			<button class="accordion">Contact Information:</button>
+				<div class="panel">
+					<label for="resellercn">Reseller Contact Name: </label> <input type="text" name="resellercn"
+					value="<?php if(isset($_SESSION["First_Name"])){echo $_SESSION["First_Name"];} echo " " . $_SESSION["Last_Name"];?>">
+					<label for="telephone">Contact Telephone Number: <span class="required" style="color:red;">*</span></label> 
+					<input type="tel" name="contactTelephone" 
+					value="<?php if(isset($_POST["contactTelephone"])){echo $_POST["contactTelephone"];}?>" required>
+				<div class="clear"></div>
+				</div>
+			<button class="accordion">Customer Information:</button>
+				<div class="panel">
+					<label for="endusername">End User Customer Name: <span class="required" style="color:red;">*</span></label> 
+					<input type="text" name="endusername" value="<?php if(isset($_POST["endusername"])){echo $_POST["endusername"];}?>" required> 
+					<label for="address1">Customer Address 1: <span class="required" style="color:red;">*</span></label> 
+					<input type="text" name="address1" value="<?php if(isset($_POST["address1"])){echo $_POST["address1"];}?>" required> 
+					<label for="address2">Customer Address 2: </label> <input type="text" name="address2" 
+					value="<?php if(isset($_POST["address2"])){echo $_POST["address2"];}?>">
+					<label for="city">City: <span class="required" style="color:red;">*</span></label> <input type="text" name="city"
+					value="<?php if(isset($_POST["city"])){echo $_POST["city"];}?>" required> 
+					<label for="state">State: <span class="required" style="color:red;">*</span></label>
+						<select name="state" required>
+							<option value="Alabama">AL</option>
+							<option value="Alaska">AK</option>
+							<option value="Arizona">AZ</option>
+							<option value="Arkansas">AR</option>
+							<option value="California">CA</option>
+							<option value="Colorado">CO</option>
+							<option value="Connecticut">CT</option>
+							<option value="Delaware">AL</option>
+							<option value="District of Columbia">DC</option>
+							<option value="Florida">FL</option>
+							<option value="Georgia">GA</option>
+							<option value="Hawaii">HI</option>
+							<option value="Idaho">ID</option>
+							<option value="Illinois">IL</option>
+							<option value="Indiana">IN</option>
+							<option value="Iowa">IA</option>
+							<option value="Kansas">KS</option>
+							<option value="Kentucky">KY</option>
+							<option value="Louisiana">LA</option>
+							<option value="Maine">ME</option>
+							<option value="Maryland">MD</option>
+							<option value="Massachusetts">MA</option>
+							<option value="Michigan">MI</option>
+							<option value="Minnesota">MN</option>
+							<option value="Mississippi">MS</option>
+							<option value="Missouri">MO</option>
+							<option value="Montana">MT</option>
+							<option value="Nebraska">NE</option>
+							<option value="Nevada">NV</option>
+							<option value="New Hampshire">NH</option>
+							<option value="New Jersey">NJ</option>
+							<option value="New Mexico">NM</option>
+							<option value="New York">NY</option>
+							<option value="North Carolina">NC</option>
+							<option value="North Dakota">ND</option>
+							<option value="Ohio">OH</option>
+							<option value="Oklahoma">OK</option>
+							<option value="Oregon">OR</option>
+							<option value="Pennsylvania">PA</option>
+							<option value="Rhode Island">RI</option>
+							<option value="South Carolina">SC</option>
+							<option value="South Dakota">SD</option>
+							<option value="Tennessee">TN</option>
+							<option value="Texas">TX</option>
+							<option value="Utah">UT</option>
+							<option value="Vermont">VT</option>
+							<option value="Virginia">VA</option>
+							<option value="Washington">WA</option>
+							<option value="West Virginia">WV</option>
+							<option value="Wisconsin">WI</option>
+							<option value="Wyoming">WY</option>
+						</select> <label for="zipcode">Zip Code: <span class="required" style="color:red;">*</span></label>
+					<input type="text" name="zipcode" value="<?php if(isset($_POST["zipcode"])){echo $_POST["zipcode"];}?>" required> 
+					<label for="cmtelephone">Billing Telephone Number: <span class="required" style="color:red;">*</span></label> 
+					<input type="text" name="cmtelephone" value="<?php if(isset($_POST["cmtelephone"])){echo $_POST["cmtelephone"];}?>">
+					<label for="resellerrefid">Reseller Reference ID: </label> <input type="text" name="resellerrefid"
+					value="<?php if(isset($_POST["resellerrefid"])){echo $_POST["resellerrefid"];}?>">
+					<label for="requestedbuilt">Requested Built/Service Provisioned Date: <span class="required" style="color:red;">*</span>
+					</label> <input type="date" name="requestedbuilt" required> 
+					<label for="requestedinservice">Requested In Service/Effective Billing Date: <span class="required" style="color:red;">*</span>
+					</label> <input type="date" name="requestedinservice" required> 
+					<label for="orsooner">Or Sooner:</label> Yes<input type="radio" name="orsooner" value="Yes" checked="checked" /> No<input
+					type="radio" name="orsooner" value="No" /> 
+					<label for="addtoexistingcustomer"> Add to Existing Customer:</label> Yes<input type="radio" name="addtoexistingcustomer" 
+					value="Yes"> No<input type="radio" name="addtoexistingcustomer" value="No" checked="checked"> 
+					<label for="customertimezone"> Customer Time Zone:</label> 
+						<select name="customertimezone">
+							<option value="customertimezone">Customer Time Zone</option>
+							<option value="easterntimezone">Eastern Time Zone</option>
+							<option value="centraltimezone">Central Time Zone</option>
+							<option value="mountaintimezone" selected>Mountain Time Zone</option>
+							<option value="arizonatimezone">Arizona Time Zone</option>
+							<option value="pacifictimezone">Pacific Time Zone</option>
+							<option value="alaskatimezone">Alaska Time Zone</option>
+							<option value="hawaiialeutiantimezone">Hawaii-Aleutian Time Zone</option>
+						</select>
+						<div class="clear"></div>
+					</div>
+				<button class="accordion">Service/911 Address:</button>
+					<div class="panel">
+						<label for="emergprovisionrequired">Does this order require that 911 be provisioned per the data provided below?
+						<span class="required" style="color:red;">*</span></label> Yes<input type="radio" name="emergprovisionrequired"
+						value="Yes" checked="checked"> No<input type="radio" name="emergprovisionrequired" value="No"> 
+						<label for="emergaddress1">Service/911 Address 1:</label> <input type="text" name="emergaddress1"
+						value="<?php if(isset($_POST["emergaddress1"])){echo $_POST["emergaddress1"];}?>">
+						<label for="emergaddress2"> Service/911 Address 2:</label> <input type="text" name="emergaddress2"
+						value="<?php if(isset($_POST["emergaddress2"])){echo $_POST["emergaddress2"];}?>">
+						<label for="emergcity">City:</label> <input type="text" name="emergcity" 
+						value="<?php if(isset($_POST["emergcity"])){echo $_POST["emergcity"];}?>">
+						<label for="emergstate">State:</label> 
+							<select name="emergstate">
+								<option value="Alabama">AL</option>
+								<option value="Alaska">AK</option>
+								<option value="Arizona">AZ</option>
+								<option value="Arkansas">AR</option>
+								<option value="California">CA</option>
+								<option value="Colorado">CO</option>
+								<option value="Connecticut">CT</option>
+								<option value="Delaware">AL</option>
+								<option value="District of Columbia">DC</option>
+								<option value="Florida">FL</option>
+								<option value="Georgia">GA</option>
+								<option value="Hawaii">HI</option>
+								<option value="Idaho">ID</option>
+								<option value="Illinois">IL</option>
+								<option value="Indiana">IN</option>
+								<option value="Iowa">IA</option>
+								<option value="Kansas">KS</option>
+								<option value="Kentucky">KY</option>
+								<option value="Louisiana">LA</option>
+								<option value="Maine">ME</option>
+								<option value="Maryland">MD</option>
+								<option value="Massachusetts">MA</option>
+								<option value="Michigan">MI</option>
+								<option value="Minnesota">MN</option>
+								<option value="Mississippi">MS</option>
+								<option value="Missouri">MO</option>
+								<option value="Montana">MT</option>
+								<option value="Nebraska">NE</option>
+								<option value="Nevada">NV</option>
+								<option value="New Hampshire">NH</option>
+								<option value="New Jersey">NJ</option>
+								<option value="New Mexico">NM</option>
+								<option value="New York">NY</option>
+								<option value="North Carolina">NC</option>
+								<option value="North Dakota">ND</option>
+								<option value="Ohio">OH</option>
+								<option value="Oklahoma">OK</option>
+								<option value="Oregon">OR</option>
+								<option value="Pennsylvania">PA</option>
+								<option value="Rhode Island">RI</option>
+								<option value="South Carolina">SC</option>
+								<option value="South Dakota">SD</option>
+								<option value="Tennessee">TN</option>
+								<option value="Texas">TX</option>
+								<option value="Utah">UT</option>
+								<option value="Vermont">VT</option>
+								<option value="Virginia">VA</option>
+								<option value="Washington">WA</option>
+								<option value="West Virginia">WV</option>
+								<option value="Wisconsin">WI</option>
+								<option value="Wyoming">WY</option>
+							</select> 
+						<label for="emergzipcode">Zip Code:</label> <input type="text" name="emergzipcode"
+						value="<?php if(isset($_POST["emergzipcode"])){echo $_POST["emergzipcode"];}?>">
+						<label for="emergphonenumber"> 911 Phone Number:<span class="required" style="color:red;">*</span></label>
+						<input type="text" name="emergphonenumber" value="<?php if(isset($_POST["emergphonenumber"]))
+						{echo $_POST["emergphonenumber"];}?>">
+					<div class="clear"></div>
+					<div class="clear"></div>
+					</div>
+				<button class="accordion">Order Details and Attachments:</button>
+					<div class="panel">
+						<label for="message">Order Details <span class="required" style="color:red;">*</span></label>
+						<textarea id="contact-form" class="form textarea" rows="10" cols="100" id="orderdetails" name="orderdetails"
+						placeholder="Your message must be greater than 20 characters" data-minlength="20" 
+						value="<?php echo $_POST["orderdetails"]?>"></textarea>
+					<div class="clear"></div>
+						<label for= "uploads[]" style= "color: red;"><strong>Files must be less than 5 Mb.</strong></label>
+						<span id="loading"></span> <input type="file" name="uploads[]" multiple="multiple" /> 
+					</div>
+						<input type="submit" name="submit" value="Next" id="submit-button" /><?php if(isset($attachmentError)){
+                        echo '<span class="error">' . $attachmentError . '</span>';}?>
+						<p id="req-field-desc"> <span class="required" style="color:red;">*</span> indicates a required field</p>
 		</form>
 	</div>
 	<!-- End contact-form div -->
+	<!-- Accordion opening source http://www.w3schools.com/howto/howto_js_accordion.asp -->
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+        this.classList.toggle("active");
+        this.nextElementSibling.classList.toggle("show");
+    }
+}
+</script>
 </body>
 </html>
 <?php
@@ -279,5 +262,6 @@ function generateAccountsSelectString ($Acct_No) {
 			WHERE Acct_No = '" . $Acct_No . "'";
 	return $sql;
 }
+
 ?>
 </body>
