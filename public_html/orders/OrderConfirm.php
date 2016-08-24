@@ -100,14 +100,13 @@ function generateNumberInserString() {
 
 function generateCustomerInsertString() {
 	$sql = 'INSERT INTO Customers (End_User_Name, Cust_Telephone, Address_1, Address_2, City, State, Zip, Emerg_Address_1, Emerg_Address_2, Emerg_City, Emerg_State, Emerg_Zip, Emerg_Phone,Customer_Time_Zone) VALUES(';
-	$sql = $sql . "'" . test_input($_POST["cmtelephone"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["endusername"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["cmtelephone"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["address1"]) ."',";
 	$sql = $sql . "'" . test_input($_POST["address2"]) ."',";
 	$sql = $sql . "'" . test_input($_POST["city"]) ."',";
 	$sql = $sql . "'" . test_input($_POST["state"]) ."',";
 	$sql = $sql . "'" . test_input($_POST["zipcode"]) ."',";
-	$sql = $sql . "'" . test_input($_POST["cmtelephone"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["emergaddress1"]) ."',";
 	$sql = $sql . "'" . test_input($_POST["emergaddress2"]) ."',";
 	$sql = $sql . "'" . test_input($_POST["emergcity"]) ."',";
