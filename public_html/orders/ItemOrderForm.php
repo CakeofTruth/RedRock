@@ -113,6 +113,10 @@
 	.buttonHolder{
 		text-align: center;
 	}
+	input[type="number"] {
+		position:relative;
+		width: 25%;
+	}
 	</style>
 	</head>
 	<body>

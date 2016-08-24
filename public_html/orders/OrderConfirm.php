@@ -209,6 +209,9 @@ function createOrderMessage($orderNumber,$orderUtils){
 				<td class="customer-emergaddress"><div class="delete-wpr" style="width: 100%; height: 50px;">Service/911 Address: ' . 	test_input($_POST["emergaddress1"]) . '
 						' . 	test_input($_POST["emergaddress2"]) . ' ' . 	test_input($_POST["emergcity"]) . ', ' . 	test_input($_POST["emergstate"]) . ', ' . 	test_input($_POST["emergzipcode"]) . '</div></td>
 			</tr>
+			<tr class="customer-row">
+				<td class= "customer-emergphonenumber"><div class="delete-wpr" style="width: 100%; height: 50px;"> Emergency Phone Number: ' . test_input($_POST["emergphonenumber"]) . '</div></td>
+			</tr>
 		</table>
 		<h3>Order Details:</h3>
 			<table id= "orderdetails" style="clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black;">
