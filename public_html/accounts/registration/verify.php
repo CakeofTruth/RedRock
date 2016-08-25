@@ -16,12 +16,12 @@ if(!empty($_GET['email']) && !empty($_GET['hash'])){
 	if($match > 0){
 		$updateString = "UPDATE Accounts SET active='1' WHERE email='".$email."' AND hash='".$hash."' AND active='0'";
 		$update = mysqli_query($conn,$updateString); 
-		echo '<div class="statusmsg">Your account has been activated, you can now login!</div>';
+		echo '<div class="statusmsg" style= "align:center";>Your account has been activated, you can now login!</div>';
 		//echo "<script> document.ready(window.setTimeout(location.href = '" . $root . "/accounts/login.php',5000)); </script>";
 		//echo "<script> window.location = '/accounts/login.php' </script>";
 		echo '<a href="/accounts/login.php"/>Click here to login</a>';
 	}else{
-		echo '<div class="statusmsg">The url is either invalid or you already have activated your account.</div>';
+		echo '<div class="statusmsg"style= "align:center";>The url is either invalid or you already have activated your account.</div>';
 	}
 ?>
 </body>

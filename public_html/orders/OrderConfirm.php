@@ -59,7 +59,7 @@ function generateItemizedInsertString($orderNumber,$orderUtils){
 }
 
 function generateNumberInsertString($orderNumber, $orderUtils) {
-	$sql = 'INSERT INTO NumberDetails (Ported_Number, BTNumber, Port_Number_911) VALUES';
+	$sql = 'INSERT INTO NumberDetails(Ported_Number, BTNumber, Port_Number_911) VALUES';
 	$index = 1;
 	$portednumName = "portednumber_" . $index;
 	$firstValues = true;
@@ -80,9 +80,10 @@ function generateNumberInsertString($orderNumber, $orderUtils) {
 		$index++;
 		$portednumName = "portednumber_" . $index;
 	}
+	return $sql;
    }
-   
-function generateNumberInserString() {
+ 
+function generateNumberInfoInsertString() {
 	$sql = 'INSERT INTO NumberDetails(Porting, New_Numbers, New_Number_Qty, New_Number_AC, Emerg_New_Number, Virtual_Numbers, VTN_quantity) VALUES(';
 	$sql = $sql . "'" . test_input($_POST["porting"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["portednumber"]) . "',";

@@ -8,8 +8,30 @@
 </head>
 <body>
 <?php
-include ($_SERVER ["DOCUMENT_ROOT"] . '/portal/portalheader.php');
+include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
+if ( empty ( $_POST )) {
+	echo  "<script> window.location = 'PlaceOrder.php' </script>";
+}
 include_once $root . '/classes/DBUtils.php';
+include_once $root . '/classes/OrderUtils.php';
+$attachmentID = uniqid();
+mkdir($_SERVER["DOCUMENT_ROOT"] . '/tmp/orderData/' . $attachmentID, 0777);
+$uploaddir = $_SERVER["DOCUMENT_ROOT"] . '/tmp/orderData/' . $attachmentID . '/';
+//echo "uploaded to: " . $uploaddir;
+$attachmentsString = "";
+for($i=0;$i<count($_FILES['uploads']['name']);$i++){
+	$tmplocation = $_FILES['uploads']['tmp_name'][$i];
+	$destination = $uploaddir . $_FILES['uploads']['name'][$i];
+	//echo "destination: " . $destination . "<br>";
+	if(move_uploaded_file($tmplocation ,$destination)){
+		if(empty($attachmentsString)){
+			$attachmentsString .= basename($destination);
+		}
+		else{
+			$attachmentsString .= "," . basename($destination);
+		}
+	}
+}
 
 ?>
 <div id="order-form" class="clearfix">
@@ -63,7 +85,7 @@ var intTextBox = 0;
 		var objNewDiv = document.createElement('div');
 		objNewDiv.setAttribute('id', 'div_' + intTextBox);
 		objNewDiv.innerHTML = 'Phone Number ' + intTextBox + ': <input type= "text" id="tb_' + intTextBox + '" name="portednumber_' + intTextBox + '" />'
-		+ '911?: <input type = "checkbox" id="911_' + intTextBox + '" name="portnumber911_' + intTextBox + '" />' + 'BTN?: <input type = "checkbox" id="BTN_' + intTextBox + '" name="btnumber_' + intTextBox + '" />' ;
+		+ '911?: <input type = "checkbox" id="portnumber911_' + intTextBox + '" name="portnumber911_' + intTextBox + '" />' + 'BTN?: <input type = "checkbox" id="btnumber_' + intTextBox + '" name="btnumber_' + intTextBox + '" />' ;
 		document.getElementById('content').appendChild(objNewDiv);
 	};
 	function removeElement() {
