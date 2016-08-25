@@ -26,7 +26,7 @@ if ($resellerResult->num_rows > 0) {
 		<h4>Customer Order Form</h4>
 		<form action="/orders/PlaceOrder.php" method="post"
 			enctype="multipart/form-data">
-			<button class="accordion">Reseller Company Information</button>
+			<button type="button" class="accordion">Reseller Company Information</button>
 				<div class="panel">
 					<label for="name">Reseller Name:</label> <input type="text" name="resellername"
 					value="<?php echo $resellerRow["Company_Name"];?>" readonly> 
@@ -45,19 +45,17 @@ if ($resellerResult->num_rows > 0) {
 					value="<?php if(isset($_SESSION["Acct_No"])){echo $_SESSION["Acct_No"];}?>" readonly> 
 					<label for="spcode">Service Provider Code: </label> <input type="text" name="spcode"
 					value="<?php if(isset($resellerRow["Serv_Prov_CD"])){echo $resellerRow["Serv_Prov_CD"];}?>" readonly>
-				<div class="clear"></div>
 				</div>
-				<div class="clear"></div>
-			<button class="accordion">Contact Information:</button>
+			<button type="button" class="accordion">Contact Information:</button>
 				<div class="panel">
 					<label for="resellercn">Reseller Contact Name: </label> <input type="text" name="resellercn"
 					value="<?php if(isset($_SESSION["First_Name"])){echo $_SESSION["First_Name"];} echo " " . $_SESSION["Last_Name"];?>">
 					<label for="telephone">Contact Telephone Number: <span class="required" style="color:red;">*</span></label> 
 					<input type="tel" name="contactTelephone" 
 					value="<?php if(isset($_POST["contactTelephone"])){echo $_POST["contactTelephone"];}?>" required>
-				<div class="clear"></div>
+				
 				</div>
-			<button class="accordion">Customer Information:</button>
+			<button type="button" class="accordion">Customer Information:</button>
 				<div class="panel">
 					<label for="endusername">End User Customer Name: <span class="required" style="color:red;">*</span></label> 
 					<input type="text" name="endusername" value="<?php if(isset($_POST["endusername"])){echo $_POST["endusername"];}?>" required> 
@@ -69,58 +67,9 @@ if ($resellerResult->num_rows > 0) {
 					value="<?php if(isset($_POST["city"])){echo $_POST["city"];}?>" required> 
 					<label for="state">State: <span class="required" style="color:red;">*</span></label>
 						<select name="state" required>
-							<option value="Alabama">AL</option>
-							<option value="Alaska">AK</option>
-							<option value="Arizona">AZ</option>
-							<option value="Arkansas">AR</option>
-							<option value="California">CA</option>
-							<option value="Colorado">CO</option>
-							<option value="Connecticut">CT</option>
-							<option value="Delaware">AL</option>
-							<option value="District of Columbia">DC</option>
-							<option value="Florida">FL</option>
-							<option value="Georgia">GA</option>
-							<option value="Hawaii">HI</option>
-							<option value="Idaho">ID</option>
-							<option value="Illinois">IL</option>
-							<option value="Indiana">IN</option>
-							<option value="Iowa">IA</option>
-							<option value="Kansas">KS</option>
-							<option value="Kentucky">KY</option>
-							<option value="Louisiana">LA</option>
-							<option value="Maine">ME</option>
-							<option value="Maryland">MD</option>
-							<option value="Massachusetts">MA</option>
-							<option value="Michigan">MI</option>
-							<option value="Minnesota">MN</option>
-							<option value="Mississippi">MS</option>
-							<option value="Missouri">MO</option>
-							<option value="Montana">MT</option>
-							<option value="Nebraska">NE</option>
-							<option value="Nevada">NV</option>
-							<option value="New Hampshire">NH</option>
-							<option value="New Jersey">NJ</option>
-							<option value="New Mexico">NM</option>
-							<option value="New York">NY</option>
-							<option value="North Carolina">NC</option>
-							<option value="North Dakota">ND</option>
-							<option value="Ohio">OH</option>
-							<option value="Oklahoma">OK</option>
-							<option value="Oregon">OR</option>
-							<option value="Pennsylvania">PA</option>
-							<option value="Rhode Island">RI</option>
-							<option value="South Carolina">SC</option>
-							<option value="South Dakota">SD</option>
-							<option value="Tennessee">TN</option>
-							<option value="Texas">TX</option>
-							<option value="Utah">UT</option>
-							<option value="Vermont">VT</option>
-							<option value="Virginia">VA</option>
-							<option value="Washington">WA</option>
-							<option value="West Virginia">WV</option>
-							<option value="Wisconsin">WI</option>
-							<option value="Wyoming">WY</option>
-						</select> <label for="zipcode">Zip Code: <span class="required" style="color:red;">*</span></label>
+							<option value="Alabama">AL</option> <option value="Alaska">AK</option> <option value="Arizona">AZ</option> <option value="Arkansas">AR</option> <option value="California">CA</option> <option value="Colorado">CO</option> <option value="Connecticut">CT</option> <option value="Delaware">AL</option> <option value="District of Columbia">DC</option> <option value="Florida">FL</option> <option value="Georgia">GA</option> <option value="Hawaii">HI</option> <option value="Idaho">ID</option> <option value="Illinois">IL</option> <option value="Indiana">IN</option> <option value="Iowa">IA</option> <option value="Kansas">KS</option> <option value="Kentucky">KY</option> <option value="Louisiana">LA</option> <option value="Maine">ME</option> <option value="Maryland">MD</option> <option value="Massachusetts">MA</option> <option value="Michigan">MI</option> <option value="Minnesota">MN</option> <option value="Mississippi">MS</option> <option value="Missouri">MO</option> <option value="Montana">MT</option> <option value="Nebraska">NE</option> <option value="Nevada">NV</option> <option value="New Hampshire">NH</option> <option value="New Jersey">NJ</option> <option value="New Mexico">NM</option> <option value="New York">NY</option> <option value="North Carolina">NC</option> <option value="North Dakota">ND</option> <option value="Ohio">OH</option> <option value="Oklahoma">OK</option> <option value="Oregon">OR</option> <option value="Pennsylvania">PA</option> <option value="Rhode Island">RI</option> <option value="South Carolina">SC</option> <option value="South Dakota">SD</option> <option value="Tennessee">TN</option> <option value="Texas">TX</option> <option value="Utah">UT</option> <option value="Vermont">VT</option> <option value="Virginia">VA</option> <option value="Washington">WA</option> <option value="West Virginia">WV</option> <option value="Wisconsin">WI</option> <option value="Wyoming">WY</option>
+						</select> 
+					<label for="zipcode">Zip Code: <span class="required" style="color:red;">*</span></label>
 					<input type="text" name="zipcode" value="<?php if(isset($_POST["zipcode"])){echo $_POST["zipcode"];}?>" required> 
 					<label for="cmtelephone">Billing Telephone Number: <span class="required" style="color:red;">*</span></label> 
 					<input type="text" name="cmtelephone" value="<?php if(isset($_POST["cmtelephone"])){echo $_POST["cmtelephone"];}?>">
@@ -145,9 +94,9 @@ if ($resellerResult->num_rows > 0) {
 							<option value="alaskatimezone">Alaska Time Zone</option>
 							<option value="hawaiialeutiantimezone">Hawaii-Aleutian Time Zone</option>
 						</select>
-						<div class="clear"></div>
+						
 					</div>
-				<button class="accordion">Service/911 Address:</button>
+				<button type="button" class="accordion">Service/911 Address:</button>
 					<div class="panel">
 						<label for="emergprovisionrequired">Does this order require that 911 be provisioned per the data provided below?
 						<span class="required" style="color:red;">*</span></label> Yes<input type="radio" name="emergprovisionrequired"
@@ -160,79 +109,29 @@ if ($resellerResult->num_rows > 0) {
 						value="<?php if(isset($_POST["emergcity"])){echo $_POST["emergcity"];}?>">
 						<label for="emergstate">State:</label> 
 							<select name="emergstate">
-								<option value="Alabama">AL</option>
-								<option value="Alaska">AK</option>
-								<option value="Arizona">AZ</option>
-								<option value="Arkansas">AR</option>
-								<option value="California">CA</option>
-								<option value="Colorado">CO</option>
-								<option value="Connecticut">CT</option>
-								<option value="Delaware">AL</option>
-								<option value="District of Columbia">DC</option>
-								<option value="Florida">FL</option>
-								<option value="Georgia">GA</option>
-								<option value="Hawaii">HI</option>
-								<option value="Idaho">ID</option>
-								<option value="Illinois">IL</option>
-								<option value="Indiana">IN</option>
-								<option value="Iowa">IA</option>
-								<option value="Kansas">KS</option>
-								<option value="Kentucky">KY</option>
-								<option value="Louisiana">LA</option>
-								<option value="Maine">ME</option>
-								<option value="Maryland">MD</option>
-								<option value="Massachusetts">MA</option>
-								<option value="Michigan">MI</option>
-								<option value="Minnesota">MN</option>
-								<option value="Mississippi">MS</option>
-								<option value="Missouri">MO</option>
-								<option value="Montana">MT</option>
-								<option value="Nebraska">NE</option>
-								<option value="Nevada">NV</option>
-								<option value="New Hampshire">NH</option>
-								<option value="New Jersey">NJ</option>
-								<option value="New Mexico">NM</option>
-								<option value="New York">NY</option>
-								<option value="North Carolina">NC</option>
-								<option value="North Dakota">ND</option>
-								<option value="Ohio">OH</option>
-								<option value="Oklahoma">OK</option>
-								<option value="Oregon">OR</option>
-								<option value="Pennsylvania">PA</option>
-								<option value="Rhode Island">RI</option>
-								<option value="South Carolina">SC</option>
-								<option value="South Dakota">SD</option>
-								<option value="Tennessee">TN</option>
-								<option value="Texas">TX</option>
-								<option value="Utah">UT</option>
-								<option value="Vermont">VT</option>
-								<option value="Virginia">VA</option>
-								<option value="Washington">WA</option>
-								<option value="West Virginia">WV</option>
-								<option value="Wisconsin">WI</option>
-								<option value="Wyoming">WY</option>
+								<option value="Alabama">AL</option> <option value="Alaska">AK</option> <option value="Arizona">AZ</option> <option value="Arkansas">AR</option> <option value="California">CA</option> <option value="Colorado">CO</option> <option value="Connecticut">CT</option> <option value="Delaware">AL</option> <option value="District of Columbia">DC</option> <option value="Florida">FL</option> <option value="Georgia">GA</option> <option value="Hawaii">HI</option> <option value="Idaho">ID</option> <option value="Illinois">IL</option> <option value="Indiana">IN</option> <option value="Iowa">IA</option> <option value="Kansas">KS</option> <option value="Kentucky">KY</option> <option value="Louisiana">LA</option> <option value="Maine">ME</option> <option value="Maryland">MD</option> <option value="Massachusetts">MA</option> <option value="Michigan">MI</option> <option value="Minnesota">MN</option> <option value="Mississippi">MS</option> <option value="Missouri">MO</option> <option value="Montana">MT</option> <option value="Nebraska">NE</option> <option value="Nevada">NV</option> <option value="New Hampshire">NH</option> <option value="New Jersey">NJ</option> <option value="New Mexico">NM</option> <option value="New York">NY</option> <option value="North Carolina">NC</option> <option value="North Dakota">ND</option> <option value="Ohio">OH</option> <option value="Oklahoma">OK</option> <option value="Oregon">OR</option> <option value="Pennsylvania">PA</option> <option value="Rhode Island">RI</option> <option value="South Carolina">SC</option> <option value="South Dakota">SD</option> <option value="Tennessee">TN</option> <option value="Texas">TX</option> <option value="Utah">UT</option> <option value="Vermont">VT</option> <option value="Virginia">VA</option> <option value="Washington">WA</option> <option value="West Virginia">WV</option> <option value="Wisconsin">WI</option> <option value="Wyoming">WY</option>
 							</select> 
 						<label for="emergzipcode">Zip Code:</label> <input type="text" name="emergzipcode"
 						value="<?php if(isset($_POST["emergzipcode"])){echo $_POST["emergzipcode"];}?>">
 						<label for="emergphonenumber"> 911 Phone Number:<span class="required" style="color:red;">*</span></label>
 						<input type="text" name="emergphonenumber" value="<?php if(isset($_POST["emergphonenumber"]))
 						{echo $_POST["emergphonenumber"];}?>">
-					<div class="clear"></div>
-					<div class="clear"></div>
+					
+					
 					</div>
-				<button class="accordion">Order Details and Attachments:</button>
+				<button type="button" class="accordion">Order Details and Attachments:</button>
 					<div class="panel">
 						<label for="message">Order Details <span class="required" style="color:red;">*</span></label>
 						<textarea id="contact-form" class="form textarea" rows="10" cols="100" id="orderdetails" name="orderdetails"
 						placeholder="Your message must be greater than 20 characters" data-minlength="20" 
 						value="<?php echo $_POST["orderdetails"]?>"></textarea>
-					<div class="clear"></div>
+					
 						<label for= "uploads[]" style= "color: red;"><strong>Files must be less than 5 Mb.</strong></label>
 						<span id="loading"></span> <input type="file" name="uploads[]" multiple="multiple" /> 
 					</div>
-						<input type="submit" name="submit" value="Next" id="submit-button" /><?php if(isset($attachmentError)){
-                        echo '<span class="error">' . $attachmentError . '</span>';}?>
-						<p id="req-field-desc"> <span class="required" style="color:red;">*</span> indicates a required field</p>
+				<input type="submit" name="submit" value="Next" id="submit-button" /><?php if(isset($attachmentError)){
+                														echo '<span class="error">' . $attachmentError . '</span>';}?>
+				<p id="req-field-desc"> <span class="required" style="color:red;">*</span> indicates a required field</p>
 		</form>
 	</div>
 	<!-- End contact-form div -->

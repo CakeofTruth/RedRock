@@ -7,6 +7,9 @@
 		
 	include_once $root . '/classes/DBUtils.php';
 	include_once $root . '/classes/OrderUtils.php';
+
+
+	//Generate the attachmentString and Attachemnt Directory String 
 	$orderUtils = new OrderUtils();
 	$result = $orderUtils->getResellerItems($_POST["spcode"]);
 	if ($result->num_rows == 0) {
