@@ -78,7 +78,8 @@ radio {
     color:#FFF;
     border:none;
     display:block;
-    float:right;
+    text-align: center;
+    float:center;
     margin-bottom:0px;
     margin-right:6px;
     background-color:#9F000F;
@@ -187,6 +188,7 @@ input.placeholder-text, textarea.placeholder-text  {
 /* Style the buttons that are used to open and close the accordion panel */
 button.accordion {
     background-color: #800000;
+    border-radius: 6px;
     color: white;
     cursor: pointer;
     padding: 18px;
@@ -204,7 +206,7 @@ button.accordion.active, button.accordion:hover {
 
 /* Style the accordion panel. Note: hidden by default */
 div.panel {
-    padding: 0 18px;
+    padding:  25px;
     background-color: white;
     display: none;
 }
@@ -214,7 +216,7 @@ div.panel.show {
     display: block;
 }
 div.panel {
-    padding: 0 18px;
+    padding: 10px;
     background-color:#FBDED6;;
     max-height: 0;
     overflow: hidden;

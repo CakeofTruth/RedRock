@@ -1,4 +1,6 @@
 <?php
+	session_start();
+	
 $root = $_SERVER ["DOCUMENT_ROOT"];
 include_once ($_SERVER ["DOCUMENT_ROOT"] . '/portal/portalheader.php');
 include_once $root . '/classes/DBUtils.php';
@@ -98,9 +100,27 @@ function generateNumberInsertString($orderNumber) {
 	return $sql;
 }
  
-function generateCustomerInsertString() {
-	$sql = 'INSERT INTO Customers (End_User_Name, Cust_Telephone, Address_1, Address_2, City, State, Zip, Emerg_Address_1, Emerg_Address_2, Emerg_City, Emerg_State, Emerg_Zip, Emerg_Phone,Customer_Time_Zone) VALUES(';
-	$sql = $sql . "'" . test_input($_POST["endusername"]) . "',";
+//function generateCustomerInsertString() {
+	$insert_query = 'INSERT INTO Customers (End_User_Name, Cust_Telephone, Address_1, Address_2, City, State, Zip, Emerg_Address_1, Emerg_Address_2, Emerg_City, Emerg_State, Emerg_Zip, Emerg_Phone,Customer_Time_Zone) 
+			VALUES(
+	'. $_SESSION['endusername'] .',
+	'. $_SESSION['cmtelephone'] .',
+	'. $_SESSION['address1'] .',
+	'. $_SESSION['address2'] .',
+	'. $_SESSION['city'] .',
+	'. $_SESSION['state'] .',
+	'. $_SESSION['zip'] .',
+	'. $_SESSION['emergaddress1'] .',
+	'. $_SESSION['emergaddress2'] .',
+	'. $_SESSION['emergcity'] .',
+	'. $_SESSION['emergstate'] .',
+	'. $_SESSION['emergzipcode'] .',
+	'. $_SESSION['emergphonenumber'] .',
+	'. $_SESSION['customertimezone'] .',
+					
+			)';
+	
+/*	$sql = $sql . "'" . test_input($_POST["endusername"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["cmtelephone"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["address1"]) ."',";
 	$sql = $sql . "'" . test_input($_POST["address2"]) ."',";
@@ -117,10 +137,30 @@ function generateCustomerInsertString() {
 	
 	return $sql;
 }
-function generateOrderInsertString($Cust_ID) {
-	$sql = 'INSERT INTO Orders (Emerg_Prov_Req, Order_Details, Customer_ID, Serv_Prov_CD, Res_Cont_Name, 
+*/
+//function generateOrderInsertString($Cust_ID) {
+	$insert_query = 'INSERT INTO Orders (Emerg_Prov_Req, Order_Details, Customer_ID, Serv_Prov_CD, Res_Cont_Name, 
 			Reseller_Ref_ID, Request_Built, Request_Service, Or_Sooner, Add_Exist_Cust,
-			Porting, New_Numbers, New_Number_Qty, New_Number_AC, Emerg_New_Number, Virtual_Numbers, VTN_quantity) VALUES(';
+			Porting, New_Numbers, New_Number_Qty, New_Number_AC, Emerg_New_Number, Virtual_Numbers, VTN_quantity) VALUES(
+		'. $_SESSION['emergprovisionrequired'] .',	
+		'. $_SESSION['orderdetails'] .',
+		'. $Cust_ID .',
+		'. $_SESSION['spcode'] .',
+		'. $_SESSION['resellercn'] .',
+		'. $_SESSION['resellerrefid'] .',
+		'. $_SESSION['requestedbuilt'] .',
+		'. $_SESSION['requestedinservice'] .',
+		'. $_SESSION['orsooner'] .',
+		'. $_SESSION['addtoexistingcustomer'] .',
+		'. $_SESSION['porting'] .',
+		'. $_SESSION['newnumbers'] .',
+		'. $_SESSION['newnumberquantity'] .',
+		'. $_SESSION['newnumberac'] .',
+		'. $_SESSION['emergnewnumber'] .',
+		'. $_SESSION['virtualnumbers'] .',
+		'. $_SESSION['vtnquantity'] .',
+				)';
+/*	
 	$sql = $sql . "'" . test_input ( $_POST ["emergprovisionrequired"] ) . "',";
 	$sql = $sql . "'" . addslashes(test_input ( $_POST ["orderdetails"] )) . "',";
 	$sql = $sql . "'" . $Cust_ID . "',";
@@ -140,6 +180,7 @@ function generateOrderInsertString($Cust_ID) {
 	$sql = $sql . "'" . test_input($_POST["vtnquantity"]) . "')";
 	return $sql;
 }
+*/
 function sendOrderAlertEmail($orderNumber,$orderUtils){
     $message = createOrderMessage($orderNumber,$orderUtils);
     $from = 'noreply@redrocktelecom.com';
