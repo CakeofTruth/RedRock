@@ -34,10 +34,10 @@ if ($resellerResult->num_rows > 0) {
 					value="<?php echo $resellerRow["Address1"];?>" readonly> 
 					<label for="resellerba2">Reseller Billing Address 2:</label> <input type="text" name="resellerba2"
 					value="<?php echo $resellerRow["Address2"];?>" readonly> 
-					<label for="city">City:</label> <input type="text" name="city" value="<?php echo $resellerRow["City"];?>" readonly> 
-					<label for="state">State:</label> <input type="text" name="state" value="<?php echo $resellerRow["State"];?>" readonly> 
-					<label for="zipcode">Zip Code:</label> <input type="text" name="zipcode" value="<?php echo $resellerRow["Zip"];?>" readonly>
-					<label for="telephonenumber">Telephone Number:</label> <input type="text" name="telephonenumber" 
+					<label for="city">City:</label> <input type="text" name="resellercity" value="<?php echo $resellerRow["City"];?>" readonly> 
+					<label for="state">State:</label> <input type="text" name="resellerstate" value="<?php echo $resellerRow["State"];?>" readonly> 
+					<label for="zipcode">Zip Code:</label> <input type="text" name="resellerzipcode" value="<?php echo $resellerRow["Zip"];?>" readonly>
+					<label for="telephonenumber">Telephone Number:</label> <input type="text" name="resellertelephonenumber" 
 					value="<?php echo $resellerRow["Phone"];?>" readonly> 
 					<label for="emailaddress">Email Address:</label> <input type="email" name="emailaddress" 
 					value="<?php echo $_SESSION["User_Email"];?>" readonly>
@@ -129,7 +129,7 @@ if ($resellerResult->num_rows > 0) {
 						<label for= "uploads[]" style= "color: red;"><strong>Files must be less than 5 Mb.</strong></label>
 						<span id="loading"></span> <input type="file" name="uploads[]" multiple="multiple" /> 
 					</div>
-				<input type="submit" name="submit" value="Next" id="submit-button" /><?php if(isset($attachmentError)){
+				<input type="submit" name="submit" value="Next" id="submit-button"/><?php if(isset($attachmentError)){
                 														echo '<span class="error">' . $attachmentError . '</span>';}?>
 				<p id="req-field-desc"> <span class="required" style="color:red;">*</span> indicates a required field</p>
 		</form>

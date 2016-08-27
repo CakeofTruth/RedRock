@@ -1,3 +1,25 @@
+<?php 
+	session_start();
+	include ($_SERVER ["DOCUMENT_ROOT"] . '/portal/portalheader.php');
+	include_once $root . '/classes/OrderUtils.php';
+	
+	$orderUtils = new OrderUtils();
+	$result = $orderUtils->getResellerItems($_SESSION['spcode']);
+	while($row  = $result->fetch_array()){
+			
+		$itemName = $row["USOC"];
+		echo '<input type="hidden" name="' . $itemName . '" value="' . $_POST[$itemName] . '">';
+	}
+	
+		
+	$_SESSION['totalMonthly'] = $_POST['totalMonthly'];
+	$_SESSION['totalNonRecurring'] = $_POST['totalNonRecurring'];
+	$_SESSION['reselleritems'] = $result;
+	
+//source for array session variables http://stackoverflow.com/questions/10337782/how-to-create-variables-and-assign-them-values-within-a-for-each-loop-in-php
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +30,7 @@
 </head>
 <body>
 <?php
-include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
+$orderUtils = new OrderUtils();
 if ( empty ( $_POST )) {
 	echo  "<script> window.location = 'PlaceOrder.php' </script>";
 }
@@ -55,7 +77,8 @@ name="emergnewnumber" id="no-911new" value="no">
 				type="text" name="vtnquantity"
 				value="">
 				</div>
-			<div class ="buttonHolder">
+<?php 
+/*
 			<input type="hidden" name="endusername" value="<?php echo $_POST["endusername"]; ?>">
             <input type="hidden" name="orderdetails" value="<?php echo $_POST ["orderdetails"]; ?>">
             <input type="hidden" name="spcode" value="<?php echo $_POST ["spcode"] ; ?>">
@@ -98,18 +121,12 @@ name="emergnewnumber" id="no-911new" value="no">
 			<input type="hidden" name="attachmentDir" value="<?php echo $_POST["attachmentDir"]; ?>">
 			<?php
 				//Add the Reseller Items to the Post
-				
-				$orderUtils = new OrderUtils();
-				$result = $orderUtils->getResellerItems($_POST["spcode"]);
-				while($row  = $result->fetch_array()){
-					
-					$itemName = $row["USOC"];
-					echo '<input type="hidden" name="' . $itemName . '" value="' . $_POST[$itemName] . '">';
-				}
-			?>
+	*/?>
+			<div class ="buttonHolder">
 				<input type="hidden" name="totalMonthly" value="<?php echo $_POST["totalMonthly"]; ?>">
 				<input type="hidden" name="totalNonRecurring" value="<?php echo $_POST["totalNonRecurring"]; ?>">
 			<input type="submit" value="Submit" id="submit-button">
+			</div>
 </form>
 </div>
 
