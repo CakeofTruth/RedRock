@@ -54,11 +54,11 @@ if (mysqli_query ( $conn, $customerInsertString )) {
 $conn->close ();
 function generateItemizedInsertString($orderNumber,$orderUtils){
 	$sql = 'INSERT INTO OrderItems(Order_No, USOC, Quantity) VALUES';
-	$result = $orderUtils->getResellerItems($_POST["spcode"]);
+	$result = $orderUtils->getResellerItems($_SESSION["spcode"]);
 	$firstValues = true;
 	while($row  = $result->fetch_array()){
 		$itemName = $row["USOC"];
-		$quantity = $_POST[$itemName];
+		$quantity = $_SESSION[$itemName];
 		if($quantity > 0){
 			if($firstValues){
 				$firstValues = false;
@@ -88,11 +88,10 @@ function generateNumberInsertString($orderNumber) {
 			$sql = $sql . ', ';
 		}
 		$sql = $sql . "('" . $orderNumber . ",";
-		$sql = $sql . "'" . $_POST[$portednumName] . "',";
-		$sql = $sql . "'" . $_POST[$btnumberName] . "',";
-		$sql = $sql . "'" . $_POST[$portnumber911Name] . "')";
-		
-		
+		$sql = $sql . "'" . test_input($_POST[$portednumName]) . "',";
+		$sql = $sql . "'" . test_input($_POST[$btnumberName]) . "',";
+		$sql = $sql . "'" . test_input($_POST[$portnumber911Name]) . "')";
+
 		$index++;
 		$portednumName = "portednumber_" . $index;
 	}
@@ -102,20 +101,20 @@ function generateNumberInsertString($orderNumber) {
 function generateCustomerInsertString() {
 	$sql = 'INSERT INTO Customers (End_User_Name, Cust_Telephone, Address_1, Address_2, City, State, Zip, Emerg_Address_1, Emerg_Address_2, Emerg_City, Emerg_State, Emerg_Zip, Emerg_Phone,Customer_Time_Zone) 
 			VALUES(';
-	$sql = $sql . "'" . $_SESSION["endusername"] . "',";
-	$sql = $sql . "'" . $_SESSION["cmtelephone"] . "',";
-	$sql = $sql . "'" . $_SESSION["address1"] ."',";
-	$sql = $sql . "'" . $_SESSION["address2"] ."',";
-	$sql = $sql . "'" . $_SESSION["city"] ."',";
-	$sql = $sql . "'" . $_SESSION["state"] ."',";
-	$sql = $sql . "'" . $_SESSION["zipcode"] ."',";
-	$sql = $sql . "'" . $_SESSION["emergaddress1"] ."',";
-	$sql = $sql . "'" . $_SESSION["emergaddress2"] ."',";
-	$sql = $sql . "'" . $_SESSION["emergcity"] ."',";
-	$sql = $sql . "'" . $_SESSION["emergstate"]."',";
-	$sql = $sql . "'" . $_SESSION["emergzipcode"] ."',";
-	$sql = $sql . "'" . $_SESSION["emergphonenumber"] ."',";
-	$sql = $sql . "'" . $_SESSION["customertimezone"] ."')";
+	$sql = $sql . "'" . test_input($_SESSION["endusername"]) . "',";
+	$sql = $sql . "'" . test_input($_SESSION["cmtelephone"]) . "',";
+	$sql = $sql . "'" . test_input($_SESSION["address1"]) ."',";
+	$sql = $sql . "'" . test_input($_SESSION["address2"]) ."',";
+	$sql = $sql . "'" . test_input($_SESSION["city"]) ."',";
+	$sql = $sql . "'" . test_input($_SESSION["state"]) ."',";
+	$sql = $sql . "'" . test_input($_SESSION["zipcode"]) ."',";
+	$sql = $sql . "'" . test_input($_SESSION["emergaddress1"]) ."',";
+	$sql = $sql . "'" . test_input($_SESSION["emergaddress2"]) ."',";
+	$sql = $sql . "'" . test_input($_SESSION["emergcity"]) ."',";
+	$sql = $sql . "'" . test_input($_SESSION["emergstate"])."',";
+	$sql = $sql . "'" . test_input($_SESSION["emergzipcode"]) ."',";
+	$sql = $sql . "'" . test_input($_SESSION["emergphonenumber"]) ."',";
+	$sql = $sql . "'" . test_input($_SESSION["customertimezone"]) ."')";
 	
 	return $sql;
 }
@@ -124,23 +123,23 @@ function generateOrderInsertString($Cust_ID) {
 			Reseller_Ref_ID, Request_Built, Request_Service, Or_Sooner, Add_Exist_Cust,
 			Porting, New_Numbers, New_Number_Qty, New_Number_AC, Emerg_New_Number, Virtual_Numbers, VTN_quantity) VALUES(';
 	
-	$sql = $sql . "'" .  $_SESSION ["emergprovisionrequired"]  . "',";
-	$sql = $sql . "'" . addslashes( $_SESSION ["orderdetails"] ) . "',";
+	$sql = $sql . "'" . test_input($_SESSION ["emergprovisionrequired"]) . "',";
+	$sql = $sql . "'" . addslashes(test_input($_SESSION ["orderdetails"])) . "',";
 	$sql = $sql . "'" . $Cust_ID . "',";
-	$sql = $sql . "'" .  $_SESSION ["spcode"]  . "',";
-	$sql = $sql . "'" .  $_SESSION ["resellercn"]  . "',";
-	$sql = $sql . "'" .  $_SESSION ["resellerrefid"]  . "',";
-	$sql = $sql . "'" .  $_SESSION ["requestedbuilt"]  . "',";
-	$sql = $sql . "'" .  $_SESSION ["requestedinservice"]  . "',";
-	$sql = $sql . "'" .  $_SESSION ["orsooner"]  . "',";
-	$sql = $sql . "'" .  $_SESSION ["addtoexistingcustomer"]  . "',";
-	$sql = $sql . "'" . $_POST["porting"] . "',";
-	$sql = $sql . "'" . $_POST["newnumbers"] . "',";
-	$sql = $sql . "'" . $_POST["newnumberquantity"] . "',";
-	$sql = $sql . "'" . $_POST["newnumberac"] . "',";
-	$sql = $sql . "'" . $_POST["emergnewnumber"] . "',";
-	$sql = $sql . "'" . $_POST["virtualnumbers"] . "',";
-	$sql = $sql . "'" . $_POST["vtnquantity"] . "')";
+	$sql = $sql . "'" . test_input($_SESSION ["spcode"]) . "',";
+	$sql = $sql . "'" . test_input($_SESSION ["resellercn"]) . "',";
+	$sql = $sql . "'" . test_input($_SESSION ["resellerrefid"]) . "',";
+	$sql = $sql . "'" . test_input($_SESSION ["requestedbuilt"]) . "',";
+	$sql = $sql . "'" . test_input($_SESSION ["requestedinservice"]) . "',";
+	$sql = $sql . "'" . test_input($_SESSION ["orsooner"])  . "',";
+	$sql = $sql . "'" . test_input($_SESSION ["addtoexistingcustomer"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["porting"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["newnumbers"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["newnumberquantity"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["newnumberac"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["emergnewnumber"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["virtualnumbers"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["vtnquantity"]) . "')";
 	return $sql;
 }
 function sendOrderAlertEmail($orderNumber,$orderUtils){
