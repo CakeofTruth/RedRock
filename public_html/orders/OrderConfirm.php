@@ -34,7 +34,7 @@ if (mysqli_query ( $conn, $customerInsertString )) {
 		$orderNumber = $conn->insert_id;
 		$numberInsertString = generateNumberInsertString($orderNumber);
 		$numberInsertSuccess = mysqli_query ( $conn, $numberInsertString );
-		if($numberInsertString){
+		if($numberInsertSuccess){
 			echo "<p style= 'align:center';> Order Created Successfully!  </p><br>";
 			sendOrderAlertEmail($orderNumber,$orderUtils);
 			$itemizedInsert = generateItemizedInsertString($orderNumber,$orderUtils);
@@ -68,6 +68,7 @@ function unsetOrderSessionVariables(){
 		unsetSessionVariable($itemName);
 	}
 		
+	//TODO: Make an array of session variables and loop through it
 	unsetSessionVariable('totalMonthly');
 	unsetSessionVariable('totalNonRecurring');
 	unsetSessionVariable('resellername');
@@ -107,7 +108,7 @@ function unsetOrderSessionVariables(){
 	unsetSessionVariable('attachmentDir');
 }
 function unsetSessionVariable ($sessionVariableName) {
-	unset($GLOBALS[_SESSION][$sessionVariableName]);
+	unset($GLOBALS['_SESSION'][$sessionVariableName]);
 }
 function generateItemizedInsertString($orderNumber,$orderUtils){
 	$sql = 'INSERT INTO OrderItems(Order_No, USOC, Quantity) VALUES';
@@ -144,10 +145,17 @@ function generateNumberInsertString($orderNumber) {
 		}else{
 			$sql = $sql . ', ';
 		}
-		$sql = $sql . "('" . $orderNumber . ",";
+		$btValue = $nineOneOneValue = "no";
+		if(isset($_POST[$btnumberName]) && $_POST[$btnumberName] == "on"){
+			$btValue = "yes";	
+		}
+		if(isset($_POST[$portnumber911Name]) && $_POST[$portnumber911Name] == "on"){
+			$nineOneOneValue = "yes";
+		}
+		$sql = $sql . "('" . $orderNumber . "',";
 		$sql = $sql . "'" . test_input($_POST[$portednumName]) . "',";
-		$sql = $sql . "'" . test_input($_POST[$btnumberName]) . "',";
-		$sql = $sql . "'" . test_input($_POST[$portnumber911Name]) . "')";
+		$sql = $sql . "'" . $btValue  . "',";
+		$sql = $sql . "'" . $nineOneOneValue . "')";
 
 		$index++;
 		$portednumName = "portednumber_" . $index;
@@ -178,7 +186,7 @@ function generateCustomerInsertString() {
 function generateOrderInsertString($Cust_ID) {
 	$sql = 'INSERT INTO Orders (Emerg_Prov_Req, Order_Details, Customer_ID, Serv_Prov_CD, Res_Cont_Name, 
 			Reseller_Ref_ID, Request_Built, Request_Service, Or_Sooner, Add_Exist_Cust,
-			Porting, New_Numbers, New_Number_Qty, New_Number_AC, Emerg_New_Number, Virtual_Numbers, VTN_quantity) VALUES(';
+			Porting, New_Numbers, New_Number_Qty, New_Number_AC, Emerg_New_Number, Virtual_Numbers, VTN_quantity, Acct_No) VALUES(';
 	
 	$sql = $sql . "'" . test_input($_SESSION ["emergprovisionrequired"]) . "',";
 	$sql = $sql . "'" . addslashes(test_input($_SESSION ["orderdetails"])) . "',";
@@ -196,7 +204,8 @@ function generateOrderInsertString($Cust_ID) {
 	$sql = $sql . "'" . test_input($_POST["newnumberac"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["emergnewnumber"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["virtualnumbers"]) . "',";
-	$sql = $sql . "'" . test_input($_POST["vtnquantity"]) . "')";
+	$sql = $sql . "'" . test_input($_POST["vtnquantity"]) . "',";
+	$sql = $sql . "'" . $_SESSION["Acct_No"] . "')";
 	return $sql;
 }
 function sendOrderAlertEmail($orderNumber,$orderUtils){
