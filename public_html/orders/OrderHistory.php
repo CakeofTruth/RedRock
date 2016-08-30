@@ -9,8 +9,16 @@ include_once ($_SERVER ["DOCUMENT_ROOT"] . '/portal/portalheader.php');
 include_once $root . '/classes/OrderUtils.php';
 ?>
 
-	<body>
-	<h4> Order History </h4>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Order History</title>
+<link rel='stylesheet' id='custom-css' href='/css/customerorderform.css'
+	type='text/css' media='all' />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+</head>
+<body>
+	<h1> Order History </h1>
 		<div id="box">
 		<table id="ItemOrderTable">
 			<thead>
