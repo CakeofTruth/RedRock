@@ -50,7 +50,7 @@ $attachmentError = "";
 	
 function extensionIsValid($extension){
 	$allowed_ext = false;
-	$allowed_extensions = array("jpg", "jpeg", "doc", "pdf", "docx", "xls", "xlsx", "csv", "txt");
+	$allowed_extensions = array("png","jpg", "jpeg", "doc", "pdf", "docx", "xls", "xlsx", "csv", "txt");
 	foreach($allowed_extensions as $allowed) {
 		if(strcasecmp($allowed,$extension) == 0){
 			$allowed_ext = true;
