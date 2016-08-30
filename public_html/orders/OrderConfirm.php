@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	
 $root = $_SERVER ["DOCUMENT_ROOT"];
 include_once ($_SERVER ["DOCUMENT_ROOT"] . '/portal/portalheader.php');
@@ -100,87 +99,50 @@ function generateNumberInsertString($orderNumber) {
 	return $sql;
 }
  
-//function generateCustomerInsertString() {
-	$insert_query = 'INSERT INTO Customers (End_User_Name, Cust_Telephone, Address_1, Address_2, City, State, Zip, Emerg_Address_1, Emerg_Address_2, Emerg_City, Emerg_State, Emerg_Zip, Emerg_Phone,Customer_Time_Zone) 
-			VALUES(
-	'. $_SESSION['endusername'] .',
-	'. $_SESSION['cmtelephone'] .',
-	'. $_SESSION['address1'] .',
-	'. $_SESSION['address2'] .',
-	'. $_SESSION['city'] .',
-	'. $_SESSION['state'] .',
-	'. $_SESSION['zip'] .',
-	'. $_SESSION['emergaddress1'] .',
-	'. $_SESSION['emergaddress2'] .',
-	'. $_SESSION['emergcity'] .',
-	'. $_SESSION['emergstate'] .',
-	'. $_SESSION['emergzipcode'] .',
-	'. $_SESSION['emergphonenumber'] .',
-	'. $_SESSION['customertimezone'] .',
-					
-			)';
-	
-/*	$sql = $sql . "'" . test_input($_POST["endusername"]) . "',";
-	$sql = $sql . "'" . test_input($_POST["cmtelephone"]) . "',";
-	$sql = $sql . "'" . test_input($_POST["address1"]) ."',";
-	$sql = $sql . "'" . test_input($_POST["address2"]) ."',";
-	$sql = $sql . "'" . test_input($_POST["city"]) ."',";
-	$sql = $sql . "'" . test_input($_POST["state"]) ."',";
-	$sql = $sql . "'" . test_input($_POST["zipcode"]) ."',";
-	$sql = $sql . "'" . test_input($_POST["emergaddress1"]) ."',";
-	$sql = $sql . "'" . test_input($_POST["emergaddress2"]) ."',";
-	$sql = $sql . "'" . test_input($_POST["emergcity"]) ."',";
-	$sql = $sql . "'" . test_input($_POST["emergstate"]) ."',";
-	$sql = $sql . "'" . test_input($_POST["emergzipcode"]) ."',";
-	$sql = $sql . "'" . test_input($_POST["emergphonenumber"]) ."',";
-	$sql = $sql . "'" . test_input($_POST["customertimezone"]) ."')";
+function generateCustomerInsertString() {
+	$sql = 'INSERT INTO Customers (End_User_Name, Cust_Telephone, Address_1, Address_2, City, State, Zip, Emerg_Address_1, Emerg_Address_2, Emerg_City, Emerg_State, Emerg_Zip, Emerg_Phone,Customer_Time_Zone) 
+			VALUES(';
+	$sql = $sql . "'" . $_SESSION["endusername"] . "',";
+	$sql = $sql . "'" . $_SESSION["cmtelephone"] . "',";
+	$sql = $sql . "'" . $_SESSION["address1"] ."',";
+	$sql = $sql . "'" . $_SESSION["address2"] ."',";
+	$sql = $sql . "'" . $_SESSION["city"] ."',";
+	$sql = $sql . "'" . $_SESSION["state"] ."',";
+	$sql = $sql . "'" . $_SESSION["zipcode"] ."',";
+	$sql = $sql . "'" . $_SESSION["emergaddress1"] ."',";
+	$sql = $sql . "'" . $_SESSION["emergaddress2"] ."',";
+	$sql = $sql . "'" . $_SESSION["emergcity"] ."',";
+	$sql = $sql . "'" . $_SESSION["emergstate"]."',";
+	$sql = $sql . "'" . $_SESSION["emergzipcode"] ."',";
+	$sql = $sql . "'" . $_SESSION["emergphonenumber"] ."',";
+	$sql = $sql . "'" . $_SESSION["customertimezone"] ."')";
 	
 	return $sql;
 }
-*/
-//function generateOrderInsertString($Cust_ID) {
-	$insert_query = 'INSERT INTO Orders (Emerg_Prov_Req, Order_Details, Customer_ID, Serv_Prov_CD, Res_Cont_Name, 
+function generateOrderInsertString($Cust_ID) {
+	$sql = 'INSERT INTO Orders (Emerg_Prov_Req, Order_Details, Customer_ID, Serv_Prov_CD, Res_Cont_Name, 
 			Reseller_Ref_ID, Request_Built, Request_Service, Or_Sooner, Add_Exist_Cust,
-			Porting, New_Numbers, New_Number_Qty, New_Number_AC, Emerg_New_Number, Virtual_Numbers, VTN_quantity) VALUES(
-		'. $_SESSION['emergprovisionrequired'] .',	
-		'. $_SESSION['orderdetails'] .',
-		'. $Cust_ID .',
-		'. $_SESSION['spcode'] .',
-		'. $_SESSION['resellercn'] .',
-		'. $_SESSION['resellerrefid'] .',
-		'. $_SESSION['requestedbuilt'] .',
-		'. $_SESSION['requestedinservice'] .',
-		'. $_SESSION['orsooner'] .',
-		'. $_SESSION['addtoexistingcustomer'] .',
-		'. $_SESSION['porting'] .',
-		'. $_SESSION['newnumbers'] .',
-		'. $_SESSION['newnumberquantity'] .',
-		'. $_SESSION['newnumberac'] .',
-		'. $_SESSION['emergnewnumber'] .',
-		'. $_SESSION['virtualnumbers'] .',
-		'. $_SESSION['vtnquantity'] .',
-				)';
-/*	
-	$sql = $sql . "'" . test_input ( $_POST ["emergprovisionrequired"] ) . "',";
-	$sql = $sql . "'" . addslashes(test_input ( $_POST ["orderdetails"] )) . "',";
+			Porting, New_Numbers, New_Number_Qty, New_Number_AC, Emerg_New_Number, Virtual_Numbers, VTN_quantity) VALUES(';
+	
+	$sql = $sql . "'" .  $_SESSION ["emergprovisionrequired"]  . "',";
+	$sql = $sql . "'" . addslashes( $_SESSION ["orderdetails"] ) . "',";
 	$sql = $sql . "'" . $Cust_ID . "',";
-	$sql = $sql . "'" . test_input ( $_POST ["spcode"] ) . "',";
-	$sql = $sql . "'" . test_input ( $_POST ["resellercn"] ) . "',";
-	$sql = $sql . "'" . test_input ( $_POST ["resellerrefid"] ) . "',";
-	$sql = $sql . "'" . test_input ( $_POST ["requestedbuilt"] ) . "',";
-	$sql = $sql . "'" . test_input ( $_POST ["requestedinservice"] ) . "',";
-	$sql = $sql . "'" . test_input ( $_POST ["orsooner"] ) . "',";
-	$sql = $sql . "'" . test_input ( $_POST ["addtoexistingcustomer"] ) . "',";
-	$sql = $sql . "'" . test_input($_POST["porting"]) . "',";
-	$sql = $sql . "'" . test_input($_POST["newnumbers"]) . "',";
-	$sql = $sql . "'" . test_input($_POST["newnumberquantity"]) . "',";
-	$sql = $sql . "'" . test_input($_POST["newnumberac"]) . "',";
-	$sql = $sql . "'" . test_input($_POST["emergnewnumber"]) . "',";
-	$sql = $sql . "'" . test_input($_POST["virtualnumbers"]) . "',";
-	$sql = $sql . "'" . test_input($_POST["vtnquantity"]) . "')";
+	$sql = $sql . "'" .  $_SESSION ["spcode"]  . "',";
+	$sql = $sql . "'" .  $_SESSION ["resellercn"]  . "',";
+	$sql = $sql . "'" .  $_SESSION ["resellerrefid"]  . "',";
+	$sql = $sql . "'" .  $_SESSION ["requestedbuilt"]  . "',";
+	$sql = $sql . "'" .  $_SESSION ["requestedinservice"]  . "',";
+	$sql = $sql . "'" .  $_SESSION ["orsooner"]  . "',";
+	$sql = $sql . "'" .  $_SESSION ["addtoexistingcustomer"]  . "',";
+	$sql = $sql . "'" . $_POST["porting"] . "',";
+	$sql = $sql . "'" . $_POST["newnumbers"] . "',";
+	$sql = $sql . "'" . $_POST["newnumberquantity"] . "',";
+	$sql = $sql . "'" . $_POST["newnumberac"] . "',";
+	$sql = $sql . "'" . $_POST["emergnewnumber"] . "',";
+	$sql = $sql . "'" . $_POST["virtualnumbers"] . "',";
+	$sql = $sql . "'" . $_POST["vtnquantity"] . "')";
 	return $sql;
 }
-*/
 function sendOrderAlertEmail($orderNumber,$orderUtils){
     $message = createOrderMessage($orderNumber,$orderUtils);
     $from = 'noreply@redrocktelecom.com';
@@ -188,7 +150,7 @@ function sendOrderAlertEmail($orderNumber,$orderUtils){
     $subject = 'Red Rock Telecom Order Number: ' . $orderNumber;
     $to = "ops@redrocktelecom.com," . $_SESSION["User_Email"];
     $mailUtils = new MailUtils();
-    $mailUtils->sendWithAttachments($from, $fromname, $to, $subject, $message, $_POST['attachmentDir'],$_POST["attachments"]);
+    $mailUtils->sendWithAttachments($from, $fromname, $to, $subject, $message, $_SESSION['attachmentDir'],$_SESSION["attachmentString"]);
 }
 function createOrderMessage($orderNumber,$orderUtils){
     	$message = '
@@ -209,8 +171,8 @@ function createOrderMessage($orderNumber,$orderUtils){
 		</div>
 		<div style="clear:both"></div>
 		<div id="customer">
-            <div id="customer-title" style="font-size: 20px; font-weight: bold; float: left;"><?php echo nl2br("' .	test_input($_POST["resellername"]) . ' \n
-            		' .	test_input($_POST["resellerba1"]) . ' \n ' .	test_input($_POST["city"]) . ' ' .	test_input($_POST["state"]) . ', ' .	test_input($_POST["zipcode"]) . '");?> </div>
+            <div id="customer-title" style="font-size: 20px; font-weight: bold; float: left;"><?php echo nl2br("' .	test_input($_SESSION["resellername"]) . ' \n
+            		' .	test_input($_SESSION["resellerba1"]) . ' \n ' .	test_input($_SESSION["city"]) . ' ' .	test_input($_SESSION["state"]) . ', ' .	test_input($_SESSION["zipcode"]) . '");?> </div>
             <table id="meta" style="margin-top: 1px; width: 300px; float: right;">
                 <tr>
                     <td class="meta-head" style="text-align: left; background: #eee;">Invoice #</td>
@@ -230,10 +192,10 @@ function createOrderMessage($orderNumber,$orderUtils){
 		      <th style="background: #eee;">Monthly Recurring Cost</th>
 		      <th style="background: #eee;">One Time Cost</th>
 		  </tr>';
-		$result = $orderUtils->getResellerItems($_POST["spcode"]);
+		$result = $orderUtils->getResellerItems($_SESSION["spcode"]);
 		while($row  = $result->fetch_array()){
 			$itemName = $row["USOC"];
-			$quantity = $_POST[$itemName];
+			$quantity = $_SESSION[$itemName];
 			$description = $row["Description"] ;
 			$monthly = $row["Recurring_Price"];
 			$nonRecurring = $row["One_Time_Charge"];
@@ -250,56 +212,56 @@ function createOrderMessage($orderNumber,$orderUtils){
 		 $message .= '<tr>
 		      <td colspan="2" class="blank"> </td>
 		      <td colspan="2" class="total-line" style="border-right: 0; text-align: right;">Monthly Recurring Charge:</td>
-		      <td class="total-value" style="border-left: 0; padding: 10px;"><div id="subtotal" style="height: 20px; background: none;" >' . $_POST["totalMonthly"] . '<br></div></td>
+		      <td class="total-value" style="border-left: 0; padding: 10px;"><div id="subtotal" style="height: 20px; background: none;" >' . $_SESSION["totalMonthly"] . '<br></div></td>
 		  </tr>
 		  <tr>
 		      <td colspan="2" class="blank"> </td>
 		      <td colspan="2" class="total-line" style="border-right: 0; text-align: right;">Non-Recurring Charge:</td>
-		      <td class="total-value" style="border-left: 0; padding: 10px;"><div id="total" style="height: 20px; background: none;">' . $_POST["totalNonRecurring"] . '</div></td>
+		      <td class="total-value" style="border-left: 0; padding: 10px;"><div id="total" style="height: 20px; background: none;">' . $_SESSION["totalNonRecurring"] . '</div></td>
 		  </tr>
 		</table>
 		<h3>Customer Information:</h3>
 		<table id= "customer" style="clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black;">
 			<tr class="customer-row">
-				<td class="customer-name"><div class="delete-wpr" style="width: 100%; height: 50px;">Name: ' . 	test_input($_POST["endusername"]) . '</div></td>
+				<td class="customer-name"><div class="delete-wpr" style="width: 100%; height: 50px;">Name: ' . 	test_input($_SESSION["endusername"]) . '</div></td>
 			</tr>
 			<tr class = "customer-row">
-				<td class="customer-address"><div class="delete-wpr" style="width: 100%; height: 50px;">Address: ' . 	test_input($_POST["emergaddress1"]) . ' '
-						. test_input($_POST["emergaddress2"]) . ' ' . 	test_input($_POST["emergcity"]) . ', ' . 	test_input($_POST["emergstate"]) . ', ' . 	test_input($_POST["emergzipcode"]) . '</div></td>
+				<td class="customer-address"><div class="delete-wpr" style="width: 100%; height: 50px;">Address: ' . 	test_input($_SESSION["emergaddress1"]) . ' '
+						. test_input($_SESSION["emergaddress2"]) . ' ' . 	test_input($_SESSION["emergcity"]) . ', ' . 	test_input($_SESSION["emergstate"]) . ', ' . 	test_input($_SESSION["emergzipcode"]) . '</div></td>
 			</tr>
 			<tr class= "customer-row">
-				<td class="customer-btn"><div class="delete-wpr" style="width: 100%; height: 50px;">Billing Telephone Number: ' . 	test_input($_POST["cmtelephone"]) . '</div></td>
+				<td class="customer-btn"><div class="delete-wpr" style="width: 100%; height: 50px;">Billing Telephone Number: ' . 	test_input($_SESSION["cmtelephone"]) . '</div></td>
 			</tr>
 			<tr class= "customer-row">
-				<td class="customer-time-zone"><div class="delete-wpr" style="width: 100%; height: 50px;">Customer Time Zone:' . 	test_input($_POST["customertimezone"]) . '</div></td>
+				<td class="customer-time-zone"><div class="delete-wpr" style="width: 100%; height: 50px;">Customer Time Zone:' . 	test_input($_SESSION["customertimezone"]) . '</div></td>
 			</tr>
 			<tr class= "customer-row">
 				<td class="customer-requested-built"><div class="delete-wpr" style="width: 100%; height: 50px;">Requested Built/Service Provisioned Date:
-						' . 	test_input($_POST["requestedbuilt"]) . ' </div></td>
+						' . 	test_input($_SESSION["requestedbuilt"]) . ' </div></td>
 			</tr>
 			<tr class= "customer-row">
 				<td class="customer-requested-service"><div class="delete-wpr" style="width: 100%; height: 50px;">Requested In Service/ Effective Billing Date:
-								' . 	test_input($_POST["requestedinservice"]) . '</div></td>
+								' . 	test_input($_SESSION["requestedinservice"]) . '</div></td>
 			</tr>
 			<tr class= "customer-row">
-				<td class="customer-existing"><div class="delete-wpr" style="width: 100%; height: 50px;">Add To Existing Customer: ' . 	test_input($_POST["addtoexistingcustomer"]) . '</div></td>
+				<td class="customer-existing"><div class="delete-wpr" style="width: 100%; height: 50px;">Add To Existing Customer: ' . 	test_input($_SESSION["addtoexistingcustomer"]) . '</div></td>
 			</tr>
 			<tr class= "customer-row">
 				<td class="customer-emergprovisionrequired"><div class="delete-wpr" style="width: 100%; height: 50px;">Does this order require that 911 be provisioned per the data provided below?:
-			 ' . 	test_input($_POST["emergprovisionrequired"]) . ' </div></td>
+			 ' . 	test_input($_SESSION["emergprovisionrequired"]) . ' </div></td>
 			</tr>
 			<tr class= "customer-row">
-				<td class="customer-emergaddress"><div class="delete-wpr" style="width: 100%; height: 50px;">Service/911 Address: ' . 	test_input($_POST["emergaddress1"]) . '
-						' . 	test_input($_POST["emergaddress2"]) . ' ' . 	test_input($_POST["emergcity"]) . ', ' . 	test_input($_POST["emergstate"]) . ', ' . 	test_input($_POST["emergzipcode"]) . '</div></td>
+				<td class="customer-emergaddress"><div class="delete-wpr" style="width: 100%; height: 50px;">Service/911 Address: ' . 	test_input($_SESSION["emergaddress1"]) . '
+						' . 	test_input($_SESSION["emergaddress2"]) . ' ' . 	test_input($_SESSION["emergcity"]) . ', ' . 	test_input($_SESSION["emergstate"]) . ', ' . 	test_input($_SESSION["emergzipcode"]) . '</div></td>
 			</tr>
 			<tr class="customer-row">
-				<td class= "customer-emergphonenumber"><div class="delete-wpr" style="width: 100%; height: 50px;"> Emergency Phone Number: ' . test_input($_POST["emergphonenumber"]) . '</div></td>
+				<td class= "customer-emergphonenumber"><div class="delete-wpr" style="width: 100%; height: 50px;"> Emergency Phone Number: ' . test_input($_SESSION["emergphonenumber"]) . '</div></td>
 			</tr>
 		</table>
 		<h3>Order Details:</h3>
 			<table id= "orderdetails" style="clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black;">
 				<tr class= "order-row">
-					<td class="order-details"><div class="delete-wpr" style="width: 100%; height: 50px;">' . 	test_input($_POST["orderdetails"]) . '</div></td>
+					<td class="order-details"><div class="delete-wpr" style="width: 100%; height: 50px;">' . 	test_input($_SESSION["orderdetails"]) . '</div></td>
 				</tr>
 			</table>
 		</div>
@@ -308,6 +270,7 @@ function createOrderMessage($orderNumber,$orderUtils){
 </html>' ;
     return $message;
 }
+	
 function test_input($data) {
 	if(empty($data)){
 		return "";
