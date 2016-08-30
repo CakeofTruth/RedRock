@@ -52,6 +52,63 @@ if (mysqli_query ( $conn, $customerInsertString )) {
 	//echo "Error: " . $customerInsertString . "<br>" . mysqli_error ( $conn );
 }
 $conn->close ();
+unsetOrderSessionVariables();
+
+/**
+ * This function goes through each of the session variables set throught the course of the order and unsets them so they do not overlap with other orders 
+ * made during the same login/session.
+ */
+function unsetOrderSessionVariables(){
+	//Have to go through each of the item session variables before the spcode is unset
+	include_once $_SERVER ["DOCUMENT_ROOT"] . '/classes/OrderUtils.php';
+	$orderUtils = new OrderUtils();
+	$result = $orderUtils->getResellerItems($_SESSION['spcode']);
+	while($row  = $result->fetch_array()){
+		$itemName = $row["USOC"];
+		unsetSessionVariable($itemName);
+	}
+		
+	unsetSessionVariable('totalMonthly');
+	unsetSessionVariable('totalNonRecurring');
+	unsetSessionVariable('resellername');
+	unsetSessionVariable('resellerba1');
+	unsetSessionVariable('resellerba2');
+	unsetSessionVariable('resellercity');
+	unsetSessionVariable('resellerstate');
+	unsetSessionVariable('resellerzipcode');
+	unsetSessionVariable('resellertelephonenumber');
+	unsetSessionVariable('emailaddress');
+	unsetSessionVariable('accountnumber');
+	unsetSessionVariable('spcode');
+	unsetSessionVariable('resellercn');
+	unsetSessionVariable('contactTelephone');
+	unsetSessionVariable('endusername');
+	unsetSessionVariable('address1');
+	unsetSessionVariable('address2');
+	unsetSessionVariable('city');
+	unsetSessionVariable('state');
+	unsetSessionVariable('zipcode');
+	unsetSessionVariable('cmtelephone');
+	unsetSessionVariable('resellerrefid');
+	unsetSessionVariable('requestedbuilt');
+	unsetSessionVariable('requestedinservice');
+	unsetSessionVariable('orsooner');
+	unsetSessionVariable('addtoexistingcustomer');
+	unsetSessionVariable('customertimezone');
+	unsetSessionVariable('emergprovisionrequired');
+	unsetSessionVariable('emergaddress1');
+	unsetSessionVariable('emergaddress2');
+	unsetSessionVariable('emergcity');
+	unsetSessionVariable('emergstate');
+	unsetSessionVariable('emergzipcode');
+	unsetSessionVariable('emergphonenumber');
+	unsetSessionVariable('orderdetails');
+	unsetSessionVariable('attachmentString');
+	unsetSessionVariable('attachmentDir');
+}
+function unsetSessionVariable ($sessionVariableName) {
+	unset($GLOBALS[_SESSION][$sessionVariableName]);
+}
 function generateItemizedInsertString($orderNumber,$orderUtils){
 	$sql = 'INSERT INTO OrderItems(Order_No, USOC, Quantity) VALUES';
 	$result = $orderUtils->getResellerItems($_SESSION["spcode"]);
