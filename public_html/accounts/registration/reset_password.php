@@ -27,8 +27,8 @@ $passwordError = $passwordMatchError = "";
 			$email = getEmailFromHash($hash);
 			if(updatePassword($email,$_POST["password"])){
 				sendPasswordChangedEmail($email);
-				echo "Your password has been updated!<br>";
-                echo 'To return to the login page, <a href="/accounts/login.php">click here</a>';
+				echo "<p style= 'align:center';>Your password has been updated!<br></p>";
+                echo "<p style= 'align:center';>To return to the login page, <a href='/accounts/login.php'>click here</a></p>";
 			}
 			else{
 				echo "Failed to update password";
@@ -39,8 +39,8 @@ $passwordError = $passwordMatchError = "";
 		}
 	}
 	else{
-		echo 'This is the password reset page. If you requested a password reset and arrived here via an email link, 
-				please retry, or contact us at customerservice@redrocktelecom.com';
+		echo "<p style= 'align:center';>This is the password reset page. If you requested a password reset and arrived here via an email link, 
+				please retry, or contact us at customerservice@redrocktelecom.com </p>";
 	}
 	
 function sendPasswordChangedEmail($email){

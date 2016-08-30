@@ -18,6 +18,8 @@
     <link rel="stylesheet" type="text/css" media="all" href="/css/bootstrap.css" />
     <!-- MAIN THEME STYLESHEET -->
     <link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+    <!-- OrderForms stylesheets -->
+    <link rel="stylesheet" href="/css/orders/OrderTable.css" type="text/css" media="all" />
 
     <!-- [favicon] begin -->
     <link rel="shortcut icon" type="image/x-icon" href="/assets/images/Redrockfavicon.png" />
@@ -72,6 +74,7 @@
                         <ul id="menu-menu" class="level-1">
 							<li><a href="/portal/portal.php"><font color="#ffffff">Home</font></a></li>
 							<li><a href="/orders/CustomerOrderForm.php"><font color="#ffffff">Place an Order</font></a>
+                            <li><a href="/orders/OrderHistory.php"><font color="#ffffff">Order History</font></a>
 							<li><a href="/accounts/logout.php"><font color="#ffffff">Log out</font></a></li>
 							</ul>
                         <!-- END MAIN NAVIGATION -->

@@ -40,7 +40,7 @@ if($formisvalid){
 	insertAccount($conn,$hash);
 	sendVerificationEmail($hash);
 	$conn->close ();
-	echo "<br>Account Created Successfully!";
+	echo "<p style= 'align:center';> <br>Account Created Successfully! </p>";
 } else {
 	include ("AccountRegistrationForm.php");
 }

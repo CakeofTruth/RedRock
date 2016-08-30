@@ -1,4 +1,6 @@
 <?php
+	session_start();
+	
 $root = $_SERVER ["DOCUMENT_ROOT"];
 include_once ($_SERVER ["DOCUMENT_ROOT"] . '/portal/portalheader.php');
 include_once $root . '/classes/DBUtils.php';
@@ -12,6 +14,16 @@ $dbutils = new DBUtils();
 $conn = $dbutils->getDBConnection ();
 $customerInsertString = generateCustomerInsertString ();
 //echo 'Executing: ' . $customerInsertString . '<br>';
+
+//Insert the Customer to the database, then use that Customer ID to generate the Order InsertString.
+/*
+ * A couple steps here
+ * 1) Insert Customer to database
+ * 2) Use Customer Id to insert Order String
+ * 3) Use the Order Number to Generate the number insert string
+ * 4) Send the order notification Email
+ * 5) insert the Itemized order to the database
+ */
 if (mysqli_query ( $conn, $customerInsertString )) {
 	//echo "New customer created successfully";
 	$customerID = $conn->insert_id;
@@ -20,15 +32,19 @@ if (mysqli_query ( $conn, $customerInsertString )) {
 	//echo 'Executing: ' . $orderInsertString . '<br>';
 	$orderInsertSuccess = mysqli_query ( $conn, $orderInsertString );
 	if ($orderInsertSuccess) {
-		echo "Order Created Successfully!  <br>";
 		$orderNumber = $conn->insert_id;
-		sendOrderAlertEmail($orderNumber,$orderUtils);
-		$itemizedInsert = generateItemizedInsertString($orderNumber,$orderUtils);
-		if (mysqli_query ( $conn, $itemizedInsert)) {
-			echo '<a href= "/portal/portal.php">Return to portal</a>';
-		}
-		else{
-			echo "Failed to insert Itemized order";
+		$numberInsertString = generateNumberInsertString($orderNumber);
+		$numberInsertSuccess = mysqli_query ( $conn, $numberInsertString );
+		if($numberInsertString){
+			echo "<p style= 'align:center';> Order Created Successfully!  </p><br>";
+			sendOrderAlertEmail($orderNumber,$orderUtils);
+			$itemizedInsert = generateItemizedInsertString($orderNumber,$orderUtils);
+			if (mysqli_query ( $conn, $itemizedInsert)) {
+				echo '<a href= "/portal/portal.php">Return to portal</a>';
+			}
+			else{
+				echo "Failed to insert Itemized order";
+			}
 		}
 	} else {
 		//echo "Error inserting Order information: " . mysqli_error ( $conn );
@@ -57,15 +73,60 @@ function generateItemizedInsertString($orderNumber,$orderUtils){
 	}
 	return $sql;
 }
-function generateCustomerInsertString() {
-	$sql = 'INSERT INTO Customers (End_User_Name, Cust_Telephone, Address_1, Address_2, City, State, Zip, Emerg_Address_1, Emerg_Address_2, Emerg_City, Emerg_State, Emerg_Zip, Emerg_Phone,Customer_Time_Zone) VALUES(';
-	$sql = $sql . "'" . test_input($_POST["endusername"]) . "',";
+
+function generateNumberInsertString($orderNumber) {
+	$sql = 'INSERT INTO NumberDetails(Order_No, Ported_Number, BTNumber, Port_Number_911) VALUES';
+	$index = 1;
+	$portednumName = "portednumber_" . $index;
+	$firstValues = true;
+	while(isset($_POST[$portednumName])){
+		$portnumber911Name = "portnumber911_" . $index;
+		$btnumberName = "btnumber_" . $index;
+		
+		if($firstValues){
+			$firstValues = false;
+		}else{
+			$sql = $sql . ', ';
+		}
+		$sql = $sql . "('" . $orderNumber . ",";
+		$sql = $sql . "'" . $_POST[$portednumName] . "',";
+		$sql = $sql . "'" . $_POST[$btnumberName] . "',";
+		$sql = $sql . "'" . $_POST[$portnumber911Name] . "')";
+		
+		
+		$index++;
+		$portednumName = "portednumber_" . $index;
+	}
+	return $sql;
+}
+ 
+//function generateCustomerInsertString() {
+	$insert_query = 'INSERT INTO Customers (End_User_Name, Cust_Telephone, Address_1, Address_2, City, State, Zip, Emerg_Address_1, Emerg_Address_2, Emerg_City, Emerg_State, Emerg_Zip, Emerg_Phone,Customer_Time_Zone) 
+			VALUES(
+	'. $_SESSION['endusername'] .',
+	'. $_SESSION['cmtelephone'] .',
+	'. $_SESSION['address1'] .',
+	'. $_SESSION['address2'] .',
+	'. $_SESSION['city'] .',
+	'. $_SESSION['state'] .',
+	'. $_SESSION['zip'] .',
+	'. $_SESSION['emergaddress1'] .',
+	'. $_SESSION['emergaddress2'] .',
+	'. $_SESSION['emergcity'] .',
+	'. $_SESSION['emergstate'] .',
+	'. $_SESSION['emergzipcode'] .',
+	'. $_SESSION['emergphonenumber'] .',
+	'. $_SESSION['customertimezone'] .',
+					
+			)';
+	
+/*	$sql = $sql . "'" . test_input($_POST["endusername"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["cmtelephone"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["address1"]) ."',";
 	$sql = $sql . "'" . test_input($_POST["address2"]) ."',";
 	$sql = $sql . "'" . test_input($_POST["city"]) ."',";
 	$sql = $sql . "'" . test_input($_POST["state"]) ."',";
 	$sql = $sql . "'" . test_input($_POST["zipcode"]) ."',";
-	$sql = $sql . "'" . test_input($_POST["cmtelephone"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["emergaddress1"]) ."',";
 	$sql = $sql . "'" . test_input($_POST["emergaddress2"]) ."',";
 	$sql = $sql . "'" . test_input($_POST["emergcity"]) ."',";
@@ -76,16 +137,30 @@ function generateCustomerInsertString() {
 	
 	return $sql;
 }
-function generateOrderInsertString($Cust_ID) {
-	$resellercn = test_input ( $_POST ["resellercn"] ); // order
-	$resellerrefid = test_input ( $_POST ["resellerrefid"] ); // order
-	$requestedbuilt = test_input ( $_POST ["requestedbuilt"] ); // order
-	$requestedinservice = test_input ( $_POST ["requestedinservice"] ); // order
-	$orsooner = test_input ( $_POST ["orsooner"] ); // order
-	$addtoexistingcustomer = test_input ( $_POST ["addtoexistingcustomer"] ); // order
-	$emergprovisionrequired = test_input ( $_POST ["emergprovisionrequired"] ); // order
-	$sql = 'INSERT INTO Orders (Emerg_Prov_Req, Order_Details, Customer_ID, Serv_Prov_CD, Res_Cont_Name, 
-			Reseller_Ref_ID, Request_Built, Request_Service, Or_Sooner, Add_Exist_Cust) VALUES(';
+*/
+//function generateOrderInsertString($Cust_ID) {
+	$insert_query = 'INSERT INTO Orders (Emerg_Prov_Req, Order_Details, Customer_ID, Serv_Prov_CD, Res_Cont_Name, 
+			Reseller_Ref_ID, Request_Built, Request_Service, Or_Sooner, Add_Exist_Cust,
+			Porting, New_Numbers, New_Number_Qty, New_Number_AC, Emerg_New_Number, Virtual_Numbers, VTN_quantity) VALUES(
+		'. $_SESSION['emergprovisionrequired'] .',	
+		'. $_SESSION['orderdetails'] .',
+		'. $Cust_ID .',
+		'. $_SESSION['spcode'] .',
+		'. $_SESSION['resellercn'] .',
+		'. $_SESSION['resellerrefid'] .',
+		'. $_SESSION['requestedbuilt'] .',
+		'. $_SESSION['requestedinservice'] .',
+		'. $_SESSION['orsooner'] .',
+		'. $_SESSION['addtoexistingcustomer'] .',
+		'. $_SESSION['porting'] .',
+		'. $_SESSION['newnumbers'] .',
+		'. $_SESSION['newnumberquantity'] .',
+		'. $_SESSION['newnumberac'] .',
+		'. $_SESSION['emergnewnumber'] .',
+		'. $_SESSION['virtualnumbers'] .',
+		'. $_SESSION['vtnquantity'] .',
+				)';
+/*	
 	$sql = $sql . "'" . test_input ( $_POST ["emergprovisionrequired"] ) . "',";
 	$sql = $sql . "'" . addslashes(test_input ( $_POST ["orderdetails"] )) . "',";
 	$sql = $sql . "'" . $Cust_ID . "',";
@@ -95,9 +170,17 @@ function generateOrderInsertString($Cust_ID) {
 	$sql = $sql . "'" . test_input ( $_POST ["requestedbuilt"] ) . "',";
 	$sql = $sql . "'" . test_input ( $_POST ["requestedinservice"] ) . "',";
 	$sql = $sql . "'" . test_input ( $_POST ["orsooner"] ) . "',";
-	$sql = $sql . "'" . test_input ( $_POST ["addtoexistingcustomer"] ) . "')";
+	$sql = $sql . "'" . test_input ( $_POST ["addtoexistingcustomer"] ) . "',";
+	$sql = $sql . "'" . test_input($_POST["porting"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["newnumbers"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["newnumberquantity"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["newnumberac"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["emergnewnumber"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["virtualnumbers"]) . "',";
+	$sql = $sql . "'" . test_input($_POST["vtnquantity"]) . "')";
 	return $sql;
 }
+*/
 function sendOrderAlertEmail($orderNumber,$orderUtils){
     $message = createOrderMessage($orderNumber,$orderUtils);
     $from = 'noreply@redrocktelecom.com';
@@ -208,6 +291,9 @@ function createOrderMessage($orderNumber,$orderUtils){
 			<tr class= "customer-row">
 				<td class="customer-emergaddress"><div class="delete-wpr" style="width: 100%; height: 50px;">Service/911 Address: ' . 	test_input($_POST["emergaddress1"]) . '
 						' . 	test_input($_POST["emergaddress2"]) . ' ' . 	test_input($_POST["emergcity"]) . ', ' . 	test_input($_POST["emergstate"]) . ', ' . 	test_input($_POST["emergzipcode"]) . '</div></td>
+			</tr>
+			<tr class="customer-row">
+				<td class= "customer-emergphonenumber"><div class="delete-wpr" style="width: 100%; height: 50px;"> Emergency Phone Number: ' . test_input($_POST["emergphonenumber"]) . '</div></td>
 			</tr>
 		</table>
 		<h3>Order Details:</h3>

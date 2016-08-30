@@ -1,5 +1,42 @@
 <?php 
-	
+	session_start();
+		
+		$_SESSION['resellername'] = $_POST['resellername'];
+		$_SESSION['resellerba1'] = $_POST['resellerba1'];
+		$_SESSION['resellerba2'] = $_POST['resellerba2'];
+		$_SESSION['resellercity'] = $_POST['resellercity'];
+		$_SESSION['resellerstate'] = $_POST['resellerstate'];
+		$_SESSION['resellerzipcode'] = $_POST['resellerzipcode'];
+		$_SESSION['resellertelephonenumber'] = $_POST['resellertelephonenumber'];
+		$_SESSION['emailaddress'] = $_POST['emailaddress'];
+		$_SESSION['accountnumber'] = $_POST['accountnumber'];
+		$_SESSION['spcode'] = $_POST['spcode'];
+		$_SESSION['resellercn'] = $_POST['resellercn'];
+		$_SESSION['contactTelephone'] = $_POST['contactTelephone'];
+		$_SESSION['endusername'] = $_POST['endusername'];
+		$_SESSION['address1'] = $_POST['address1'];
+		$_SESSION['address2'] = $_POST['address2'];
+		$_SESSION['city'] = $_POST['city'];
+		$_SESSION['state'] = $_POST['state'];
+		$_SESSION['zipcode'] = $_POST['zipcode'];
+		$_SESSION['cmtelephone'] = $_POST['cmtelephone'];
+		$_SESSION['resellerrefid'] = $_POST['resellerrefid'];
+		$_SESSION['requestedbuilt'] = $_POST['requestedbuilt'];
+		$_SESSION['requestedinservice'] = $_POST['requestedinservice'];
+		$_SESSION['orsooner'] = $_POST['orsooner'];
+		$_SESSION['addtoexistingcustomer'] = $_POST['addtoexistingcustomer'];
+		$_SESSION['emergprovisionrequired'] = $_POST['emergprovisionrequired'];
+		$_SESSION['emergaddress1'] = $_POST['emergaddress1'];
+		$_SESSION['emergaddress2'] = $_POST['emergaddress2'];
+		$_SESSION['emergcity'] = $_POST['emergcity'];
+		$_SESSION['emergstate'] = $_POST['emergstate'];
+		$_SESSION['emergzipcode'] = $_POST['emergzipcode'];
+		$_SESSION['emergphonenumber'] = $_POST['emergphonenumber'];
+		$_SESSION['orderdetails'] = $_POST['orderdetails'];
+		$_SESSION['uploads[]'] = $_POST['uploads[]'];
+		//$_SESSION['attachmentDir'] = $_POST['attachmentDir'];
+//http://www.html-form-guide.com/php-form/php-order-form.html source for session variables	
+		
 	include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
 	if ( empty ( $_POST )) {
 		echo  "<script> window.location = 'PlaceOrder.php' </script>";
@@ -7,6 +44,9 @@
 		
 	include_once $root . '/classes/DBUtils.php';
 	include_once $root . '/classes/OrderUtils.php';
+
+
+	//Generate the attachmentString and Attachemnt Directory String 
 	$orderUtils = new OrderUtils();
 	$result = $orderUtils->getResellerItems($_POST["spcode"]);
 	if ($result->num_rows == 0) {
@@ -38,6 +78,7 @@
 	<title> Red Rock Ordering System </title>
 	<link rel='stylesheet' id='custom-css' href='/css/customerorderform.css'
 	type='text/css' media='all' />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<!-- <style>
 	h1 {
 		font-size: 50px; 
@@ -64,8 +105,8 @@
 	}
 	</style> -->
 	<style>
-	h4 {
-		align: center;
+	h1 {
+		text-align: center;
 	}
 		table {
 		margin: 0 auto;
@@ -113,12 +154,16 @@
 	.buttonHolder{
 		text-align: center;
 	}
+	input[type="number"] {
+		position:relative;
+		width: 25%;
+	}
 	</style>
 	</head>
 	<body>
-	<h4> Item Ordering </h4>
+	<h1> Item Ordering </h1>
 		<div id="box">
-		<form action="/orders/OrderConfirm.php" method="post">	
+		<form action="/orders/numberdetails.php" method="post">	
 		<table id="ItemOrderTable">
 			<thead>
 				<tr>
@@ -151,6 +196,16 @@
 				<td id="totalNonRecurring" name="totalNonRecurring"></td>
 			</tr>
 		</table>
+	<?php /*
+			<input type="hidden" name="endusername" value="<?php echo $_POST["endusername"]; ?>">
+            <input type="hidden" name="orderdetails" value="<?php echo $_POST ["orderdetails"]; ?>">
+            <input type="hidden" name="spcode" value="<?php echo $_POST ["spcode"] ; ?>">
+            <input type="hidden" name="resellercn" value="<?php echo $_POST ["resellercn"] ; ?>">
+            <input type="hidden" name="resellerrefid" value="<?php echo $_POST ["resellerrefid"] ; ?>">
+            <input type="hidden" name="requestedbuilt" value="<?php echo $_POST ["requestedbuilt"] ; ?>">
+            <input type="hidden" name="requestedinservice" value="<?php echo $_POST ["requestedinservice"] ; ?>">
+            <input type="hidden" name="orsooner" value="<?php echo $_POST ["orsooner"] ; ?>">
+			<input type="hidden" name="addtoexistingcustomer" value="<?php echo $_POST ["addtoexistingcustomer"] ; ?>">
 			<input type="hidden" name="resellername" value="<?php echo $_POST["resellername"]; ?>">
 			<input type="hidden" name="resellerba1" value="<?php echo $_POST["resellerba1"]; ?>">
 			<input type="hidden" name="resellerba2" value="<?php echo $_POST["resellerba2"]; ?>">
@@ -180,10 +235,11 @@
 			<input type="hidden" name="emergzipcode" value="<?php echo $_POST["emergzipcode"]; ?>">
 			<input type="hidden" name="emergphonenumber" value="<?php echo $_POST["emergphonenumber"]; ?>">
 			<input type="hidden" name="orderdetails" value="<?php echo $_POST["orderdetails"]; ?>">
-			<input type="hidden" name="attachments" value="<?php echo $attachmentsString; ?>">
-			<input type="hidden" name="attachmentDir" value="<?php echo $attachmentID; ?>">
+			<input type="hidden" name="attachments" value="<?php echo $_POST["attachments"] ?>">
+			<input type="hidden" name="attachmentDir" value="<?php echo $_POST["attachmentDir"]; ?>">
+	*/ 	?>	
 			<div class ="buttonHolder">
-			<input type="submit" value="Submit" id="submit-button">
+			<input type="submit" value="Next" id="submit-button">
 			</div>
 		</form>
 		</div>
