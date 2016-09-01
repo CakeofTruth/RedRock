@@ -13,7 +13,6 @@ $dbutils = new DBUtils();
 $conn = $dbutils->getDBConnection ();
 $customerInsertString = generateCustomerInsertString ();
 //echo 'Executing: ' . $customerInsertString . '<br>';
-
 //Insert the Customer to the database, then use that Customer ID to generate the Order InsertString.
 /*
  * A couple steps here
@@ -52,13 +51,12 @@ if (mysqli_query ( $conn, $customerInsertString )) {
 	//echo "Error: " . $customerInsertString . "<br>" . mysqli_error ( $conn );
 }
 $conn->close ();
-unsetOrderSessionVariables();
-
+/*unsetOrderSessionVariables();
 /**
  * This function goes through each of the session variables set throught the course of the order and unsets them so they do not overlap with other orders 
  * made during the same login/session.
  */
-function unsetOrderSessionVariables(){
+/*function unsetOrderSessionVariables(){
 	//Have to go through each of the item session variables before the spcode is unset
 	include_once $_SERVER ["DOCUMENT_ROOT"] . '/classes/OrderUtils.php';
 	$orderUtils = new OrderUtils();
@@ -107,9 +105,10 @@ function unsetOrderSessionVariables(){
 	unsetSessionVariable('attachmentString');
 	unsetSessionVariable('attachmentDir');
 }
-function unsetSessionVariable ($sessionVariableName) {
+	function unsetSessionVariable ($sessionVariableName) {
 	unset($GLOBALS['_SESSION'][$sessionVariableName]);
 }
+*/
 function generateItemizedInsertString($orderNumber,$orderUtils){
 	$sql = 'INSERT INTO OrderItems(Order_No, USOC, Quantity) VALUES';
 	$result = $orderUtils->getResellerItems($_SESSION["spcode"]);
@@ -130,7 +129,6 @@ function generateItemizedInsertString($orderNumber,$orderUtils){
 	}
 	return $sql;
 }
-
 function generateNumberInsertString($orderNumber) {
 	$sql = 'INSERT INTO NumberDetails(Order_No, Ported_Number, BTNumber, Port_Number_911) VALUES';
 	$index = 1;
@@ -156,7 +154,6 @@ function generateNumberInsertString($orderNumber) {
 		$sql = $sql . "'" . test_input($_POST[$portednumName]) . "',";
 		$sql = $sql . "'" . $btValue  . "',";
 		$sql = $sql . "'" . $nineOneOneValue . "')";
-
 		$index++;
 		$portednumName = "portednumber_" . $index;
 	}
@@ -332,10 +329,28 @@ function createOrderMessage($orderNumber,$orderUtils){
 		<h3>Number Details:</h3>
 			<table id= "numberdetails" style="clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black;">
 				<tr class="customer-row">
-					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">Porting Numbers: ' . 	test_input($_SESSION["porting"]) . '</div></td>
+					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">Porting Numbers: ' . 	test_input($_POST["porting"]) . '</div></td>
 				</tr>';
-				$index = 1;
-				$portednumName = "portednumber_" . $index;
+				
+				$result = $orderUtils->getNumberDetails($orderNumber);
+				while($row  = $result->fetch_array()){
+					$newnumber = $row["Ported_Number"];
+					$nineoneone = $_row["Port_Number_911"];
+					$btnumber = $row["BTNumber"] ;
+					$monthly = $row["Recurring_Price"];
+					$nonRecurring = $row["One_Time_Charge"];
+					if($quantity > 0){
+						$message .= '<tr>';
+						$message .= '<td class="item-name"><div class="delete-wpr" style="width: 80px; height: 50px;">' . $newnumber . '</div></td>';
+						$message .= '<td class="description"><div style="width: 300px; width: 100%; height: 100%;">' .$nineoneone . '</div></td>';
+						$message .= '<td><div class="cost" style="width: 80px; height: 50px;">' . $btnumber . '</div></td>';
+						$message .= '</tr>';
+					}
+				}
+				/*$index = 1;
+				$portednumber = $_POST["portednumber_"];
+		
+				$portednumName = "$portednumber" . $index;
 				$firstValues = true;
 				while(isset($_POST[$portednumName])){
 				$portnumber911Name = "portnumber911_" . $index;
@@ -344,20 +359,19 @@ function createOrderMessage($orderNumber,$orderUtils){
 				if($firstValues){
 					$firstValues = false;
 				}else{
-
 				if($quantity > 0){
 					$message .= '<tr>';
-					$message .= '<td class="item-name"><div class="delete-wpr" style="width: 80px; height: 50px;">' . $portednumber_ . '</div></td>';
-					$message .= '<td class="description"><div style="width: 300px; width: 100%; height: 100%;">' .$portnumber911_ . '</div></td>';
-					$message .= '<td><div class="cost" style="width: 80px; height: 50px;">' . $btnumber_ . '</div></td>';
+					$message .= '<td class="item-name"><div class="delete-wpr" style="width: 80px; height: 50px;">' . $portednumName. '</div></td>';
+					$message .= '<td class="description"><div style="width: 300px; width: 100%; height: 100%;">' .$portnumber911Name_ . '</div></td>';
+					$message .= '<td><div class="cost" style="width: 80px; height: 50px;">' . $btnumberName_ . '</div></td>';
 					$message .= '</tr>';
 		
 				$index++;
 				$portednumName = "portednumber_" . $index;
 			}
-			return $sql;
 		}
 	}
+	*/
 			$message .= '<tr class="customer-row">
 					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">Do you need any new numbers: ' . 	test_input($_SESSION["newnumbers"]) . '</div></td>
 				</tr>
