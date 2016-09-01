@@ -145,10 +145,10 @@ function generateNumberInsertString($orderNumber) {
 		}
 		$btValue = $nineOneOneValue = "no";
 		if(isset($_POST[$btnumberName]) && $_POST[$btnumberName] == "on"){
-			$btValue = "yes";	
+			$btValue = "Yes";	
 		}
 		if(isset($_POST[$portnumber911Name]) && $_POST[$portnumber911Name] == "on"){
-			$nineOneOneValue = "yes";
+			$nineOneOneValue = "Yes";
 		}
 		$sql = $sql . "('" . $orderNumber . "',";
 		$sql = $sql . "'" . test_input($_POST[$portednumName]) . "',";
@@ -206,15 +206,15 @@ function generateOrderInsertString($Cust_ID) {
 	return $sql;
 }
 $porting= "no";
-if(isset($_POST["porting"]) && $_POST["porting"] == "2"){
-			$porting = "yes";
-		}
+if(isset($_POST["porting"]) && $_POST["porting"] == "checked"){
+	$porting = "yes";
+}
 function sendOrderAlertEmail($orderNumber,$orderUtils){
     $message = createOrderMessage($orderNumber,$orderUtils);
     $from = 'noreply@redrocktelecom.com';
     $fromname = 'Web App';
     $subject = 'Red Rock Telecom Order Number: ' . $orderNumber;
-    $to = "ops@redrocktelecom.com," . $_SESSION["User_Email"];
+    $to = "rachel@redrocktelecom.com," . $_SESSION["User_Email"];
     $mailUtils = new MailUtils();
     $mailUtils->sendWithAttachments($from, $fromname, $to, $subject, $message, $_SESSION['attachmentDir'],$_SESSION["attachmentString"]);
 }
@@ -292,8 +292,8 @@ function createOrderMessage($orderNumber,$orderUtils){
 				<td class="customer-name"><div class="delete-wpr" style="width: 100%; height: 50px;">Name: ' . 	test_input($_SESSION["endusername"]) . '</div></td>
 			</tr>
 			<tr class = "customer-row">
-				<td class="customer-address"><div class="delete-wpr" style="width: 100%; height: 50px;">Address: ' . 	test_input($_SESSION["emergaddress1"]) . ' '
-						. test_input($_SESSION["emergaddress2"]) . ' ' . 	test_input($_SESSION["emergcity"]) . ', ' . 	test_input($_SESSION["emergstate"]) . ', ' . 	test_input($_SESSION["emergzipcode"]) . '</div></td>
+				<td class="customer-address"><div class="delete-wpr" style="width: 100%; height: 50px;">Address: ' . 	test_input($_SESSION["address1"]) . ' '
+						. test_input($_SESSION["address2"]) . ' ' . 	test_input($_SESSION["city"]) . ', ' . 	test_input($_SESSION["state"]) . ', ' . 	test_input($_SESSION["zipcode"]) . '</div></td>
 			</tr>
 			<tr class= "customer-row">
 				<td class="customer-btn"><div class="delete-wpr" style="width: 100%; height: 50px;">Billing Telephone Number: ' . 	test_input($_SESSION["cmtelephone"]) . '</div></td>
@@ -334,8 +334,15 @@ function createOrderMessage($orderNumber,$orderUtils){
 			<table id= "numberdetails" style="clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black;">
 				<tr class="customer-row">
 					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">Porting Numbers: ' . 	test_input($_POST["porting"]) . '</div></td>
-				</tr>';
-				
+				</tr>
+				</table>
+		<h4 style="text-align:center;">Ported Numbers:<h4>
+				<table id="items" style="clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black;">
+					<tr class = "customer-row">
+						<th style="background: #eee;" >New Number</th>
+						<th style="background: #eee;">911 provision</th>
+						<th style="background: #eee;">Billing Telephone Number</th>
+					</tr>';
 				$result = $orderUtils->getNumberDetails($orderNumber);
 				while($row  = $result->fetch_array()){
 					$newnumber = $row["Ported_Number"];
@@ -349,7 +356,10 @@ function createOrderMessage($orderNumber,$orderUtils){
 						$message .= '</tr>';
 					}
 				}
-			$message .= '<tr class="customer-row">
+			$message .=' </table>
+			<h4 style="text-align:center;">Number Details: </h4>
+			<table id= "numberdetails" style="clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black;">
+			<tr class="customer-row">
 					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">Do you need any new numbers: ' . 	test_input($_POST["newnumbers"]) . '</div></td>
 				</tr>
 			<tr class="customer-row">
