@@ -36,9 +36,9 @@ class OrderUtils{
 	}
 
 	function getNumberDetails($ordernumber){
-		$sql = "select Ported_Number, BTNumber, Port_Number_911, 
-		from numberdetails P where Order_No =\"" . $ordernumber . "\"";
-		
+		$sql = "select Ported_Number, BTNumber, Port_Number_911 
+		from NumberDetails where Order_No =\"" . $ordernumber . "\"";
+		echo " the sql is: " . $sql . "<br>";
 		$dbutils = new DBUtils();
 		$conn = $dbutils->getDBConnection();
 		return $conn->query ($sql);		

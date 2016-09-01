@@ -205,6 +205,10 @@ function generateOrderInsertString($Cust_ID) {
 	$sql = $sql . "'" . $_SESSION["Acct_No"] . "')";
 	return $sql;
 }
+$porting= "no";
+if(isset($_POST["porting"]) && $_POST["porting"] == "2"){
+			$porting = "yes";
+		}
 function sendOrderAlertEmail($orderNumber,$orderUtils){
     $message = createOrderMessage($orderNumber,$orderUtils);
     $from = 'noreply@redrocktelecom.com';
@@ -335,60 +339,33 @@ function createOrderMessage($orderNumber,$orderUtils){
 				$result = $orderUtils->getNumberDetails($orderNumber);
 				while($row  = $result->fetch_array()){
 					$newnumber = $row["Ported_Number"];
-					$nineoneone = $_row["Port_Number_911"];
+					$nineoneone = $row["Port_Number_911"];
 					$btnumber = $row["BTNumber"] ;
-					$monthly = $row["Recurring_Price"];
-					$nonRecurring = $row["One_Time_Charge"];
 					if($quantity > 0){
 						$message .= '<tr>';
-						$message .= '<td class="item-name"><div class="delete-wpr" style="width: 80px; height: 50px;">' . $newnumber . '</div></td>';
-						$message .= '<td class="description"><div style="width: 300px; width: 100%; height: 100%;">' .$nineoneone . '</div></td>';
-						$message .= '<td><div class="cost" style="width: 80px; height: 50px;">' . $btnumber . '</div></td>';
+						$message .= '<td class="item-name"><div class="delete-wpr" style="width: 100px; height: 50px;">' . $newnumber . '</div></td>';
+						$message .= '<td class="description"><div style="width: 50px; width: 100%; height: 100%;">' .$nineoneone . '</div></td>';
+						$message .= '<td><div class="cost" style="width: 50px; height: 50px;">' . $btnumber . '</div></td>';
 						$message .= '</tr>';
 					}
 				}
-				/*$index = 1;
-				$portednumber = $_POST["portednumber_"];
-		
-				$portednumName = "$portednumber" . $index;
-				$firstValues = true;
-				while(isset($_POST[$portednumName])){
-				$portnumber911Name = "portnumber911_" . $index;
-				$btnumberName = "btnumber_" . $index;
-				$quantity = $_SESSION[$itemName];
-				if($firstValues){
-					$firstValues = false;
-				}else{
-				if($quantity > 0){
-					$message .= '<tr>';
-					$message .= '<td class="item-name"><div class="delete-wpr" style="width: 80px; height: 50px;">' . $portednumName. '</div></td>';
-					$message .= '<td class="description"><div style="width: 300px; width: 100%; height: 100%;">' .$portnumber911Name_ . '</div></td>';
-					$message .= '<td><div class="cost" style="width: 80px; height: 50px;">' . $btnumberName_ . '</div></td>';
-					$message .= '</tr>';
-		
-				$index++;
-				$portednumName = "portednumber_" . $index;
-			}
-		}
-	}
-	*/
 			$message .= '<tr class="customer-row">
-					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">Do you need any new numbers: ' . 	test_input($_SESSION["newnumbers"]) . '</div></td>
+					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">Do you need any new numbers: ' . 	test_input($_POST["newnumbers"]) . '</div></td>
 				</tr>
 			<tr class="customer-row">
-					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">How many new numbers do you need: ' . 	test_input($_SESSION["newnumberquantity"]) . '</div></td>
+					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">How many new numbers do you need: ' . 	test_input($_POST["newnumberquantity"]) . '</div></td>
 				</tr>
 			<tr class="customer-row">
-					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">What area code do you need: ' . 	test_input($_SESSION["newnumberac"]) . '</div></td>
+					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">What area code do you need: ' . 	test_input($_POST["newnumberac"]) . '</div></td>
 				</tr>
 			<tr class="customer-row">
-					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">Do you want one of the new numbers to be 911 provisioned: ' . 	test_input($_SESSION["emergnewnumber"]) . '</div></td>
+					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">Do you want one of the new numbers to be 911 provisioned: ' . 	test_input($_POST["emergnewnumber"]) . '</div></td>
 				</tr>
 			<tr class="customer-row">
-					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">Will you need any virtual numbers: ' . 	test_input($_SESSION["virtualnumbers"]) . '</div></td>
+					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">Will you need any virtual numbers: ' . 	test_input($_POST["virtualnumbers"]) . '</div></td>
 				</tr>
 			<tr class="customer-row">
-					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">How many virtual numbers: ' . 	test_input($_SESSION["vtnquantity"]) . '</div></td>
+					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">How many virtual numbers: ' . 	test_input($_POST["vtnquantity"]) . '</div></td>
 				</tr>
 			</table>
 		</div>
