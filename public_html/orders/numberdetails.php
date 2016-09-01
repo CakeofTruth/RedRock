@@ -40,7 +40,7 @@ include_once $root . '/classes/OrderUtils.php';
 
 <label for="porting">Will you be porting any numbers?<span class="required" style="color:red;">*</span>
 			</label> Yes<input type="radio" name="porting" id="yes"
-				value="2"> No<input type="radio"
+				value="yes"> No<input type="radio"
 				name="porting" id="porting-no" value="No">
 				<br>
 				<div class="yesport">
@@ -102,7 +102,7 @@ var intTextBox = 0;
 	};
 	$('input[name="porting"]').on('change', function() {
 		$('.yesport')
-			.toggle(+this.value === 2 && this.checked);
+			.toggle(+this.value === 'yes' && this.checked);
 	}).change();
 	$('input[name="newnumbers"]').on('change', function() {
 		$('.yesnew')
