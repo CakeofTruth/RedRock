@@ -38,9 +38,9 @@ include_once $root . '/classes/OrderUtils.php';
 <div id="order-form" class="clearfix">
 <form action="/orders/OrderConfirm.php" method="post">
 
-<label for="porting">Will you be porting any numbers?<span class="required" style="color:red;">*</span>
-			</label> Yes<input type="radio" name="porting" id="yes"
-				value="yes"> No<input type="radio"
+<label for="porting">Will you be porting any numbers?
+			</label> Yes<input type="radio" name="porting" id="porting-yes"
+				value="2"> No<input type="radio"
 				name="porting" id="porting-no" value="No">
 				<br>
 				<div class="yesport">
@@ -49,7 +49,7 @@ include_once $root . '/classes/OrderUtils.php';
 				<div id="content"></div>
 
 </div>
-<label for="newnumbers">Do you need any new numbers?<span class="required" style="color:red;">*</span>
+<label for="newnumbers">Do you need any new numbers?
 			</label> Yes<input type="radio" name="newnumbers" id="yes"
 				value="2"> No<input type="radio"
 				name="newnumbers" id="no" value="1">
@@ -59,12 +59,11 @@ include_once $root . '/classes/OrderUtils.php';
 				value="">
 <label for="newnumberac">What area code do you need?</label>
 		 <input type="text" name="newnumberac" value="">					
-<label for= "emergnewnumber">Do you want one of the new numbers to be 911 provisioned?<span class="required" 
-style="color:red;">*</span></label>Yes<input type= "radio" name="emergnewnumber" id="yes-911new" value="yes">No<input type= "radio"
+<label for= "emergnewnumber">Do you want one of the new numbers to be 911 provisioned?</label>Yes<input type= "radio" name="emergnewnumber" id="yes-911new" value="yes">No<input type= "radio"
 name="emergnewnumber" id="no-911new" value="no">
 </div>	
 <br>
-<label for="virtualnumbers">Will you need any virtual numbers<span class="required" style="color:red;">*</span>
+<label for="virtualnumbers">Will you need any virtual numbers
 </label> Yes<input type="radio" name="virtualnumbers" id="VirtualNumbers-yes"
 				value="2"> No<input type="radio"
 				name="virtualnumbers" id="VirtualNumbers-no" value="1">
@@ -75,8 +74,6 @@ name="emergnewnumber" id="no-911new" value="no">
 				value="">
 				</div>
 			<div class ="buttonHolder">
-				<input type="hidden" name="totalMonthly" value="<?php echo $_POST["totalMonthly"]; ?>">
-				<input type="hidden" name="totalNonRecurring" value="<?php echo $_POST["totalNonRecurring"]; ?>">
 			<input type="submit" value="Submit" id="submit-button">
 			</div>
 </form>
@@ -102,7 +99,7 @@ var intTextBox = 0;
 	};
 	$('input[name="porting"]').on('change', function() {
 		$('.yesport')
-			.toggle(+this.value === 'yes' && this.checked);
+			.toggle(+this.value === 2 && this.checked);
 	}).change();
 	$('input[name="newnumbers"]').on('change', function() {
 		$('.yesnew')
