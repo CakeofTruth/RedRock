@@ -143,13 +143,6 @@ function generateNumberInsertString($orderNumber) {
 		}else{
 			$sql = $sql . ', ';
 		}
-		$btValue = $nineOneOneValue = "no";
-		if(isset($_POST[$btnumberName]) && $_POST[$btnumberName] == "on"){
-			$btValue = "Yes";	
-		}
-		if(isset($_POST[$portnumber911Name]) && $_POST[$portnumber911Name] == "on"){
-			$nineOneOneValue = "Yes";
-		}
 		$sql = $sql . "('" . $orderNumber . "',";
 		$sql = $sql . "'" . test_input($_POST[$portednumName]) . "',";
 		$sql = $sql . "'" . $btValue  . "',";
@@ -204,10 +197,6 @@ function generateOrderInsertString($Cust_ID) {
 	$sql = $sql . "'" . test_input($_POST["vtnquantity"]) . "',";
 	$sql = $sql . "'" . $_SESSION["Acct_No"] . "')";
 	return $sql;
-}
-$porting= "no";
-if(isset($_POST["porting"]) && $_POST["porting"] == "checked"){
-	$porting = "yes";
 }
 function sendOrderAlertEmail($orderNumber,$orderUtils){
     $message = createOrderMessage($orderNumber,$orderUtils);
