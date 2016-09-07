@@ -35,9 +35,10 @@ include_once $root . '/classes/OrderUtils.php';
 					$fullname = $_SESSION["First_Name"] . " " . $_SESSION["Last_Name"];
 					$orders = $orderUtils->getOrdersByUser($fullname);
 					while($row  = $orders->fetch_array()){
+						$orderNo = $row["Order_No"];
 						$address = $orderUtils->generateAddressString($row["Address_1"], $row["Address_2"], $row["City"], $row["State"], $row["Zip"]);
 						$rowhtml = '<tr>'
-								. '<td>' . $row["Order_No"] . "</td>"
+								. '<td><a href="/orders/orderDetails.php?orderNumber=' . $orderNo . '">' . $orderNo .  '</a></td>'
 								. '<td>' . $row["End_User_Name"] . "</td>"
 								. '<td>' . $address . "</td>"
 								. '<td>' . $row["Request_Built"] . "</td>"

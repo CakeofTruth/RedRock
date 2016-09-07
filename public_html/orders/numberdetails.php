@@ -45,10 +45,7 @@ include_once $root . '/classes/OrderUtils.php';
     	<a href="javascript:void(0);" onclick="removeElement();">Remove</a>
 				<div id="content"></div>
 		</div>
-<label for="newnumbers">Do you need any new numbers? </label> 
-			Yes<input type="radio" name="newnumbers" id="yesnew" value="Yes"/> 
-			No<input type="radio" name="newnumbers" id="nonew" value="No" checked="checked"/>
-				<div id="div2" style="display:none">
+				<div id="div2">
 				<label for="newnumberquantity"> How many new numbers will you need?</label> 
 					<input type="text" name="newnumberquantity" value="">
 				<label for="newnumberac">What area code do you need?</label>
@@ -57,11 +54,8 @@ include_once $root . '/classes/OrderUtils.php';
 					<input type= "radio" name="emergnewnumber" id="yes-911new" value="yes">No<input type= "radio"
 					name="emergnewnumber" id="no-911new" value="no">
 				</div>
-<label for="virtualnumbers">Will you need any virtual numbers </label> 
-			Yes<input type="radio" name="virtualnumbers" id="vtyes" value="Yes"> 
-			No<input type="radio" name="virtualnumbers" id="vtno" value="No">
-				<div id="div3" style="display:none">
-				<label for="vtnquantity"> How many numbers will you need?</label> 
+				<div id="div3" >
+				<label for="vtnquantity"> How many virtual numbers will you need?</label>
 				<input type="text" name="vtnquantity" value="">
 				</div>
 				<div class ="buttonHolder">
@@ -95,6 +89,7 @@ $(document).ready(function(){
 	});
 });
 var intTextBox = 0;
+
 function addElement() {
 	intTextBox++;
 	var objNewDiv = document.createElement('div');
@@ -103,6 +98,7 @@ function addElement() {
 	+ '911?: <input type = "checkbox" id="portnumber911_' + intTextBox + '" name="portnumber911_' + intTextBox + '" />' + 'BTN?: <input type = "checkbox" id="btnumber_' + intTextBox + '" name="btnumber_' + intTextBox + '" />' ;
 	document.getElementById('content').appendChild(objNewDiv);
 };
+
 function removeElement() {
     if(0 < intTextBox) {
         document.getElementById('content').removeChild(document.getElementById('div_' + intTextBox));
@@ -111,6 +107,7 @@ function removeElement() {
         alert("No phone number to remove");
     };
 };
+
 </script>
 </body>
 </html>

@@ -36,9 +36,8 @@ class OrderUtils{
 	}
 
 	function getNumberDetails($ordernumber){
-		$sql = "select Ported_Number, BTNumber, Port_Number_911 
-		from NumberDetails where Order_No =\"" . $ordernumber . "\"";
-		echo " the sql is: " . $sql . "<br>";
+		$sql = "select Ported_Number, IsBT, Is911
+		from PortedNumbers where Order_No =\"" . $ordernumber . "\"";
 		$dbutils = new DBUtils();
 		$conn = $dbutils->getDBConnection();
 		return $conn->query ($sql);		
@@ -60,5 +59,51 @@ class OrderUtils{
 				. $city . "," . $state . "," . $zip;
 		return $string;
 	}
+	function getOrderDetails($orderNumber){
+		$sql = "SELECT o.Emerg_Prov_Req, o.Order_Details, o.Or_Sooner, o.Request_Built, o.Request_Service, o. Reseller_Ref_ID, o. Serv_Prov_CD,
+					   c.Address_1, c.Address_2, c.City, c.Customer_ID, c.Customer_Time_Zone, c.Cust_Telephone, c.Emerg_Address_1, c.Emerg_Address_2, 
+					   c.Emerg_City, c.Emerg_Phone, c.Emerg_State, c.Emerg_Zip, c.End_User_Name, c.State, c.Zip
+				FROM Orders o 
+				join Customers c on o.Customer_ID = c.Customer_ID
+				where o.Order_No = " . $orderNumber;
+
+		$dbutils = new DBUtils();
+		$conn = $dbutils->getDBConnection();
+		return $conn->query ($sql);
+
+	}
+
+    /*
+	function getOrderItems($orderNumber){
+        
+        $sql = "Select p.USOC, Description, One_Time_Charge, Recurring_Price, Quantity 
+        from Products p join Orders o on p.Serv_Prov_CD = o.Serv_Prov_CD 
+        right join OrderItems oi on o.Order_No = oi.Order_No 
+        where o.Order_No =" . $orderNumber;
+
+		$dbutils = new DBUtils();
+		$conn = $dbutils->getDBConnection();
+		$result = $conn->query ($sql);
+
+		while($row  = $result->fetch_array()){
+
+			$itemName = $row["USOC"];
+			$quantity = $row["Quantity"];
+			$description = $row["Description"] ;
+			$monthly = $row["Recurring_Price"];
+			$nonRecurring = $row["One_Time_Charge"];
+			$rowDetails  = [
+				"itemName" = $itemName,
+				"quantity" = $quantity,
+				"description" = $description,
+				"monthly" = $monthly,
+				"nonRecurring" = $nonRecurring,
+			];
+		}
+
+		return itemDetails;
+	}
+    */
+
 }
 ?>
