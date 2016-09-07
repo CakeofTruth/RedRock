@@ -1,5 +1,8 @@
 <?php 
 	include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
+	if($_SESSION["loggedin"]){
+	 	echo "<script> window.location = '/portal/portal.php' </script>";
+	}
 ?>
         <!-- BEGIN FLEXSLIDER SLIDER -->
         <div id="slider-polaroid-0" class="slider slider-polaroid polaroid no-responsive" style="height:400px;">
@@ -165,7 +168,7 @@
                         <div class="margin-bottom">
                             <div class="logos-slider wrapper">
                                 <h2>
-                                    Our <span class="title-highlight">partners</span>
+                                    Our <span class="title-highlight">Partners</span>
                                 </h2>
                                 <div class="list_carousel">
                                     <ul class="logos-slides">
@@ -209,6 +212,12 @@
                                         <li style="height: 70px;">
                                             <a href="#" class="bwWrapper" >
                                                 <img src="assets/images/adtranlogo.png" style="max-height: 70px;" class="logo" />
+                                            </a>
+                                        </li>
+                                        
+                                        <li style="height: 70px;">
+                                            <a href="#" class="bwWrapper" >
+                                                <img src="assets/images/simplewanlogo.png" style="max-height: 70px;" class="logo" />
                                             </a>
                                         </li>
                                         
@@ -305,10 +314,11 @@
                                 <li class="menu-item menu-item-type-custom">
                                     <a href="/main/communicationssolutions.php">Communications Solutions</a>
                                 </li>
-                                
+
+                                <!-- Removed until this works
                                 <li class="menu-item menu-item-type-post_type">
                                     <a href="/main/contactus.php">Get in touch</a>
-                                </li>
+                                </li-->
 
                                 <li class="menu-item menu-item-type-custom">
                                     <a href="/accounts/login.php">Resources</a>

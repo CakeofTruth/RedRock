@@ -1,5 +1,5 @@
 @CHARSET "ISO-8859-1";
-#contact-form {
+#order-form {
     background-color:#FBDED6;
     width:465px;
     padding:20px;
@@ -11,25 +11,26 @@
     position:relative;
 }
  
-#contact-form h1 {
+#order-form h1 {
     font-size:42px;
 }
-
-#contact-form h2 {
+ 
+#order-form h2 {
     margin-bottom:15px;
     font-weight:normal;
     text-align: center;
 }
- 
-#contact-form input, 
-#contact-form select, 
-#contact-form textarea, 
-#contact-form label {
+#order-form h4 {
+	text-align: center;
+}
+#order-form input, 
+#order-form select, 
+#order-form textarea, 
+#order-form label {
     font-size:15px;
     margin-bottom:2px;
 }
- 
-#contact-form input, 
+
 #contact-form select, 
 #contact-form textarea {
     width:450px;
@@ -38,13 +39,13 @@
     padding:4px;
 }
 
-#contact-form input:focus, 
-#contact-form select:focus, 
-#contact-form textarea:focus {
+#order-form input:focus, 
+#order-form select:focus, 
+#order-form textarea:focus {
     border: 1px solid #AFCDD8;
     background-color: #EBF2F4;
 }
- 
+
 #contact-form textarea {
     height:150px;
     resize: none;
@@ -77,7 +78,8 @@ radio {
     color:#FFF;
     border:none;
     display:block;
-    float:right;
+    text-align: center;
+    float:center;
     margin-bottom:0px;
     margin-right:6px;
     background-color:#9F000F;
@@ -183,3 +185,74 @@ input.placeholder-text, textarea.placeholder-text  {
     color:#CCC;
     font-style:italic;
 }
+/* Style the buttons that are used to open and close the accordion panel */
+button.accordion {
+    background-color: #800000;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+button.accordion.active, button.accordion:hover {
+    background-color: #e60000;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+div.panel {
+    padding:  25px;
+    background-color: white;
+    display: none;
+}
+
+/* The "show" class is added to the accordion panel when the user clicks on one of the buttons. This will show the panel content */
+div.panel.show {
+    display: block;
+}
+div.panel {
+    padding: 10px;
+    background-color:#FBDED6;;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.6s ease-in-out;
+    opacity: 0;
+}
+
+div.panel.show {
+    opacity: 1;
+    max-height: 1000px; /* Whatever you like, as long as its more than the height of the content (on all screen sizes) */
+}
+button.accordion:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: white;
+    float: right;
+    margin-left: 5px;
+}
+
+button.accordion.active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+/* .reveal-if-active {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: scale(0.8);
+  transition: 0.5s;
+  input[type="radio"]:checked ~ &;
+  input[type="checkbox"]:checked ~ & {
+    opacity: 1;
+    max-height: 100px;
+    padding: 10px 20px;
+    transform: scale(1);
+    overflow: visible;  
+}
+}
+*/

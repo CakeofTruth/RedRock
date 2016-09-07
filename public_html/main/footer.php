@@ -1,4 +1,4 @@
-    <!-- START FOOTER -->
+ <!-- START FOOTER -->
     <div id="footer">
         <div class="container">
             <div class="row">
@@ -15,9 +15,6 @@
 
                         <div class="menu-widget-footer-container">
                             <ul id="menu-widget-footer" class="menu">
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="/main/ourteam.php">Our Team</a>
-                                </li>
 
                                 <li class="menu-item menu-item-type-post_type">
                                     <a href="/main/whycloud.php">Why the Cloud?</a>
@@ -31,9 +28,10 @@
                                     <a href="/main/contactcenter.php">Contact Center</a>
                                 </li>
 
+                                <!-- Taking this out until it's important enough to work on/include
                                 <li class="menu-item menu-item-type-custom">
                                     <a href="/main/contactus.php">Get in Touch</a>
-                                </li>
+                                </li-->
 
                                 <li class="menu-item menu-item-type-custom">
                                     <a href="/accounts/login.php">Resources</a>

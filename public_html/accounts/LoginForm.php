@@ -1,29 +1,24 @@
 <?php
 $pagetitle = "Red Rock Telecommunications Login Page";
 ?>
-<div class="description">
-	<h1>Login Form</h1>
-	<p>Please enter your username and password to login</p>
-</div>
+<link rel='stylesheet' id='custom-css' href='/css/contactform.css'
+	type='text/css' media='all' />
 
-<form action="/accounts/login.php" method="post">
-	<table>
-		<tr>
-			<td>Username:</td>
-			<td><input type="text" name="username"></td>
-		</tr>
-		<tr>
-			<td>Password:</td>
-			<td><input type="text" name="password"></td>
-		</tr>
-	</table>
-	<input type="submit" value="Submit">
-</form>
-<div id="newaccount">
-	<a href="/accounts/Registration/AccountRegistration.php">Create a New Account</a> <br>
-	<a href="/accounts/Registration/forgot_password.php">Forgot Your Password?</a>
+<div id="contact-form">
+	<div class="description">
+		<h2>Login Form</h2>
+		<p>Please enter your username and password to login</p>
+	</div>
+	<form action="/accounts/login.php" method="post">
+		<label>Username:</label><input type="text" name="username" <?php if(isset($_POST["username"])) {echo 'value="' . $_POST["username"] . '"';}?>>
+		<label>Password:</label><input type="password" name="password">
+		<input type="submit" value="Submit">
+	</form>
+	<div id="newaccount">
+		<a href="/accounts/registration/AccountRegistration.php">Create a New Account</a> <br> 
+		<a href="/accounts/registration/forgot_password.php">Forgot Your Password?</a>
+	</div>
 </div>
-
 
 <?php
 include ($_SERVER ["DOCUMENT_ROOT"] . '/main/footer.php');
