@@ -1,14 +1,5 @@
 <?php
-	session_start();
-	$root = $_SERVER ["DOCUMENT_ROOT"];
-	if(empty($_SESSION['exists'])){
-		//Handle new sessions here
-		$_SESSION["loggedin"] = 0;
-		$_SESSION['exists'] = true;
-		echo "new session";
-	}else{
-		echo "old session";
-	}
+$root = $_SERVER ["DOCUMENT_ROOT"];
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,7 +9,7 @@
     <!-- this line will appear only if the website is visited with an iPad -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2, user-scalable=yes" />
 
-    <title>Red Rock Telecommunications</title>
+    <title>Red Rock Telecommunications Portal</title>
 
     <!-- RESET STYLESHEET -->
     <link rel="stylesheet" type="text/css" media="all" href="/css/reset.css" />
@@ -51,7 +42,7 @@
     <link rel='stylesheet' id='custom-css'  href='/css/custom.css' type='text/css' media='all' />
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <style type="text/css">
-            body { background-color: #ffffff; background-image: url('/assets/images/sandtexture6.png'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }
+            body { background-color: #ffffff; background-image: url('/assets/images/sandtexture5.png'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }
     </style>
 
     <script type='text/javascript' src='/js/jquery/jquery.js'></script>
@@ -77,10 +68,8 @@
                         <!-- START MAIN NAVIGATION -->
 
                         <ul id="menu-menu" class="level-1">
-							<li><a href="/"><font color="#ffffff">Home</font></a></li>
-							<li><a href="/main/aboutus.php"><font color="#ffffff">About Us</font></a>
-							<li><a href="http://support.redrocktelecom.com"><font color="#ffffff">Customer Service</font></a></li>
-							<li><a href="/main/contactus.php"><font color="#ffffff">Contact Us</font></a></li>
+							<li><a href="/portal/portal.php"><font color="#ffffff">Home</font></a></li>
+							<li><a href="/orders/CustomerOrderForm.php"><font color="#ffffff">Place an Order</font></a>
                         </ul>
                         <!-- END MAIN NAVIGATION -->
                         </div>
@@ -96,7 +85,7 @@
             <div class="row" id="logo-headersidebar-container">
                 <!-- START LOGO -->
                 <div id="logo" class="span8 group">
-                    <a id="logo-img" href="/" title="Red Rock">
+                    <a id="logo-img" href="\index.php" title="Red Rock">
                         <img src="\assets\images\Redrocklogo.jpg" title="Red Rock" alt="Red Rock" />
                     </a>
 					<p id='tagline'>The Future is Now- Cloud Based Telephone Services</p>

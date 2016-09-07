@@ -1,11 +1,10 @@
 <?php
-	$pagetitle = "About Us";
+	$pagetitle = "Mobile Integration";
 	include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
 ?>
-
 	<div class="clear"></div>
         <!-- BEGIN FLEXSLIDER SLIDER -->
-        <div id="slider-polaroid-0" class="slider slider-polaroid polaroid no-responsive" style="height:400px;">
+       <div id="slider-polaroid-0" class="slider slider-polaroid polaroid no-responsive" style="height:400px;">
             <div class="thumbs  container">
                 <div class="thumb">
                     <img src="/assets/images/accessionphonethumbnail.png" alt="/assets/images/accessionphonethumbnail.png" />
@@ -71,7 +70,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="thumb">
                     <img src="/assets/images/teamworkthumbnail.png" alt="/assets/images/teamwork.png" />
                     <div class="slide-content container align-right" style="background-image:url('/assets/images/teamwork.png');">
@@ -85,7 +83,7 @@
                     </div>
                    </div>
                 </div>
-			</div>
+               </div>
         <script type="text/javascript">
             jQuery(document).ready(function($){
                 $('#slider-polaroid-0').polaroid({
@@ -100,30 +98,39 @@
                 <img src="images/slider/flexslider/fixed-polaroid.jpg" alt="" />
             </div>
         </div>
-	<div id="primary" class="sidebar-no">
+        <div class= "clear"></div>
+    	<div id="primary" class="sidebar-no">
 	<div class="container group">
 	<div class="row">
 	<div id="content-page" class="span 12 content group">
 	<div id="post-302" class="post-302 page type-page status-publish hentry group">
-	<h2> What makes Red Rock different? </h2>
-	<div class="three-fourth">
-		<p>
-			Red Rock Telecommunications is a built from scratch Cloud solutions company delivering resilient communications networks with the latest generation
-			Avaya and Metaswitch technology.  We provide businesses with Hosted Service for the deployment of voice and multimedia Sessions over Internet Protocol.
-		</p>
-		<p>
-			Our collaboration and engagement with our clients enhances productivity, increases profitability, and improves brand image.
-			Our executive and engineering teams created the second largest telecommunications company in Arizona with 99.9% client satisfaction and zero churn
-			over a ten year period.
-		</p>
+	<div class="two-fourth">
+		<h4>With Accession Meeting, You Can Share Even More</h4>
+		<p> Accession Meeting is a web conferencings and collaboration integrated within Accession. 
+		Meeting is fully integrated within Accession desktop and mobile &ndash; simply one click to begin.  Choose between sharing your desktop 
+		or just sharing an indivdual application. From there, you are free to send media back and forth between collaborators, including any saved 
+		changes or annotations.</p>
+		<ul style="list-style=type:circle">
+		<li> Invites can be both internal (within the app) or external (via email link)</li>
+		<li>Multiple views available &ndash; gallery, active speaker, condensed </li>
+		<li> Gallery view and speaker focus view </li>
+		<li> Rich, integrated moderator controls </li>
+		<li> Up to 25 Attendees &ndash; All 25 can share video </li>
+		<li> Screen and application sharing </li>
+		<li> Share desktop screen or individual applications with collaborators </li>
+		<li> Outlook Calendar Plugin </li>
+		<li> Intuitive user experience </li>
+		<li> Native one-click uplift from Accession</li>
+		<li> Mobile device support </li>
+		</ul>
 	</div>
-	<div class= "two-third">
-		<p>
-	</p>
+	<div class="two-fourth last">
+		<img src="/assets/images/cloud.png">
 	</div>
 	</div>
 	</div>
 	</div>
 	</div>
 	</div>
-<?php include $root . '/main/footer.php'?>
+	
+	<?php include $root . '/main/footer.php'?>

@@ -1,7 +1,8 @@
 <?php
-	$pagetitle = "Why Cloud?";
+	$pagetitle = "Contact Center";
 	include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
-?>   
+?>
+<div class="clear"></div>
         <!-- BEGIN FLEXSLIDER SLIDER -->
         <div id="slider-polaroid-0" class="slider slider-polaroid polaroid no-responsive" style="height:400px;">
             <div class="thumbs  container">
@@ -9,7 +10,7 @@
                     <img src="/assets/images/accessionphonethumbnail.png" alt="/assets/images/accessionphonethumbnail.png" />
                     <div class="slide-content container align-right" style="background-image:url('/assets/images/accessionphone1.png');">
                         <div class="text">
-                            <h2>With Red Rock we go where you go.</h2>
+                            <h2>We Go Where You Go.</h2>
                             <p>
                                 Across town or across the globe, we will ensure that you have access to everything you need to run your business smoothly.
                             </p>
@@ -28,7 +29,7 @@
                             <h2>Nontraditional Business?</h2>
                             <p>
                                 Try our nontraditional solutions.  Our mobile apps can be used on your computer, tablet, or smartphone.  So whether you are at a remote site,
-                                or simply want all of the amenities of your office at home, we have a solution for you
+                                or simply want all of the amenities of your office at home, we have a solution for you.
                             </p>
                         </div>
                     </div>
@@ -83,73 +84,45 @@
                 <img src="images/slider/flexslider/fixed-polaroid.jpg" alt="" />
             </div>
         </div>
-    <!-- END HEADER -->
-        
 	<div class="clear"></div>
 	<div id="primary" class="sidebar-no">
 	<div class="container group">
 	<div class="row">
 	<div id="content-page" class="span 12 content group">
 	<div id="post-302" class="post-302 page type-page status-publish hentry group">
-	<h1> Why Cloud? </h1>
+	<h2> Cloud Contact Centers </h2>
 	<div class="two-third">
-	<h2>Move your business into the future</h2>
-	<h4>Benefits</h4>
-	<p> Hosted Voice is truly the last phone system you&rsquo;ll ever need.
-		It delivers best-in-class capabilities at a price that&rsquo;s affordable
-		for all. Hosted Voice has a lot of advantages as compared
-		to &ldquo;premises-based&rdquo; phone systems, namely low capital
-		expenses, predictable billing, business continuity benefits,
-		and no obsolescence. It has everything you need to run your
-		business and be more productive.
-	</p>
-	<p> Included with the price of each &ldquo;seat&rdquo;, or user, is: </p>
-		<ul style="list-style=type:circle">
-			<li>Full feature set plus a web portal to customize the business
-			or employee experience </li>
-			<li>Brand new Polycom IP phone</li>
-			<li> Business-wide features such as Hunt Groups, Auto
-			Attendant and Music-on-Hold </li>
-			<li>Unlimited Long Distance minutes</li>
-			<li>250 minutes of Conferencing per month</li>
-			<li>Equipment, installation and personalized training</li>
-		</ul>
-	<p>
-		 There are no hidden costs &ndash; you simply pay a flat rate per
-		phone per month and that&rsquo;s it. As your business expands, you
-		can simply add new users to your account. Have a remote
-		employee? The power of Hosted Voice enables you to put a
-		phone virtually anywhere with an Internet connection and have it
-		work seamlessly with the rest of your business.
-	</p>
-	<h4>Administer the Service through the Hosted Voice Web Portal</h4>
-	<p>
-		Hosted Voice provides a convenient web portal access that
-		makes it easy to listen to voicemail, view faxes, and change
-		call handling rules for your business phone number. In addition
-		to the user protals, the administrator has a separate portal to
-		manage business - level features.
-	</p>
-	<p>
-		In addition to the user portals, the administrator has a separate
-		portal to manage business - level features.
-	</p>
-	<h4>The Last Phone System You Need To Buy </h4>
-	<p>
-		With Hosted Voice, Red Rock is delivering a best-in-class phone system that allows you to buy only what you need. We take care of all the details 
-		&ndash; phones, equipment, installation, training, and ongoing service &ndash; so you can focus on your business. Best of all: we&rsquo;re local 
-		&ndash; we&rsquo;re available around the clock to help solve any problems you might have.
-	</p>
+		<p>
+		Contact Centers increasingly see the benefits of moving their infrastructure into a cloud-based environment. Cloud Contact Center delivers flexibility. 
+		Get the latest features and functionality without the hassle of costly software and hardware upgrades. Your contact center software is set to update 
+		automatically at no cost to you. In addition, our fee structure means that you only pay for what you use. Now you can easily increase or decrease agent 
+		seats depending on your business needs.</p>
+		<h6> Capabilites of our Cloud Contact Center include:</h6>
+		<p>
+			<ul style="list-style=type:circle">
+				<li> <strong> Multi-Skill Routing: </strong> Navigates through the callers in queue and efficiently directs them to the agent
+					 with the right skill set to help them. The system makes sure that all calls are always routed to the best available agents with 
+					 highest proficiency. </li>
+				<li> <strong>Call Recording (With Agent Notes):</strong> Your agents and managers can review any call any time to ensure that they are
+					 following your company&rsquo;s quality standards. </li>
+				<li> <strong>Live Monitor, Whisper, Barge-In:</strong> With Live Monitor, you can monitor live agents and customer interactions. You
+					 will be able to see the real-time status of your call center agent, queues, IVRs and more </li>
+				<li> <strong> Agent &amp; Web Chat: </strong> Allow your agents and supervisors to communicate with each other without putting callers on hold, 
+					 resulting in a faster and more efficient call resolution. Plus supervisors will have the ability to broadcast important updates to multiple
+					 agents simultaneously. </li>
+				<li> <strong>Real-Time Stat Display &amp; Wallboard</strong> Monitor status of your queues quickly and efficiently to make sure you are meeting your 
+					 service level standards. With Wallboards, your team can view the overall performance of the entire contact center and be aware of the service
+					 goals. </li>
+				<li> <strong>Real_Time Graphical Dashboard</strong> Monitor crucial call center metrics and track agent performance in real-time. Now you will have 
+					 valuable insights at your fingertips that will enable you to make decision resulting in improving customer service. </li>
+				<li> <strong> Custom Multi-Level Dispositions</strong> Get detailed data regarding the customer&rsquo;s call and track the outcome of the call from 
+					 start to finish. This powerful feature will enable you to aggregate data into actionable insights. </li>
+				<li> <strong>Detailed Call &amp; Agent Staistics</strong> Manage and improve agent performance by using real-time performance data. Your call center 
+					 managers will have all the detailed statistics needed to track agent efficiency as well as queue efficiency.</li>
+			</ul>
 	</div>
-	<div class="one-third last">
-		<img src="/assets/images/cloudlightning.png" alt="" />
-	<h4>Plan for the Unexpected</h4>
-	<p>A failed communications infrastructure can cost your business in lost sales opportunities and reduced employee productivity.  Having a strategy to prepare
-	against the unexpected is critical </p>
-	<p> Hosted Voice can greatly add to your Business Continuity planning.  Since calls are process in the Red Rock network, not on your site, business can continue
-	even if your facility is down.  We can even automatically sense a disruption and route calls to another location or device automatically.  Ask us how Red Rock
-	can help you devise a comprehensive Business Continuity strategy to keep you up and running. </p>
-	</div>
+	<div class= "one-third last">
+		<img src="/assets/images/contactcenter.png" alt="" />
 	</div>
 	</div>
 	</div>

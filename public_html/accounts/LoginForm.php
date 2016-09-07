@@ -6,8 +6,7 @@ $pagetitle = "Red Rock Telecommunications Login Page";
 	<p>Please enter your username and password to login</p>
 </div>
 
-<form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>
-	method="post">
+<form action="/accounts/login.php" method="post">
 	<table>
 		<tr>
 			<td>Username:</td>
@@ -21,7 +20,7 @@ $pagetitle = "Red Rock Telecommunications Login Page";
 	<input type="submit" value="Submit">
 </form>
 <div id="newaccount">
-	<a href="/accounts/Registration/AccountRegistrationForm.php">Create a New Account</a> <br>
+	<a href="/accounts/Registration/AccountRegistration.php">Create a New Account</a> <br>
 	<a href="/accounts/Registration/forgot_password.php">Forgot Your Password?</a>
 </div>
 

@@ -1,159 +1,61 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8" />
-
-    <!-- this line will appear only if the website is visited with an iPad -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2, user-scalable=yes" />
-
-    <title>Red Rock Telecommunications</title>
-
-    <!-- RESET STYLESHEET -->
-    <link rel="stylesheet" type="text/css" media="all" href="/css/reset.css" />
-    <!-- BOOTSTRAP STYLESHEET -->
-    <link rel="stylesheet" type="text/css" media="all" href="/css/bootstrap.css" />
-    <!-- MAIN THEME STYLESHEET -->
-    <link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
-
-    <!-- [favicon] begin -->
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <!-- [favicon] end -->
-
-    <!-- Touch icons more info: http://mathiasbynens.be/notes/touch-icons -->
-    <!-- For iPad3 with retina display: -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x.png" />
-    <!-- For first- and second-generation iPad: -->
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x.png" />
-    <!-- For first- and second-generation iPad: -->
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x.png">
-    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-    <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-57x.png" />
-    <link rel='stylesheet' id='thickbox-css'  href='/js/thickbox/thickbox.css' type='text/css' media='all' />
-    <link rel='stylesheet' id='usquare-css-css'  href='/sliders/usquare/css/frontend/usquare_style.css' type='text/css' media='all' />
-    <link rel='stylesheet' id='google-fonts-css'  href='http://fonts.googleapis.com/css?family=Playfair+Display%7COpen+Sans+Condensed%3A300%7COpen+Sans%7CShadows+Into+Light%7CMuli%7CDroid+Sans%7CArbutus+Slab%7CAbel&#038;ver=3.5.1' type='text/css' media='all' />
-    <link rel='stylesheet' id='responsive-css'  href='/css/responsive.css' type='text/css' media='all' />
-    <link rel='stylesheet' id='polaroid-slider-css'  href='/sliders/polaroid/css/polaroid.css' type='text/css' media='all' />
-    <link rel='stylesheet' id='ahortcodes-css'  href='/css/shortcodes.css' type='text/css' media='all' />
-    <link rel='stylesheet' id='contact-form-css'  href='/css/contact_form.css' type='text/css' media='all' />
-    <link rel='stylesheet' id='custom-css'  href='/css/custom.css' type='text/css' media='all' />
-
-    <style type="text/css">
-            body { background-color: #ffffff; background-image: url('images/bg-pattern.png'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }
-    </style>
-
-    <script type='text/javascript' src='js/jquery/jquery.js'></script>
-    
-
-</head>
-<!-- END HEAD -->
-<!-- START BODY -->
-<body class="home page no_js responsive stretched">
-
-<!-- START BG SHADOW -->
-<div class="bg-shadow">
-
-<!-- START WRAPPER -->
-    <div id="wrapper" class="container group">
-
-        <!-- START TOP BAR -->
-        <div id="topbar">
-            <div class="container">
-                <div class="row">
-                    <div id="nav" class="span12 light">
-
-                        <!-- START MAIN NAVIGATION -->
-
-                        <ul id="menu-menu" class="level-1">
-							<li><a href="/index.php"><font color="#21B6A8">Home</font></a></li>
-							<li><a href="/main/aboutus.php"><font color="#21B6A8">About Us</font></a>
-							<li><a href="http://support.redrocktelecom.com"><font color="#21B6A8">Customer Service</font></a></li>
-							<li><a href="/main/contactus.php"><font color="#21B6A8">Contact Us</font></a></li>
-                        </ul>
-                        <!-- END MAIN NAVIGATION -->
-                        </div>
-                </div>
-            </div>
-        </div>
-         <!-- END TOP BAR -->
-
-    <!-- START HEADER -->
-    <div id="header" class="group margin-bottom">
-
-        <div class="group container">
-            <div class="row" id="logo-headersidebar-container">
-                <!-- START LOGO -->
-                <div id="logo" class="span8 group">
-                    <a id="logo-img" href="\index.php" title="Red Rock">
-                        <img src="\assets\images\redrocklogo.png" title="Red Rock" alt="Red Rock" />
-                    </a>
-					<p id='tagline'>The Future is Now- Cloud Based Telephone Services</p>
-                </div>
-                <!-- END LOGO -->
-
-                <!-- START HEADER SIDEBAR -->
-                <div id="header-sidebar" class="span4 group">
-                    <div class="widget-first widget header-text-image">
-                        <div class="text-image" style="text-align:left">
-                            <img src="/images/phone1.png" alt="CUSTOMER SUPPORT" />
-                        </div>
-                        <div class="text-content">
-                            <h3>CUSTOMER SUPPORT</h3>
-                            <p>(602) 802-8450</p>
-                        </div>
-                    </div>
-                    </div>
-                    </div>
-                 </div>
-            </div>
-        </div>
+<?php 
+	include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
+?>
         <!-- BEGIN FLEXSLIDER SLIDER -->
         <div id="slider-polaroid-0" class="slider slider-polaroid polaroid no-responsive" style="height:400px;">
             <div class="thumbs  container">
                 <div class="thumb">
-                    <img src="images/slider/flexslider/001-150x150.png" alt="images/slider/flexslider/001.png" />
-                    <div class="slide-content container align-right" style="background-image:url('images/slider/flexslider/001.png');">
+                    <img src="/assets/images/accessionphonethumbnail.png" alt="/assets/images/accessionphonethumbnail.png" />
+                    <div class="slide-content container align-right" style="background-image:url('/assets/images/accessionphone1.png');">
                         <div class="text">
-                            <h2>With Red Rock we will make you HAPPY.</h2>
+                            <h2>With Red Rock We Go Where You Go.</h2>
                             <p>
-                                Quisque nec mi eu nibh aliquam elementum. Ut cursus nisl sit amet sapien dignissim at adipiscing lectus ornare. Aenean id lorem orci.
-                                Morbi lacinia nunc quis lectus condimentum rutrum.
+                                Across town or across the globe, we will ensure that you have access to everything you need to run your business smoothly.
                             </p>
                         </div>
                     </div>
                 </div>
 
                 <div class="thumb">
-                    <img src="images/slider/flexslider/0026-150x150.jpg" alt="images/slider/flexslider/0026.jpg" />
+                    <img src="/assets/images/phonecustomerthumbnail.png" alt="/assets/images/phonecustomer.png" />
+                    <div class="slide-content container align-right" style="background-image:url('/assets/images/phonecustomer.png');">
+                    	 <div class="container">
+                    	 <div class="text">
+                    	 <h2>Hosted Voice</h2>
+                         <h4><span style="color: #4D4C4C;">The phone system you need. <br> A price you can afford. </span></h4>
+                        </div>
+                    </div>
+                </div>
+                    	 
                 </div>
 
                 <div class="thumb">
-                    <img src="images/slider/flexslider/003-150x150.png" alt="images/slider/flexslider/003.png" />
-                    <div class="slide-content container align-right" style="background-image:url('images/slider/flexslider/003.png');">
+                    <img src="/assets/images/accessionformatsthumbnail.png" alt="/assets/images/accessionformats.png" />
+                    <div class="slide-content container align-right" style="background-image:url('/assets/images/accessionformats.png');">
                         <div class="text">
-                            <h2>Be nice. Be original.</h2>
+                            <h2>Nontraditional Business?</h2>
                             <p>
-                                Quisque nec mi eu nibh aliquam elementum. Ut cursus nisl sit amet sapien dignissim at adipiscing lectus ornare. Aenean id lorem orci.
-                                Morbi lacinia nunc quis lectus condimentum rutrum.
+                                Try our nontraditional solutions.  Our mobile apps can be used on your computer, tablet, or smartphone.  So whether you are 
+                                at a remote site, or simply want all of the amenities of your office at home, we have a solution for you.
                             </p>
                         </div>
                     </div>
                 </div>
 
                 <div class="thumb">
-                    <img src="images/slider/flexslider/0043-150x150.jpg" alt="images/slider/flexslider/0043.jpg" />
-                    <div class="slide-content container align-right full" style="background-image:url('images/slider/flexslider/0043.jpg');">
+                    <img src="/assets/images/contactcenterthumbnail.png" alt="/assets/images/contactcenter.png" />
+                    <div class="slide-content container align-right full" style="background-image:url('/assets/images/contactcenter.png');">
                         <div class="container">
                             <div class="text">
                                 <h2>
                                     <span style="color: #0c243d;">Need a Communications</span>
-                                    <span style="color: #919303;">solution?</span>
+                                    <span style="color: #009E8E;">Solution?</span>
                                 </h2>
 
                                 <p>
-                                    <span style="color: #434f5b;">Come meet RedRock</span>
+                                    <span style="color: #434f5b;">Come meet Red Rock,</span>
                                     <br />
-                                    <span style="color: #8b8005;">Flexible, versatile, and impeccable customer service</span>
+                                    <span style="color: #009E8E;">The last phone system you will ever need.</span>
                                 </p>
 
                                 <p>
@@ -167,13 +69,18 @@
                 </div>
 
                 <div class="thumb">
-                    <img src="images/slider/flexslider/0052-150x150.jpg" alt="images/slider/flexslider/0052.jpg" />
-                    <div class="slide-content container align-right full" style="background-image:url('images/slider/flexslider/0052.jpg');">
-                        <div class="container"></div>
+                    <img src="/assets/images/teamworkthumbnail.png" alt="/assets/images/teamwork.png" />
+                    <div class="slide-content container align-right" style="background-image:url('/assets/images/teamwork.png');">
+                        <div class="text">
+                            <h2>Move Your Business Into the Future</h2>
+                            <p>
+                               No matter the size of your business, you should have access to the same features and professional functionality of a big
+                               company.
+                            </p>
+                        </div>
                     </div>
+                   </div>
                 </div>
-            </div>
-        </div>
 
         <script type="text/javascript">
             jQuery(document).ready(function($){
@@ -200,40 +107,57 @@
                 <div id="content-home" class="span12 content group">
                     <div class="page type-page status-publish hentry group">
                         <div class="box-sections numbers-sections margin-bottom ">
-                                <div class="number number-left number-zero"></div>
-                                <div class="number number-right number-1"></div>
-                                <a href="/main/metaswitchsolutions.php"><h4>Metaswitch <span class="title-highlight">Solutions</span></h4></a>
-                                <p>
-                                  Experience the innovative and transformative power of the Metaswitch.  Click here to learn more about its features.
-                                </p>
-                        </div>
-
-                        <div class="box-sections numbers-sections margin-bottom ">
-                            <div class="number number-left number-zero"></div>
-                            <div class="number number-right number-2"></div>
-                           	<a href="/main/avayasolutions.php"><h4>Avaya <span class="title-highlight">Solutions</span></h4></a>
+                        	<a href="/main/whycloud.php">
+                            	<div class="number number-left number-zero"></div>
+                            	<div class="number number-right number-1"></div>
+                            </a>
+                           <h4>Why <span class="title-highlight">Cloud?</span></h4>
                             <p>
-                                Quisque nec mi eu nibh aliquam elementum. Ut cursus nisl sit amet sapien dignissim at adipiscing lectus ornare lorem lorem dieus.
+                                Providing a professional experience when your customers call is critical - it can be the difference
+								between winning or losing business. So no matter how small your business, you should have access
+								to the same features and professional functionality of a big company. With Hosted Voice, Red Rock
+								delivers a best-in-class phone system with all the bells and whistles of a big company phone system
+								- all at an incredibly attractive price.
                             </p>
                         </div>
+                        <div class="box-sections numbers-sections margin-bottom ">
+                        		<a href="/main/mobileintegration.php">
+                                	<div class="number number-left number-zero"></div>
+                                	<div class="number number-right number-2"></div>
+                                </a>
+                                <h4>Mobile <span class="title-highlight">Integration</span></h4>
+                                <p>
+                                 Your working life moves constantly from desk to laptop to smartphone to iPad.  Now you can use all the features of
+                                 Red Rock phone services whether at your desk, at home or on the move.  Look up your contacts, make and receive voice or video
+                                 calls or chat with colleagues, no matter which device you are using or where you are.  You can seamlessly move from device to 
+                                 device, or from cellular to Wi-Fi, even in the middle of a call.
+                                 </p>
+                        </div>
 
                         <div class="box-sections numbers-sections margin-bottom ">
+                            <a href="/main/contactcenter.php">
                             <div class="number number-left number-zero"></div>
                             <div class="number number-right number-3"></div>
-                            <a href="/main/whycloud.php"><h4>Why <span class="title-highlight">Cloud?</span></h4></a>
+                           	<h4>Contact <span class="title-highlight">Center</span></h4>
+                           	</a>
                             <p>
-                                Want to discover how the Cloud can transform the way you do business? Click here to find out!
+                                Cloud Contact Center offers more functionality than traditional hardware at a fraction of the cost.  Our Cloud Contact Center
+                                delivers a customizeable and easy to use call center solution so you can enhance your customer experience and deliver world 
+                                class support.Cloud Contact Center can provide the reliability and security you require for mission-critical business applications. 
                             </p>
                         </div>
-
                         <div class="box-sections numbers-sections margin-bottom  last">
+                        	<a href="/main/communicationssolutions.php">
                             <div class="number number-left number-zero"></div>
                             <div class="number number-right number-4"></div>
                             <h4>
-                                Another <span class="title-highlight">service!</span>
+                                Communications <span class="title-highlight">Solutions</span>
                             </h4>
                             <p>
-                                Quisque nec mi eu nibh aliquam elementum. Ut cursus nisl sit amet sapien dignissim at adipiscing lectus ornare lorem lorem dieus.
+                                At Red Rock, we want to provide you with more than just a phone solution.  We have many tools available to you so that you can ensure your business is run as
+                                efficiently as possible.  Whether you cannot commit to the expense of purchasing and maintaining a phone system, but want all the perks that come with a 
+                                traditional phone system, or you want to be able to collaborate on a project in real time with a colleague on the other side of the world, we have a solution
+                                that will fit your needs.
                             </p>
                         </div>
                         <div class="clear"></div>
@@ -248,7 +172,7 @@
 
                                         <li style="height: 70px;">
                                             <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/ugodno1.png" style="max-height: 70px;" class="logo" />
+                                                <img src="/assets/images/APSLogo.png" style="max-height: 70px;" class="logo" />
                                             </a>
                                         </li>
 
@@ -266,63 +190,28 @@
 
                                         <li style="height: 70px;">
                                             <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/Senza-titolo-1.png" style="max-height: 70px;" class="logo" />
+                                                <img src="/assets/images/limelightlogo.png" style="max-height: 70px;" class="logo" />
                                             </a>
                                         </li>
 
                                         <li style="height: 70px;">
                                             <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/nolt_400x4001.png" style="max-height: 70px;" class="logo" />
+                                                <img src="assets/images/polycomlogo.png" style="max-height: 70px;" class="logo" />
                                             </a>
                                         </li>
 
                                         <li style="height: 70px;">
                                             <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/muffinstudio-011.png" style="max-height: 70px;" class="logo" />
+                                                <img src="assets/images/mitellogo.png" style="max-height: 70px;" class="logo" />
                                             </a>
                                         </li>
 
                                         <li style="height: 70px;">
                                             <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/logo-mix-1.png" style="max-height: 70px;" class="logo" />
+                                                <img src="assets/images/adtranlogo.png" style="max-height: 70px;" class="logo" />
                                             </a>
                                         </li>
-
-                                        <li style="height: 70px;">
-                                            <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/ken.png" style="max-height: 70px;" class="logo" />
-                                            </a>
-                                        </li>
-
-                                        <li style="height: 70px;">
-                                            <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/icecreammedia-011.png" style="max-height: 70px;" class="logo" />
-                                            </a>
-                                        </li>
-
-                                        <li style="height: 70px;">
-                                            <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/garnise_011.png" style="max-height: 70px;" class="logo" />
-                                            </a>
-                                        </li>
-
-                                        <li style="height: 70px;">
-                                            <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/capitan-cook1.png" style="max-height: 70px;" class="logo" />
-                                            </a>
-                                        </li>
-
-                                        <li style="height: 70px;">
-                                            <a href="#" class="bwWrapper" >
-                                               <img src="images/slider/bread1.png" style="max-height: 70px;" class="logo" />
-                                            </a>
-                                        </li>
-
-                                        <li style="height: 70px;">
-                                            <a href="#" class="bwWrapper" >
-                                                <img src="images/slider/Apuragreen2.png" style="max-height: 70px;" class="logo" />
-                                            </a>
-                                        </li>
+                                        
                                     </ul>
                                 </div>
                                 <div class="clear"></div>
@@ -388,37 +277,37 @@
         <div class="container">
             <div class="row">
                 <div class="footer-widgets-area with-sidebar-right">
-                    <div class="widget-first widget span2 widget_text"><a href="/main/aboutus.php"><h3>About Us</h3></a>
+                    <div class="widget-first widget span3 widget_text"><a href="/main/aboutus.php"><h3>About Us</h3></a>
                         <div class="textwidget">
-                            Aliquam pellentesque pellentesque turpis, ut sollicitudin nec
-                            plasiren.
-                            Pellentesque posuere ornare placerat. Suspendisse potenti.
+                         Red Rock Telecommunications is a built from scratch Cloud solutions company delivering resilient 
+                         communications networks with the latest generation Avaya and Metaswitch technology.   
                         </div>
                     </div>
 
-                    <div class="widget span2 widget_nav_menu">
+                    <div class="widget span3 widget_nav_menu">
                         <h3>Navigation</h3>
 
                         <div class="menu-widget-footer-container">
                             <ul id="menu-widget-footer" class="menu">
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="/main/ourteam.php">Our Team</a>
+                         
+                                <li class="menu-item menu-item-type-post_type">
+                                    <a href="/main/whycloud.php">Why the Cloud?</a>
                                 </li>
 
                                 <li class="menu-item menu-item-type-post_type">
-                                    <a href="testimonials.html">Testimonials</a>
+                                    <a href="/main/mobileintegration.php">Mobile Integration</a>
                                 </li>
 
-                                <li class="menu-item menu-item-type-post_type">
-                                    <a href="portfolio-3-columns.html">Portfolio</a>
+								<li class="menu-item menu-item-type-custom">
+                                    <a href="/main/contactcenter.php">Contact Center</a>
                                 </li>
-
-                                <li class="menu-item menu-item-type-post_type">
-                                    <a href="get-in-touch.html">Get in touch</a>
-                                </li>
-
+                                
                                 <li class="menu-item menu-item-type-custom">
-                                    <a href="#">Policy</a>
+                                    <a href="/main/communicationssolutions.php">Communications Solutions</a>
+                                </li>
+                                
+                                <li class="menu-item menu-item-type-post_type">
+                                    <a href="/main/contactus.php">Get in touch</a>
                                 </li>
 
                                 <li class="menu-item menu-item-type-custom">
@@ -426,15 +315,34 @@
                                 </li>
                             </ul>
                         </div>   
-                        </div>   
-                   		 <div class="footer-widgets-area with-sidebar-right">
-                  	  	 	<div class="widget-first widget span2 widget_text"><a href="/main/contactus.php"><h3>Contact Us</h3></a>
-                        		<div class="textwidget">
-                   		 		 	Address: 3719 E La Salle St. <br>
-					 				Phoenix, AZ, 85040 <br>
-									Front Desk: (602)-802-8400 <br>
-									Customer Service: (602)-802-8450 <br>
                         </div>
+                        <a href="/main/contactus.php"><h3>Contact Us</h3></a>  
+                   		 <div class="footer-widgets-area with-sidebar-right">
+                  	  	 	<div class="widget-first widget span6 widget_text">
+                        		<div class= "contact-info"> 
+								<div class="sidebar-nav">
+									<ul>
+										<li>
+											<i class="fa fa-map-marker" style="color:#979797; font-size:20px"></i>
+												Address: 3719 E La Salle St.
+												Phoenix, AZ, 85040
+										</li>
+										<li>
+											<i class="fa fa-phone" style="color:#979797; font-size:20px"></i>
+												<a href="tel:602-802-8450">Front Desk:(602) 802-8400</a>
+										</li>
+										<li>
+											<i class="fa fa-phone" style="color:#979797; font-size:20px"></i>
+												<a href="tel:602-802-8450">Customer Service:(602) 802-8450</a>
+										</li>
+										<li>
+											<i class="fa fa-envelope-o" style="color:#979797; font-size:20px"></i>
+												<a href="mailto:redrock@redrocktelecom.com?Subject=More%20Information" target="_top">
+												Email: redrock@redrocktelecom.com</a>
+										</li>
+									</ul>
+								</div>
+							</div>
                    	 </div>
                     </div>
                 </div>
