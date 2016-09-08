@@ -36,8 +36,7 @@ include_once $root . '/classes/OrderUtils.php';
 ?>
 <div id="order-form" class="clearfix">
 <form action="/orders/OrderConfirm.php" method="post">
-<label for="porting">Will you be porting any numbers?<span class="required" style="color:red;">*</span>
-			</label>
+<label for="porting">Will you be porting any numbers?</label>
 		<input type="radio" name="porting" id="yesport" value="Yes"/> Yes
 		<input type="radio" name="porting" id="noport" value="No" checked="checked"/> No
 		<div id="div1" style="display:none" >
