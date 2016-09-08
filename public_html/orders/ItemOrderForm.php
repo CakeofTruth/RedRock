@@ -18,8 +18,6 @@
     //echo "uploaded to: " . $uploaddir;
 	$attachmentString = generateAttachmentString($uploaddir);
 	
-	echo "attachmentDir: " . $uploaddir . "<br>";	
-
 	setOrderSessionVariables($attachmentString, $attachmentID);
 		
 ?>
@@ -193,7 +191,6 @@
 				}
 			}
 		}
-		echo "attachmentString: " . $attachmentsString . "<br>";			
 		return $attachmentsString;
 	}
 

@@ -32,31 +32,34 @@ if (mysqli_query ( $conn, $customerInsertString )) {
 	if ($orderInsertSuccess) {
 		$orderNumber = $conn->insert_id;
 		$numberInsertString = generateNumberInsertString($orderNumber);
+        //echo "number insert string: " . $numberInsertString . "<br>";
 		$numberInsertSuccess = mysqli_query ( $conn, $numberInsertString );
 		if($numberInsertSuccess){
-			echo "<p style= 'align:center';> Order Created Successfully!  </p><br>";
-			sendOrderAlertEmail($orderNumber,$orderUtils);
-			$itemizedInsert = generateItemizedInsertString($orderNumber,$orderUtils);
-			if (mysqli_query ( $conn, $itemizedInsert)) {
-				echo '<a href= "/portal/portal.php">Return to portal</a>';
-			}
-			else{
-				echo "Failed to insert Itemized order";
-			}
+            $itemizedInsert = generateItemizedInsertString($orderNumber,$orderUtils);
+            //echo "Itemized insert String: " . $itemizedInsert . "<br>";
+            if (mysqli_query ( $conn, $itemizedInsert)) {
+                sendOrderAlertEmail($orderNumber,$orderUtils);
+                echo "<p style= 'align:center';> Order Created Successfully!  </p><br><br>";
+                echo '<a href= "/portal/portal.php">Return to portal</a>';
+            }
+            else{
+                echo "Failed to insert Itemized order";
+            }
+
 		}
 	} else {
-		//echo "Error inserting Order information: " . mysqli_error ( $conn );
+		echo "Error inserting Order information: " . mysqli_error ( $conn );
 	}
 } else {
-	//echo "Error: " . $customerInsertString . "<br>" . mysqli_error ( $conn );
+	echo "Error: " . $customerInsertString . "<br>" . mysqli_error ( $conn );
 }
 $conn->close ();
-/*unsetOrderSessionVariables();
+//unsetOrderSessionVariables();
 /**
  * This function goes through each of the session variables set throught the course of the order and unsets them so they do not overlap with other orders 
  * made during the same login/session.
  */
-/*function unsetOrderSessionVariables(){
+function unsetOrderSessionVariables(){
 	//Have to go through each of the item session variables before the spcode is unset
 	include_once $_SERVER ["DOCUMENT_ROOT"] . '/classes/OrderUtils.php';
 	$orderUtils = new OrderUtils();
@@ -105,10 +108,11 @@ $conn->close ();
 	unsetSessionVariable('attachmentString');
 	unsetSessionVariable('attachmentDir');
 }
-	function unsetSessionVariable ($sessionVariableName) {
+
+function unsetSessionVariable ($sessionVariableName) {
 	unset($GLOBALS['_SESSION'][$sessionVariableName]);
 }
-*/
+
 function generateItemizedInsertString($orderNumber,$orderUtils){
 	$sql = 'INSERT INTO OrderItems(Order_No, USOC, Quantity) VALUES';
 	$result = $orderUtils->getResellerItems($_SESSION["spcode"]);
@@ -130,7 +134,7 @@ function generateItemizedInsertString($orderNumber,$orderUtils){
 	return $sql;
 }
 function generateNumberInsertString($orderNumber) {
-	$sql = 'INSERT INTO NumberDetails(Order_No, Ported_Number, BTNumber, Port_Number_911) VALUES';
+	$sql = 'INSERT INTO PortedNumbers(Order_No, Ported_Number, IsBT, Is911) VALUES';
 	$index = 1;
 	$portednumName = "portednumber_" . $index;
 	$firstValues = true;
@@ -145,12 +149,21 @@ function generateNumberInsertString($orderNumber) {
 		}
 		$sql = $sql . "('" . $orderNumber . "',";
 		$sql = $sql . "'" . test_input($_POST[$portednumName]) . "',";
-		$sql = $sql . "'" . $btValue  . "',";
-		$sql = $sql . "'" . $nineOneOneValue . "')";
+		$sql = $sql . "'" . getYesNo($_POST[$btnumberName])  . "',";
+		$sql = $sql . "'" . getYesNo($_POST[$portnumber911Name]) . "')";
 		$index++;
 		$portednumName = "portednumber_" . $index;
 	}
 	return $sql;
+}
+
+function getYesNo($value){
+    if(strcmp($value,"yes") == 0){
+        return "yes";
+    }
+    else{
+        return "no";
+    }
 }
  
 function generateCustomerInsertString() {
@@ -176,7 +189,7 @@ function generateCustomerInsertString() {
 function generateOrderInsertString($Cust_ID) {
 	$sql = 'INSERT INTO Orders (Emerg_Prov_Req, Order_Details, Customer_ID, Serv_Prov_CD, Res_Cont_Name, 
 			Reseller_Ref_ID, Request_Built, Request_Service, Or_Sooner, Add_Exist_Cust,
-			Porting, New_Numbers, New_Number_Qty, New_Number_AC, Emerg_New_Number, Virtual_Numbers, VTN_quantity, Acct_No) VALUES(';
+			RequiresPN, New_Number_Qty, New_Number_AC, Emerg_New_Number, VTN_Quantity, Acct_No) VALUES(';
 	
 	$sql = $sql . "'" . test_input($_SESSION ["emergprovisionrequired"]) . "',";
 	$sql = $sql . "'" . addslashes(test_input($_SESSION ["orderdetails"])) . "',";
@@ -189,11 +202,9 @@ function generateOrderInsertString($Cust_ID) {
 	$sql = $sql . "'" . test_input($_SESSION ["orsooner"])  . "',";
 	$sql = $sql . "'" . test_input($_SESSION ["addtoexistingcustomer"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["porting"]) . "',";
-	$sql = $sql . "'" . test_input($_POST["newnumbers"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["newnumberquantity"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["newnumberac"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["emergnewnumber"]) . "',";
-	$sql = $sql . "'" . test_input($_POST["virtualnumbers"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["vtnquantity"]) . "',";
 	$sql = $sql . "'" . $_SESSION["Acct_No"] . "')";
 	return $sql;
@@ -320,11 +331,6 @@ function createOrderMessage($orderNumber,$orderUtils){
 				</tr>
 			</table>
 		<h3>Number Details:</h3>
-			<table id= "numberdetails" style="clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black;">
-				<tr class="customer-row">
-					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">Porting Numbers: ' . 	test_input($_POST["porting"]) . '</div></td>
-				</tr>
-				</table>
 		<h4 style="text-align:center;">Ported Numbers:<h4>
 				<table id="items" style="clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black;">
 					<tr class = "customer-row">
@@ -335,42 +341,41 @@ function createOrderMessage($orderNumber,$orderUtils){
 				$result = $orderUtils->getNumberDetails($orderNumber);
 				while($row  = $result->fetch_array()){
 					$newnumber = $row["Ported_Number"];
-					$nineoneone = $row["Port_Number_911"];
-					$btnumber = $row["BTNumber"] ;
-					if($quantity > 0){
-						$message .= '<tr>';
-						$message .= '<td class="item-name"><div class="delete-wpr" style="width: 100px; height: 50px;">' . $newnumber . '</div></td>';
-						$message .= '<td class="description"><div style="width: 50px; width: 100%; height: 100%;">' .$nineoneone . '</div></td>';
-						$message .= '<td><div class="cost" style="width: 50px; height: 50px;">' . $btnumber . '</div></td>';
-						$message .= '</tr>';
-					}
+					$nineoneone = $row["Is911"];
+					$btnumber = $row["IsBT"] ;
+					$message .= '<tr>';
+					$message .= '<td class="item-name"><div class="delete-wpr" style="width: 100px; height: 50px;">' . $newnumber . '</div></td>';
+					$message .= '<td class="description"><div style="width: 50px; width: 100%; height: 100%;">' .$nineoneone . '</div></td>';
+					$message .= '<td><div class="cost" style="width: 50px; height: 50px;">' . $btnumber . '</div></td>';
+					$message .= '</tr>';
 				}
 			$message .=' </table>
-			<h4 style="text-align:center;">Number Details: </h4>
-			<table id= "numberdetails" style="clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black;">
-			<tr class="customer-row">
-					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">Do you need any new numbers: ' . 	test_input($_POST["newnumbers"]) . '</div></td>
+			<h4 style="text-align:center;">Number Details: </h4>';
+
+            $newNumbersQT = test_input($_POST["newnumberquantity"]);
+            if(strlen($newNumbersQT) == 0){
+               $newNumbersQT = "0";
+            }
+			$message .= '<table id= "numberdetails" style="clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black;">
+			    <tr class="customer-row">
+					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">New numbers : ' . 	$newNumbersQT . '</div></td>
 				</tr>
-			<tr class="customer-row">
-					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">How many new numbers do you need: ' . 	test_input($_POST["newnumberquantity"]) . '</div></td>
+			    <tr class="customer-row">
+					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">New number area code: ' . 	test_input($_POST["newnumberac"]) . '</div></td>
 				</tr>
-			<tr class="customer-row">
-					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">What area code do you need: ' . 	test_input($_POST["newnumberac"]) . '</div></td>
-				</tr>
-			<tr class="customer-row">
-					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">Do you want one of the new numbers to be 911 provisioned: ' . 	test_input($_POST["emergnewnumber"]) . '</div></td>
-				</tr>
-			<tr class="customer-row">
-					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">Will you need any virtual numbers: ' . 	test_input($_POST["virtualnumbers"]) . '</div></td>
-				</tr>
-			<tr class="customer-row">
-					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">How many virtual numbers: ' . 	test_input($_POST["vtnquantity"]) . '</div></td>
-				</tr>
-			</table>
-		</div>
-	</div>
-</body>
-</html>' ;
+			    <tr class="customer-row">
+					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">New number 911 provisioned: ' . 	test_input($_POST["emergnewnumber"]) . '</div></td>
+				</tr>';
+
+            $vtnQuantity = test_input($_POST["vtnquantity"]);
+            if(strlen($vtnQuantity) == 0){
+               $vtnQuantity = "0";
+            }
+
+            $message .= '<tr class="customer-row">
+					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">New virtual numbers: ' . $vtnQuantity . '</div></td>
+				</tr>';
+			$message .= '</table> </div> </div> </body> </html>';
     return $message;
 }
 	
