@@ -32,24 +32,32 @@ if (mysqli_query ( $conn, $customerInsertString )) {
 	if ($orderInsertSuccess) {
 		$orderNumber = $conn->insert_id;
 		$numberInsertString = generateNumberInsertString($orderNumber);
-		$numberInsertSuccess = mysqli_query ( $conn, $numberInsertString );
+        $numberInsertSuccess = false;
+        if(strcmp($numberInsertString,"") != 0){
+            $numberInsertSuccess = mysqli_query ( $conn, $numberInsertString );
+        }
+        else{
+            $numberInsertSuccess = true;
+        }
+        //echo "number insert string: " . $numberInsertString . "<br>";
 		if($numberInsertSuccess){
-			echo "<p style= 'align:center';> Order Created Successfully!  </p><br>";
-			sendOrderAlertEmail($orderNumber,$orderUtils);
-			$itemizedInsert = generateItemizedInsertString($orderNumber,$orderUtils);
+            $itemizedInsert = generateItemizedInsertString($orderNumber,$orderUtils);
+            //echo "Itemized insert String: " . $itemizedInsert . "<br>";
+            if (mysqli_query ( $conn, $itemizedInsert)) {
+                sendOrderAlertEmail($orderNumber,$orderUtils);
+                echo "<p style= 'align:center';> Order Created Successfully!  </p><br><br>";
+                echo '<a href= "/portal/portal.php">Return to portal</a>';
+            }
+            else{
+                echo "Failed to insert Itemized order";
+            }
 
-			if (mysqli_query ( $conn, $itemizedInsert)) {
-				echo '<a href= "/portal/portal.php">Return to portal</a>';
-			}
-			else{
-				echo "Failed to insert Itemized order";
-			}
 		}
 	} else {
-		//echo "Error inserting Order information: " . mysqli_error ( $conn );
+		echo "Error inserting Order information: " . mysqli_error ( $conn );
 	}
 } else {
-	//echo "Error: " . $customerInsertString . "<br>" . mysqli_error ( $conn );
+	echo "Error: " . $customerInsertString . "<br>" . mysqli_error ( $conn );
 }
 $conn->close ();
 //unsetOrderSessionVariables();
@@ -131,6 +139,7 @@ function generateItemizedInsertString($orderNumber,$orderUtils){
 	}
 	return $sql;
 }
+
 function generateNumberInsertString($orderNumber) {
 	$sql = 'INSERT INTO PortedNumbers(Order_No, Ported_Number, IsBT, Is911) VALUES';
 	$index = 1;
@@ -154,23 +163,26 @@ function generateNumberInsertString($orderNumber) {
 		}
 		$sql = $sql . "('" . $orderNumber . "',";
 		$sql = $sql . "'" . test_input($_POST[$portednumName]) . "',";
-		$sql = $sql . "'" . test_input($btValue)  . "',";
-		$sql = $sql . "'" . test_input($nineOneOneValue) . "')";
+		$sql = $sql . "'" . getYesNo($_POST[$btnumberName])  . "',";
+		$sql = $sql . "'" . getYesNo($_POST[$portnumber911Name]) . "')";
 		$index++;
 		$portednumName = "portednumber_" . $index;
 	}
+    if($firstValues){
+        return "";
+    }
 	return $sql;
 }
 
-/*function yesNoBoolean($value){
-    if($value){
+function getYesNo($value){
+    if(strcmp($value,"yes") == 0){
         return "yes";
     }
     else{
         return "no";
     }
 }
-*/ 
+
 function generateCustomerInsertString() {
 	$sql = 'INSERT INTO Customers (End_User_Name, Cust_Telephone, Address_1, Address_2, City, State, Zip, Emerg_Address_1, Emerg_Address_2, Emerg_City, Emerg_State, Emerg_Zip, Emerg_Phone,Customer_Time_Zone) 
 			VALUES(';

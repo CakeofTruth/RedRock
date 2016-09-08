@@ -1,7 +1,8 @@
 <?php 
 	include ($_SERVER ["DOCUMENT_ROOT"] . '/portal/portalheader.php');
 	include_once $root . '/classes/OrderUtils.php';
-	
+
+    //Grab all the submitted items from the previous form (ItemOrderForm.php) and add them to the session variables.
 	$orderUtils = new OrderUtils();
 	$result = $orderUtils->getResellerItems($_SESSION['spcode']);
 	while($row  = $result->fetch_array()){
@@ -13,9 +14,6 @@
 	$_SESSION['totalMonthly'] = $_POST['totalMonthly'];
 	$_SESSION['totalNonRecurring'] = $_POST['totalNonRecurring'];
 	
-//source for array session variables http://stackoverflow.com/questions/10337782/how-to-create-variables-and-assign-them-values-within-a-for-each-loop-in-php
-
-
 ?>
 <html>
 <head>
@@ -94,7 +92,7 @@ function addElement() {
 	var objNewDiv = document.createElement('div');
 	objNewDiv.setAttribute('id', 'div_' + intTextBox);
 	objNewDiv.innerHTML = 'Phone Number ' + intTextBox + ': <input type= "text" id="tb_' + intTextBox + '" name="portednumber_' + intTextBox + '" />'
-	+ '911?: <input type = "checkbox" id="portnumber911_' + intTextBox + '" name="portnumber911_' + intTextBox + '" />' + 'BTN?: <input type = "checkbox" id="btnumber_' + intTextBox + '" name="btnumber_' + intTextBox + '" />' ;
+	+ '911?: <input type = "checkbox" id="portnumber911_' + intTextBox + '" name="portnumber911_' + intTextBox + '"value="yes" />' + 'BTN?: <input type = "checkbox" id="btnumber_' + intTextBox + '" name="btnumber_' + intTextBox + '" value="yes"/>' ;
 	document.getElementById('content').appendChild(objNewDiv);
 };
 

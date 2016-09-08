@@ -87,7 +87,7 @@
 	<body>
 	<h1> Item Ordering </h1>
 		<div id="box">
-		<form action="/orders/numberdetails.php" method="post">	
+		<form action="/orders/PortedNumbers.php" method="post">
 		<table id="ItemOrderTable">
 			<thead>
 				<tr>
