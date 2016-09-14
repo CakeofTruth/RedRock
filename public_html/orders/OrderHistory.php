@@ -24,6 +24,7 @@ include_once $root . '/classes/OrderUtils.php';
 			<thead>
 				<tr>
 					<th> Order Number </th>
+					<th> Status</th>
 					<th> End User </th>
 					<th> End User Address</th>
 					<th> Requested Built Date</th>
@@ -31,19 +32,49 @@ include_once $root . '/classes/OrderUtils.php';
 				</tr>
 				<?php
 					
-					$orderUtils = new OrderUtils();
+					/*$orderUtils = new OrderUtils();
 					$fullname = $_SESSION["First_Name"] . " " . $_SESSION["Last_Name"];
 					$orders = $orderUtils->getOrdersByUser($fullname);
 					while($row  = $orders->fetch_array()){
+						$orderNo = $row["Order_No"];
 						$address = $orderUtils->generateAddressString($row["Address_1"], $row["Address_2"], $row["City"], $row["State"], $row["Zip"]);
 						$rowhtml = '<tr>'
-								. '<td>' . $row["Order_No"] . "</td>"
+								. '<td><a href="/orders/orderDetails.php?orderNumber=' . $orderNo . '">' . $orderNo .  '</a></td>'
+								. '<td>' . $row ["Status"] . "</td>"
 								. '<td>' . $row["End_User_Name"] . "</td>"
 								. '<td>' . $address . "</td>"
 								. '<td>' . $row["Request_Built"] . "</td>"
 								. '<td>' . $row["Request_Service"] . "</td>"
 								. '</tr>';
 						echo $rowhtml;
+					}
+					*/
+					if (isset($_SESSION["Approver"]) &&  $_SESSION["Approver"] == "0" ){
+						//echo "You are a boring end user!";
+						$orderUtils = new OrderUtils();
+						$fullname = $_SESSION["First_Name"] . " " . $_SESSION["Last_Name"];
+						$orders = $orderUtils->getOrdersByUser($fullname);
+					}else{
+						//echo "You are an Approver";
+						$dbutils = new DBUtils();
+						$conn = $dbutils->getDBConnection ();
+						$orderNumber = $conn;
+						$orderUtils = new OrderUtils();
+						$orders = $orderUtils->getAdminOrders($orderNumber);
+						
+					}
+					while($row  = $orders->fetch_array()){
+						$orderNo = $row["Order_No"];
+						$address = $orderUtils->generateAddressString($row["Address_1"], $row["Address_2"], $row["City"], $row["State"], $row["Zip"]);
+						$rowhtml = '<tr>'
+								. '<td><a href="/orders/orderDetails.php?orderNumber=' . $orderNo . '">' . $orderNo .  '</a></td>'
+								. '<td>' . $row ["Status"] . "</td>"
+								. '<td>' . $row["End_User_Name"] . "</td>"
+								. '<td>' . $address . "</td>"
+								. '<td>' . $row["Request_Built"] . "</td>"
+								. '<td>' . $row["Request_Service"] . "</td>"
+								. '</tr>';
+						echo$rowhtml;
 					}
 				?>
 			</thead>

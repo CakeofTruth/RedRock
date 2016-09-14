@@ -10,9 +10,12 @@
     border-radius:15px;
     position:relative;
 }
- 
+h1{
+	text-align:center;
+}
 #order-form h1 {
     font-size:42px;
+
 }
  
 #order-form h2 {
