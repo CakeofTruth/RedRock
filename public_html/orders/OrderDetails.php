@@ -16,7 +16,7 @@ $conn = $dbutils->getDBConnection ();
 if(isset($_GET["orderNumber"])){
    //check if order belongs to whoever's logged in
     $orderNumber = $_GET["orderNumber"];
-    if(isThisYourOrder($orderNumber,$_SESSION["Acct_No"],$conn)){
+    if(isThisYourOrder($orderNumber,$_SESSION["Acct_No"],$conn) OR $_SESSION["Approver"] == "1"){
         echo "Include dat page yo <br>";
         setDetailVariables();
         echo $var1 . "<br>";

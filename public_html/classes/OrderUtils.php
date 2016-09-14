@@ -25,7 +25,7 @@ class OrderUtils{
 	 * @return bool|mysqli_result
 	 */
 	function getOrdersByUser($user){
-		$sql = "SELECT o.Order_No, c.End_User_Name, c.Address_1, c.Address_2, c.City, c.State, c.Zip, o.Request_Built, o.Request_Service 
+		$sql = "SELECT o.Order_No, c.End_User_Name, c.Address_1, c.Address_2, c.City, c.State, c.Zip, o.Request_Built, o.Request_Service, o.Status
 				FROM `Orders` o join Customers c on o.Customer_ID = c.Customer_ID 
 				where Res_Cont_Name = '" . $user . "'" .
                 "Order by o.Order_no";
@@ -35,7 +35,14 @@ class OrderUtils{
 		return $conn->query ($sql);
 			
 	}
-
+	function getAdminOrders($ordernumber){
+		$sql = "SELECT o.Order_No, c.End_User_Name, c.Address_1, c.Address_2, c.City, c.State, c.Zip, o.Request_Built, o.Request_Service, o.Status
+				FROM `Orders` o join Customers c on o.Customer_ID = c.Customer_ID ;";
+		$dbutils = new DBUtils();
+		$conn = $dbutils->getDBConnection();
+		return $conn->query ($sql);		
+	}
+	
 	function getNumberDetails($ordernumber){
 		$sql = "select Ported_Number, IsBT, Is911
 		from PortedNumbers where Order_No =\"" . $ordernumber . "\"";
@@ -73,38 +80,35 @@ class OrderUtils{
 		return $conn->query ($sql);
 
 	}
-
-    /*
-	function getOrderItems($orderNumber){
-        
-        $sql = "Select p.USOC, Description, One_Time_Charge, Recurring_Price, Quantity 
-        from Products p join Orders o on p.Serv_Prov_CD = o.Serv_Prov_CD 
-        right join OrderItems oi on o.Order_No = oi.Order_No 
-        where o.Order_No =" . $orderNumber;
-
-		$dbutils = new DBUtils();
-		$conn = $dbutils->getDBConnection();
-		$result = $conn->query ($sql);
-
-		while($row  = $result->fetch_array()){
-
-			$itemName = $row["USOC"];
-			$quantity = $row["Quantity"];
-			$description = $row["Description"] ;
-			$monthly = $row["Recurring_Price"];
-			$nonRecurring = $row["One_Time_Charge"];
-			$rowDetails  = [
-				"itemName" = $itemName,
-				"quantity" = $quantity,
-				"description" = $description,
-				"monthly" = $monthly,
-				"nonRecurring" = $nonRecurring,
-			];
-		}
-
-		return itemDetails;
-	}
-    */
-
+	/*
+	 function getOrderItems($orderNumber){
+	
+	 $sql = "Select p.USOC, Description, One_Time_Charge, Recurring_Price, Quantity
+	 from Products p join Orders o on p.Serv_Prov_CD = o.Serv_Prov_CD
+	 right join OrderItems oi on o.Order_No = oi.Order_No
+	 where o.Order_No =" . $orderNumber;
+	
+	 $dbutils = new DBUtils();
+	 $conn = $dbutils->getDBConnection();
+	 $result = $conn->query ($sql);
+	
+	 while($row  = $result->fetch_array()){
+	
+	 $itemName = $row["USOC"];
+	 $quantity = $row["Quantity"];
+	 $description = $row["Description"] ;
+	 $monthly = $row["Recurring_Price"];
+	 $nonRecurring = $row["One_Time_Charge"];
+	 $rowDetails  = [
+	 "itemName" = $itemName,
+	 "quantity" = $quantity,
+	 "description" = $description,
+	 "monthly" = $monthly,
+	 "nonRecurring" = $nonRecurring,
+	 ];
+	 }
+	
+	 return itemDetails;
+	 }
+	 */
 }
-?>

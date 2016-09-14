@@ -11,11 +11,17 @@ $dbname = "RedRock";
 <<<<<<< HEAD:public_html/accounts/Registration/AccountRegistrationConfirm.php
 */
 
-	function getDBConnection() {
+/*	function getDBConnection() {
 		$servername = "127.0.0.1";
 		$dbname = "redroc91_redrock";
         $dbusername = "redroc91_redrock";
 		$dbpassword = "@dm!nP@$$1001";
+*/
+	function getDBConnection() {
+		$servername = "127.0.0.1:3307";
+		$dbname = "redroc91_redrock";
+		$dbusername = "root";
+		$dbpassword = "";
 
 		// Create connection
 		$conn = new mysqli ( $servername, $dbusername, $dbpassword, $dbname );
