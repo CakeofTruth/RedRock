@@ -50,7 +50,19 @@ class OrderUtils{
 		$conn = $dbutils->getDBConnection();
 		return $conn->query ($sql);		
 	}
-	
+	function createOrderDisplay($ordernumber){
+		/*$sql = "select Ported_Number, IsBT, Is911
+		from PortedNumbers where Order_No =\"" . $ordernumber . "\""; */
+		$sql = "SELECT o.Emerg_Prov_Req, o.Order_Details, o.Or_Sooner, o.Request_Built, o.Request_Service, o. Reseller_Ref_ID, o. Serv_Prov_CD, o. Sales_Rep, 
+				o. Reseller_Ref_ID, o. Request_Built, o. Request_Service, o.RequiresPN, o. New_Number_Qty, o.New_Number_AC, o. Emerg_New_Number, o. VTN_Quantity, 
+				o.Status, c.End_User_Name, c.Address_1, c.Address_2, c.City, c.Customer_ID, c.Customer_Time_Zone, c.Cust_Telephone, c.Emerg_Address_1, c.Emerg_Address_2,
+				c.Emerg_City, c.Emerg_Phone, c.Emerg_State, c.Emerg_Zip, c.End_User_Name, c.State, c.Zip
+				FROM Orders o
+				join Customers c on o.Customer_ID = c.Customer_ID WHERE Order_No =\"" . $ordernumber . "\"" ;
+		$dbutils = new DBUtils();
+		$conn = $dbutils->getDBConnection();
+		return $conn->query ($sql);
+	}
 	/**
 	 * Attempts to return a user friendly address Stamp. 
 	 * 

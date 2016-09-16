@@ -10,7 +10,7 @@ $_SESSION["resellerba1"]
 $_SESSION["city"]
 $_SESSION["state"]
 $_SESSION["zipcode"]
-$_SESSION["spcode"])
+$_SESSION["spcode"]
 	$_SESSION["totalMonthly"]
 $_SESSION["totalNonRecurring"]
 $_SESSION["endusername"]
