@@ -8,6 +8,7 @@ include_once $root . '/classes/MailUtils.php';
 if (empty ( $_POST )) {
 	echo "Something went wrong with the order.";
 }
+error_reporting(E_ALL ^ E_NOTICE);
 $orderUtils = new OrderUtils();
 $dbutils = new DBUtils();
 $conn = $dbutils->getDBConnection ();
@@ -205,7 +206,7 @@ function generateCustomerInsertString() {
 function generateOrderInsertString($Cust_ID) {
 	$sql = 'INSERT INTO Orders (Emerg_Prov_Req, Order_Details, Customer_ID, Serv_Prov_CD, Res_Cont_Name, 
 			Reseller_Ref_ID, Request_Built, Request_Service, Or_Sooner, Add_Exist_Cust,
-			RequiresPN, New_Number_Qty, New_Number_AC, Emerg_New_Number, VTN_Quantity, Acct_No) VALUES(';
+			RequiresPN, New_Number_Qty, New_Number_AC, Emerg_New_Number, VTN_Quantity, Acct_No, Status) VALUES(';
 	
 	$sql = $sql . "'" . test_input($_SESSION ["emergprovisionrequired"]) . "',";
 	$sql = $sql . "'" . addslashes(test_input($_SESSION ["orderdetails"])) . "',";
@@ -222,7 +223,8 @@ function generateOrderInsertString($Cust_ID) {
 	$sql = $sql . "'" . test_input($_POST["newnumberac"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["emergnewnumber"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["vtnquantity"]) . "',";
-	$sql = $sql . "'" . $_SESSION["Acct_No"] . "')";
+	$sql = $sql . "'" . $_SESSION["Acct_No"] . "',";
+	$sql = $sql . "'" . 'Submitted' . "')";
 	return $sql;
 }
 function sendOrderAlertEmail($orderNumber,$orderUtils){
@@ -302,7 +304,7 @@ function createOrderMessage($orderNumber,$orderUtils){
 		      <td class="total-value" style="border-left: 0; padding: 10px;"><div id="total" style="height: 20px; background: none;">' . $_SESSION["totalNonRecurring"] . '</div></td>
 		  </tr>
 		</table>
-		<h3>Customer Information:</h3>
+		<h3 style="text-align:center;">Customer Information:</h3>
 		<table id= "customer" style="clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black;">
 			<tr class="customer-row">
 				<td class="customer-name"><div class="delete-wpr" style="width: 100%; height: 50px;">Name: ' . 	test_input($_SESSION["endusername"]) . '</div></td>
@@ -340,40 +342,40 @@ function createOrderMessage($orderNumber,$orderUtils){
 				<td class= "customer-emergphonenumber"><div class="delete-wpr" style="width: 100%; height: 50px;"> Emergency Phone Number: ' . test_input($_SESSION["emergphonenumber"]) . '</div></td>
 			</tr>
 		</table>
-		<h3>Order Details:</h3>
+		<h3 style="text-align:center;">Order Details:</h3>
 			<table id= "orderdetails" style="clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black;">
 				<tr class= "order-row">
 					<td class="order-details"><div class="delete-wpr" style="width: 100%; height: 50px;">' . 	test_input($_SESSION["orderdetails"]) . '</div></td>
 				</tr>
 			</table>
-		<h3>Number Details:</h3>
+		<h3 style="text-align:center;">Number Details:</h3>
 		<h4 style="text-align:center;">Ported Numbers:<h4>
 				<table id="items" style="clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black;">
 					<tr class = "customer-row">
-						<th style="background: #eee;" >New Number</th>
-						<th style="background: #eee;">911 provision</th>
-						<th style="background: #eee;">Billing Telephone Number</th>
+						<th style="background: #eee; border: 1px solid black; border-collapse: collapse;" >New Number</th>
+						<th style="background: #eee; border: 1px solid black; border-collapse: collapse;">911 provision</th>
+						<th style="background: #eee; border: 1px solid black; border-collapse: collapse;">Billing Telephone Number</th>
 					</tr>';
 				$result = $orderUtils->getNumberDetails($orderNumber);
 				while($row  = $result->fetch_array()){
 					$newnumber = $row["Ported_Number"];
 					$nineoneone = $row["Is911"];
 					$btnumber = $row["IsBT"] ;
-					$message .= '<tr>';
-					$message .= '<td class="item-name"><div class="delete-wpr" style="width: 100px; height: 50px;">' . $newnumber . '</div></td>';
-					$message .= '<td class="description"><div style="width: 50px; width: 100%; height: 100%;">' .$nineoneone . '</div></td>';
-					$message .= '<td><div class="cost" style="width: 50px; height: 50px;">' . $btnumber . '</div></td>';
+					$message .= '<tr style="border: 1px solid black; border-collapse: collapse;" >';
+					$message .= '<td  style="border: 1px solid black; border-collapse: collapse;" class="item-name"><div class="delete-wpr" style="width: 100px; height: 50px;">' . $newnumber . '</div></td>';
+					$message .= '<td  style="border: 1px solid black; border-collapse: collapse;" class="description"><div style="width: 50px; width: 100%; height: 100%; text-align: center; ">' .$nineoneone . '</div></td>';
+					$message .= '<td style="border: 1px solid black; border-collapse: collapse;" ><div class="cost" style="width: 50px; height: 50px; text-align: center;">' . $btnumber . '</div></td>';
 					$message .= '</tr>';
 				}
 			$message .=' </table>
-			<h4 style="text-align:center;">Number Details: </h4>';
+			<h4 style="text-align:center;">New Numbers: </h4>';
 
             $newNumbersQT = test_input($_POST["newnumberquantity"]);
             if(strlen($newNumbersQT) == 0){
                $newNumbersQT = "0";
             }
 			$message .= '<table id= "numberdetails" style="clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black;">
-			    <tr class="customer-row">
+			    <tr>
 					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">New numbers : ' . 	$newNumbersQT . '</div></td>
 				</tr>
 			    <tr class="customer-row">
