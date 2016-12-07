@@ -27,7 +27,8 @@ class OrderUtils{
 	function getOrdersByUser($user){
 		$sql = "SELECT o.Order_No, c.End_User_Name, c.Address_1, c.Address_2, c.City, c.State, c.Zip, o.Request_Built, o.Request_Service 
 				FROM `Orders` o join Customers c on o.Customer_ID = c.Customer_ID 
-				where Res_Cont_Name = '" . $user . "'";
+				where Res_Cont_Name = '" . $user . "'" .
+                "Order by o.Order_no";
 
 		$dbutils = new DBUtils();
 		$conn = $dbutils->getDBConnection();

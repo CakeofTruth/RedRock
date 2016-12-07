@@ -32,8 +32,14 @@ if (mysqli_query ( $conn, $customerInsertString )) {
 	if ($orderInsertSuccess) {
 		$orderNumber = $conn->insert_id;
 		$numberInsertString = generateNumberInsertString($orderNumber);
-        echo "number insert string: " . $numberInsertString . "<br>";
-		$numberInsertSuccess = mysqli_query ( $conn, $numberInsertString );
+        $numberInsertSuccess = false;
+        if(strcmp($numberInsertString,"") != 0){
+            $numberInsertSuccess = mysqli_query ( $conn, $numberInsertString );
+        }
+        else{
+            $numberInsertSuccess = true;
+        }
+        //echo "number insert string: " . $numberInsertString . "<br>";
 		if($numberInsertSuccess){
             $itemizedInsert = generateItemizedInsertString($orderNumber,$orderUtils);
             //echo "Itemized insert String: " . $itemizedInsert . "<br>";
@@ -133,6 +139,7 @@ function generateItemizedInsertString($orderNumber,$orderUtils){
 	}
 	return $sql;
 }
+
 function generateNumberInsertString($orderNumber) {
 	$sql = 'INSERT INTO PortedNumbers(Order_No, Ported_Number, IsBT, Is911) VALUES';
 	$index = 1;
@@ -161,6 +168,9 @@ function generateNumberInsertString($orderNumber) {
 		$index++;
 		$portednumName = "portednumber_" . $index;
 	}
+    if($firstValues){
+        return "";
+    }
 	return $sql;
 }
 
@@ -172,7 +182,6 @@ function getYesNo($value){
         return "no";
     }
 }
- 
 function generateCustomerInsertString() {
 	$sql = 'INSERT INTO Customers (End_User_Name, Cust_Telephone, Address_1, Address_2, City, State, Zip, Emerg_Address_1, Emerg_Address_2, Emerg_City, Emerg_State, Emerg_Zip, Emerg_Phone,Customer_Time_Zone) 
 			VALUES(';

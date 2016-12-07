@@ -14,8 +14,8 @@ $dbname = "RedRock";
 	function getDBConnection() {
 		$servername = "127.0.0.1";
 		$dbname = "redroc91_redrock";
-        $dbusername = "root";
-		$dbpassword = "";
+        $dbusername = "redroc91_redrock";
+		$dbpassword = "@dm!nP@$$1001";
 
 		// Create connection
 		$conn = new mysqli ( $servername, $dbusername, $dbpassword, $dbname );
