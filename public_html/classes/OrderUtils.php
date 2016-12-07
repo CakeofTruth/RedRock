@@ -24,11 +24,13 @@ class OrderUtils{
 	 * @param $user
 	 * @return bool|mysqli_result
 	 */
-	function getOrdersByUser($user){
-		$sql = "SELECT o.Order_No, c.End_User_Name, c.Address_1, c.Address_2, c.City, c.State, c.Zip, o.Request_Built, o.Request_Service 
-				FROM `Orders` o join Customers c on o.Customer_ID = c.Customer_ID 
-				where Res_Cont_Name = '" . $user . "'" .
-                "Order by o.Order_no";
+	function getOrdersByAccountNo($acctNo){
+
+		$sql = "SELECT o.Order_No, c.End_User_Name, c.Address_1, c.Address_2, c.City, c.State, c.Zip, o.Request_Built, o.Request_Service
+				FROM `Orders` o
+				join Customers c on o.Customer_ID = c.Customer_ID
+				where o.AccountNumber = $acctNo
+				Order by o.Order_no";
 
 		$dbutils = new DBUtils();
 		$conn = $dbutils->getDBConnection();
@@ -72,6 +74,14 @@ class OrderUtils{
 		$conn = $dbutils->getDBConnection();
 		return $conn->query ($sql);
 
+	}
+
+	function getAllOrders(){
+		$sql = "SELECT o.Order_No, c.End_User_Name, c.Address_1, c.Address_2, c.City, c.State, c.Zip, o.Request_Built, o.Request_Service, o.Status
+				FROM `Orders` o join Customers c on o.Customer_ID = c.Customer_ID ;";
+		$dbutils = new DBUtils();
+		$conn = $dbutils->getDBConnection();
+		return $conn->query ($sql);
 	}
 
     /*

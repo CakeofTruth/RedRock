@@ -30,15 +30,20 @@ include_once $root . '/classes/OrderUtils.php';
 					<th> Requested In Service Date</th>
 				</tr>
 				<?php
-					
+
 					$orderUtils = new OrderUtils();
-					$fullname = $_SESSION["First_Name"] . " " . $_SESSION["Last_Name"];
-					$orders = $orderUtils->getOrdersByUser($fullname);
+					$orders = null;
+
+					if (isset($_SESSION["Approver"]) &&  $_SESSION["Approver"] == "0" ){
+						$orders = $orderUtils->getOrdersByAccountNo($_SESSION["Acct_No"]);
+					}else{
+						$orders = $orderUtils->getAllOrders();
+					}
 					while($row  = $orders->fetch_array()){
 						$orderNo = $row["Order_No"];
 						$address = $orderUtils->generateAddressString($row["Address_1"], $row["Address_2"], $row["City"], $row["State"], $row["Zip"]);
 						$rowhtml = '<tr>'
-								. '<td><a href="/orders/orderDetails.php?orderNumber=' . $orderNo . '">' . $orderNo .  '</a></td>'
+								. '<td><!--a href="/orders/orderDetails.php?orderNumber=' . $orderNo . '"-->' . $orderNo .  '</a></td>'
 								. '<td>' . $row["End_User_Name"] . "</td>"
 								. '<td>' . $address . "</td>"
 								. '<td>' . $row["Request_Built"] . "</td>"
@@ -46,6 +51,7 @@ include_once $root . '/classes/OrderUtils.php';
 								. '</tr>';
 						echo $rowhtml;
 					}
+
 				?>
 			</thead>
 			<tbody>
