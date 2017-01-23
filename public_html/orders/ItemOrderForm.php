@@ -205,8 +205,8 @@
 		$_SESSION['emailaddress'] = test_input($_POST['emailaddress']);
 		$_SESSION['accountnumber'] = test_input($_POST['accountnumber']);
 		$_SESSION['spcode'] = test_input($_POST['spcode']);
-		$_SESSION['resellercn'] = test_input($_POST['resellercn']);
-		$_SESSION['contactTelephone'] = test_input($_POST['contactTelephone']);
+		$_SESSION['endusercn'] = test_input($_POST['endusercn']);
+		$_SESSION['enduseremail'] = test_input($_POST['enduseremail']);
 		$_SESSION['endusername'] = test_input($_POST['endusername']);
 		$_SESSION['address1'] = test_input($_POST['address1']);
 		$_SESSION['address2'] = test_input($_POST['address2']);

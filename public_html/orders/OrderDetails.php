@@ -18,7 +18,6 @@ if(isset($_GET["orderNumber"])){
    //check if order belongs to whoever's logged in
     $orderNumber = $_GET["orderNumber"];
     if(isThisYourOrder($orderNumber,$_SESSION["Acct_No"],$conn) OR $_SESSION["Approver"] == "1"){
-        echo "Include dat page yo <br>";
        /* setDetailVariables();
         echo $var1 . "<br>";
         echo $var2 . "<br>";
@@ -31,26 +30,14 @@ if(isset($_GET["orderNumber"])){
     }
 }
 
-
-function setDetailVariables(){
-    $var1 = "Hey Hey";
-    $var2 = "you you";
-    $var3 = "I don't like your girlfriend";
-}
-
 $orderDisplay = $orderUtils->createOrderDisplay($orderNumber);
-echo $orderNumber;
 $row = $orderDisplay->fetch_array ();
-echo $row["Serv_Prov_CD"];
-echo $row["Reseller_Ref_ID"];
-echo $row["Order_Details"];
 
-while ($row = $orderDisplay->fetch_array()){
 	$rowhtml = '
 	<html>
 	<body style="font: 14px/1.4 Georgia, serif;">
 	<div id="page-wrap" style="width: 800px; margin: 0 auto;">
-	<div id="header" style="text-align: center"><h1>Red Rock Telecommunications Invoice</h1></div>
+	<div id="header" style="text-align: center"><h1>Order '. $orderNumber .'</h1></div>
 	<div id="identity">
 	<div id="address" style="border: 0; font: 14px Georgia, Serif; overflow: hidden; resize: none;">
 	Red Rock Telecommunications <br> 3719 E La Salle St. <br> Phoenix, AZ, 85040 <br> Phone: (602)-802-8450</div>
@@ -83,13 +70,16 @@ while ($row = $orderDisplay->fetch_array()){
 			      <th style="background: #eee;">Monthly Recurring Cost</th>
 			      <th style="background: #eee;">One Time Cost</th>
 			  </tr>';
-			$result = $orderUtils->getResellerItems($row["Serv_Prov_CD"]);
+			$spcode = $_SESSION["Serv_Prov_CD"];
+			$result = $orderUtils->getOrderHistory($spcode);
 			while($row  = $result->fetch_array()){
 				$itemName = $row["USOC"];
-				$quantity = $row[$itemName];
+				$quantity = $row["Quantity"];
 				$description = $row["Description"] ;
 				$monthly = $row["Recurring_Price"];
 				$nonRecurring = $row["One_Time_Charge"];
+				$totalMonthly += $monthly;
+				$totalNonRecurring += $nonRecurring;
 				if($quantity > 0){
 					$rowhtml .= '<tr>';
 					$rowhtml .= '<td class="item-name"><div class="delete-wpr" style="width: 80px; height: 50px;">' . $itemName . '</div></td>';
@@ -99,16 +89,16 @@ while ($row = $orderDisplay->fetch_array()){
 					$rowhtml .= '<td><div class="cost" style="width: 80px; height: 50px;">' . $nonRecurring . '</div></td>';
 					$rowhtml .= '</tr>';
 				}
-			}
+			} 
 			 $rowhtml .= '<tr>
 			      <td colspan="2" class="blank"> </td>
 			      <td colspan="2" class="total-line" style="border-right: 0; text-align: right;">Monthly Recurring Charge:</td>
-			      <td class="total-value" style="border-left: 0; padding: 10px;"><div id="subtotal" style="height: 20px; background: none;" >' . $row["totalMonthly"] . '<br></div></td>
+			      <td class="total-value" style="border-left: 0; padding: 10px;"><div id="subtotal" style="height: 20px; background: none;" >' . $totalMonthly . '<br></div></td>
 			  </tr>
 			  <tr>
 			      <td colspan="2" class="blank"> </td>
 			      <td colspan="2" class="total-line" style="border-right: 0; text-align: right;">Non-Recurring Charge:</td>
-			      <td class="total-value" style="border-left: 0; padding: 10px;"><div id="total" style="height: 20px; background: none;">' . $row["totalNonRecurring"] . '</div></td>
+			      <td class="total-value" style="border-left: 0; padding: 10px;"><div id="total" style="height: 20px; background: none;">' . $totalNonRecurring . '</div></td>
 			  </tr>
 			</table>
 			<h3 style="text-align:center;">Customer Information:</h3>
@@ -118,41 +108,41 @@ while ($row = $orderDisplay->fetch_array()){
 				</tr>
 				<tr class = "customer-row">
 					<td class="customer-address"><div class="delete-wpr" style="width: 100%; height: 50px;">Address: ' . 	$row["Address_1"] . ' '
-							. $row["Address_2"] . ' ' . 	$row["City"] . ', ' . 	$row["State"] . ', ' . $Row["Zip"] . '</div></td>
+							. $row["Address_2"] . ' ' . 	$row["City"] . ', ' . 	$row["State"] . ', ' . $row["Zip"] . '</div></td>
 				</tr>
 				<tr class= "customer-row">
-					<td class="customer-btn"><div class="delete-wpr" style="width: 100%; height: 50px;">Billing Telephone Number: ' . 	$_SESSION["cmtelephone"] . '</div></td>
+					<td class="customer-btn"><div class="delete-wpr" style="width: 100%; height: 50px;">Billing Telephone Number: ' . 	$row["Cust_Telephone"] . '</div></td>
 				</tr>
 				<tr class= "customer-row">
-					<td class="customer-time-zone"><div class="delete-wpr" style="width: 100%; height: 50px;">Customer Time Zone:' . 	$_SESSION["customertimezone"] . '</div></td>
+					<td class="customer-time-zone"><div class="delete-wpr" style="width: 100%; height: 50px;">Customer Time Zone:' . 	$row["Customer_Time_Zone"] . '</div></td>
 				</tr>
 				<tr class= "customer-row">
 					<td class="customer-requested-built"><div class="delete-wpr" style="width: 100%; height: 50px;">Requested Built/Service Provisioned Date:
-							' . 	$_SESSION["requestedbuilt"] . ' </div></td>
+							' . 	$row["Request_Built"] . ' </div></td>
 				</tr>
 				<tr class= "customer-row">
 					<td class="customer-requested-service"><div class="delete-wpr" style="width: 100%; height: 50px;">Requested In Service/ Effective Billing Date:
-									' . 	$_SESSION["requestedinservice"] . '</div></td>
+									' . 	$row["Request_Service"] . '</div></td>
 				</tr>
 				<tr class= "customer-row">
-					<td class="customer-existing"><div class="delete-wpr" style="width: 100%; height: 50px;">Add To Existing Customer: ' . 	$_SESSION["addtoexistingcustomer"] . '</div></td>
+					<td class="customer-existing"><div class="delete-wpr" style="width: 100%; height: 50px;">Add To Existing Customer: ' . 	$row["Add_Exist_Cust"] . '</div></td>
 				</tr>
 				<tr class= "customer-row">
 					<td class="customer-emergprovisionrequired"><div class="delete-wpr" style="width: 100%; height: 50px;">Does this order require that 911 be provisioned per the data provided below?:
-				 ' . 	$_SESSION["emergprovisionrequired"] . ' </div></td>
+				 ' . 	$row["Emerg_Prov_Req"] . ' </div></td>
 				</tr>
 				<tr class= "customer-row">
-					<td class="customer-emergaddress"><div class="delete-wpr" style="width: 100%; height: 50px;">Service/911 Address: ' . 	$_SESSION["emergaddress1"] . '
-							' . 	$_SESSION["emergaddress2"] . ' ' . 	$_SESSION["emergcity"] . ', ' . 	$_SESSION["emergstate"] . ', ' . 	$_SESSION["emergzipcode"] . '</div></td>
+					<td class="customer-emergaddress"><div class="delete-wpr" style="width: 100%; height: 50px;">Service/911 Address: ' . 	$row["Emerg_Address_1"] . '
+							' . 	$row["Emerg_Address_2"] . ' ' . 	$row["Emerg_City"] . ', ' . 	$row["Emerg_State"] . ', ' . 	$row["Emerg_Zip"] . '</div></td>
 				</tr>
 				<tr class="customer-row">
-					<td class= "customer-emergphonenumber"><div class="delete-wpr" style="width: 100%; height: 50px;"> Emergency Phone Number: ' . $_SESSION["emergphonenumber"] . '</div></td>
+					<td class= "customer-emergphonenumber"><div class="delete-wpr" style="width: 100%; height: 50px;"> Emergency Phone Number: ' . $row["Emerg_Phone"] . '</div></td>
 				</tr>
 			</table>
 			<h3 style="text-align:center;">Order Details:</h3>
 				<table id= "orderdetails" style="clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black;">
 					<tr class= "order-row">
-						<td class="order-details"><div class="delete-wpr" style="width: 100%; height: 50px;">' . 	$_SESSION["orderdetails"] . '</div></td>
+						<td class="order-details"><div class="delete-wpr" style="width: 100%; height: 50px;">' . 	$row["Order_Details"] . '</div></td>
 					</tr>
 				</table>
 			<h3 style="text-align:center;">Number Details:</h3>
@@ -165,9 +155,9 @@ while ($row = $orderDisplay->fetch_array()){
 						</tr>';
 					$result = $orderUtils->getNumberDetails($orderNumber);
 					while($row  = $result->fetch_array()){
-						$newnumber = $_SESSION["Ported_Number"];
-						$nineoneone = $_SESSION["Is911"];
-						$btnumber = $_SESSION["IsBT"] ;
+						$newnumber = $row["Ported_Number"];
+						$nineoneone = $row["Is911"];
+						$btnumber = $row["IsBT"] ;
 						$rowhtml .= '<tr style="border: 1px solid black; border-collapse: collapse;" >';
 						$rowhtml .= '<td  style="border: 1px solid black; border-collapse: collapse;" class="item-name"><div class="delete-wpr" style="width: 100px; height: 50px;">' . $newnumber . '</div></td>';
 						$rowhtml .= '<td  style="border: 1px solid black; border-collapse: collapse;" class="description"><div style="width: 50px; width: 100%; height: 100%; text-align: center; ">' .$nineoneone . '</div></td>';
@@ -177,19 +167,19 @@ while ($row = $orderDisplay->fetch_array()){
 				$rowhtml .=' </table>
 				<h4 style="text-align:center;">New Numbers: </h4>';
 	
-	            $newNumbersQT = $row["newnumberquantity"];
-	            if(strlen($newNumbersQT) == 0){
+	            //$newNumbersQT = $row["New_Number_Qty"];
+	            /*if(strlen($newNumbersQT) == 0){
 	               $newNumbersQT = "0";
-	            }
+	            }*/
 				$rowhtml .= '<table id= "numberdetails" style="clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black;">
 				    <tr>
-						<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">New numbers : ' . 	$newNumbersQT . '</div></td>
+						<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">New numbers : ' . 	$row["New_Number_Qty"] . '</div></td>
 					</tr>
 				    <tr class="customer-row">
 						<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">New number area code: ' . 	$row["New_Number_AC"] . '</div></td>
 					</tr>
 				    <tr class="customer-row">
-						<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">New number 911 provisioned: ' . 	$row["emergnewnumber"] . '</div></td>
+						<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">New number 911 provisioned: ' . 	$row["Emerg_New_Number"] . '</div></td>
 					</tr>';
 	
 	            $vtnQuantity = $row["VTN_Quantity"];
@@ -201,12 +191,11 @@ while ($row = $orderDisplay->fetch_array()){
 						<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">New virtual numbers: ' . $vtnQuantity . '</div></td>
 					</tr>';
 				$rowhtml .= '</table> </div> </div> </body> </html>';
-	    echo $rowhtml;
-	}
-
+	   echo $rowhtml;
 	function unsetSessionVariable ($sessionVariableName) {
 		unset($GLOBALS['_SESSION'][$sessionVariableName]);
 	}
+
 /**
  * Returns a yes if there is an order with that number and that account number in the database
  * 

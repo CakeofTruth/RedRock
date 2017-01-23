@@ -17,17 +17,41 @@ class OrderUtils{
 		$conn = $dbutils->getDBConnection();
 		return $conn->query ( $sql);
 	}
-
+	
+	function getOrderHistory(){
+		$sql = "select p.USOC, p.Description, p.One_Time_Charge, p.Recurring_Price, o.USOC, o.Quantity
+		FROM 'Products' p join orderitems o on o.Serv_Prov_CD = p.Serv_Prov_CD 
+				where Serv_Prov_CD=\"" . $spcode . "\"";
+		
+		$dbutils = new DBUtils();
+		$conn = $dbutils->getDBConnection();
+		return $conn->query ( $sql);
+	}
+	function getResellerDetails(){
+		$sql = "select Address1, Address2, City, State, Zip, Phone, Company_Name
+				from Resellers p where Serv_Prov_CD=\"" . $spcode . "\"";
+		
+		$dbutils = new DBUtils();
+		$conn = $dbutils->getDBConnection();
+		return $conn->query ($sql);
+	}
+	function getNumberDetails($ordernumber){
+		$sql = "select Ported_Number, IsBT, Is911
+		from PortedNumbers where Order_No =\"" . $ordernumber . "\"";
+		$dbutils = new DBUtils();
+		$conn = $dbutils->getDBConnection();
+		return $conn->query ($sql);
+	}
 	/**
 	 * This function returns the top level order details used by the Order History Page.
 	 * 
 	 * @param $user
 	 * @return bool|mysqli_result
 	 */
-	function getOrdersByUser($user){
+	function getOrdersByUser($fullname){
 		$sql = "SELECT o.Order_No, c.End_User_Name, c.Address_1, c.Address_2, c.City, c.State, c.Zip, o.Request_Built, o.Request_Service, o.Status
 				FROM `Orders` o join Customers c on o.Customer_ID = c.Customer_ID 
-				where Res_Cont_Name = '" . $user . "'" .
+				where Res_Cont_Name = '" . $fullname . "'" .
                 "Order by o.Order_no";
 
 		$dbutils = new DBUtils();
@@ -43,13 +67,7 @@ class OrderUtils{
 		return $conn->query ($sql);		
 	}
 	
-	function getNumberDetails($ordernumber){
-		$sql = "select Ported_Number, IsBT, Is911
-		from PortedNumbers where Order_No =\"" . $ordernumber . "\"";
-		$dbutils = new DBUtils();
-		$conn = $dbutils->getDBConnection();
-		return $conn->query ($sql);		
-	}
+	
 	function createOrderDisplay($ordernumber){
 		/*$sql = "select Ported_Number, IsBT, Is911
 		from PortedNumbers where Order_No =\"" . $ordernumber . "\""; */
@@ -81,7 +99,7 @@ class OrderUtils{
 	}
 	function getOrderDetails($orderNumber){
 		$sql = "SELECT o.Emerg_Prov_Req, o.Order_Details, o.Or_Sooner, o.Request_Built, o.Request_Service, o. Reseller_Ref_ID, o. Serv_Prov_CD,
-					   c.Address_1, c.Address_2, c.City, c.Customer_ID, c.Customer_Time_Zone, c.Cust_Telephone, c.Emerg_Address_1, c.Emerg_Address_2, 
+					   o.Add_Exist_Cust, c.Address_1, c.Address_2, c.City, c.Customer_ID, c.Customer_Time_Zone, c.Cust_Telephone, c.Emerg_Address_1, c.Emerg_Address_2, 
 					   c.Emerg_City, c.Emerg_Phone, c.Emerg_State, c.Emerg_Zip, c.End_User_Name, c.State, c.Zip
 				FROM Orders o 
 				join Customers c on o.Customer_ID = c.Customer_ID
