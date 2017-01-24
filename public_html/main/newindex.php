@@ -321,6 +321,8 @@ $(this).addClass('devActive');
 </section>
 <!--Service-->
 <!--Footer-->
+<div class="footer_wrapper" id="contact">
+  <div class="container">
 <section id="service">
 <div class="container">
     <div class="service_wrapper">
@@ -374,11 +376,7 @@ $(this).addClass('devActive');
 	   </div>
   </div>
 </section>
-  
-
-<div class="footer_wrapper" id="contact">
-  <div class="container">
-    <div class="footer_bottom"><span>Copyright 2016, Template by <a href="http://webthemez.com">WebThemez.com</a>. </span> </div>
+      <div class="footer_bottom"><span>Copyright 2016, Template by <a href="http://webthemez.com">WebThemez.com</a>. </span> </div>
   </div>
 </div>
 		</div>
