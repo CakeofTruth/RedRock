@@ -8,6 +8,7 @@ include_once $root . '/classes/MailUtils.php';
 if (empty ( $_POST )) {
 	echo "Something went wrong with the order.";
 }
+error_reporting(E_ALL ^ E_NOTICE);
 $orderUtils = new OrderUtils();
 $dbutils = new DBUtils();
 $conn = $dbutils->getDBConnection ();
@@ -202,16 +203,18 @@ function generateCustomerInsertString() {
 	
 	return $sql;
 }
+
 function generateOrderInsertString($Cust_ID) {
-	$sql = 'INSERT INTO Orders (Emerg_Prov_Req, Order_Details, Customer_ID, Serv_Prov_CD, Res_Cont_Name, 
+	$sql = 'INSERT INTO Orders (Emerg_Prov_Req, Order_Details, Customer_ID, Serv_Prov_CD, End_User_CN, End_User_Email,
 			Reseller_Ref_ID, Request_Built, Request_Service, Or_Sooner, Add_Exist_Cust,
-			RequiresPN, New_Number_Qty, New_Number_AC, Emerg_New_Number, VTN_Quantity, Acct_No) VALUES(';
+			RequiresPN, New_Number_Qty, New_Number_AC, Emerg_New_Number, VTN_Quantity, Acct_No, Status) VALUES(';
 	
 	$sql = $sql . "'" . test_input($_SESSION ["emergprovisionrequired"]) . "',";
 	$sql = $sql . "'" . addslashes(test_input($_SESSION ["orderdetails"])) . "',";
 	$sql = $sql . "'" . $Cust_ID . "',";
 	$sql = $sql . "'" . test_input($_SESSION ["spcode"]) . "',";
-	$sql = $sql . "'" . test_input($_SESSION ["resellercn"]) . "',";
+	$sql = $sql . "'" . test_input($_SESSION ["endusercn"]) . "',";
+	$sql = $sql . "'" . test_input($_SESSION ["enduseremail"]) . "',";
 	$sql = $sql . "'" . test_input($_SESSION ["resellerrefid"]) . "',";
 	$sql = $sql . "'" . test_input($_SESSION ["requestedbuilt"]) . "',";
 	$sql = $sql . "'" . test_input($_SESSION ["requestedinservice"]) . "',";
@@ -222,7 +225,8 @@ function generateOrderInsertString($Cust_ID) {
 	$sql = $sql . "'" . test_input($_POST["newnumberac"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["emergnewnumber"]) . "',";
 	$sql = $sql . "'" . test_input($_POST["vtnquantity"]) . "',";
-	$sql = $sql . "'" . $_SESSION["Acct_No"] . "')";
+	$sql = $sql . "'" . $_SESSION["Acct_No"] . "',";
+	$sql = $sql . "'" . 'Submitted' . "')";
 	return $sql;
 }
 function sendOrderAlertEmail($orderNumber,$orderUtils){
@@ -243,6 +247,10 @@ function createOrderMessage($orderNumber,$orderUtils){
 			<div id="identity">
 				<div id="address" style="border: 0; font: 14px Georgia, Serif; overflow: hidden; resize: none;">
 				Red Rock Telecommunications <br> 3719 E La Salle St. <br> Phoenix, AZ, 85040 <br> Phone: (602)-802-8450</div>
+					<div id ="reselleraddress" style="border: 0; font: 14px Georgia, Serif; overflow: hidden; resize: none;"><br>' . $_SESSION["resellername"] . ' <br> 
+    					' . $_SESSION["resellerba1"] .' '. test_input($_SESSION["resellerba2"]) .' <br> '. $_SESSION["city"] .' , '. $_SESSION["resellerstate"] .' ,'. $_SESSION["resellerzipcode"] .' <br>
+    					'. $_SESSION["resellertelephonenumber"] .' <br></div>
+ 
 					<div id="logo" style="text-align: right; float: right; position: relative; margin-top: 25px; border: 1px solid #fff; max-width: 540px; max-height: 100px; overflow: hidden;">
 						<div id="logoctr" style="display: none; display: block; text-align: right; line-height: 25px; background: #eee; padding: 0 5px;"></div>
               <div id="logohelp" style="text-align: left; display: none; font-style: italic; padding: 10px 5px;">
@@ -253,9 +261,7 @@ function createOrderMessage($orderNumber,$orderUtils){
 		</div>
 		<div style="clear:both"></div>
 		<div id="customer">
-            <div id="customer-title" style="font-size: 20px; font-weight: bold; float: left;"><?php echo nl2br("' .	test_input($_SESSION["resellername"]) . ' \n
-            		' .	test_input($_SESSION["resellerba1"]) . ' \n ' .	test_input($_SESSION["city"]) . ' ' .	test_input($_SESSION["state"]) . ', ' .	test_input($_SESSION["zipcode"]) . '");?> </div>
-            <table id="meta" style="margin-top: 1px; width: 300px; float: right;">
+        	<table id="meta" style="margin-top: 1px; width: 300px; float: right;">
                 <tr>
                     <td class="meta-head" style="text-align: left; background: #eee;">Invoice #</td>
                     <td><div id="orderno">' . $orderNumber . '</div></td>
@@ -302,11 +308,17 @@ function createOrderMessage($orderNumber,$orderUtils){
 		      <td class="total-value" style="border-left: 0; padding: 10px;"><div id="total" style="height: 20px; background: none;">' . $_SESSION["totalNonRecurring"] . '</div></td>
 		  </tr>
 		</table>
-		<h3>Customer Information:</h3>
+		<h3 style="text-align:center;">Customer Information:</h3>
 		<table id= "customer" style="clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black;">
 			<tr class="customer-row">
-				<td class="customer-name"><div class="delete-wpr" style="width: 100%; height: 50px;">Name: ' . 	test_input($_SESSION["endusername"]) . '</div></td>
+				<td class="customer-name"><div class="delete-wpr" style="width: 100%; height: 50px;">Company Name: ' . 	test_input($_SESSION["endusername"]) . '</div></td>
 			</tr>
+			<tr class="customer-row">
+				<td class="customer-name"><div class="delete-wpr" style="width: 100%; height: 50px;">Company Contact Name: ' . 	test_input($_SESSION["endusercn"]) . '</div></td>
+			</tr>
+			<tr class="customer-row">
+				<td class="customer-name"><div class="delete-wpr" style="width: 100%; height: 50px;">Company Contact Email: ' . 	test_input($_SESSION["enduseremail"]) . '</div></td>
+			</tr>				
 			<tr class = "customer-row">
 				<td class="customer-address"><div class="delete-wpr" style="width: 100%; height: 50px;">Address: ' . 	test_input($_SESSION["address1"]) . ' '
 						. test_input($_SESSION["address2"]) . ' ' . 	test_input($_SESSION["city"]) . ', ' . 	test_input($_SESSION["state"]) . ', ' . 	test_input($_SESSION["zipcode"]) . '</div></td>
@@ -340,40 +352,40 @@ function createOrderMessage($orderNumber,$orderUtils){
 				<td class= "customer-emergphonenumber"><div class="delete-wpr" style="width: 100%; height: 50px;"> Emergency Phone Number: ' . test_input($_SESSION["emergphonenumber"]) . '</div></td>
 			</tr>
 		</table>
-		<h3>Order Details:</h3>
+		<h3 style="text-align:center;">Order Details:</h3>
 			<table id= "orderdetails" style="clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black;">
 				<tr class= "order-row">
 					<td class="order-details"><div class="delete-wpr" style="width: 100%; height: 50px;">' . 	test_input($_SESSION["orderdetails"]) . '</div></td>
 				</tr>
 			</table>
-		<h3>Number Details:</h3>
+		<h3 style="text-align:center;">Number Details:</h3>
 		<h4 style="text-align:center;">Ported Numbers:<h4>
 				<table id="items" style="clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black;">
 					<tr class = "customer-row">
-						<th style="background: #eee;" >New Number</th>
-						<th style="background: #eee;">911 provision</th>
-						<th style="background: #eee;">Billing Telephone Number</th>
+						<th style="background: #eee; border: 1px solid black; border-collapse: collapse;" >New Number</th>
+						<th style="background: #eee; border: 1px solid black; border-collapse: collapse;">911 provision</th>
+						<th style="background: #eee; border: 1px solid black; border-collapse: collapse;">Billing Telephone Number</th>
 					</tr>';
 				$result = $orderUtils->getNumberDetails($orderNumber);
 				while($row  = $result->fetch_array()){
 					$newnumber = $row["Ported_Number"];
 					$nineoneone = $row["Is911"];
 					$btnumber = $row["IsBT"] ;
-					$message .= '<tr>';
-					$message .= '<td class="item-name"><div class="delete-wpr" style="width: 100px; height: 50px;">' . $newnumber . '</div></td>';
-					$message .= '<td class="description"><div style="width: 50px; width: 100%; height: 100%;">' .$nineoneone . '</div></td>';
-					$message .= '<td><div class="cost" style="width: 50px; height: 50px;">' . $btnumber . '</div></td>';
+					$message .= '<tr style="border: 1px solid black; border-collapse: collapse;" >';
+					$message .= '<td  style="border: 1px solid black; border-collapse: collapse;" class="item-name"><div class="delete-wpr" style="width: 100px; height: 50px;">' . $newnumber . '</div></td>';
+					$message .= '<td  style="border: 1px solid black; border-collapse: collapse;" class="description"><div style="width: 50px; width: 100%; height: 100%; text-align: center; ">' .$nineoneone . '</div></td>';
+					$message .= '<td style="border: 1px solid black; border-collapse: collapse;" ><div class="cost" style="width: 50px; height: 50px; text-align: center;">' . $btnumber . '</div></td>';
 					$message .= '</tr>';
 				}
 			$message .=' </table>
-			<h4 style="text-align:center;">Number Details: </h4>';
+			<h4 style="text-align:center;">New Numbers: </h4>';
 
             $newNumbersQT = test_input($_POST["newnumberquantity"]);
             if(strlen($newNumbersQT) == 0){
                $newNumbersQT = "0";
             }
 			$message .= '<table id= "numberdetails" style="clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black;">
-			    <tr class="customer-row">
+			    <tr>
 					<td class="customer-porting"><div class="delete-wpr" style="width: 100%; height: 50px;">New numbers : ' . 	$newNumbersQT . '</div></td>
 				</tr>
 			    <tr class="customer-row">

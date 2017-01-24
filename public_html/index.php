@@ -114,6 +114,7 @@
                             	<div class="number number-left number-zero"></div>
                             	<div class="number number-right number-1"></div>
                             </a>
+                           <div class ="main-info">
                            <h4>Why <span class="title-highlight">Cloud?</span></h4>
                             <p>
                                 Providing a professional experience when your customers call is critical - it can be the difference
@@ -122,6 +123,7 @@
 								delivers a best-in-class phone system with all the bells and whistles of a big company phone system
 								- all at an incredibly attractive price.
                             </p>
+                            </div>
                         </div>
                         <div class="box-sections numbers-sections margin-bottom ">
                         		<a href="/main/mobileintegration.php">
@@ -172,12 +174,6 @@
                                 </h2>
                                 <div class="list_carousel">
                                     <ul class="logos-slides">
-
-                                        <li style="height: 70px;">
-                                            <a href="#" class="bwWrapper" >
-                                                <img src="/assets/images/APSLogo.png" style="max-height: 70px;" class="logo" />
-                                            </a>
-                                        </li>
 
                                         <li style="height: 70px;">
                                             <a href="http://www.avaya.com/usa" class="bwWrapper" >

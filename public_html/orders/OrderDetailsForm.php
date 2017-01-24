@@ -1,37 +1,38 @@
-<?php/**
+<?php
+/*
  * Created by IntelliJ IDEA.
  * User: jbowd
  * Date: 8/30/16
  * Time: 1:50 AM
  * This page requires that several variables be set.  
  */
-$_SESSION["resellername"]
-$_SESSION["resellerba1"]
-$_SESSION["city"]
-$_SESSION["state"]
-$_SESSION["zipcode"]
-$_SESSION["spcode"])
-	$_SESSION["totalMonthly"]
-$_SESSION["totalNonRecurring"]
-$_SESSION["endusername"]
-$_SESSION["emergaddress1"]
-$_SESSION["emergaddress2"]
-$_SESSION["emergcity"]
-$_SESSION["emergstate"]
-$_SESSION["emergzipcode"]
-$_SESSION["cmtelephone"]
-$_SESSION["customertimezone"]
-$_SESSION["requestedbuilt"]
-$_SESSION["requestedinservice"]
-$_SESSION["addtoexistingcustomer"]
-$_SESSION["emergprovisionrequired"]
-$_SESSION["emergaddress1"]
-$_SESSION["emergaddress2"]
-$_SESSION["emergcity"]
-$_SESSION["emergstate"]
-$_SESSION["emergzipcode"]
-$_SESSION["emergphonenumber"]
-$_SESSION["orderdetails"]
+$_SESSION["resellername"];
+$_SESSION["resellerba1"];
+$_SESSION["city"];
+$_SESSION["state"];
+$_SESSION["zipcode"];
+$_SESSION["spcode"];
+	$_SESSION["totalMonthly"];
+$_SESSION["totalNonRecurring"];
+$_SESSION["endusername"];
+$_SESSION["emergaddress1"];
+$_SESSION["emergaddress2"];
+$_SESSION["emergcity"];
+$_SESSION["emergstate"];
+$_SESSION["emergzipcode"];
+$_SESSION["cmtelephone"];
+$_SESSION["customertimezone"];
+$_SESSION["requestedbuilt"];
+$_SESSION["requestedinservice"];
+$_SESSION["addtoexistingcustomer"];
+$_SESSION["emergprovisionrequired"];
+$_SESSION["emergaddress1"];
+$_SESSION["emergaddress2"];
+$_SESSION["emergcity"];
+$_SESSION["emergstate"];
+$_SESSION["emergzipcode"];
+$_SESSION["emergphonenumber"];
+$_SESSION["orderdetails"];
 ?>
 <html>
 <body style="font: 14px/1.4 Georgia, serif;">

@@ -25,6 +25,8 @@ if (isset($_GET["orderNumber"])) {
     }
 }
 
+$orderDisplay = $orderUtils->createOrderDisplay($orderNumber);
+$row = $orderDisplay->fetch_array ();
 
 $rowhtml = '
 	<html>
@@ -51,7 +53,8 @@ $rowhtml = '
 	                </tr>
 	                <tr>
 	                    <td class="meta-head" style="text-align: left; background: #eee;">Date</td>
-	                    <td><div id="date">' . date("m/d/y") . '</div></td>
+
+	                    <td><div id="date">'.  date("m/d/y") .'</div></td>
 	                </tr>
 	            </table>
 			</div>
@@ -98,6 +101,7 @@ $rowhtml .= '<tr>
 			  <tr>
 			      <td colspan="2" class="blank"> </td>
 			      <td colspan="2" class="total-line" style="border-right: 0; text-align: right;">Non-Recurring Charge:</td>
+
 			      <td class="total-value" style="border-left: 0; padding: 10px;"><div id="total" style="height: 20px; background: none;">' . money_format("%.2n",$totalNonRecurring) . '</div></td>
 			  </tr>
 			</table>
@@ -139,6 +143,7 @@ $rowhtml .= '<tr>
 			<h3 style="text-align:center;">Order Details:</h3>
 				<table id= "orderdetails" style="clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black;">
 					<tr class= "order-row">
+
 						<td class="order-details"><div class="delete-wpr" style="width: 100%; height: 50px;">' . $row["Order_Details"] . '</div></td>
 					</tr>
 				</table>
@@ -150,6 +155,13 @@ $rowhtml .= '<tr>
 							<th style="background: #eee; border: 1px solid black; border-collapse: collapse;">911 provision</th>
 							<th style="background: #eee; border: 1px solid black; border-collapse: collapse;">Billing Telephone Number</th>
 						</tr>';
+
+					$result = $orderUtils->getNumberDetails($orderNumber);
+					while($row  = $result->fetch_array()){
+						$newnumber = $row["Ported_Number"];
+						$nineoneone = $row["Is911"];
+						$btnumber = $row["IsBT"] ;
+
 $result = $orderUtils->getNumberDetails($orderNumber);
 while ($row = $result->fetch_array()) {
     $newnumber = $row["Ported_Number"];
