@@ -193,7 +193,7 @@ $(this).addClass('devActive');
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, maximum-scale=1">
 <title>Red Rock Telecommunications</title>
-<link rel="icon" href="favicon.png" type="image/png">
+<link rel="icon" href="/assets/images/Redrockfavicon.png" type="image/png">
 <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="/css/style.css" rel="stylesheet" type="text/css">
 <link href="/css/font-awesome.css" rel="stylesheet" type="text/css">
@@ -320,25 +320,62 @@ $(this).addClass('devActive');
   </div>
 </section>
 <!--Service-->
-<section class="page_section" id="clients"><!--page_section-->
-  <h2>Partners</h2>
-<!--page_section-->
-<div class="client_logos"><!--client_logos-->
-  <div class="container">
-    <ul class="fadeInRight animated wow animated" style="visibility: visible; animation-name: fadeInRight;">
-      <li><a href="javascript:void(0)"><img src="/assets/images/avayalogo.png" alt="Avaya"></a></li>
-      <li><a href="javascript:void(0)"><img src="/assets/images/metaswitchlogo.png" alt="Metaswitch"></a></li>
-		<li><a href="javascript:void(0)"><img src="/assets/images/limelightlogo.png" alt="Limelight"></a></li>
-		 <li><a href="javascript:void(0)"><img src="/assets/images/polycomlogo.png" alt="Polycom"></a></li>
-   <li><a href="javascript:void(0)"><img src="/assets/images/mitellogo.png" alt="Mitel"></a></li>
- <li><a href="javascript:void(0)"><img src="/assets/images/adtranlogo.png" alt="Adtran"></a></li>
- <li><a href="javascript:void(0)"><img src="/assets/images/simplewanlogo.png" alt="Simplewan"></a></li>
-    </ul>
-  </div>
-</div>
-</section>
-<!--client_logos-->
 <!--Footer-->
+<section id="service">
+<div class="container">
+    <div class="service_wrapper">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="service_block">
+          <h3 class="animated fadeInUp wow animated" style="visibility: visible; animation-name: fadeInUp;">About Us</h3>
+           <p class="animated fadeInDown wow animated" style="visibility:visible; animation:fadeInDown;"> Red Rock Telecommunications is a built from scratch Cloud solutions company delivering resilient communications networks with the latest generation Avaya and Metaswitch technology. </p>
+          </div>
+        </div>
+        <div class="col-lg-4 borderLeft">
+          <div class="service_block">
+            <h3 class="animated fadeInUp wow animated" style="visibility: visible; animation-name: fadeInUp;">Navigation</h3>
+            <p class="animated fadeInDown wow animated" style="visibility:visible; animation:fadeInDown;">
+            <ul id="menu-widget-footer" class="menu">
+
+                                <li class="menu-item menu-item-type-post_type">
+                                    <a href="/main/whycloud.php">Why the Cloud?</a>
+                                </li>
+
+                                <li class="menu-item menu-item-type-post_type">
+                                    <a href="/main/mobileintegration.php">Mobile Integration</a>
+                                </li>
+
+                                <li class="menu-item menu-item-type-post_type">
+                                    <a href="/main/contactcenter.php">Contact Center</a>
+                                </li>
+
+                                <!-- Taking this out until it's important enough to work on/include
+                                <li class="menu-item menu-item-type-custom">
+                                    <a href="/main/contactus.php">Get in Touch</a>
+                                </li-->
+
+                                <li class="menu-item menu-item-type-custom">
+                                    <a href="/accounts/login.php">Resources</a>
+                                </li>
+                            </ul>
+            </p>
+            </div>
+            </div>
+            <div class="col-lg-4 borderLeft">
+          <div class="service_block">
+            <h3 class="animated fadeInUp wow animated" style="visibility: visible; animation-name: fadeInUp;">Contact Us</h3>
+            <p class="animated fadeInDown wow animated" style="visibility:visible; animation:fadeInDown;">Address: 3719 E La Salle St. Phoenix, AZ, 85040</p>
+            <p>Front Desk: (602)802-8400</p>
+            <p>Customer Service: (602)802-8450</p>
+            <p>Email: redrock@redrocktelecom.com</p>
+            </div>
+            </div>
+      </div>
+	   </div>
+  </div>
+</section>
+  
+
 <div class="footer_wrapper" id="contact">
   <div class="container">
     <div class="footer_bottom"><span>Copyright 2016, Template by <a href="http://webthemez.com">WebThemez.com</a>. </span> </div>

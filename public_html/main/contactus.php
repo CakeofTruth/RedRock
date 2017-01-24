@@ -15,7 +15,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, maximum-scale=1">
 <title>Red Rock Telecommunications</title>
-<link rel="icon" href="favicon.png" type="image/png">
+<link rel="icon" href="/assets/images/Redrockfavicon.png" type="image/png">
 <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="/css/style.css" rel="stylesheet" type="text/css">
 <link href="/css/font-awesome.css" rel="stylesheet" type="text/css">
