@@ -216,9 +216,9 @@ $(this).addClass('devActive');
 		<header class="entry-header">
 			<h1 class="entry-title">Preview</h1>
 		</header>
-		<div class="entry-content post_content" style="width: 100%; height: auto;"></div>
+		<div class="entry-content post_content" style=" min width: 1100px; width: 100%; height: auto;"></div>
 					<!--Header_section-->
-<header id="header_wrapper" class="scroll-to-fixed-fixed" style="z-index: 1000; position: fixed; top: 0px; margin-left: 0px; width: 100%; left: 0px;">
+<header id="header_wrapper" class="scroll-to-fixed-fixed" style="z-index: 1000; position: fixed; top: 0px; margin-left: 0px; min width: 110px; width: 100%; left: 0px;">
   <div class="container">
     <div class="header_box">
       <div class="logo"><a href="/"><img src="/assets/images/redrocklogo.png" alt="Red Rock"></a></div>
