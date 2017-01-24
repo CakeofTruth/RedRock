@@ -2,11 +2,57 @@
 <html>
 <script src="contactform.js"></script>
 <?php
+	session_start();	
 	$pagetitle = "Contact Us";
-	include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
+	$root = $_SERVER ["DOCUMENT_ROOT"];
+	if(empty($_SESSION['exists'])){
+		//Handle new sessions here
+		$_SESSION["loggedin"] = 0;
+		$_SESSION['exists'] = true;
+	}
 ?>
 <link rel='stylesheet' id='custom-css'  href='/css/contactform.css' type='text/css' media='all' />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, maximum-scale=1">
+<title>Red Rock Telecommunications</title>
+<link rel="icon" href="favicon.png" type="image/png">
+<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/css/style.css" rel="stylesheet" type="text/css">
+<link href="/css/font-awesome.css" rel="stylesheet" type="text/css">
+<link href="/css/animate.css" rel="stylesheet" type="text/css">
+
+</head>
 <body>
+	<div id ="previewTemp">
+		<div class ="dc-banner-ads">
+
+		</div>
+		<div id="post-6" class="post-6 page type-page status-publish hentry">
+		<header class="entry-header">
+			<h1 class="entry-title">Preview</h1>
+		</header>
+		<div class="entry-content post_content" style="width: 100%; height: auto;"></div>
+					<!--Header_section-->
+<header id="header_wrapper" class="scroll-to-fixed-fixed" style="z-index: 1000; top: 0px; margin-left: 0px; width: 100%; left: 0px;">
+  <div class="container">
+    <div class="header_box">
+      <div class="logo"><a href="/"><img src="/assets/images/redrocklogo.png" alt="Red Rock"></a></div>
+	  <nav class="navbar navbar-inverse" role="navigation">
+      <div class="navbar-header">
+        <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      </div>
+	    <div id="main-nav" class="collapse navbar-collapse navStyle" style="background:none;">
+			<ul class="nav navbar-nav" id="mainNav">
+			  <li class="active"><a href="/" class="scroll-link">Home</a></li>
+			  <li><a href="/main/aboutus.php" class="scroll-link">About Us</a></li>
+			  <li><a href="http://support.redrocktelecom.com" class="scroll-link">Customer Service</a></li>
+			  <li><a href="/main/contactus.php" class="scroll-link">Contact Us</a></li>
+			</ul>
+      </div>
+	 </nav>
+    </div>
+  </div>
+</header>
 <div id="contact-form" class="clearfix">
     <h1>Get In Touch!</h1>
     <h2>Want to know more about our products or get in touch with our customer service representatives?  Fill this out and we will get back to you soon.</h2>
@@ -62,7 +108,8 @@
 
    <?php unset($_SESSION['cf_returndata']); ?>
 </div>
-<?php include $root . '/main/footer.php'?>
+</div>
+</div>
 </body>
 </html>
 <!--http://code.tutsplus.com/tutorials/build-a-neat-html5-powered-contact-form--net-20426  -->
