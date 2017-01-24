@@ -254,7 +254,7 @@ $(this).addClass('devActive');
 			<h3> Red Rock's app for mobile and desktop enables you to integrate voice, instant messaging, video, and email into a single 
 			cross platform user experience.</h3><br>
 			<h3>Accession will become the primary means by which your employees communicate.</h3>
-			<h4>Save Time, Do More<</h4>
+			<h4>Save Time, Do More</h4>
             <p>It can be the difference
 				between winning or losing business. So no matter how small your business, you should have access
 				to the same features and professional functionality of a big company. With Hosted Voice, Red Rock

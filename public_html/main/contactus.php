@@ -28,9 +28,6 @@
 
 		</div>
 		<div id="post-6" class="post-6 page type-page status-publish hentry">
-		<header class="entry-header">
-			<h1 class="entry-title">Preview</h1>
-		</header>
 		<div class="entry-content post_content" style="width: 100%; height: auto;"></div>
 					<!--Header_section-->
 <header id="header_wrapper" class="scroll-to-fixed-fixed" style="z-index: 1000; top: 0px; margin-left: 0px; width: 100%; left: 0px;">
