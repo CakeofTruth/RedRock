@@ -40,7 +40,6 @@ float: right;
 text-decoration: none;
 font-family: arial;
 }
-
 #devices {
 -webkit-border-radius: 4px;
 -moz-border-radius: 4px;
@@ -108,7 +107,6 @@ opacity: .75;
 border-radius: 0 4px 4px 0;
 border-right-width: 1px;
 }
-
 #devices .tablet-portrait span, #devices .tablet-landscape span {
 background:transparent url(../wp-includes/images/tablet-landscape.png) 50% 50% no-repeat;
 }
@@ -143,7 +141,6 @@ text-align: center;
 #devices  > a{
 color:#fff;
 }
-
 .devActive{
 background:#4b4b4b !important;
 }
@@ -162,11 +159,9 @@ display:none;
 		display:none;
 	}
 }
-
 </style>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
-
 $(function(){
 	var myString = window.location.href;
 	var mySplitResult = myString.split("?");
@@ -175,7 +170,6 @@ $(function(){
 	$('#removeFrame').attr('href', '/main/newindex.php'+ thisUrl);
 	$('#downloadTemp').attr('href', '/main/newindex.php'+ thisUrl);
 	$('#mainHome').attr('href', '/main/newindex.php');
-
 $('#devices').on('click', '> a', function(){
 $('#devices').find('a').removeClass('devActive');
 $(this).addClass('devActive');
@@ -195,12 +189,11 @@ $(this).addClass('devActive');
 			}
 	});
 });
-
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, maximum-scale=1">
 <title>Red Rock Telecommunications</title>
-<link rel="icon" href="favicon.png" type="image/png">
+<link rel="icon" href="/assets/images/Redrockfavicon.png" type="image/png">
 <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="/css/style.css" rel="stylesheet" type="text/css">
 <link href="/css/font-awesome.css" rel="stylesheet" type="text/css">
@@ -327,6 +320,62 @@ $(this).addClass('devActive');
   </div>
 </section>
 <!--Service-->
+<!--Footer-->
+<div class="footer_wrapper" id="contact">
+  <div class="container">
+<section id="service">
+<div class="container">
+    </div>
+</section>
+    <div class="service_wrapper">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="service_block">
+          <h3 class="animated fadeInUp wow animated" style="visibility: visible; animation-name: fadeInUp;">About Us</h3>
+           <p class="animated fadeInDown wow animated" style="visibility:visible; animation:fadeInDown;"> Red Rock Telecommunications is a built from scratch Cloud solutions company delivering resilient communications networks with the latest generation Avaya and Metaswitch technology. </p>
+          </div>
+        </div>
+        <div class="col-lg-4 borderLeft">
+          <div class="service_block">
+            <h3 class="animated fadeInUp wow animated" style="visibility: visible; animation-name: fadeInUp;">Navigation</h3>
+            <p class="animated fadeInDown wow animated" style="visibility:visible; animation:fadeInDown;"></p>
+            <ul id="menu-widget-footer" class="menu">
+
+                                <li class="menu-item menu-item-type-post_type">
+                                    <a href="/main/whycloud.php">Why the Cloud?</a>
+                                </li>
+
+                                <li class="menu-item menu-item-type-post_type">
+                                    <a href="/main/mobileintegration.php">Mobile Integration</a>
+                                </li>
+
+                                <li class="menu-item menu-item-type-post_type">
+                                    <a href="/main/contactcenter.php">Contact Center</a>
+                                </li>
+
+                                <!-- Taking this out until it's important enough to work on/include
+                                <li class="menu-item menu-item-type-custom">
+                                    <a href="/main/contactus.php">Get in Touch</a>
+                                </li-->
+
+                                <li class="menu-item menu-item-type-custom">
+                                    <a href="/accounts/login.php">Resources</a>
+                                </li>
+                            </ul>
+            </div>
+            </div>
+            <div class="col-lg-4 borderLeft">
+          <div class="service_block">
+            <h3 class="animated fadeInUp wow animated" style="visibility: visible; animation-name: fadeInUp;">Contact Us</h3>
+            <p class="animated fadeInDown wow animated" style="visibility:visible; animation:fadeInDown;">Address: 3719 E La Salle St. Phoenix, AZ, 85040</p>
+            <p>Front Desk: (602)802-8400</p>
+            <p>Customer Service: (602)802-8450</p>
+            <p>Email: redrock@redrocktelecom.com</p>
+            </div>
+            </div>
+      </div>
+	   </div>
+      <div class="footer_bottom"><span>Copyright 2016, Template by <a href="http://webthemez.com">WebThemez.com</a>. </span> </div>
 <section class="page_section" id="clients"><!--page_section-->
   <h2>Partners</h2>
 <!--page_section-->
@@ -352,7 +401,7 @@ $(this).addClass('devActive');
   </div>
 </div>
 		</div>
-		</div>
+    </div>
 		<script type="text/javascript" src="/js/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/js/jquery-scrolltofixed.js"></script>
@@ -363,5 +412,4 @@ $(this).addClass('devActive');
         <script type="text/javascript" src="/js/custom.js"></script>
 <!--        <script src="/contact/jqBootstrapValidation.js"></script>-->
 <!--        <script src="/contact/contact_me.js"></script>-->
-</body>
-				
+   
