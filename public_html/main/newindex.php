@@ -325,6 +325,8 @@ $(this).addClass('devActive');
   <div class="container">
 <section id="service">
 <div class="container">
+    </div>
+</section>
     <div class="service_wrapper">
       <div class="row">
         <div class="col-lg-4">
@@ -336,7 +338,7 @@ $(this).addClass('devActive');
         <div class="col-lg-4 borderLeft">
           <div class="service_block">
             <h3 class="animated fadeInUp wow animated" style="visibility: visible; animation-name: fadeInUp;">Navigation</h3>
-            <p class="animated fadeInDown wow animated" style="visibility:visible; animation:fadeInDown;">
+            <p class="animated fadeInDown wow animated" style="visibility:visible; animation:fadeInDown;"></p>
             <ul id="menu-widget-footer" class="menu">
 
                                 <li class="menu-item menu-item-type-post_type">
@@ -360,7 +362,6 @@ $(this).addClass('devActive');
                                     <a href="/accounts/login.php">Resources</a>
                                 </li>
                             </ul>
-            </p>
             </div>
             </div>
             <div class="col-lg-4 borderLeft">
@@ -374,13 +375,33 @@ $(this).addClass('devActive');
             </div>
       </div>
 	   </div>
-  </div>
-</section>
       <div class="footer_bottom"><span>Copyright 2016, Template by <a href="http://webthemez.com">WebThemez.com</a>. </span> </div>
+<section class="page_section" id="clients"><!--page_section-->
+  <h2>Partners</h2>
+<!--page_section-->
+<div class="client_logos"><!--client_logos-->
+  <div class="container">
+    <ul class="fadeInRight animated wow animated" style="visibility: visible; animation-name: fadeInRight;">
+      <li><a href="javascript:void(0)"><img src="/assets/images/avayalogo.png" alt="Avaya"></a></li>
+      <li><a href="javascript:void(0)"><img src="/assets/images/metaswitchlogo.png" alt="Metaswitch"></a></li>
+<!--      <li><a href="javascript:void(0)"><img src="/assets/images/limelightlogo.png" alt="Limelight"></a></li>-->
+<!--      <li><a href="javascript:void(0)"><img src="/assets/images/polycomlogo.png" alt="Polycom"></a></li>-->
+<!--      <li><a href="javascript:void(0)"><img src="/assets/images/mitellogo.png" alt="Mitel"></a></li>-->
+<!--      <li><a href="javascript:void(0)"><img src="/assets/images/adtranlogo.png" alt="Adtran"></a></li>-->
+<!--      <li><a href="javascript:void(0)"><img src="/assets/images/simplewanlogo.png" alt="Simplewan"></a></li>-->
+    </ul>
+  </div>
+</div>
+</section>
+<!--client_logos-->
+<!--Footer-->
+<div class="footer_wrapper" id="contact">
+  <div class="container">
+    <div class="footer_bottom"><span>Copyright � 2016, Template by <a href="http://webthemez.com">WebThemez.com</a>. </span> </div>
   </div>
 </div>
 		</div>
-		</div>
+    </div>
 		<script type="text/javascript" src="/js/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/js/jquery-scrolltofixed.js"></script>
@@ -391,4 +412,4 @@ $(this).addClass('devActive');
         <script type="text/javascript" src="/js/custom.js"></script>
 <!--        <script src="/contact/jqBootstrapValidation.js"></script>-->
 <!--        <script src="/contact/contact_me.js"></script>-->
-</body>
+   
