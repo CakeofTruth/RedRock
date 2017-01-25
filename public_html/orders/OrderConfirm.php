@@ -203,8 +203,9 @@ function generateCustomerInsertString() {
 	
 	return $sql;
 }
+
 function generateOrderInsertString($Cust_ID) {
-	$sql = 'INSERT INTO Orders (Emerg_Prov_Req, Order_Details, Customer_ID, Serv_Prov_CD, Res_Cont_Name, 
+	$sql = 'INSERT INTO Orders (Emerg_Prov_Req, Order_Details, Customer_ID, Serv_Prov_CD, End_User_CN, End_User_Email,
 			Reseller_Ref_ID, Request_Built, Request_Service, Or_Sooner, Add_Exist_Cust,
 			RequiresPN, New_Number_Qty, New_Number_AC, Emerg_New_Number, VTN_Quantity, Acct_No, Status) VALUES(';
 	
@@ -212,7 +213,8 @@ function generateOrderInsertString($Cust_ID) {
 	$sql = $sql . "'" . addslashes(test_input($_SESSION ["orderdetails"])) . "',";
 	$sql = $sql . "'" . $Cust_ID . "',";
 	$sql = $sql . "'" . test_input($_SESSION ["spcode"]) . "',";
-	$sql = $sql . "'" . test_input($_SESSION ["resellercn"]) . "',";
+	$sql = $sql . "'" . test_input($_SESSION ["endusercn"]) . "',";
+	$sql = $sql . "'" . test_input($_SESSION ["enduseremail"]) . "',";
 	$sql = $sql . "'" . test_input($_SESSION ["resellerrefid"]) . "',";
 	$sql = $sql . "'" . test_input($_SESSION ["requestedbuilt"]) . "',";
 	$sql = $sql . "'" . test_input($_SESSION ["requestedinservice"]) . "',";
@@ -245,6 +247,10 @@ function createOrderMessage($orderNumber,$orderUtils){
 			<div id="identity">
 				<div id="address" style="border: 0; font: 14px Georgia, Serif; overflow: hidden; resize: none;">
 				Red Rock Telecommunications <br> 3719 E La Salle St. <br> Phoenix, AZ, 85040 <br> Phone: (602)-802-8450</div>
+					<div id ="reselleraddress" style="border: 0; font: 14px Georgia, Serif; overflow: hidden; resize: none;"><br>' . $_SESSION["resellername"] . ' <br> 
+    					' . $_SESSION["resellerba1"] .' '. test_input($_SESSION["resellerba2"]) .' <br> '. $_SESSION["city"] .' , '. $_SESSION["resellerstate"] .' ,'. $_SESSION["resellerzipcode"] .' <br>
+    					'. $_SESSION["resellertelephonenumber"] .' <br></div>
+ 
 					<div id="logo" style="text-align: right; float: right; position: relative; margin-top: 25px; border: 1px solid #fff; max-width: 540px; max-height: 100px; overflow: hidden;">
 						<div id="logoctr" style="display: none; display: block; text-align: right; line-height: 25px; background: #eee; padding: 0 5px;"></div>
               <div id="logohelp" style="text-align: left; display: none; font-style: italic; padding: 10px 5px;">
@@ -255,9 +261,7 @@ function createOrderMessage($orderNumber,$orderUtils){
 		</div>
 		<div style="clear:both"></div>
 		<div id="customer">
-            <div id="customer-title" style="font-size: 20px; font-weight: bold; float: left;"><?php echo nl2br("' .	test_input($_SESSION["resellername"]) . ' \n
-            		' .	test_input($_SESSION["resellerba1"]) . ' \n ' .	test_input($_SESSION["city"]) . ' ' .	test_input($_SESSION["state"]) . ', ' .	test_input($_SESSION["zipcode"]) . '");?> </div>
-            <table id="meta" style="margin-top: 1px; width: 300px; float: right;">
+        	<table id="meta" style="margin-top: 1px; width: 300px; float: right;">
                 <tr>
                     <td class="meta-head" style="text-align: left; background: #eee;">Invoice #</td>
                     <td><div id="orderno">' . $orderNumber . '</div></td>
@@ -307,8 +311,14 @@ function createOrderMessage($orderNumber,$orderUtils){
 		<h3 style="text-align:center;">Customer Information:</h3>
 		<table id= "customer" style="clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black;">
 			<tr class="customer-row">
-				<td class="customer-name"><div class="delete-wpr" style="width: 100%; height: 50px;">Name: ' . 	test_input($_SESSION["endusername"]) . '</div></td>
+				<td class="customer-name"><div class="delete-wpr" style="width: 100%; height: 50px;">Company Name: ' . 	test_input($_SESSION["endusername"]) . '</div></td>
 			</tr>
+			<tr class="customer-row">
+				<td class="customer-name"><div class="delete-wpr" style="width: 100%; height: 50px;">Company Contact Name: ' . 	test_input($_SESSION["endusercn"]) . '</div></td>
+			</tr>
+			<tr class="customer-row">
+				<td class="customer-name"><div class="delete-wpr" style="width: 100%; height: 50px;">Company Contact Email: ' . 	test_input($_SESSION["enduseremail"]) . '</div></td>
+			</tr>				
 			<tr class = "customer-row">
 				<td class="customer-address"><div class="delete-wpr" style="width: 100%; height: 50px;">Address: ' . 	test_input($_SESSION["address1"]) . ' '
 						. test_input($_SESSION["address2"]) . ' ' . 	test_input($_SESSION["city"]) . ', ' . 	test_input($_SESSION["state"]) . ', ' . 	test_input($_SESSION["zipcode"]) . '</div></td>

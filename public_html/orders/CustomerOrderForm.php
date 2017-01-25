@@ -48,20 +48,19 @@ if ($resellerResult->num_rows > 0) {
 				</div>
 			<button type="button" class="accordion">Contact Information:</button>
 				<div class="panel">
-					<label for="resellercn">Reseller Contact Name: </label> <input type="text" name="resellercn"
-					value="<?php if(isset($_SESSION["First_Name"])){echo $_SESSION["First_Name"];} echo " " . $_SESSION["Last_Name"];?>">
-					<label for="telephone">Contact Telephone Number: <span class="required" style="color:red;">*</span></label> 
-					<input type="tel" name="contactTelephone" 
-					value="<?php if(isset($_POST["contactTelephone"])){echo $_POST["contactTelephone"];}?>" required>
+					<label for="endusercn">End User Contact Name: <span class="required" style="color:red;">*</span></label> 
+					<input type="text" name="endusercn" required>
+					<label for="enduseremail">End User Contact Email: <span class="required" style="color:red;">*</span></label> 
+					<input type="tel" name="enduseremail" required>
 				
 				</div>
 			<button type="button" class="accordion">Customer Information:</button>
 				<div class="panel">
 					<label for="endusername">End User Customer Name: <span class="required" style="color:red;">*</span></label> 
 					<input type="text" name="endusername" value="<?php if(isset($_POST["endusername"])){echo $_POST["endusername"];}?>" required> 
-					<label for="address1">Customer Address 1: <span class="required" style="color:red;">*</span></label> 
+					<label for="address1">Billing Address 1: <span class="required" style="color:red;">*</span></label> 
 					<input type="text" name="address1" value="<?php if(isset($_POST["address1"])){echo $_POST["address1"];}?>" required> 
-					<label for="address2">Customer Address 2: </label> <input type="text" name="address2" 
+					<label for="address2">Billing Address 2: </label> <input type="text" name="address2" 
 					value="<?php if(isset($_POST["address2"])){echo $_POST["address2"];}?>">
 					<label for="city">City: <span class="required" style="color:red;">*</span></label> <input type="text" name="city"
 					value="<?php if(isset($_POST["city"])){echo $_POST["city"];}?>" required> 
@@ -85,14 +84,14 @@ if ($resellerResult->num_rows > 0) {
 					value="Yes"> No<input type="radio" name="addtoexistingcustomer" value="No" checked="checked"> 
 					<label for="customertimezone"> Customer Time Zone:</label> 
 						<select name="customertimezone">
-							<option value="customertimezone">Customer Time Zone</option>
-							<option value="easterntimezone">Eastern Time Zone</option>
-							<option value="centraltimezone">Central Time Zone</option>
-							<option value="mountaintimezone" selected>Mountain Time Zone</option>
-							<option value="arizonatimezone">Arizona Time Zone</option>
-							<option value="pacifictimezone">Pacific Time Zone</option>
-							<option value="alaskatimezone">Alaska Time Zone</option>
-							<option value="hawaiialeutiantimezone">Hawaii-Aleutian Time Zone</option>
+							<option value="Customer Time Zone">Customer Time Zone</option>
+							<option value="Eastern Time Zone">Eastern Time Zone</option>
+							<option value="Central Time Zone">Central Time Zone</option>
+							<option value="Mountain Time Zone" selected>Mountain Time Zone</option>
+							<option value="Arizona Time Zone">Arizona Time Zone</option>
+							<option value="Pacific Time Zone">Pacific Time Zone</option>
+							<option value="Alaska Time Zone">Alaska Time Zone</option>
+							<option value="Hawaii-Aleutian Time Zone">Hawaii-Aleutian Time Zone</option>
 						</select>
 						
 					</div>
