@@ -1,7 +1,15 @@
+
+<!-- Header Section -->
 <?php
+	$root = $_SERVER ["DOCUMENT_ROOT"];
 
 	$pagetitle = "Login";
-	include ($_SERVER ["DOCUMENT_ROOT"] . '/main/header.php');
+	$root = $_SERVER ["DOCUMENT_ROOT"];
+	if(empty($_SESSION['exists'])){
+		//Handle new sessions here
+		$_SESSION["loggedin"] = 0;
+		$_SESSION['exists'] = true;
+	}
 	include_once $root . '/classes/DBUtils.php';
 	if($_SESSION["loggedin"]){
 	 		echo "<script> window.location = '/portal/portal.php' </script>";
@@ -67,5 +75,6 @@ function test_input($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
-
+/* Footer */
 ?>
+

@@ -108,6 +108,7 @@ function meetsSpcodeRequirements($spcode) {
 		"RRTC" => "RRTC",
 		"CION" => "CION",
 		"CITY" => "CITY",
+		"QUBC" => "QUBC"
 	];
 	if (in_array($spcode, $registeredResellers)) {
 		$spcodeError ="";
