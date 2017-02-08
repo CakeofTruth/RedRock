@@ -1,58 +1,18 @@
 <!DOCTYPE html>
 <html>
 <script src="contactform.js"></script>
-<?php
-	session_start();	
+<?php	
 	$pagetitle = "Contact Us";
 	$root = $_SERVER ["DOCUMENT_ROOT"];
-	if(empty($_SESSION['exists'])){
-		//Handle new sessions here
-		$_SESSION["loggedin"] = 0;
-		$_SESSION['exists'] = true;
-	}
+	include_once $root . '/main/header.php';
 ?>
-<link rel='stylesheet' id='custom-css'  href='/css/contactform.css' type='text/css' media='all' />
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, maximum-scale=1">
-<title>Red Rock Telecommunications</title>
-<link rel="icon" href="/assets/images/Redrockfavicon.png" type="image/png">
-<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="/css/style.css" rel="stylesheet" type="text/css">
-<link href="/css/font-awesome.css" rel="stylesheet" type="text/css">
-<link href="/css/animate.css" rel="stylesheet" type="text/css">
-
+<!-- Content Section -->
+<head>
+<link href="/css/contactform.css" rel="stylesheet" type="text/css">
 </head>
-<body>
-	<div id ="previewTemp">
-		<div class ="dc-banner-ads">
-
-		</div>
-		<div id="post-6" class="post-6 page type-page status-publish hentry">
-		<div class="entry-content post_content" style="width: 100%; height: auto;"></div>
-					<!--Header_section-->
-<header id="header_wrapper" class="scroll-to-fixed-fixed" style="z-index: 1000; top: 0px; margin-left: 0px; width: 100%; left: 0px;">
-  <div class="container">
-    <div class="header_box">
-      <div class="logo"><a href="/"><img src="/assets/images/redrocklogo.png" alt="Red Rock"></a></div>
-	  <nav class="navbar navbar-inverse" role="navigation">
-      <div class="navbar-header">
-        <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      </div>
-	    <div id="main-nav" class="collapse navbar-collapse navStyle" style="background:none;">
-			<ul class="nav navbar-nav" id="mainNav">
-			  <li class="active"><a href="/" class="scroll-link">Home</a></li>
-			  <li><a href="/main/aboutus.php" class="scroll-link">About Us</a></li>
-			  <li><a href="http://support.redrocktelecom.com" class="scroll-link">Customer Service</a></li>
-			  <li><a href="/main/contactus.php" class="scroll-link">Contact Us</a></li>
-			</ul>
-      </div>
-	 </nav>
-    </div>
-  </div>
-</header>
 <div id="contact-form" class="clearfix">
-    <h1>Get In Touch!</h1>
-    <h2>Want to know more about our products or get in touch with our customer service representatives?  Fill this out and we will get back to you soon.</h2>
+<h1>Get In Touch!</h1>
+    <h4>Want to know more about our products or get in touch with our customer service representatives?  Fill this out and we will get back to you soon.</h4>
   	  <?php
 		//init variables
 		$cf = array();
@@ -105,77 +65,9 @@
 
    <?php unset($_SESSION['cf_returndata']); ?>
 </div>
-</div>
-</div>
+    
 <!-- Footer Section -->
-<div class="footer_wrapper" id="contact">
-  <div class="container">
-<section id="service">
-<div class="container">
-    <div class="service_wrapper">
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="service_block">
-          <h3 class="animated fadeInUp wow animated" style="visibility: visible; animation-name: fadeInUp;">About Us</h3>
-           <p class="animated fadeInDown wow animated" style="visibility:visible; animation:fadeInDown;"> Red Rock Telecommunications is a built from scratch Cloud solutions company delivering resilient communications networks with the latest generation Avaya and Metaswitch technology. </p>
-          </div>
-        </div>
-        <div class="col-lg-4 borderLeft">
-          <div class="service_block">
-            <h3 class="animated fadeInUp wow animated" style="visibility: visible; animation-name: fadeInUp;">Navigation</h3>
-            <p class="animated fadeInDown wow animated" style="visibility:visible; animation:fadeInDown;">
-            <ul id="menu-widget-footer" class="menu">
-
-                                <li class="menu-item menu-item-type-post_type">
-                                    <a href="/main/whycloud.php">Why the Cloud?</a>
-                                </li>
-
-                                <li class="menu-item menu-item-type-post_type">
-                                    <a href="/main/mobileintegration.php">Mobile Integration</a>
-                                </li>
-
-                                <li class="menu-item menu-item-type-post_type">
-                                    <a href="/main/contactcenter.php">Contact Center</a>
-                                </li>
-
-                                <!-- Taking this out until it's important enough to work on/include
-                                <li class="menu-item menu-item-type-custom">
-                                    <a href="/main/contactus.php">Get in Touch</a>
-                                </li-->
-
-                                <li class="menu-item menu-item-type-custom">
-                                    <a href="/accounts/login.php">Resources</a>
-                                </li>
-                            </ul>
-            </p>
-            </div>
-            </div>
-            <div class="col-lg-4 borderLeft">
-          <div class="service_block">
-            <h3 class="animated fadeInUp wow animated" style="visibility: visible; animation-name: fadeInUp;">Contact Us</h3>
-            <p class="animated fadeInDown wow animated" style="visibility:visible; animation:fadeInDown;">Address: 3719 E La Salle St. Phoenix, AZ, 85040</p>
-            <p>Front Desk: (602)802-8400</p>
-            <p>Customer Service: (602)802-8450</p>
-            <p>Email: redrock@redrocktelecom.com</p>
-            </div>
-            </div>
-      </div>
-	   </div>
-  </div>
-</section>
-      <div class="footer_bottom"><span>Copyright 2016, Template by <a href="http://webthemez.com">WebThemez.com</a>. </span> </div>
-  </div>
-</div>
-		<script type="text/javascript" src="/js/jquery-1.11.0.min.js"></script>
-        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/js/jquery-scrolltofixed.js"></script>
-        <script type="text/javascript" src="/js/jquery.nav.js"></script>
-        <script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
-        <script type="text/javascript" src="/js/jquery.isotope.js"></script>
-        <script type="text/javascript" src="/js/wow.js"></script>
-        <script type="text/javascript" src="/js/custom.js"></script>
-<!--        <script src="/contact/jqBootstrapValidation.js"></script>-->
-<!--        <script src="/contact/contact_me.js"></script>-->
-</body>
-</html>
-<!--http://code.tutsplus.com/tutorials/build-a-neat-html5-powered-contact-form--net-20426  -->
+<!--Footer-->
+<?php 
+include_once $root . '/main/footer.php';
+?>
